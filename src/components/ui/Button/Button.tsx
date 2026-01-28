@@ -17,9 +17,9 @@ const buttonVariants = cva(
           'text-text-primary hover:bg-bg-alt active:bg-bg-contrast',
       },
       size: {
-        default: 'rounded-pill px-btn-x py-btn-y',
-        sm: 'rounded-pill px-6 py-2 text-small',
-        lg: 'rounded-pill px-12 py-5 text-body',
+        sm: 'rounded-pill px-4 py-1.5 text-small',
+        default: 'rounded-pill px-6 py-2 text-small',
+        lg: 'rounded-pill px-btn-x py-btn-y text-body',
         icon: 'h-10 w-10 rounded-full',
       },
     },

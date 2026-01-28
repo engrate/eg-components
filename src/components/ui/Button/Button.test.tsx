@@ -38,11 +38,14 @@ describe('Button', () => {
   })
 
   it('applies size classes', () => {
-    const { rerender } = render(<Button size="sm">Small</Button>)
+    const { rerender } = render(<Button>Default</Button>)
     expect(screen.getByRole('button')).toHaveClass('px-6')
 
+    rerender(<Button size="sm">Small</Button>)
+    expect(screen.getByRole('button')).toHaveClass('px-4')
+
     rerender(<Button size="lg">Large</Button>)
-    expect(screen.getByRole('button')).toHaveClass('px-12')
+    expect(screen.getByRole('button')).toHaveClass('px-btn-x')
   })
 
   it('renders as child when asChild is true', () => {
@@ -51,7 +54,9 @@ describe('Button', () => {
         <a href="/test">Link Button</a>
       </Button>
     )
-    expect(screen.getByRole('link', { name: 'Link Button' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('link', { name: 'Link Button' })
+    ).toBeInTheDocument()
   })
 
   it('has no accessibility violations', async () => {

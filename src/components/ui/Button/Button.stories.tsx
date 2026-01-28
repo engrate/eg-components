@@ -62,6 +62,13 @@ export const Small: Story = {
   },
 }
 
+export const DefaultSize: Story = {
+  args: {
+    children: 'Default Button',
+    size: 'default',
+  },
+}
+
 export const Large: Story = {
   args: {
     children: 'Large Button',
@@ -85,16 +92,29 @@ export const AsLink: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-4">
-        <Button variant="primary">Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="ghost">Ghost</Button>
+    <div className="flex flex-col gap-6">
+      <div>
+        <h3 className="text-small font-medium mb-3 text-text-secondary">Variants</h3>
+        <div className="flex items-center gap-4">
+          <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="ghost">Ghost</Button>
+        </div>
       </div>
-      <div className="flex items-center gap-4">
-        <Button size="sm">Small</Button>
-        <Button size="default">Default</Button>
-        <Button size="lg">Large</Button>
+      <div>
+        <h3 className="text-small font-medium mb-3 text-text-secondary">Sizes</h3>
+        <div className="flex items-center gap-4">
+          <Button size="sm">Small</Button>
+          <Button size="default">Default</Button>
+          <Button size="lg">Large</Button>
+        </div>
+      </div>
+      <div>
+        <h3 className="text-small font-medium mb-3 text-text-secondary">States</h3>
+        <div className="flex items-center gap-4">
+          <Button>Normal</Button>
+          <Button disabled>Disabled</Button>
+        </div>
       </div>
     </div>
   ),
