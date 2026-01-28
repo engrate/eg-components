@@ -13,8 +13,7 @@ const buttonVariants = cva(
           'bg-sunflower text-text-primary hover:bg-sunflower-hover active:bg-sunflower-hover',
         secondary:
           'border border-border bg-bg-card text-text-primary hover:bg-bg-alt active:bg-bg-contrast',
-        ghost:
-          'text-text-primary hover:bg-bg-alt active:bg-bg-contrast',
+        ghost: 'text-text-primary hover:bg-bg-alt active:bg-bg-contrast',
       },
       size: {
         sm: 'rounded-pill px-4 py-1.5 text-small',
@@ -31,7 +30,8 @@ const buttonVariants = cva(
 )
 
 interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   /** Render as a child component (for use with Next.js Link, etc.) */
   asChild?: boolean

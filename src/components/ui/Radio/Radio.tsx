@@ -16,7 +16,7 @@ import { cn } from '@/lib/utils'
  * ```
  */
 const RadioGroup = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Root>,
+  React.ComponentRef<typeof RadioGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
 >(({ className, ...props }, ref) => (
   <RadioGroupPrimitive.Root
@@ -41,7 +41,7 @@ interface RadioGroupItemProps extends React.ComponentPropsWithoutRef<
  * ```
  */
 const RadioGroupItem = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Item>,
+  React.ComponentRef<typeof RadioGroupPrimitive.Item>,
   RadioGroupItemProps
 >(({ className, ...props }, ref) => (
   <RadioGroupPrimitive.Item

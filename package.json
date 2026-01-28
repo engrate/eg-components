@@ -38,7 +38,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "verify": "npm run test:run && npm run lint:fix && npm run format:check && npm run typecheck"
   },
   "repository": {
     "type": "git",

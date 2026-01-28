@@ -3,7 +3,7 @@
     "chat.tools.terminal.autoApprove": {
         "ls": true,
         "cat": true,
-        "npm run test:run": true,
+        "npm run": true,
         "git status": true,
         "sleep": true,
         "agent-browser": true

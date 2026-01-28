@@ -29,8 +29,6 @@ src/
 - Support `asChild` prop using `@radix-ui/react-slot` for polymorphism
 - Always use `React.forwardRef` and set `displayName`
 - Export the component, its variants function, and props type
-- Always make sure components adhere to the [Engrate brand guidelines](./skills/engrate-brand-guidelines.md)
-- Always follow guidelines found in the [React Component Library Maintainer skill](./skills/react-component-library-maintainer.md)
 
 ```tsx
 // Pattern from Button.tsx
@@ -100,13 +98,10 @@ Always test changes using `agent-browser`.
 ## Workflow
 
 1. Make changes
-2. Run typecheck with `npm run typecheck`
-3. Make sure code lints without errors or warnings with `npm run lint`
-4. Make sure project builds without errors or warnings with `npm run build`
-5. Make sure unit tests pass with `npm run test:run`
-6. Run storybook in the background using `npm run storybook &`
-7. Run `agent-browser` to verify UI behavior in storybook
-8. Kill the storybook process
+2. Verify changes with `npm run verify`
+3. Run storybook in the background using `npm run storybook &`
+4. Run `agent-browser` to verify UI behavior in storybook
+5. Kill the storybook process using `kill %1`
 
 - Always ensure accessibility compliance with `vitest-axe`
 - Always update Storybook stories for new/changed components
@@ -118,3 +113,7 @@ Always test changes using `agent-browser`.
 - **Type definitions**: Use `interface` over `type` (enforced by ESLint)
 - **Component folder structure**: Always include `.tsx`, `.test.tsx`, `.stories.tsx`, and `index.ts`
 - **Exports**: Named exports only, no default exports for components
+
+## General instructions
+
+- Always look for skills that match react component development and designing according to Engrate's design guidelines

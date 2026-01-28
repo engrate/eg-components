@@ -1,9 +1,9 @@
 ---
-name: react-component-library-maintainer
-description: Create, extend, and maintain a Tailwind-based React component library. Use when building reusable UI components, design system primitives, form elements, layout components, or any React components styled with Tailwind CSS. Triggers on requests for component creation, component updates, component documentation, accessibility implementation, variant systems, or component API design.
+name: react-component-developer
+description: Create, extend, and maintain a Tailwind-based React component library. Use when building UI components, design system primitives, form elements, layout components, or any React components styled with Tailwind CSS. Triggers on requests for component creation, component updates, component documentation, accessibility implementation, variant systems, or component API design.
 ---
 
-# React Component Library (Tailwind CSS)
+# React Component Developer (Tailwind CSS)
 
 ## Overview
 
@@ -442,51 +442,51 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-  content: ["./src/**/*.{ts,tsx}"],
+  content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
         brand: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
+          50: '#eff6ff',
+          100: '#dbeafe',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
         },
       },
       fontSize: {
-        "display-lg": ["4rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        "display-md": ["3rem", { lineHeight: "1.2", letterSpacing: "-0.02em" }],
+        'display-lg': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'display-md': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
       },
       spacing: {
-        18: "4.5rem",
-        112: "28rem",
+        18: '4.5rem',
+        112: '28rem',
       },
     },
   },
-  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
-};
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+}
 ```
 
 ### Custom Plugin for Components
 
 ```js
-const plugin = require("tailwindcss/plugin");
+const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   plugins: [
     plugin(function ({ addComponents }) {
       addComponents({
-        ".btn-base": {
-          "@apply inline-flex items-center justify-center rounded-md font-medium":
+        '.btn-base': {
+          '@apply inline-flex items-center justify-center rounded-md font-medium':
             {},
-          "@apply transition-colors focus-visible:outline-none focus-visible:ring-2":
+          '@apply transition-colors focus-visible:outline-none focus-visible:ring-2':
             {},
         },
-      });
+      })
     }),
   ],
-};
+}
 ```
 
 ## Testing
