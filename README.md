@@ -58,63 +58,6 @@ function App() {
 }
 ```
 
-## Design Tokens
-
-The library includes Engrate's complete design system:
-
-### Colors
-
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `sunflower` | `#FFBE26` | Primary brand color |
-| `sunflower-hover` | `#E5AB22` | Primary hover state |
-| `lemon-meringue` | `#FFF8A2` | Supporting backgrounds |
-| `vanilla` | `#FFFCD0` | Accent fields |
-| `eggshell` | `#FFFDE8` | Soft highlighting |
-
-### Grayscale
-
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `text-primary` | `#1A1A1A` | Headings |
-| `text-secondary` | `#4A4A4A` | Body text |
-| `text-tertiary` | `#6A6A6A` | Labels, meta |
-| `bg-main` | `#FAFAFA` | Page background |
-| `bg-alt` | `#F5F5F5` | Section backgrounds |
-| `bg-card` | `#F9F9F9` | Cards, containers |
-| `bg-contrast` | `#EFEFEF` | High contrast areas |
-| `border` | `#E5E5E5` | Lines, dividers |
-
-### Typography
-
-- **Display font**: Libre Baskerville (hero headings only, ≥60pt)
-- **Sans font**: Work Sans (everything else)
-
-```tsx
-// Using Tailwind classes
-<h1 className="font-display text-hero">Hero Heading</h1>
-<h2 className="font-sans text-h1">Standard Heading</h2>
-<p className="font-sans text-body">Body text</p>
-```
-
-## Utilities
-
-### `cn()` - Class Name Merger
-
-Combines `clsx` and `tailwind-merge` for conditional classes:
-
-```tsx
-import { cn } from 'eg-components'
-
-function MyComponent({ className, isActive }) {
-  return (
-    <div className={cn('px-4 py-2', isActive && 'bg-sunflower', className)}>
-      Content
-    </div>
-  )
-}
-```
-
 ## Development
 
 ### Setup
@@ -127,19 +70,19 @@ npm install
 
 ### Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start Vite dev server |
-| `npm run build` | Build library to `dist/` |
-| `npm run storybook` | Start Storybook at http://localhost:6006 |
-| `npm run build-storybook` | Build static Storybook |
-| `npm run test` | Run tests in watch mode |
-| `npm run test:run` | Single test run |
-| `npm run test:coverage` | Run tests with coverage |
-| `npm run lint` | Check for linting errors |
-| `npm run lint:fix` | Fix linting errors |
-| `npm run format` | Format code with Prettier |
-| `npm run typecheck` | Type-check without emitting |
+| Command                   | Description                              |
+| ------------------------- | ---------------------------------------- |
+| `npm run dev`             | Start Vite dev server                    |
+| `npm run build`           | Build library to `dist/`                 |
+| `npm run storybook`       | Start Storybook at http://localhost:6006 |
+| `npm run build-storybook` | Build static Storybook                   |
+| `npm run test`            | Run tests in watch mode                  |
+| `npm run test:run`        | Single test run                          |
+| `npm run test:coverage`   | Run tests with coverage                  |
+| `npm run lint`            | Check for linting errors                 |
+| `npm run lint:fix`        | Fix linting errors                       |
+| `npm run format`          | Format code with Prettier                |
+| `npm run typecheck`       | Type-check without emitting              |
 
 ### Project Structure
 

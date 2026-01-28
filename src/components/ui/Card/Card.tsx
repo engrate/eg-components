@@ -5,7 +5,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const cardVariants = cva(
-  'rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunflower focus-visible:ring-offset-2',
+  'rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunflower focus-visible:ring-offset-2',
   {
     variants: {
       variant: {
@@ -21,10 +21,10 @@ const cardVariants = cva(
       },
       bg: {
         // Default backgrounds
-        card: 'bg-bg-card',
-        main: 'bg-bg-main',
-        alt: 'bg-bg-alt',
-        contrast: 'bg-bg-contrast',
+        card: 'bg-card',
+        main: 'bg-main',
+        alt: 'bg-alt',
+        contrast: 'bg-contrast',
         transparent: 'bg-transparent',
         // Brand colors
         sunflower: 'bg-sunflower',

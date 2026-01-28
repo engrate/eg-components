@@ -20,7 +20,7 @@ describe('Card', () => {
     const { rerender, container } = render(
       <Card variant="default">Default</Card>
     )
-    expect(container.firstChild).toHaveClass('bg-bg-card', 'border')
+    expect(container.firstChild).toHaveClass('bg-card', 'border')
 
     rerender(<Card variant="elevated">Elevated</Card>)
     expect(container.firstChild).toHaveClass('shadow-lg')
@@ -62,7 +62,7 @@ describe('Card', () => {
     )
     const element = screen.getByTestId('custom-element')
     expect(element.tagName).toBe('SECTION')
-    expect(element).toHaveClass('bg-bg-card')
+    expect(element).toHaveClass('bg-card')
   })
 
   it('accepts HTML div attributes', () => {
@@ -78,7 +78,7 @@ describe('Card', () => {
 
   it('applies background color classes', () => {
     const { rerender, container } = render(<Card>Default bg</Card>)
-    expect(container.firstChild).toHaveClass('bg-bg-card')
+    expect(container.firstChild).toHaveClass('bg-card')
 
     rerender(<Card bg="sunflower">Sunflower</Card>)
     expect(container.firstChild).toHaveClass('bg-sunflower')

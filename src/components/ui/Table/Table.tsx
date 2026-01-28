@@ -23,7 +23,7 @@ const tableVariants = cva(
   }
 )
 
-const tableHeaderVariants = cva('border-b border-border bg-bg-alt', {
+const tableHeaderVariants = cva('border-b border-border bg-alt', {
   variants: {},
   defaultVariants: {},
 })
@@ -36,8 +36,8 @@ const tableBodyVariants = cva('', {
 const tableRowVariants = cva('transition-colors', {
   variants: {
     variant: {
-      default: 'border-b border-border hover:bg-bg-alt/50',
-      striped: 'border-b border-border even:bg-bg-alt/30 hover:bg-bg-alt',
+      default: 'border-b border-border hover:bg-alt/50',
+      striped: 'border-b border-border even:bg-alt/30 hover:bg-alt',
     },
   },
   defaultVariants: {
@@ -46,11 +46,11 @@ const tableRowVariants = cva('transition-colors', {
 })
 
 const tableHeadVariants = cva(
-  'text-left align-middle font-sans text-small font-normal text-text-primary [&:has([role=checkbox])]:pr-0',
+  'text-left align-middle font-sans text-small font-normal text-primary [&:has([role=checkbox])]:pr-0',
   {
     variants: {
       sortable: {
-        true: 'cursor-pointer select-none hover:bg-bg-contrast',
+        true: 'cursor-pointer select-none hover:bg-contrast',
         false: '',
       },
       size: {
@@ -66,7 +66,7 @@ const tableHeadVariants = cva(
 )
 
 const tableCellVariants = cva(
-  'align-middle text-text-secondary [&:has([role=checkbox])]:pr-0',
+  'align-middle text-secondary [&:has([role=checkbox])]:pr-0',
   {
     variants: {
       size: {
@@ -158,7 +158,7 @@ const TableFooter = React.forwardRef<HTMLTableSectionElement, TableFooterProps>(
     <tfoot
       ref={ref}
       className={cn(
-        'border-t border-border bg-bg-alt font-normal text-text-primary',
+        'border-t border-border bg-alt font-normal text-primary',
         className
       )}
       {...props}
@@ -302,7 +302,7 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={cn('mt-4 text-small text-text-tertiary', className)}
+    className={cn('mt-4 text-small text-tertiary', className)}
     {...props}
   />
 ))

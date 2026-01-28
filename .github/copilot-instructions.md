@@ -116,4 +116,5 @@ Always test changes using `agent-browser`.
 
 ## General instructions
 
-- Always look for skills that match react component development and designing according to Engrate's design guidelines
+- Reference `.github/skills/egrate-designer/SKILL.md` when designing React components.
+- Reference `.github/skills/react-component-developer/SKILL.md` when working on React components.

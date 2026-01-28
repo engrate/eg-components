@@ -10,10 +10,10 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-sunflower text-text-primary hover:bg-sunflower-hover active:bg-sunflower-hover',
+          'bg-sunflower text-primary hover:bg-sunflower-hover active:bg-sunflower-hover',
         secondary:
-          'border border-border bg-bg-card text-text-primary hover:bg-bg-alt active:bg-bg-contrast',
-        ghost: 'text-text-primary hover:bg-bg-alt active:bg-bg-contrast',
+          'border border-border bg-card text-primary hover:bg-alt active:bg-contrast',
+        ghost: 'text-primary hover:bg-alt active:bg-contrast',
       },
       size: {
         sm: 'rounded-pill px-4 py-1.5 text-small',

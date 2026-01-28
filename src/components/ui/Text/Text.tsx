@@ -6,13 +6,13 @@ import { cn } from '@/lib/utils'
 const textVariants = cva('font-sans', {
   variants: {
     variant: {
-      lead: 'text-lead text-text-primary',
-      'semi-lead': 'text-semi-lead text-text-secondary',
-      'body-lg': 'text-body-lg text-text-secondary',
-      body: 'text-body text-text-secondary',
-      descriptive: 'text-descriptive text-text-secondary',
-      label: 'text-label text-text-tertiary',
-      'label-sm': 'text-label-sm text-text-tertiary',
+      lead: 'text-lead text-primary',
+      'semi-lead': 'text-semi-lead text-secondary',
+      'body-lg': 'text-body-lg text-secondary',
+      body: 'text-body text-secondary',
+      descriptive: 'text-descriptive text-secondary',
+      label: 'text-label text-tertiary',
+      'label-sm': 'text-label-sm text-tertiary',
     },
     weight: {
       regular: 'font-normal',

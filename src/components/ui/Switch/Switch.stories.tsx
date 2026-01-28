@@ -68,7 +68,7 @@ export const WithDescription: Story = {
       <Switch id="dark-mode" className="mt-0.5" />
       <div className="flex flex-col gap-0.5">
         <Label htmlFor="dark-mode">Dark mode</Label>
-        <span className="text-small text-text-tertiary">
+        <span className="text-small text-tertiary">
           Enable dark mode for a more comfortable viewing experience
         </span>
       </div>
@@ -80,7 +80,7 @@ export const AllStates: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
       <div>
-        <h3 className="mb-3 text-small font-medium text-text-secondary">
+        <h3 className="mb-3 text-small font-medium text-secondary">
           States
         </h3>
         <div className="flex flex-col gap-4">

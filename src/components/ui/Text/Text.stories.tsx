@@ -216,7 +216,7 @@ export const AsSpan: Story = {
 export const AsLink: Story = {
   render: () => (
     <Text variant="body" asChild>
-      <a href="#example" className="underline hover:text-text-primary">
+      <a href="#example" className="underline hover:text-primary">
         This entire text is a clickable link
       </a>
     </Text>

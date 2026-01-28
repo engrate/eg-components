@@ -43,7 +43,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
       <div>
-        <h3 className="mb-2 text-small font-medium text-text-secondary">
+        <h3 className="mb-2 text-small font-medium text-secondary">
           Variants
         </h3>
         <div className="flex flex-col gap-2">

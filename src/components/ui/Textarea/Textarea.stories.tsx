@@ -86,7 +86,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex w-80 flex-col gap-6">
       <div>
-        <h3 className="mb-3 text-small font-medium text-text-secondary">
+        <h3 className="mb-3 text-small font-medium text-secondary">
           States
         </h3>
         <div className="flex flex-col gap-4">

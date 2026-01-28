@@ -138,9 +138,9 @@ export const WithCustomContent: Story = {
           A versatile card component that can contain any content.
         </Text>
         <div className="flex gap-2">
-          <span className="text-small text-text-secondary">• Feature 1</span>
-          <span className="text-small text-text-secondary">• Feature 2</span>
-          <span className="text-small text-text-secondary">• Feature 3</span>
+          <span className="text-small text-secondary">• Feature 1</span>
+          <span className="text-small text-secondary">• Feature 2</span>
+          <span className="text-small text-secondary">• Feature 3</span>
         </div>
       </>
     ),
