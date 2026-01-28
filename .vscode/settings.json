@@ -1,4 +1,5 @@
 {
+    "chat.useAgentSkills": true,
     "chat.tools.terminal.autoApprove": {
         "ls": true,
         "cat": true,
