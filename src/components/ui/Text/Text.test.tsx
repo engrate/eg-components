@@ -104,7 +104,9 @@ describe('Text', () => {
   })
 
   it('has no accessibility violations for lead text', async () => {
-    const { container } = render(<Text variant="lead">Accessible lead text</Text>)
+    const { container } = render(
+      <Text variant="lead">Accessible lead text</Text>
+    )
     expect(await axe(container)).toHaveNoViolations()
   })
 

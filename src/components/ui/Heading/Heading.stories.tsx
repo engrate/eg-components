@@ -78,7 +78,9 @@ export const AllLevels: Story = {
       <Heading level="h1">Heading 1 — Work Sans (40pt)</Heading>
       <Heading level="h2">Heading 2 — Work Sans (30pt)</Heading>
       <Heading level="h3">Heading 3 — Work Sans (25pt)</Heading>
-      <Heading level="h4">Heading 4 — Work Sans (25pt, lighter tracking)</Heading>
+      <Heading level="h4">
+        Heading 4 — Work Sans (25pt, lighter tracking)
+      </Heading>
     </div>
   ),
 }
@@ -86,7 +88,7 @@ export const AllLevels: Story = {
 export const WithSemanticOverride: Story = {
   render: () => (
     <div className="space-y-4">
-      <p className="text-text-tertiary text-label">
+      <p className="text-label text-text-tertiary">
         Hero styling with h2 semantics (for when h1 is used elsewhere):
       </p>
       <Heading level="hero" as="h2">
@@ -110,31 +112,33 @@ export const TypographyScale: Story = {
   render: () => (
     <div className="space-y-8">
       <div className="border-b border-border pb-4">
-        <p className="text-label text-text-tertiary mb-2">
+        <p className="mb-2 text-label text-text-tertiary">
           Hero — Libre Baskerville, 60pt, -2% tracking
         </p>
-        <Heading level="hero">Building the Future of Sustainable Energy</Heading>
+        <Heading level="hero">
+          Building the Future of Sustainable Energy
+        </Heading>
       </div>
       <div className="border-b border-border pb-4">
-        <p className="text-label text-text-tertiary mb-2">
+        <p className="mb-2 text-label text-text-tertiary">
           H1 — Work Sans, 40pt, -4% tracking
         </p>
         <Heading level="h1">Solar Installation Services</Heading>
       </div>
       <div className="border-b border-border pb-4">
-        <p className="text-label text-text-tertiary mb-2">
+        <p className="mb-2 text-label text-text-tertiary">
           H2 — Work Sans, 30pt, -3% tracking
         </p>
         <Heading level="h2">Why Choose Engrate?</Heading>
       </div>
       <div className="border-b border-border pb-4">
-        <p className="text-label text-text-tertiary mb-2">
+        <p className="mb-2 text-label text-text-tertiary">
           H3 — Work Sans, 25pt, -2% tracking
         </p>
         <Heading level="h3">Our Commitment to Quality</Heading>
       </div>
       <div className="border-b border-border pb-4">
-        <p className="text-label text-text-tertiary mb-2">
+        <p className="mb-2 text-label text-text-tertiary">
           H4 — Work Sans, 25pt, -1% tracking
         </p>
         <Heading level="h4">Technical Specifications</Heading>

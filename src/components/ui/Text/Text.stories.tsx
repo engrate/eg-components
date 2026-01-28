@@ -11,7 +11,15 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['lead', 'semi-lead', 'body-lg', 'body', 'descriptive', 'label', 'label-sm'],
+      options: [
+        'lead',
+        'semi-lead',
+        'body-lg',
+        'body',
+        'descriptive',
+        'label',
+        'label-sm',
+      ],
       description: 'The visual style variant of the text',
     },
     weight: {
@@ -121,14 +129,14 @@ export const AllVariants: Story = {
 
 export const TypographyScale: Story = {
   render: () => (
-    <div className="space-y-8 max-w-2xl">
+    <div className="max-w-2xl space-y-8">
       <div className="border-b border-border pb-4">
         <Text variant="label" className="mb-2">
           Lead — Work Sans, 20pt, -2% tracking, Primary color
         </Text>
         <Text variant="lead">
-          Engrate is revolutionizing the way we think about sustainable energy solutions
-          for homes and businesses across the nation.
+          Engrate is revolutionizing the way we think about sustainable energy
+          solutions for homes and businesses across the nation.
         </Text>
       </div>
       <div className="border-b border-border pb-4">
@@ -144,8 +152,8 @@ export const TypographyScale: Story = {
           Semi-Lead — Work Sans, 15pt, 0% tracking, Secondary color
         </Text>
         <Text variant="semi-lead">
-          Our team of experts works closely with you to design and install
-          the perfect solar solution for your needs.
+          Our team of experts works closely with you to design and install the
+          perfect solar solution for your needs.
         </Text>
       </div>
       <div className="border-b border-border pb-4">
@@ -153,8 +161,9 @@ export const TypographyScale: Story = {
           Body Large — Work Sans, 14pt, +1% tracking, Secondary color
         </Text>
         <Text variant="body-lg">
-          We offer comprehensive installation services including site assessment,
-          system design, permitting, and ongoing maintenance support.
+          We offer comprehensive installation services including site
+          assessment, system design, permitting, and ongoing maintenance
+          support.
         </Text>
       </div>
       <div className="border-b border-border pb-4">
@@ -162,9 +171,9 @@ export const TypographyScale: Story = {
           Body — Work Sans, 16pt, 0% tracking, Secondary color
         </Text>
         <Text variant="body">
-          Standard body text for general content. This is the most commonly used text
-          style throughout the application and should be used for paragraphs, descriptions,
-          and most written content.
+          Standard body text for general content. This is the most commonly used
+          text style throughout the application and should be used for
+          paragraphs, descriptions, and most written content.
         </Text>
       </div>
       <div className="border-b border-border pb-4">
@@ -172,8 +181,8 @@ export const TypographyScale: Story = {
           Descriptive — Work Sans, 12pt, +4% tracking, Secondary color
         </Text>
         <Text variant="descriptive">
-          Photo credit: Solar installation at Johnson residence, completed March 2024.
-          All rights reserved.
+          Photo credit: Solar installation at Johnson residence, completed March
+          2024. All rights reserved.
         </Text>
       </div>
       <div className="border-b border-border pb-4">

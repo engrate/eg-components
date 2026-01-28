@@ -28,8 +28,7 @@ const textVariants = cva('font-sans', {
 type TextElement = 'p' | 'span' | 'div' | 'label'
 
 interface TextProps
-  extends React.HTMLAttributes<HTMLParagraphElement>,
-    VariantProps<typeof textVariants> {
+  extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof textVariants> {
   /**
    * Render as a different element using Radix Slot
    */
@@ -41,14 +40,25 @@ interface TextProps
   as?: TextElement
 }
 
-const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
-  ({ className, variant = 'body', weight = 'regular', as = 'p', asChild = false, ...props }, ref) => {
+const Text = React.forwardRef<HTMLElement, TextProps>(
+  (
+    {
+      className,
+      variant = 'body',
+      weight = 'regular',
+      as = 'p',
+      asChild = false,
+      ...props
+    },
+    ref
+  ) => {
     const Comp = asChild ? Slot : as
 
     return (
       <Comp
         className={cn(textVariants({ variant, weight, className }))}
-        ref={ref}
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ref={ref as any}
         {...props}
       />
     )

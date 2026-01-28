@@ -83,7 +83,9 @@ describe('Heading', () => {
   })
 
   it('has no accessibility violations for hero', async () => {
-    const { container } = render(<Heading level="hero">Accessible Hero</Heading>)
+    const { container } = render(
+      <Heading level="hero">Accessible Hero</Heading>
+    )
     expect(await axe(container)).toHaveNoViolations()
   })
 

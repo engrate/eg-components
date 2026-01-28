@@ -23,6 +23,7 @@ src/
 ## Component Patterns
 
 ### Creating Components
+
 - Use `cva()` from `class-variance-authority` for variant-based styling
 - Use `cn()` from `@/lib/utils` for class merging (combines clsx + tailwind-merge)
 - Support `asChild` prop using `@radix-ui/react-slot` for polymorphism
@@ -45,6 +46,7 @@ const Component = React.forwardRef<HTMLElement, ComponentProps>(...)
 ```
 
 ### Design Tokens (use these, not raw values)
+
 - **Colors**: `sunflower`, `sunflower-hover`, `text-primary`, `text-secondary`, `bg-main`, `bg-alt`, `bg-card`, `border`
 - **Typography**: `font-display` (Libre Baskerville), `font-sans` (Work Sans), `text-hero`, `text-h1-h3`, `text-body`, `text-small`
 - **Spacing**: `rounded-pill`, `px-btn-x`, `py-btn-y`
@@ -54,6 +56,7 @@ const Component = React.forwardRef<HTMLElement, ComponentProps>(...)
 - Every component needs accessibility testing with `vitest-axe`
 - Use `@testing-library/react` and `@testing-library/user-event`
 - Test pattern:
+
 ```tsx
 import { axe } from 'vitest-axe'
 
@@ -69,21 +72,22 @@ All components must have Storybook stories demonstrating variants and usage exam
 
 ## Commands
 
-| Task | Command |
-|------|---------|
-| Dev server | `npm run dev` |
-| Tests (watch) | `npm test` |
-| Tests (CI) | `npm run test:run` |
-| Storybook | `npm run storybook` |
-| Build | `npm run build` |
-| Lint | `npm run lint` |
-| Type check | `npm run typecheck` |
+| Task          | Command             |
+| ------------- | ------------------- |
+| Dev server    | `npm run dev`       |
+| Tests (watch) | `npm test`          |
+| Tests (CI)    | `npm run test:run`  |
+| Storybook     | `npm run storybook` |
+| Build         | `npm run build`     |
+| Lint          | `npm run lint`      |
+| Type check    | `npm run typecheck` |
 
 ## Browser Automation
 
 Use `agent-browser` for web automation. Run `agent-browser --help` for all commands.
 
 Core workflow:
+
 1. `agent-browser open <url>` - Navigate to page
 2. `agent-browser snapshot -i` - Get interactive elements with refs (@e1, @e2)
 3. `agent-browser click @e1` / `fill @e2 "text"` - Interact using refs
@@ -94,10 +98,11 @@ Always test changes using `agent-browser`.
 ## Workflow
 
 1. Make changes
-2. Make sure unit tests pass
-3. Run storybook in the background using `npm run storybook &`
-4. Run `agent-browser` to verify UI behavior in storybook
-5. Kill the storybook process
+2. Run typecheck with `npm run typecheck`
+3. Make sure unit tests pass
+4. Run storybook in the background using `npm run storybook &`
+5. Run `agent-browser` to verify UI behavior in storybook
+6. Kill the storybook process
 
 - Always ensure accessibility compliance with `vitest-axe`
 - Always update Storybook stories for new/changed components

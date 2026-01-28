@@ -3,14 +3,14 @@ import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
-const headingVariants = cva('text-text-primary font-normal', {
+const headingVariants = cva('font-normal text-text-primary', {
   variants: {
     level: {
       hero: 'font-display text-hero',
       h1: 'font-sans text-h1',
       h2: 'font-sans text-h2',
       h3: 'font-sans text-h3',
-      h4: 'font-sans text-h4',
+      h4: 'text-h4 font-sans',
     },
   },
   defaultVariants: {
@@ -21,7 +21,8 @@ const headingVariants = cva('text-text-primary font-normal', {
 type HeadingElement = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 interface HeadingProps
-  extends React.HTMLAttributes<HTMLHeadingElement>,
+  extends
+    React.HTMLAttributes<HTMLHeadingElement>,
     VariantProps<typeof headingVariants> {
   /**
    * Render as a different element using Radix Slot
@@ -34,7 +35,10 @@ interface HeadingProps
   as?: HeadingElement
 }
 
-const levelToElement: Record<NonNullable<HeadingProps['level']>, HeadingElement> = {
+const levelToElement: Record<
+  NonNullable<HeadingProps['level']>,
+  HeadingElement
+> = {
   hero: 'h1',
   h1: 'h1',
   h2: 'h2',
