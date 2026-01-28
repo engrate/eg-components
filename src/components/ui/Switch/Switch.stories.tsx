@@ -80,9 +80,7 @@ export const AllStates: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">
-          States
-        </h3>
+        <h3 className="mb-3 text-small font-medium text-secondary">States</h3>
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <Switch id="off" />

@@ -5,7 +5,13 @@ import tseslint from 'typescript-eslint'
 export default tseslint.config(
   // Global ignores
   {
-    ignores: ['dist/**', 'node_modules/**', 'coverage/**', 'storybook-static/**'],
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      'coverage/**',
+      'storybook-static/**',
+      '.storybook/**',
+    ],
   },
 
   // Base JavaScript recommended

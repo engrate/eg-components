@@ -9,16 +9,16 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        sunflower: 'text-primary bg-sunflower',
-        'lemon-meringue': 'text-primary bg-lemon-meringue',
-        vanilla: 'text-primary bg-vanilla',
-        eggshell: 'text-primary bg-eggshell',
+        sunflower: 'bg-sunflower text-primary',
+        'lemon-meringue': 'bg-lemon-meringue text-primary',
+        vanilla: 'bg-vanilla text-primary',
+        eggshell: 'bg-eggshell text-primary',
         'warm-purple': 'bg-warm-purple text-white',
         'cool-purple': 'bg-cool-purple text-white',
         'electric-blue': 'bg-electric-blue text-white',
         'deep-blue': 'bg-deep-blue text-white',
         error: 'bg-error text-white',
-        secondary: 'bg-alt text-secondary border border-border',
+        secondary: 'border border-border bg-alt text-secondary',
       },
       size: {
         xs: 'rounded-pill px-1.5 py-0.5 text-xs',

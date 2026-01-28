@@ -1,12 +1,12 @@
 {
-    "chat.useAgentSkills": true,
-    "chat.tools.terminal.autoApprove": {
-        "ls": true,
-        "cat": true,
-        "npm run": true,
-        "git status": true,
-        "sleep": true,
-        "agent-browser": true
-    },
-    "editor.formatOnSave": true
+  "chat.useAgentSkills": true,
+  "chat.tools.terminal.autoApprove": {
+    "ls": true,
+    "cat": true,
+    "npm run": true,
+    "git status": true,
+    "sleep": true,
+    "agent-browser": true
+  },
+  "editor.formatOnSave": true
 }

@@ -10,7 +10,7 @@ const headingVariants = cva('font-normal text-primary', {
       h1: 'font-sans text-h1',
       h2: 'font-sans text-h2',
       h3: 'font-sans text-h3',
-      h4: 'text-h4 font-sans',
+      h4: 'font-sans text-h4',
     },
   },
   defaultVariants: {

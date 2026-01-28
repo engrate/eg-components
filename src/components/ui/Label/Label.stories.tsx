@@ -56,9 +56,7 @@ export const AllSizes: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">
-          Sizes
-        </h3>
+        <h3 className="mb-3 text-small font-medium text-secondary">Sizes</h3>
         <div className="flex flex-col gap-2">
           <Label size="default">Default size label</Label>
           <Label size="sm">Small size label</Label>

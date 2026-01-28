@@ -74,18 +74,14 @@ export const WithDescriptions: Story = {
         <RadioGroupItem value="standard" id="standard" className="mt-0.5" />
         <div className="flex flex-col gap-0.5">
           <Label htmlFor="standard">Standard Shipping</Label>
-          <span className="text-small text-tertiary">
-            4-10 business days
-          </span>
+          <span className="text-small text-tertiary">4-10 business days</span>
         </div>
       </div>
       <div className="flex items-start gap-2">
         <RadioGroupItem value="express" id="express" className="mt-0.5" />
         <div className="flex flex-col gap-0.5">
           <Label htmlFor="express">Express Shipping</Label>
-          <span className="text-small text-tertiary">
-            2-5 business days
-          </span>
+          <span className="text-small text-tertiary">2-5 business days</span>
         </div>
       </div>
       <div className="flex items-start gap-2">
@@ -122,9 +118,7 @@ export const AllStates: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">
-          States
-        </h3>
+        <h3 className="mb-3 text-small font-medium text-secondary">States</h3>
         <RadioGroup aria-label="States demo">
           <div className="flex items-center gap-2">
             <RadioGroupItem value="unselected" id="unselected" />
@@ -137,9 +131,7 @@ export const AllStates: Story = {
         </RadioGroup>
       </div>
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">
-          Selected
-        </h3>
+        <h3 className="mb-3 text-small font-medium text-secondary">Selected</h3>
         <RadioGroup defaultValue="selected" aria-label="Selected demo">
           <div className="flex items-center gap-2">
             <RadioGroupItem value="selected" id="selected" />

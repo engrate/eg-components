@@ -32,60 +32,60 @@ components/
 ### Basic Component Template
 
 ```tsx
-import { forwardRef, type ComponentPropsWithoutRef } from "react";
-import { cn } from "@/lib/utils";
+import { forwardRef, type ComponentPropsWithoutRef } from 'react'
+import { cn } from '@/lib/utils'
 
-type ButtonProps = ComponentPropsWithoutRef<"button"> & {
-  variant?: "primary" | "secondary" | "ghost";
-  size?: "sm" | "md" | "lg";
-};
+type ButtonProps = ComponentPropsWithoutRef<'button'> & {
+  variant?: 'primary' | 'secondary' | 'ghost'
+  size?: 'sm' | 'md' | 'lg'
+}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "primary", size = "md", ...props }, ref) => {
+  ({ className, variant = 'primary', size = 'md', ...props }, ref) => {
     return (
       <button
         ref={ref}
         className={cn(
           // Base styles
-          "inline-flex items-center justify-center rounded-md font-medium transition-colors",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-          "disabled:pointer-events-none disabled:opacity-50",
+          'inline-flex items-center justify-center rounded-md font-medium transition-colors',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+          'disabled:pointer-events-none disabled:opacity-50',
           // Variants
           {
             primary:
-              "bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500",
+              'bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500',
             secondary:
-              "bg-gray-100 text-gray-900 hover:bg-gray-200 focus-visible:ring-gray-500",
-            ghost: "hover:bg-gray-100 focus-visible:ring-gray-500",
+              'bg-gray-100 text-gray-900 hover:bg-gray-200 focus-visible:ring-gray-500',
+            ghost: 'hover:bg-gray-100 focus-visible:ring-gray-500',
           }[variant],
           // Sizes
           {
-            sm: "h-8 px-3 text-sm",
-            md: "h-10 px-4 text-sm",
-            lg: "h-12 px-6 text-base",
+            sm: 'h-8 px-3 text-sm',
+            md: 'h-10 px-4 text-sm',
+            lg: 'h-12 px-6 text-base',
           }[size],
-          className,
+          className
         )}
         {...props}
       />
-    );
-  },
-);
+    )
+  }
+)
 
-Button.displayName = "Button";
+Button.displayName = 'Button'
 
-export { Button, type ButtonProps };
+export { Button, type ButtonProps }
 ```
 
 ### Utility Function
 
 ```tsx
 // lib/utils.ts
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 ```
 
@@ -94,37 +94,37 @@ export function cn(...inputs: ClassValue[]) {
 ### Using cva (class-variance-authority)
 
 ```tsx
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from 'class-variance-authority'
 
 const buttonVariants = cva(
   // Base
-  "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        primary: "bg-blue-600 text-white hover:bg-blue-700",
-        secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
-        destructive: "bg-red-600 text-white hover:bg-red-700",
-        outline: "border border-gray-300 bg-transparent hover:bg-gray-100",
-        ghost: "hover:bg-gray-100",
-        link: "text-blue-600 underline-offset-4 hover:underline",
+        primary: 'bg-blue-600 text-white hover:bg-blue-700',
+        secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200',
+        destructive: 'bg-red-600 text-white hover:bg-red-700',
+        outline: 'border border-gray-300 bg-transparent hover:bg-gray-100',
+        ghost: 'hover:bg-gray-100',
+        link: 'text-blue-600 underline-offset-4 hover:underline',
       },
       size: {
-        sm: "h-8 px-3 text-sm",
-        md: "h-10 px-4 text-sm",
-        lg: "h-12 px-6 text-base",
-        icon: "h-10 w-10",
+        sm: 'h-8 px-3 text-sm',
+        md: 'h-10 px-4 text-sm',
+        lg: 'h-12 px-6 text-base',
+        icon: 'h-10 w-10',
       },
     },
     defaultVariants: {
-      variant: "primary",
-      size: "md",
+      variant: 'primary',
+      size: 'md',
     },
-  },
-);
+  }
+)
 
-type ButtonProps = ComponentPropsWithoutRef<"button"> &
-  VariantProps<typeof buttonVariants>;
+type ButtonProps = ComponentPropsWithoutRef<'button'> &
+  VariantProps<typeof buttonVariants>
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => (
@@ -133,8 +133,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       className={cn(buttonVariants({ variant, size }), className)}
       {...props}
     />
-  ),
-);
+  )
+)
 ```
 
 ## Compound Components
@@ -142,18 +142,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 ### Slot Pattern (Radix-style)
 
 ```tsx
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from '@radix-ui/react-slot'
 
-type ButtonProps = ComponentPropsWithoutRef<"button"> & {
-  asChild?: boolean;
-};
+type ButtonProps = ComponentPropsWithoutRef<'button'> & {
+  asChild?: boolean
+}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
-    return <Comp ref={ref} {...props} />;
-  },
-);
+    const Comp = asChild ? Slot : 'button'
+    return <Comp ref={ref} {...props} />
+  }
+)
 
 // Usage: <Button asChild><a href="/link">Click</a></Button>
 ```
@@ -161,54 +161,54 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 ### Context-Based Compound Components
 
 ```tsx
-import { createContext, useContext, forwardRef, type ReactNode } from "react";
+import { createContext, useContext, forwardRef, type ReactNode } from 'react'
 
 // Context
-type CardContextValue = { variant: "default" | "bordered" };
-const CardContext = createContext<CardContextValue | null>(null);
+type CardContextValue = { variant: 'default' | 'bordered' }
+const CardContext = createContext<CardContextValue | null>(null)
 
 function useCardContext() {
-  const ctx = useContext(CardContext);
-  if (!ctx) throw new Error("Card components must be used within Card");
-  return ctx;
+  const ctx = useContext(CardContext)
+  if (!ctx) throw new Error('Card components must be used within Card')
+  return ctx
 }
 
 // Root
-type CardProps = { variant?: "default" | "bordered"; children: ReactNode };
+type CardProps = { variant?: 'default' | 'bordered'; children: ReactNode }
 
-function Card({ variant = "default", children }: CardProps) {
+function Card({ variant = 'default', children }: CardProps) {
   return (
     <CardContext.Provider value={{ variant }}>
       <div
         className={cn(
-          "rounded-lg bg-white",
-          variant === "bordered" && "border border-gray-200",
+          'rounded-lg bg-white',
+          variant === 'bordered' && 'border border-gray-200'
         )}
       >
         {children}
       </div>
     </CardContext.Provider>
-  );
+  )
 }
 
 // Parts
-const CardHeader = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<"div">>(
+const CardHeader = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<'div'>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("p-6 pb-0", className)} {...props} />
-  ),
-);
+    <div ref={ref} className={cn('p-6 pb-0', className)} {...props} />
+  )
+)
 
-const CardContent = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<"div">>(
+const CardContent = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<'div'>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("p-6", className)} {...props} />
-  ),
-);
+    <div ref={ref} className={cn('p-6', className)} {...props} />
+  )
+)
 
 // Export
-Card.Header = CardHeader;
-Card.Content = CardContent;
+Card.Header = CardHeader
+Card.Content = CardContent
 
-export { Card };
+export { Card }
 ```
 
 ## Accessibility
@@ -217,36 +217,36 @@ export { Card };
 
 ```tsx
 function useRovingFocus(items: HTMLElement[]) {
-  const [focusedIndex, setFocusedIndex] = useState(0);
+  const [focusedIndex, setFocusedIndex] = useState(0)
 
   const handleKeyDown = (e: KeyboardEvent) => {
     switch (e.key) {
-      case "ArrowDown":
-      case "ArrowRight":
-        e.preventDefault();
-        setFocusedIndex((i) => (i + 1) % items.length);
-        break;
-      case "ArrowUp":
-      case "ArrowLeft":
-        e.preventDefault();
-        setFocusedIndex((i) => (i - 1 + items.length) % items.length);
-        break;
-      case "Home":
-        e.preventDefault();
-        setFocusedIndex(0);
-        break;
-      case "End":
-        e.preventDefault();
-        setFocusedIndex(items.length - 1);
-        break;
+      case 'ArrowDown':
+      case 'ArrowRight':
+        e.preventDefault()
+        setFocusedIndex((i) => (i + 1) % items.length)
+        break
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        e.preventDefault()
+        setFocusedIndex((i) => (i - 1 + items.length) % items.length)
+        break
+      case 'Home':
+        e.preventDefault()
+        setFocusedIndex(0)
+        break
+      case 'End':
+        e.preventDefault()
+        setFocusedIndex(items.length - 1)
+        break
     }
-  };
+  }
 
   useEffect(() => {
-    items[focusedIndex]?.focus();
-  }, [focusedIndex, items]);
+    items[focusedIndex]?.focus()
+  }, [focusedIndex, items])
 
-  return { focusedIndex, handleKeyDown };
+  return { focusedIndex, handleKeyDown }
 }
 ```
 
@@ -278,25 +278,25 @@ function useRovingFocus(items: HTMLElement[]) {
 ### Focus Management
 
 ```tsx
-import { useRef, useEffect } from "react";
-import { createFocusTrap } from "focus-trap";
+import { useRef, useEffect } from 'react'
+import { createFocusTrap } from 'focus-trap'
 
 function useFocusTrap(active: boolean) {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!active || !containerRef.current) return;
+    if (!active || !containerRef.current) return
 
     const trap = createFocusTrap(containerRef.current, {
       escapeDeactivates: true,
       returnFocusOnDeactivate: true,
-    });
+    })
 
-    trap.activate();
-    return () => trap.deactivate();
-  }, [active]);
+    trap.activate()
+    return () => trap.deactivate()
+  }, [active])
 
-  return containerRef;
+  return containerRef
 }
 ```
 
@@ -305,17 +305,17 @@ function useFocusTrap(active: boolean) {
 ### Input with Label
 
 ```tsx
-type InputProps = ComponentPropsWithoutRef<"input"> & {
-  label: string;
-  error?: string;
-  hint?: string;
-};
+type InputProps = ComponentPropsWithoutRef<'input'> & {
+  label: string
+  error?: string
+  hint?: string
+}
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, hint, id, className, ...props }, ref) => {
-    const inputId = id || useId();
-    const errorId = `${inputId}-error`;
-    const hintId = `${inputId}-hint`;
+    const inputId = id || useId()
+    const errorId = `${inputId}-error`
+    const hintId = `${inputId}-hint`
 
     return (
       <div className="space-y-1.5">
@@ -328,13 +328,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           aria-invalid={!!error}
           aria-describedby={cn(error && errorId, hint && hintId)}
           className={cn(
-            "flex h-10 w-full rounded-md border bg-white px-3 py-2 text-sm",
-            "placeholder:text-gray-400",
-            "focus:outline-none focus:ring-2 focus:ring-offset-2",
+            'flex h-10 w-full rounded-md border bg-white px-3 py-2 text-sm',
+            'placeholder:text-gray-400',
+            'focus:outline-none focus:ring-2 focus:ring-offset-2',
             error
-              ? "border-red-500 focus:ring-red-500"
-              : "border-gray-300 focus:ring-blue-500",
-            className,
+              ? 'border-red-500 focus:ring-red-500'
+              : 'border-gray-300 focus:ring-blue-500',
+            className
           )}
           {...props}
         />
@@ -349,21 +349,21 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           </p>
         )}
       </div>
-    );
-  },
-);
+    )
+  }
+)
 ```
 
 ### Checkbox
 
 ```tsx
-type CheckboxProps = Omit<ComponentPropsWithoutRef<"input">, "type"> & {
-  label: string;
-};
+type CheckboxProps = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {
+  label: string
+}
 
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, className, ...props }, ref) => {
-    const id = useId();
+    const id = useId()
     return (
       <div className="flex items-center gap-2">
         <input
@@ -371,9 +371,9 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           type="checkbox"
           id={id}
           className={cn(
-            "h-4 w-4 rounded border-gray-300 text-blue-600",
-            "focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
-            className,
+            'h-4 w-4 rounded border-gray-300 text-blue-600',
+            'focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+            className
           )}
           {...props}
         />
@@ -381,9 +381,9 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           {label}
         </label>
       </div>
-    );
-  },
-);
+    )
+  }
+)
 ```
 
 ## Animation Patterns
@@ -391,9 +391,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 ### Transition Component
 
 ```tsx
-import { Transition } from "@headlessui/react";
-
-<Transition
+import { Transition } from '@headlessui/react'
+;<Transition
   show={isOpen}
   enter="transition ease-out duration-200"
   enterFrom="opacity-0 translate-y-1"
@@ -403,7 +402,7 @@ import { Transition } from "@headlessui/react";
   leaveTo="opacity-0 translate-y-1"
 >
   <div>Animated content</div>
-</Transition>;
+</Transition>
 ```
 
 ### CSS-Only Animation
@@ -414,25 +413,25 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        "fade-in": {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
-        "slide-up": {
-          "0%": { transform: "translateY(10px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
+        'slide-up': {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
       animation: {
-        "fade-in": "fade-in 200ms ease-out",
-        "slide-up": "slide-up 200ms ease-out",
+        'fade-in': 'fade-in 200ms ease-out',
+        'slide-up': 'slide-up 200ms ease-out',
       },
     },
   },
-};
+}
 
 // Usage
-<div className="animate-fade-in">Content</div>;
+;<div className="animate-fade-in">Content</div>
 ```
 
 ## Tailwind Configuration
@@ -494,51 +493,49 @@ module.exports = {
 ### Component Testing with Testing Library
 
 ```tsx
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { Button } from "./Button";
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { Button } from './Button'
 
-describe("Button", () => {
-  it("renders with correct text", () => {
-    render(<Button>Click me</Button>);
-    expect(
-      screen.getByRole("button", { name: "Click me" }),
-    ).toBeInTheDocument();
-  });
+describe('Button', () => {
+  it('renders with correct text', () => {
+    render(<Button>Click me</Button>)
+    expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument()
+  })
 
-  it("handles click events", async () => {
-    const onClick = vi.fn();
-    render(<Button onClick={onClick}>Click</Button>);
-    await userEvent.click(screen.getByRole("button"));
-    expect(onClick).toHaveBeenCalledOnce();
-  });
+  it('handles click events', async () => {
+    const onClick = vi.fn()
+    render(<Button onClick={onClick}>Click</Button>)
+    await userEvent.click(screen.getByRole('button'))
+    expect(onClick).toHaveBeenCalledOnce()
+  })
 
-  it("is disabled when disabled prop is true", () => {
-    render(<Button disabled>Disabled</Button>);
-    expect(screen.getByRole("button")).toBeDisabled();
-  });
+  it('is disabled when disabled prop is true', () => {
+    render(<Button disabled>Disabled</Button>)
+    expect(screen.getByRole('button')).toBeDisabled()
+  })
 
-  it("applies variant classes", () => {
-    render(<Button variant="secondary">Secondary</Button>);
-    expect(screen.getByRole("button")).toHaveClass("bg-gray-100");
-  });
-});
+  it('applies variant classes', () => {
+    render(<Button variant="secondary">Secondary</Button>)
+    expect(screen.getByRole('button')).toHaveClass('bg-gray-100')
+  })
+})
 ```
 
 ### Accessibility Testing
 
 ```tsx
-import { axe, toHaveNoViolations } from "jest-axe";
+import { axe, toHaveNoViolations } from 'jest-axe'
 
-expect.extend(toHaveNoViolations);
+expect.extend(toHaveNoViolations)
 
-it("has no accessibility violations", async () => {
+it('has no accessibility violations', async () => {
   const { container } = render(
-    <Input label="Email" type="email" placeholder="you@example.com" />,
-  );
-  const results = await axe(container);
-  expect(results).toHaveNoViolations();
-});
+    <Input label="Email" type="email" placeholder="you@example.com" />
+  )
+  const results = await axe(container)
+  expect(results).toHaveNoViolations()
+})
 ```
 
 ## Documentation
@@ -546,34 +543,34 @@ it("has no accessibility violations", async () => {
 ### Storybook Story
 
 ```tsx
-import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./Button";
+import type { Meta, StoryObj } from '@storybook/react'
+import { Button } from './Button'
 
 const meta: Meta<typeof Button> = {
   component: Button,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: "select",
-      options: ["primary", "secondary", "ghost"],
+      control: 'select',
+      options: ['primary', 'secondary', 'ghost'],
     },
     size: {
-      control: "select",
-      options: ["sm", "md", "lg"],
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
     },
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof Button>;
+export default meta
+type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
-  args: { children: "Button", variant: "primary" },
-};
+  args: { children: 'Button', variant: 'primary' },
+}
 
 export const Secondary: Story = {
-  args: { children: "Button", variant: "secondary" },
-};
+  args: { children: 'Button', variant: 'secondary' },
+}
 
 export const AllVariants: Story = {
   render: () => (
@@ -583,7 +580,7 @@ export const AllVariants: Story = {
       <Button variant="ghost">Ghost</Button>
     </div>
   ),
-};
+}
 ```
 
 ## Critical Rules

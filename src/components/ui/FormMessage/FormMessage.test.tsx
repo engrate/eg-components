@@ -17,9 +17,7 @@ describe('FormMessage', () => {
 
   it('applies default variant classes', () => {
     render(<FormMessage>Default message</FormMessage>)
-    expect(screen.getByText('Default message')).toHaveClass(
-      'text-tertiary'
-    )
+    expect(screen.getByText('Default message')).toHaveClass('text-tertiary')
   })
 
   it('applies error variant classes', () => {

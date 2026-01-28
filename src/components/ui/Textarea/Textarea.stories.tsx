@@ -61,7 +61,7 @@ export const Error: Story = {
         aria-invalid="true"
         aria-describedby="message-error-msg"
       />
-      <span id="message-error-msg" className="text-error text-small">
+      <span id="message-error-msg" className="text-small text-error">
         Please enter a message
       </span>
     </div>
@@ -86,9 +86,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex w-80 flex-col gap-6">
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">
-          States
-        </h3>
+        <h3 className="mb-3 text-small font-medium text-secondary">States</h3>
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
             <Label htmlFor="default">Default</Label>
@@ -97,7 +95,7 @@ export const AllVariants: Story = {
           <div className="flex flex-col gap-1.5">
             <Label htmlFor="error">Error</Label>
             <Textarea id="error" variant="error" placeholder="Error textarea" />
-            <span className="text-error text-small">
+            <span className="text-small text-error">
               This field is required
             </span>
           </div>

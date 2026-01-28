@@ -98,7 +98,7 @@ export const Error: Story = {
           <SelectItem value="ca">Canada</SelectItem>
         </SelectContent>
       </Select>
-      <span className="text-error text-small">Please select a country</span>
+      <span className="text-small text-error">Please select a country</span>
     </div>
   ),
 }
@@ -137,9 +137,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex w-64 flex-col gap-6">
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">
-          States
-        </h3>
+        <h3 className="mb-3 text-small font-medium text-secondary">States</h3>
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
             <Label htmlFor="default">Default</Label>
@@ -164,7 +162,7 @@ export const AllVariants: Story = {
                 <SelectItem value="option2">Option 2</SelectItem>
               </SelectContent>
             </Select>
-            <span className="text-error text-small">
+            <span className="text-small text-error">
               This field is required
             </span>
           </div>
