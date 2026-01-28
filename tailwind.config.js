@@ -28,6 +28,9 @@ export default {
         'cool-purple': '#9B4ED8',
         'electric-blue': '#0080FF',
         'deep-blue': '#002FA7',
+
+        // Semantic colors
+        error: '#DC2626',
       },
       fontFamily: {
         display: ['Libre Baskerville', 'serif'],
