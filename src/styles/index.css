@@ -1,0 +1,17 @@
+@import './fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Set default font family */
+  body {
+    @apply font-sans text-text-primary;
+  }
+
+  /* Never use pure white backgrounds per brand guidelines */
+  html {
+    @apply bg-bg-main;
+  }
+}

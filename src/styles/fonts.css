@@ -1,0 +1,25 @@
+/* Work Sans */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/work-sans/work-sans-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/work-sans/work-sans-500.woff2') format('woff2');
+}
+
+/* Libre Baskerville */
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/libre-baskerville/libre-baskerville-400.woff2') format('woff2');
+}
