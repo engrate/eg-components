@@ -10,15 +10,17 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'eg-main',
-      values: [
-        { name: 'eg-main', value: '#FAFAFA' },
-        { name: 'eg-alt', value: '#F5F5F5' },
-        { name: 'eg-card', value: '#F9F9F9' },
-        { name: 'eg-contrast', value: '#EFEFEF' },
-        { name: 'eggshell', value: '#FFFDE8' },
-      ],
+      options: {
+        'eg-main': { name: 'Main', value: '#FAFAFA' },
+        'eg-alt': { name: 'Alt', value: '#F5F5F5' },
+        'eg-card': { name: 'Card', value: '#F9F9F9' },
+        'eg-contrast': { name: 'Contrast', value: '#EFEFEF' },
+        eggshell: { name: 'Eggshell', value: '#FFFDE8' },
+      },
     },
+  },
+  initialGlobals: {
+    backgrounds: { value: 'eg-main' },
   },
 }
 

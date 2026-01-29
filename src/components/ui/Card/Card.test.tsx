@@ -20,13 +20,13 @@ describe('Card', () => {
     const { rerender, container } = render(
       <Card variant="default">Default</Card>
     )
-    expect(container.firstChild).toHaveClass('bg-card', 'border')
+    expect(container.firstChild).toHaveClass('bg-card')
 
     rerender(<Card variant="elevated">Elevated</Card>)
-    expect(container.firstChild).toHaveClass('shadow-lg')
+    expect(container.firstChild).toHaveClass('shadow')
 
     rerender(<Card variant="ghost">Ghost</Card>)
-    expect(container.firstChild).not.toHaveClass('border')
+    expect(container.firstChild).toHaveClass('bg-card')
   })
 
   it('applies padding classes', () => {

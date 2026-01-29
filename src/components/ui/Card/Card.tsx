@@ -9,8 +9,8 @@ const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: 'border border-border',
-        elevated: 'shadow-lg',
+        default: '',
+        elevated: 'shadow',
         ghost: '',
       },
       padding: {
@@ -27,18 +27,18 @@ const cardVariants = cva(
         contrast: 'bg-contrast',
         transparent: 'bg-transparent',
         // Brand colors
-        sunflower: 'border-none bg-sunflower',
-        'sunflower-hover': 'border-none bg-sunflower-hover',
-        'lemon-meringue': 'border-none bg-lemon-meringue',
-        vanilla: 'border-none bg-vanilla',
-        eggshell: 'border-none bg-eggshell',
+        sunflower: 'bg-sunflower',
+        'sunflower-hover': 'bg-sunflower-hover',
+        'lemon-meringue': 'bg-lemon-meringue',
+        vanilla: 'bg-vanilla',
+        eggshell: 'bg-eggshell',
         // Complementary colors
-        'warm-purple': 'border-none bg-warm-purple',
-        'cool-purple': 'border-none bg-cool-purple',
-        'electric-blue': 'border-none bg-electric-blue',
-        'deep-blue': 'border-none bg-deep-blue',
+        'warm-purple': 'bg-warm-purple',
+        'cool-purple': 'bg-cool-purple',
+        'electric-blue': 'bg-electric-blue',
+        'deep-blue': 'bg-deep-blue',
         // Semantic
-        error: 'border-none bg-error',
+        error: 'bg-error',
       },
     },
     defaultVariants: {
