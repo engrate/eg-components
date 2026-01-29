@@ -62,10 +62,10 @@ ModalOverlay.displayName = 'ModalOverlay'
 const modalContentVariants = cva(
   [
     'fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2',
-    'grid w-full gap-4 bg-main p-6 shadow-lg',
+    'bg-main grid w-full gap-4 p-6 shadow-lg',
     'max-h-[85vh] overflow-y-auto',
-    'rounded-lg border border-border',
-    'focus:outline-none focus-visible:ring-2 focus-visible:ring-sunflower focus-visible:ring-offset-2',
+    'border-border rounded-lg border',
+    'focus-visible:ring-sunflower focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
     'data-[state=open]:animate-in data-[state=closed]:animate-out',
     'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
     'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -114,7 +114,7 @@ const ModalContent = React.forwardRef<
             'absolute right-4 top-4 rounded-sm opacity-70',
             'ring-offset-bg-main transition-opacity',
             'hover:opacity-100',
-            'focus:outline-none focus:ring-2 focus:ring-sunflower focus:ring-offset-2',
+            'focus:ring-sunflower focus:outline-none focus:ring-2 focus:ring-offset-2',
             'disabled:pointer-events-none',
             'data-[state=open]:bg-bg-alt data-[state=open]:text-text-secondary'
           )}

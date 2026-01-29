@@ -34,7 +34,7 @@ export const Default: Story = {
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger asChild>
-        <div className="flex h-36 w-64 items-center justify-center rounded-md border border-dashed border-border text-secondary">
+        <div className="border-border text-secondary flex h-36 w-64 items-center justify-center rounded-md border border-dashed">
           Right click here
         </div>
       </ContextMenuTrigger>
@@ -66,7 +66,7 @@ export const WithLabelsAndGroups: Story = {
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger asChild>
-        <div className="flex h-36 w-64 items-center justify-center rounded-md border border-dashed border-border text-secondary">
+        <div className="border-border text-secondary flex h-36 w-64 items-center justify-center rounded-md border border-dashed">
           Right click here
         </div>
       </ContextMenuTrigger>
@@ -116,7 +116,7 @@ export const WithCheckboxItems: Story = {
     return (
       <ContextMenu>
         <ContextMenuTrigger asChild>
-          <div className="flex h-36 w-64 items-center justify-center rounded-md border border-dashed border-border text-secondary">
+          <div className="border-border text-secondary flex h-36 w-64 items-center justify-center rounded-md border border-dashed">
             Right click here
           </div>
         </ContextMenuTrigger>
@@ -156,7 +156,7 @@ export const WithRadioItems: Story = {
     return (
       <ContextMenu>
         <ContextMenuTrigger asChild>
-          <div className="flex h-36 w-64 items-center justify-center rounded-md border border-dashed border-border text-secondary">
+          <div className="border-border text-secondary flex h-36 w-64 items-center justify-center rounded-md border border-dashed">
             Right click here
           </div>
         </ContextMenuTrigger>
@@ -178,7 +178,7 @@ export const WithSubmenus: Story = {
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger asChild>
-        <div className="flex h-36 w-64 items-center justify-center rounded-md border border-dashed border-border text-secondary">
+        <div className="border-border text-secondary flex h-36 w-64 items-center justify-center rounded-md border border-dashed">
           Right click here
         </div>
       </ContextMenuTrigger>
@@ -229,7 +229,7 @@ export const InsetItems: Story = {
   render: () => (
     <ContextMenu>
       <ContextMenuTrigger asChild>
-        <div className="flex h-36 w-64 items-center justify-center rounded-md border border-dashed border-border text-secondary">
+        <div className="border-border text-secondary flex h-36 w-64 items-center justify-center rounded-md border border-dashed">
           Right click here
         </div>
       </ContextMenuTrigger>
@@ -253,7 +253,7 @@ export const Complete: Story = {
     return (
       <ContextMenu>
         <ContextMenuTrigger asChild>
-          <div className="flex h-36 w-64 items-center justify-center rounded-md border border-dashed border-border bg-card text-secondary">
+          <div className="border-border bg-card text-secondary flex h-36 w-64 items-center justify-center rounded-md border border-dashed">
             Right click here
           </div>
         </ContextMenuTrigger>

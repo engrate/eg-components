@@ -5,19 +5,19 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap font-sans text-body font-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunflower focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'text-body focus-visible:ring-sunflower inline-flex items-center justify-center whitespace-nowrap font-sans font-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         primary:
           'bg-sunflower text-primary hover:bg-sunflower-hover active:bg-sunflower-hover',
         secondary:
-          'border border-border bg-card text-primary hover:bg-alt active:bg-contrast',
+          'border-border bg-card text-primary hover:bg-alt active:bg-contrast border',
         ghost: 'text-primary hover:bg-alt active:bg-contrast',
       },
       size: {
-        sm: 'rounded-pill px-4 py-1.5 text-small',
-        default: 'rounded-pill px-6 py-2 text-small',
+        sm: 'rounded-pill text-small px-4 py-1.5',
+        default: 'rounded-pill text-small px-6 py-2',
         lg: 'rounded-pill px-btn-x py-btn-y text-body',
         icon: 'h-10 w-10 rounded-full',
       },

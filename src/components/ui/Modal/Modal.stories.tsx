@@ -316,7 +316,7 @@ export const CustomStyling: Story = {
         <Button>Custom Styled Modal</Button>
       </ModalTrigger>
       <ModalContent className="border-sunflower bg-sunflower">
-        <ModalHeader className="border-b border-sunflower pb-4">
+        <ModalHeader className="border-sunflower border-b pb-4">
           <ModalTitle>Custom Styled</ModalTitle>
           <ModalDescription>
             This modal demonstrates custom styling with className overrides.
@@ -328,7 +328,7 @@ export const CustomStyling: Story = {
             modal parts.
           </p>
         </div>
-        <ModalFooter className="border-t border-sunflower pt-4">
+        <ModalFooter className="border-sunflower border-t pt-4">
           <ModalClose asChild>
             <Button variant="secondary">Got it!</Button>
           </ModalClose>

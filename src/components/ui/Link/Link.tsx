@@ -5,14 +5,14 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const linkVariants = cva(
-  'inline-flex items-center font-sans transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunflower focus-visible:ring-offset-2',
+  'focus-visible:ring-sunflower inline-flex items-center font-sans transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
   {
     variants: {
       variant: {
         default:
-          'text-primary underline underline-offset-4 hover:text-secondary',
-        muted: 'text-secondary underline underline-offset-4 hover:text-primary',
-        nav: 'text-primary no-underline hover:text-secondary hover:underline hover:underline-offset-4',
+          'text-primary hover:text-secondary underline underline-offset-4',
+        muted: 'text-secondary hover:text-primary underline underline-offset-4',
+        nav: 'text-primary hover:text-secondary no-underline hover:underline hover:underline-offset-4',
       },
       size: {
         sm: 'text-small',

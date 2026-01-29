@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-React component library for Engrate's design system. Built with TypeScript, Tailwind CSS, and exported as both ESM/CJS bundles with a Tailwind preset for consumers.
+React component library for Engrate's design system. Built with TypeScript, Tailwind CSS v4, and exported as both ESM/CJS bundles.
 
 ## Architecture
 
@@ -14,8 +14,9 @@ src/
 │   ├── Component.stories.tsx    # Storybook stories
 │   └── index.ts                 # Named exports (component + variants + types)
 ├── lib/utils.ts                 # cn() helper for class merging
-├── tailwind.preset.ts           # Design tokens exported for consumers
-└── styles/                      # Global CSS with Tailwind layers
+└── styles/
+    ├── fonts.css                # @font-face declarations
+    └── index.css                # Tailwind v4 with @theme design tokens
 ```
 
 **Export chain**: `src/index.ts` → `components/index.ts` → `components/ui/index.ts` → `{Component}/index.ts`

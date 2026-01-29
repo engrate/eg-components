@@ -1,6 +1,7 @@
 /// <reference types="vitest/config" />
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
@@ -9,6 +10,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     react(),
     dts({
       tsconfigPath: './tsconfig.app.json',
@@ -23,9 +25,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'EgComponents',
+      name: 'EngrateComponents',
       formats: ['es', 'cjs'],
-      fileName: (format) => `eg-components.${format}.js`,
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],

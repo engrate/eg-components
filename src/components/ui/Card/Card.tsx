@@ -5,7 +5,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const cardVariants = cva(
-  'rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunflower focus-visible:ring-offset-2',
+  'focus-visible:ring-sunflower rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
   {
     variants: {
       variant: {

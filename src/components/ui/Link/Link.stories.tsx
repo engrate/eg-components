@@ -87,7 +87,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">Variants</h3>
+        <h3 className="text-small text-secondary mb-3 font-medium">Variants</h3>
         <div className="flex items-center gap-6">
           <Link href="#" variant="default">
             Default
@@ -101,7 +101,7 @@ export const AllVariants: Story = {
         </div>
       </div>
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">Sizes</h3>
+        <h3 className="text-small text-secondary mb-3 font-medium">Sizes</h3>
         <div className="flex items-center gap-6">
           <Link href="#" size="sm">
             Small
@@ -120,7 +120,7 @@ export const AllVariants: Story = {
 
 export const InParagraph: Story = {
   render: () => (
-    <p className="max-w-md text-body text-primary">
+    <p className="text-body text-primary max-w-md">
       This is a paragraph with an <Link href="#">inline link</Link> that flows
       naturally with the text. Links can also be{' '}
       <Link href="#" variant="muted">

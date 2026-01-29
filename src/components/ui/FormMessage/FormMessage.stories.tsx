@@ -43,7 +43,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
       <div>
-        <h3 className="mb-2 text-small font-medium text-secondary">Variants</h3>
+        <h3 className="text-small text-secondary mb-2 font-medium">Variants</h3>
         <div className="flex flex-col gap-2">
           <FormMessage>This is a default hint message</FormMessage>
           <FormMessage variant="error">This is an error message</FormMessage>

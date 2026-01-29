@@ -76,12 +76,12 @@ Tabs.displayName = 'Tabs'
 
 // TabList variants
 const tabListVariants = cva(
-  'inline-flex items-center font-sans text-body transition-colors',
+  'text-body inline-flex items-center font-sans transition-colors',
   {
     variants: {
       variant: {
-        default: 'gap-1 border-b border-border',
-        pills: 'gap-2 rounded-pill bg-alt p-1',
+        default: 'border-border gap-1 border-b',
+        pills: 'rounded-pill bg-alt gap-2 p-1',
       },
     },
     defaultVariants: {
@@ -114,14 +114,14 @@ TabList.displayName = 'TabList'
 
 // TabTrigger variants
 const tabTriggerVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap font-sans font-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunflower focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'focus-visible:ring-sunflower inline-flex items-center justify-center whitespace-nowrap font-sans font-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          'border-b-2 border-transparent px-4 py-2 text-secondary hover:text-primary data-[state=active]:border-sunflower data-[state=active]:text-primary',
+          'text-secondary hover:text-primary data-[state=active]:border-sunflower data-[state=active]:text-primary border-b-2 border-transparent px-4 py-2',
         pills:
-          'rounded-pill px-4 py-1.5 text-secondary hover:text-primary data-[state=active]:bg-card data-[state=active]:text-primary data-[state=active]:shadow-sm',
+          'rounded-pill text-secondary hover:text-primary data-[state=active]:bg-card data-[state=active]:text-primary px-4 py-1.5 data-[state=active]:shadow-sm',
       },
       size: {
         sm: 'text-small',
@@ -172,9 +172,9 @@ TabTrigger.displayName = 'TabTrigger'
 const tabContentVariants = cva('font-sans', {
   variants: {
     size: {
-      sm: 'mt-3 text-small',
-      default: 'mt-4 text-body',
-      lg: 'mt-6 text-body',
+      sm: 'text-small mt-3',
+      default: 'text-body mt-4',
+      lg: 'text-body mt-6',
     },
   },
   defaultVariants: {

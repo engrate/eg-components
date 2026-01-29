@@ -118,7 +118,7 @@ export const AllStates: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">States</h3>
+        <h3 className="text-small text-secondary mb-3 font-medium">States</h3>
         <RadioGroup aria-label="States demo">
           <div className="flex items-center gap-2">
             <RadioGroupItem value="unselected" id="unselected" />
@@ -131,7 +131,7 @@ export const AllStates: Story = {
         </RadioGroup>
       </div>
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">Selected</h3>
+        <h3 className="text-small text-secondary mb-3 font-medium">Selected</h3>
         <RadioGroup defaultValue="selected" aria-label="Selected demo">
           <div className="flex items-center gap-2">
             <RadioGroupItem value="selected" id="selected" />

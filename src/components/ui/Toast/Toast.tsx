@@ -95,10 +95,10 @@ const ToastAction = React.forwardRef<
   <ToastPrimitives.Action
     ref={ref}
     className={cn(
-      'inline-flex h-8 shrink-0 items-center justify-center rounded-pill border border-border bg-transparent px-3 text-sm font-medium',
+      'rounded-pill border-border inline-flex h-8 shrink-0 items-center justify-center border bg-transparent px-3 text-sm font-medium',
       'ring-offset-main transition-colors',
       'hover:bg-alt',
-      'focus:outline-none focus:ring-2 focus:ring-sunflower focus:ring-offset-2',
+      'focus:ring-sunflower focus:outline-none focus:ring-2 focus:ring-offset-2',
       'disabled:pointer-events-none disabled:opacity-50',
       'group-[.error]:border-error/30 group-[.error]:hover:border-error/50 group-[.error]:hover:bg-error/10 group-[.error]:focus:ring-error',
       className
@@ -123,9 +123,9 @@ const ToastClose = React.forwardRef<
   <ToastPrimitives.Close
     ref={ref}
     className={cn(
-      'absolute right-2 top-2 rounded-sm p-1 text-secondary opacity-0 transition-opacity',
+      'text-secondary absolute right-2 top-2 rounded-sm p-1 opacity-0 transition-opacity',
       'hover:text-primary',
-      'focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-sunflower',
+      'focus:ring-sunflower focus:opacity-100 focus:outline-none focus:ring-2',
       'group-hover:opacity-100',
       'group-[.error]:text-error/70 group-[.error]:hover:text-error group-[.error]:focus:ring-error group-[.error]:focus:ring-offset-error',
       className
@@ -173,7 +173,7 @@ const ToastDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}
-    className={cn('text-sm text-secondary', className)}
+    className={cn('text-secondary text-sm', className)}
     {...props}
   />
 ))

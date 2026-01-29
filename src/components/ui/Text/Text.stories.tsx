@@ -130,7 +130,7 @@ export const AllVariants: Story = {
 export const TypographyScale: Story = {
   render: () => (
     <div className="max-w-2xl space-y-8">
-      <div className="border-b border-border pb-4">
+      <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
           Lead — Work Sans, 20pt, -2% tracking, Primary color
         </Text>
@@ -139,7 +139,7 @@ export const TypographyScale: Story = {
           solutions for homes and businesses across the nation.
         </Text>
       </div>
-      <div className="border-b border-border pb-4">
+      <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
           Lead (Medium) — Work Sans, 20pt, -2% tracking, Medium weight
         </Text>
@@ -147,7 +147,7 @@ export const TypographyScale: Story = {
           Key message with emphasis for important announcements.
         </Text>
       </div>
-      <div className="border-b border-border pb-4">
+      <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
           Semi-Lead — Work Sans, 15pt, 0% tracking, Secondary color
         </Text>
@@ -156,7 +156,7 @@ export const TypographyScale: Story = {
           perfect solar solution for your needs.
         </Text>
       </div>
-      <div className="border-b border-border pb-4">
+      <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
           Body Large — Work Sans, 14pt, +1% tracking, Secondary color
         </Text>
@@ -166,7 +166,7 @@ export const TypographyScale: Story = {
           support.
         </Text>
       </div>
-      <div className="border-b border-border pb-4">
+      <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
           Body — Work Sans, 16pt, 0% tracking, Secondary color
         </Text>
@@ -176,7 +176,7 @@ export const TypographyScale: Story = {
           paragraphs, descriptions, and most written content.
         </Text>
       </div>
-      <div className="border-b border-border pb-4">
+      <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
           Descriptive — Work Sans, 12pt, +4% tracking, Secondary color
         </Text>
@@ -185,13 +185,13 @@ export const TypographyScale: Story = {
           2024. All rights reserved.
         </Text>
       </div>
-      <div className="border-b border-border pb-4">
+      <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
           Label — Work Sans, 12pt, +2% tracking, Tertiary color
         </Text>
         <Text variant="label">Email Address</Text>
       </div>
-      <div className="border-b border-border pb-4">
+      <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
           Label Small — Work Sans, 10pt, +14% tracking, Tertiary color
         </Text>
@@ -216,7 +216,7 @@ export const AsSpan: Story = {
 export const AsLink: Story = {
   render: () => (
     <Text variant="body" asChild>
-      <a href="#example" className="underline hover:text-primary">
+      <a href="#example" className="hover:text-primary underline">
         This entire text is a clickable link
       </a>
     </Text>

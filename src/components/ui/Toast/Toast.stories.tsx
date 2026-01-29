@@ -214,31 +214,31 @@ const InteractiveDemo = () => {
       <div className="flex flex-wrap gap-2">
         <button
           onClick={() => showToast('default')}
-          className="rounded-pill bg-alt px-4 py-2 text-sm hover:bg-contrast"
+          className="rounded-pill bg-alt hover:bg-contrast px-4 py-2 text-sm"
         >
           Show Default
         </button>
         <button
           onClick={() => showToast('success')}
-          className="rounded-pill bg-eggshell px-4 py-2 text-sm hover:bg-vanilla"
+          className="rounded-pill bg-eggshell hover:bg-vanilla px-4 py-2 text-sm"
         >
           Show Success
         </button>
         <button
           onClick={() => showToast('error')}
-          className="rounded-pill bg-error/10 px-4 py-2 text-sm text-error hover:bg-error/20"
+          className="rounded-pill bg-error/10 text-error hover:bg-error/20 px-4 py-2 text-sm"
         >
           Show Error
         </button>
         <button
           onClick={() => showToast('warning')}
-          className="rounded-pill bg-vanilla px-4 py-2 text-sm hover:bg-lemon-meringue"
+          className="rounded-pill bg-vanilla hover:bg-lemon-meringue px-4 py-2 text-sm"
         >
           Show Warning
         </button>
         <button
           onClick={() => showToast('info')}
-          className="rounded-pill bg-electric-blue/10 px-4 py-2 text-sm text-electric-blue hover:bg-electric-blue/20"
+          className="rounded-pill bg-electric-blue/10 text-electric-blue hover:bg-electric-blue/20 px-4 py-2 text-sm"
         >
           Show Info
         </button>

@@ -4,7 +4,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const tableVariants = cva(
-  'w-full caption-bottom border-collapse font-sans text-body',
+  'text-body w-full caption-bottom border-collapse font-sans',
   {
     variants: {
       variant: {
@@ -23,7 +23,7 @@ const tableVariants = cva(
   }
 )
 
-const tableHeaderVariants = cva('border-b border-border bg-alt', {
+const tableHeaderVariants = cva('border-border bg-alt border-b', {
   variants: {},
   defaultVariants: {},
 })
@@ -36,8 +36,8 @@ const tableBodyVariants = cva('', {
 const tableRowVariants = cva('transition-colors', {
   variants: {
     variant: {
-      default: 'border-b border-border hover:bg-alt/50',
-      striped: 'border-b border-border even:bg-alt/30 hover:bg-alt',
+      default: 'border-border hover:bg-alt/50 border-b',
+      striped: 'border-border even:bg-alt/30 hover:bg-alt border-b',
     },
   },
   defaultVariants: {
@@ -46,11 +46,11 @@ const tableRowVariants = cva('transition-colors', {
 })
 
 const tableHeadVariants = cva(
-  'text-left align-middle font-sans text-small font-normal text-primary [&:has([role=checkbox])]:pr-0',
+  'text-small text-primary text-left align-middle font-sans font-normal [&:has([role=checkbox])]:pr-0',
   {
     variants: {
       sortable: {
-        true: 'cursor-pointer select-none hover:bg-contrast',
+        true: 'hover:bg-contrast cursor-pointer select-none',
         false: '',
       },
       size: {
@@ -66,7 +66,7 @@ const tableHeadVariants = cva(
 )
 
 const tableCellVariants = cva(
-  'align-middle text-secondary [&:has([role=checkbox])]:pr-0',
+  'text-secondary align-middle [&:has([role=checkbox])]:pr-0',
   {
     variants: {
       size: {
@@ -158,7 +158,7 @@ const TableFooter = React.forwardRef<HTMLTableSectionElement, TableFooterProps>(
     <tfoot
       ref={ref}
       className={cn(
-        'border-t border-border bg-alt font-normal text-primary',
+        'border-border bg-alt text-primary border-t font-normal',
         className
       )}
       {...props}
@@ -302,7 +302,7 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={cn('mt-4 text-small text-tertiary', className)}
+    className={cn('text-small text-tertiary mt-4', className)}
     {...props}
   />
 ))

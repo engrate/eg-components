@@ -26,7 +26,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'flex h-10 w-full items-center justify-between rounded-md border bg-card px-3 py-2 font-sans text-body text-primary transition-colors',
+      'bg-card text-body text-primary flex h-10 w-full items-center justify-between rounded-md border px-3 py-2 font-sans transition-colors',
       'placeholder:text-tertiary',
       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
       'disabled:cursor-not-allowed disabled:opacity-50',
@@ -130,7 +130,7 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        'relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border border-border bg-card font-sans text-primary shadow-md',
+        'border-border bg-card text-primary relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border font-sans shadow-md',
         'data-[state=open]:animate-in data-[state=closed]:animate-out',
         'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
         'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -169,7 +169,7 @@ const SelectLabel = React.forwardRef<
   <SelectPrimitive.Label
     ref={ref}
     className={cn(
-      'py-1.5 pl-8 pr-2 text-small font-normal text-tertiary',
+      'text-small text-tertiary py-1.5 pl-8 pr-2 font-normal',
       className
     )}
     {...props}
@@ -187,7 +187,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-body outline-none',
+      'text-body relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 outline-none',
       'focus:bg-vanilla focus:text-primary',
       'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className
@@ -224,7 +224,7 @@ const SelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
     ref={ref}
-    className={cn('-mx-1 my-1 h-px bg-border', className)}
+    className={cn('bg-border -mx-1 my-1 h-px', className)}
     {...props}
   />
 ))

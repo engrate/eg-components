@@ -18,45 +18,57 @@ npm install react react-dom
 
 ## Usage
 
-### Option 1: Pre-compiled CSS (Non-Tailwind Projects)
-
-Import the compiled CSS bundle for projects not using Tailwind:
+Import the styles and use the components:
 
 ```tsx
-import { Button } from 'eg-components'
-import 'eg-components/styles.css'
+import { Button } from '@engrate/components'
+import '@engrate/components/styles.css'
 
 function App() {
   return <Button variant="primary">Click me</Button>
 }
 ```
 
-### Option 2: Tailwind Preset (Tailwind Projects)
+### Using with Tailwind CSS v4
 
-Extend your Tailwind config with Engrate's design tokens:
+If your project uses Tailwind CSS v4, import the styles in your main CSS file. The component library exports all design tokens as CSS custom properties which Tailwind v4 will automatically detect:
 
-```js
-// tailwind.config.js
-import { egComponentsPreset } from 'eg-components/tailwind.preset'
-
-export default {
-  presets: [egComponentsPreset],
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/eg-components/dist/**/*.js',
-  ],
-}
+```css
+/* app.css */
+@import 'tailwindcss';
+@import '@engrate/components/styles.css';
 ```
 
-Then use components without importing CSS:
+This gives you access to all Engrate design tokens in your own components:
 
 ```tsx
-import { Button } from 'eg-components'
-
-function App() {
-  return <Button variant="primary">Click me</Button>
+// Your custom component can use Engrate's design tokens
+function CustomCard({ children }) {
+  return (
+    <div className="bg-card border-border text-primary rounded-lg p-4">
+      {children}
+    </div>
+  )
 }
 ```
+
+### Available Design Tokens
+
+The library provides the following CSS custom properties:
+
+**Colors:**
+
+- `sunflower`, `sunflower-hover` - Primary brand color
+- `primary`, `secondary`, `tertiary` - Text colors
+- `main`, `alt`, `card`, `contrast` - Background colors
+- `border` - Border color
+- `error` - Error state color
+
+**Typography:**
+
+- `font-display` - Libre Baskerville (headings)
+- `font-sans` - Work Sans (body text)
+- `font-mono` - IBM Plex Mono (code)
 
 ## Development
 
@@ -95,10 +107,9 @@ src/
 │   └── utils.ts        # Utility functions (cn, etc.)
 ├── styles/
 │   ├── fonts.css       # @font-face declarations
-│   └── index.css       # Tailwind entry point
+│   └── index.css       # Tailwind v4 with @theme tokens
 ├── test/
 │   └── setup.ts        # Test configuration
-├── tailwind.preset.ts  # Exportable design tokens
 └── index.ts            # Main entry point
 ```
 

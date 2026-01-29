@@ -111,34 +111,34 @@ export const AsLink: Story = {
 export const TypographyScale: Story = {
   render: () => (
     <div className="space-y-8">
-      <div className="border-b border-border pb-4">
-        <p className="mb-2 text-label text-tertiary">
+      <div className="border-border border-b pb-4">
+        <p className="text-label text-tertiary mb-2">
           Hero — Libre Baskerville, 60pt, -2% tracking
         </p>
         <Heading level="hero">
           Building the Future of Sustainable Energy
         </Heading>
       </div>
-      <div className="border-b border-border pb-4">
-        <p className="mb-2 text-label text-tertiary">
+      <div className="border-border border-b pb-4">
+        <p className="text-label text-tertiary mb-2">
           H1 — Work Sans, 40pt, -4% tracking
         </p>
         <Heading level="h1">Solar Installation Services</Heading>
       </div>
-      <div className="border-b border-border pb-4">
-        <p className="mb-2 text-label text-tertiary">
+      <div className="border-border border-b pb-4">
+        <p className="text-label text-tertiary mb-2">
           H2 — Work Sans, 30pt, -3% tracking
         </p>
         <Heading level="h2">Why Choose Engrate?</Heading>
       </div>
-      <div className="border-b border-border pb-4">
-        <p className="mb-2 text-label text-tertiary">
+      <div className="border-border border-b pb-4">
+        <p className="text-label text-tertiary mb-2">
           H3 — Work Sans, 25pt, -2% tracking
         </p>
         <Heading level="h3">Our Commitment to Quality</Heading>
       </div>
-      <div className="border-b border-border pb-4">
-        <p className="mb-2 text-label text-tertiary">
+      <div className="border-border border-b pb-4">
+        <p className="text-label text-tertiary mb-2">
           H4 — Work Sans, 25pt, -1% tracking
         </p>
         <Heading level="h4">Technical Specifications</Heading>

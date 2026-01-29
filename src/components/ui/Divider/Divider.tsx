@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
-const dividerVariants = cva('shrink-0 bg-border', {
+const dividerVariants = cva('bg-border shrink-0', {
   variants: {
     orientation: {
       horizontal: 'h-px w-full',

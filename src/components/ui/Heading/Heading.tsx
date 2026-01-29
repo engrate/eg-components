@@ -3,14 +3,14 @@ import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
-const headingVariants = cva('font-normal text-primary', {
+const headingVariants = cva('text-primary font-normal', {
   variants: {
     level: {
       hero: 'font-display text-hero',
-      h1: 'font-sans text-h1',
-      h2: 'font-sans text-h2',
-      h3: 'font-sans text-h3',
-      h4: 'font-sans text-h4',
+      h1: 'text-h1 font-sans',
+      h2: 'text-h2 font-sans',
+      h3: 'text-h3 font-sans',
+      h4: 'text-h4 font-sans',
     },
   },
   defaultVariants: {

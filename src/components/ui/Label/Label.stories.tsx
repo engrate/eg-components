@@ -46,7 +46,7 @@ export const WithInput: Story = {
         id="email"
         type="email"
         placeholder="you@example.com"
-        className="h-10 w-64 rounded-md border border-border bg-card px-3 font-sans text-body focus:outline-none focus:ring-2 focus:ring-sunflower focus:ring-offset-2"
+        className="border-border bg-card text-body focus:ring-sunflower h-10 w-64 rounded-md border px-3 font-sans focus:outline-none focus:ring-2 focus:ring-offset-2"
       />
     </div>
   ),
@@ -56,7 +56,7 @@ export const AllSizes: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
       <div>
-        <h3 className="mb-3 text-small font-medium text-secondary">Sizes</h3>
+        <h3 className="text-small text-secondary mb-3 font-medium">Sizes</h3>
         <div className="flex flex-col gap-2">
           <Label size="default">Default size label</Label>
           <Label size="sm">Small size label</Label>

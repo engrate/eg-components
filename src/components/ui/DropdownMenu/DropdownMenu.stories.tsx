@@ -68,8 +68,8 @@ export const Default: Story = {
 
 export const ActionsMenu: Story = {
   render: () => (
-    <div className="flex items-center gap-4 rounded-lg border border-border bg-card p-4">
-      <span className="flex-1 text-primary">Row with actions menu</span>
+    <div className="border-border bg-card flex items-center gap-4 rounded-lg border p-4">
+      <span className="text-primary flex-1">Row with actions menu</span>
       <DropdownMenu>
         <ActionsMenuButton />
         <DropdownMenuContent align="end">
@@ -236,11 +236,11 @@ export const InTableRow: Story = {
   render: () => (
     <table className="w-full border-collapse">
       <thead>
-        <tr className="border-b border-border">
-          <th className="p-3 text-left text-small font-semibold text-secondary">
+        <tr className="border-border border-b">
+          <th className="text-small text-secondary p-3 text-left font-semibold">
             Name
           </th>
-          <th className="p-3 text-left text-small font-semibold text-secondary">
+          <th className="text-small text-secondary p-3 text-left font-semibold">
             Status
           </th>
           <th className="w-12 p-3"></th>
@@ -248,9 +248,9 @@ export const InTableRow: Story = {
       </thead>
       <tbody>
         {['Project Alpha', 'Project Beta', 'Project Gamma'].map((name) => (
-          <tr key={name} className="border-b border-border">
-            <td className="p-3 text-primary">{name}</td>
-            <td className="p-3 text-primary">Active</td>
+          <tr key={name} className="border-border border-b">
+            <td className="text-primary p-3">{name}</td>
+            <td className="text-primary p-3">Active</td>
             <td className="p-3">
               <DropdownMenu>
                 <ActionsMenuButton iconSize="sm" />
