@@ -6,13 +6,8 @@
       "request": "launch",
       "name": "Start Storybook",
       "runtimeExecutable": "npm",
-      "runtimeArgs": [
-        "run",
-        "storybook"
-      ],
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "runtimeArgs": ["run", "storybook"],
+      "skipFiles": ["<node_internals>/**"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     }
