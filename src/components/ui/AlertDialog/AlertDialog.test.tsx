@@ -202,6 +202,7 @@ describe('AlertDialog', () => {
           <AlertDialogContent size="sm" data-testid="alert-dialog-content">
             <AlertDialogHeader>
               <AlertDialogTitle>Small Dialog</AlertDialogTitle>
+              <AlertDialogDescription>Description</AlertDialogDescription>
             </AlertDialogHeader>
           </AlertDialogContent>
         </AlertDialog>
@@ -217,6 +218,7 @@ describe('AlertDialog', () => {
           <AlertDialogContent data-testid="alert-dialog-content">
             <AlertDialogHeader>
               <AlertDialogTitle>Default Dialog</AlertDialogTitle>
+              <AlertDialogDescription>Description</AlertDialogDescription>
             </AlertDialogHeader>
           </AlertDialogContent>
         </AlertDialog>
@@ -232,6 +234,7 @@ describe('AlertDialog', () => {
           <AlertDialogContent size="lg" data-testid="alert-dialog-content">
             <AlertDialogHeader>
               <AlertDialogTitle>Large Dialog</AlertDialogTitle>
+              <AlertDialogDescription>Description</AlertDialogDescription>
             </AlertDialogHeader>
           </AlertDialogContent>
         </AlertDialog>
@@ -263,6 +266,7 @@ describe('AlertDialog', () => {
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>Custom Variants</AlertDialogTitle>
+              <AlertDialogDescription>Description</AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel variant="ghost">Cancel</AlertDialogCancel>
@@ -290,6 +294,7 @@ describe('AlertDialog', () => {
           >
             <AlertDialogHeader>
               <AlertDialogTitle>Test</AlertDialogTitle>
+              <AlertDialogDescription>Description</AlertDialogDescription>
             </AlertDialogHeader>
           </AlertDialogContent>
         </AlertDialog>
@@ -308,6 +313,7 @@ describe('AlertDialog', () => {
               data-testid="alert-dialog-header"
             >
               <AlertDialogTitle>Test</AlertDialogTitle>
+              <AlertDialogDescription>Description</AlertDialogDescription>
             </AlertDialogHeader>
           </AlertDialogContent>
         </AlertDialog>
@@ -323,6 +329,7 @@ describe('AlertDialog', () => {
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>Test</AlertDialogTitle>
+              <AlertDialogDescription>Description</AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter
               className="custom-footer-class"
