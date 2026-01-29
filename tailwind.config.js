@@ -5,5 +5,5 @@ export default {
   content: ['./src/**/*.{ts,tsx}'],
   theme: engrateTheme,
   // eslint-disable-next-line no-undef
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require('tailwindcss-animate')],
 }
