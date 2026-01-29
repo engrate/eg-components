@@ -153,7 +153,9 @@ This library follows Engrate's brand guidelines:
 - **No bold fonts**: Use Regular weight only (Medium for emphasis)
 - **Left-aligned text**: Default alignment
 
-## Publishing to NPM
+## Publishing
+
+To publish to [NPM](https://www.npmjs.com/package/@engrate/components) and [Github Pages](https://engrate.github.io/eg-components)
 
 1. Make sure you have access to the NPM `@engrate` org
 2. Update version in `package.json`
