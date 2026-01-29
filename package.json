@@ -27,7 +27,7 @@
     "./fonts/*": "./dist/fonts/*"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "storybook dev -p 6006",
     "build": "tsc -p tsconfig.app.json && vite build",
     "test": "vitest",
     "test:run": "vitest run",
