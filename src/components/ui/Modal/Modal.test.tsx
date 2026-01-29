@@ -216,7 +216,11 @@ describe('Modal', () => {
     it('renders with default size', () => {
       render(
         <Modal defaultOpen>
-          <ModalContent data-testid="modal-content">Content</ModalContent>
+          <ModalContent data-testid="modal-content">
+            <ModalTitle>Title</ModalTitle>
+            <ModalDescription>Description</ModalDescription>
+            Content
+          </ModalContent>
         </Modal>
       )
 
@@ -228,6 +232,8 @@ describe('Modal', () => {
       render(
         <Modal defaultOpen>
           <ModalContent size="sm" data-testid="modal-content">
+            <ModalTitle>Title</ModalTitle>
+            <ModalDescription>Description</ModalDescription>
             Content
           </ModalContent>
         </Modal>
@@ -241,6 +247,8 @@ describe('Modal', () => {
       render(
         <Modal defaultOpen>
           <ModalContent size="lg" data-testid="modal-content">
+            <ModalTitle>Title</ModalTitle>
+            <ModalDescription>Description</ModalDescription>
             Content
           </ModalContent>
         </Modal>
@@ -254,6 +262,8 @@ describe('Modal', () => {
       render(
         <Modal defaultOpen>
           <ModalContent size="full" data-testid="modal-content">
+            <ModalTitle>Title</ModalTitle>
+            <ModalDescription>Description</ModalDescription>
             Content
           </ModalContent>
         </Modal>
@@ -269,6 +279,8 @@ describe('Modal', () => {
       render(
         <Modal defaultOpen>
           <ModalContent className="custom-class" data-testid="modal-content">
+            <ModalTitle>Title</ModalTitle>
+            <ModalDescription>Description</ModalDescription>
             Content
           </ModalContent>
         </Modal>
@@ -282,6 +294,8 @@ describe('Modal', () => {
       render(
         <Modal defaultOpen>
           <ModalContent>
+            <ModalTitle>Title</ModalTitle>
+            <ModalDescription>Description</ModalDescription>
             <ModalHeader className="custom-header" data-testid="modal-header">
               Header
             </ModalHeader>
@@ -297,6 +311,8 @@ describe('Modal', () => {
       render(
         <Modal defaultOpen>
           <ModalContent>
+            <ModalTitle>Title</ModalTitle>
+            <ModalDescription>Description</ModalDescription>
             <ModalFooter className="custom-footer" data-testid="modal-footer">
               Footer
             </ModalFooter>

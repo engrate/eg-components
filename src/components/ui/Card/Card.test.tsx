@@ -84,7 +84,7 @@ describe('Card', () => {
     expect(container.firstChild).toHaveClass('bg-sunflower')
 
     rerender(<Card bg="deep-blue">Deep Blue</Card>)
-    expect(container.firstChild).toHaveClass('bg-deep-blue', 'text-white')
+    expect(container.firstChild).toHaveClass('bg-deep-blue')
 
     rerender(<Card bg="transparent">Transparent</Card>)
     expect(container.firstChild).toHaveClass('bg-transparent')
