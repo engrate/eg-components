@@ -80,8 +80,7 @@ All components must have Storybook stories demonstrating variants and usage exam
 | Tests (CI)    | `npm run test:run`  |
 | Storybook     | `npm run storybook` |
 | Build         | `npm run build`     |
-| Lint          | `npm run lint`      |
-| Type check    | `npm run typecheck` |
+| Verify        | `npm run verify`    |
 
 ## Browser Automation
 
@@ -94,17 +93,11 @@ Core workflow:
 3. `agent-browser click @e1` / `fill @e2 "text"` - Interact using refs
 4. Re-snapshot after page changes
 
-Always test changes using `agent-browser`.
-
 ## Workflow
 
 1. Make changes
 2. Verify changes with `npm run verify`
-3. Run storybook in the background using `npm run storybook &`
-4. Run `agent-browser` to verify UI behavior in storybook
-5. Kill the storybook process using `kill %1`
 
-- Always ensure accessibility compliance with `vitest-axe`
 - Always update Storybook stories for new/changed components
 - Always update tests for new/changed components
 

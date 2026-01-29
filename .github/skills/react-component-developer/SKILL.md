@@ -231,14 +231,6 @@ function useRovingFocus(items: HTMLElement[]) {
         e.preventDefault()
         setFocusedIndex((i) => (i - 1 + items.length) % items.length)
         break
-      case 'Home':
-        e.preventDefault()
-        setFocusedIndex(0)
-        break
-      case 'End':
-        e.preventDefault()
-        setFocusedIndex(items.length - 1)
-        break
     }
   }
 
@@ -388,23 +380,6 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
 ## Animation Patterns
 
-### Transition Component
-
-```tsx
-import { Transition } from '@headlessui/react'
-;<Transition
-  show={isOpen}
-  enter="transition ease-out duration-200"
-  enterFrom="opacity-0 translate-y-1"
-  enterTo="opacity-100 translate-y-0"
-  leave="transition ease-in duration-150"
-  leaveFrom="opacity-100 translate-y-0"
-  leaveTo="opacity-0 translate-y-1"
->
-  <div>Animated content</div>
-</Transition>
-```
-
 ### CSS-Only Animation
 
 ```tsx
@@ -432,60 +407,6 @@ module.exports = {
 
 // Usage
 ;<div className="animate-fade-in">Content</div>
-```
-
-## Tailwind Configuration
-
-### Theme Extension
-
-```js
-// tailwind.config.js
-module.exports = {
-  content: ['./src/**/*.{ts,tsx}'],
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-        },
-      },
-      fontSize: {
-        'display-lg': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
-        'display-md': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
-      },
-      spacing: {
-        18: '4.5rem',
-        112: '28rem',
-      },
-    },
-  },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
-}
-```
-
-### Custom Plugin for Components
-
-```js
-const plugin = require('tailwindcss/plugin')
-
-module.exports = {
-  plugins: [
-    plugin(function ({ addComponents }) {
-      addComponents({
-        '.btn-base': {
-          '@apply inline-flex items-center justify-center rounded-md font-medium':
-            {},
-          '@apply transition-colors focus-visible:outline-none focus-visible:ring-2':
-            {},
-        },
-      })
-    }),
-  ],
-}
 ```
 
 ## Testing
