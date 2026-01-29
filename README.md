@@ -5,7 +5,7 @@ A React component library built with Tailwind CSS, following Engrate's brand gui
 ## Installation
 
 ```bash
-npm install eg-components
+npm install @engrate/components
 ```
 
 ### Peer Dependencies
@@ -89,17 +89,17 @@ npm install
 ```
 src/
 ├── components/
-│   ├── ui/           # Base UI components (Button, etc.)
-│   └── layout/       # Layout components
+│   ├── ui/             # Base UI components (Button, etc.)
+│   └── layout/         # Layout components
 ├── lib/
-│   └── utils.ts      # Utility functions (cn, etc.)
+│   └── utils.ts        # Utility functions (cn, etc.)
 ├── styles/
-│   ├── fonts.css     # @font-face declarations
-│   └── index.css     # Tailwind entry point
+│   ├── fonts.css       # @font-face declarations
+│   └── index.css       # Tailwind entry point
 ├── test/
-│   └── setup.ts      # Test configuration
-├── tailwind.preset.ts # Exportable design tokens
-└── index.ts          # Main entry point
+│   └── setup.ts        # Test configuration
+├── tailwind.preset.ts  # Exportable design tokens
+└── index.ts            # Main entry point
 ```
 
 ### Adding a Component
@@ -141,6 +141,14 @@ This library follows Engrate's brand guidelines:
 - **Pill-shaped buttons**: Full border-radius (`rounded-pill`)
 - **No bold fonts**: Use Regular weight only (Medium for emphasis)
 - **Left-aligned text**: Default alignment
+
+## Publishing to NPM
+
+Make sure you have access to the @engrate org in NPM and then run:
+
+```
+npm publish --access public
+```
 
 ## License
 

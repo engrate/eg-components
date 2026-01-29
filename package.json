@@ -1,6 +1,6 @@
 {
   "name": "@engrate/components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Engrate Component Library",
   "type": "module",
   "main": "./dist/eg-components.cjs.js",
@@ -39,8 +39,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
-    "verify": "npm run test:run && npm run lint:fix && npm run format:check && npm run typecheck",
-    "publish": "npm publish --access public"
+    "verify": "npm run test:run && npm run lint:fix && npm run format:check && npm run typecheck"
   },
   "repository": {
     "type": "git",
