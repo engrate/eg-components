@@ -155,11 +155,9 @@ This library follows Engrate's brand guidelines:
 
 ## Publishing to NPM
 
-Make sure you have access to the @engrate org in NPM and then run:
-
-```
-npm publish --access public
-```
+1. Make sure you have access to the NPM `@engrate` org
+2. Update version in `package.json`
+3. Run `make publish`
 
 ## License
 
