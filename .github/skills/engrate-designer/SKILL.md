@@ -3,7 +3,7 @@ name: engrate-designer
 description: Comprehensive brand identity system for Engrate, covering visual design, typography, color usage, and UI standards. Use this skill when creating any visual materials, web interfaces, presentations, or marketing content for Engrate to ensure brand consistency. Essential for designers, developers, and content creators working on Engrate-related projects. Use for any design work involving Engrate branding, including websites, apps, presentations, marketing materials, social media graphics, or UI components.
 ---
 
-# Engrate Brand Guidelines
+# Engrate Designer
 
 ## 1. Manifesto & Brand Strategy
 
