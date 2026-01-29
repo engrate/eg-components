@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: () => (
-    <Tabs defaultValue="tab1" className="w-[400px]">
+    <Tabs defaultValue="tab1" className="w-100">
       <TabList>
         <TabTrigger value="tab1">Account</TabTrigger>
         <TabTrigger value="tab2">Password</TabTrigger>
@@ -37,7 +37,7 @@ export const Default: Story = {
 
 export const Pills: Story = {
   render: () => (
-    <Tabs defaultValue="tab1" className="w-[400px]">
+    <Tabs defaultValue="tab1" className="w-100">
       <TabList variant="pills">
         <TabTrigger value="tab1" variant="pills">
           Account
@@ -64,7 +64,7 @@ export const Pills: Story = {
 
 export const SmallSize: Story = {
   render: () => (
-    <Tabs defaultValue="tab1" className="w-[400px]">
+    <Tabs defaultValue="tab1" className="w-100">
       <TabList>
         <TabTrigger value="tab1" size="sm">
           Account
@@ -91,7 +91,7 @@ export const SmallSize: Story = {
 
 export const LargeSize: Story = {
   render: () => (
-    <Tabs defaultValue="tab1" className="w-[400px]">
+    <Tabs defaultValue="tab1" className="w-100">
       <TabList>
         <TabTrigger value="tab1" size="lg">
           Account
@@ -118,7 +118,7 @@ export const LargeSize: Story = {
 
 export const WithDisabledTab: Story = {
   render: () => (
-    <Tabs defaultValue="tab1" className="w-[400px]">
+    <Tabs defaultValue="tab1" className="w-100">
       <TabList>
         <TabTrigger value="tab1">Account</TabTrigger>
         <TabTrigger value="tab2" disabled>
@@ -141,7 +141,7 @@ export const WithDisabledTab: Story = {
 
 export const ManyTabs: Story = {
   render: () => (
-    <Tabs defaultValue="tab1" className="w-[600px]">
+    <Tabs defaultValue="tab1" className="w-150">
       <TabList>
         <TabTrigger value="tab1">Overview</TabTrigger>
         <TabTrigger value="tab2">Analytics</TabTrigger>
