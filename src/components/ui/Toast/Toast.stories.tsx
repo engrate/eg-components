@@ -149,7 +149,7 @@ export const TitleOnly: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex min-w-[360px] flex-col gap-4">
+    <div className="min-w-90 flex flex-col gap-4">
       <Toast open variant="default">
         <div className="grid gap-1">
           <ToastTitle>Default</ToastTitle>
