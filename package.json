@@ -1,6 +1,6 @@
 {
-  "name": "eg-components",
-  "version": "0.0.1",
+  "name": "@engrate/components",
+  "version": "0.0.2",
   "description": "Engrate Component Library",
   "type": "module",
   "main": "./dist/eg-components.cjs.js",
@@ -39,7 +39,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
-    "verify": "npm run test:run && npm run lint:fix && npm run format:check && npm run typecheck"
+    "verify": "npm run test:run && npm run lint:fix && npm run format:check && npm run typecheck",
+    "publish": "npm publish --access public"
   },
   "repository": {
     "type": "git",
@@ -52,7 +53,7 @@
     "engrate"
   ],
   "author": "Olof Kihlberg",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/engrate/eg-components/issues"
   },
