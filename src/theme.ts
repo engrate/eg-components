@@ -39,6 +39,7 @@ export const engrateTheme: Config['theme'] = {
     fontFamily: {
       display: ['Libre Baskerville', 'serif'],
       sans: ['Work Sans', 'sans-serif'],
+      mono: ['IBM Plex Mono', 'monospace'],
     },
     fontSize: {
       // Hero heading (Libre Baskerville only, 60pt+)
