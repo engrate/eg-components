@@ -27,7 +27,7 @@ src/
 - Use `cva()` from `class-variance-authority` for variant-based styling
 - Use `cn()` from `@/lib/utils` for class merging (combines clsx + tailwind-merge)
 - Support `asChild` prop using `@radix-ui/react-slot` for polymorphism
-- Always use `React.forwardRef` and set `displayName`
+- Always use `React.ComponentRef` and set `displayName`
 - Export the component, its variants function, and props type
 
 ```tsx
