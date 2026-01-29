@@ -55,7 +55,7 @@ AlertDialogOverlay.displayName = 'AlertDialogOverlay'
 
 const alertDialogContentVariants = cva(
   [
-    'fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2',
+    'fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2',
     'bg-main grid w-full gap-4 p-6 shadow-lg',
     'max-h-[85vh] overflow-y-auto',
     'border-border rounded-lg border',
@@ -158,7 +158,7 @@ const AlertDialogTitle = React.forwardRef<
   <AlertDialogPrimitive.Title
     ref={ref}
     className={cn(
-      'text-text-primary text-lg font-semibold leading-none tracking-tight',
+      'text-text-primary text-lg leading-none font-semibold tracking-tight',
       className
     )}
     {...props}

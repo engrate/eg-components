@@ -93,7 +93,7 @@ const dateTimePickerTriggerVariants = cva(
     'bg-card text-body text-primary placeholder:text-tertiary',
     'flex h-10 w-full items-center justify-between rounded-md border px-3 py-2',
     'font-sans transition-colors',
-    'focus-visible:ring-sunflower focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+    'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
     'disabled:cursor-not-allowed disabled:opacity-50',
   ],
   {
@@ -378,7 +378,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
                 onClick={handlePreviousMonth}
                 className={cn(
                   'hover:bg-alt focus-visible:ring-sunflower inline-flex h-8 w-8 items-center justify-center rounded-full',
-                  'transition-colors focus-visible:outline-none focus-visible:ring-2'
+                  'transition-colors focus-visible:ring-2 focus-visible:outline-none'
                 )}
                 aria-label="Previous month"
               >
@@ -394,7 +394,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
                 onClick={handleNextMonth}
                 className={cn(
                   'hover:bg-alt focus-visible:ring-sunflower inline-flex h-8 w-8 items-center justify-center rounded-full',
-                  'transition-colors focus-visible:outline-none focus-visible:ring-2'
+                  'transition-colors focus-visible:ring-2 focus-visible:outline-none'
                 )}
                 aria-label="Next month"
               >
@@ -463,7 +463,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
                   step={minuteStep * 60}
                   className={cn(
                     'bg-card text-body text-primary border-border rounded-md border px-2 py-1',
-                    'focus-visible:ring-sunflower focus-visible:outline-none focus-visible:ring-2'
+                    'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:outline-none'
                   )}
                   aria-label="Select time"
                 />

@@ -26,7 +26,7 @@ const ToastViewport = React.forwardRef<
   <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
-      'fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]',
+      'fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:top-auto sm:right-0 sm:bottom-0 sm:flex-col md:max-w-[420px]',
       className
     )}
     {...props}
@@ -98,7 +98,7 @@ const ToastAction = React.forwardRef<
       'rounded-pill border-border inline-flex h-8 shrink-0 items-center justify-center border bg-transparent px-3 text-sm font-medium',
       'ring-offset-main transition-colors',
       'hover:bg-alt',
-      'focus:ring-sunflower focus:outline-none focus:ring-2 focus:ring-offset-2',
+      'focus:ring-sunflower focus:ring-2 focus:ring-offset-2 focus:outline-none',
       'disabled:pointer-events-none disabled:opacity-50',
       'group-[.error]:border-error/30 group-[.error]:hover:border-error/50 group-[.error]:hover:bg-error/10 group-[.error]:focus:ring-error',
       className
@@ -123,9 +123,9 @@ const ToastClose = React.forwardRef<
   <ToastPrimitives.Close
     ref={ref}
     className={cn(
-      'text-secondary absolute right-2 top-2 rounded-sm p-1 opacity-0 transition-opacity',
+      'text-secondary absolute top-2 right-2 rounded-sm p-1 opacity-0 transition-opacity',
       'hover:text-primary',
-      'focus:ring-sunflower focus:opacity-100 focus:outline-none focus:ring-2',
+      'focus:ring-sunflower focus:opacity-100 focus:ring-2 focus:outline-none',
       'group-hover:opacity-100',
       'group-[.error]:text-error/70 group-[.error]:hover:text-error group-[.error]:focus:ring-error group-[.error]:focus:ring-offset-error',
       className

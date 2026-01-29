@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const eyebrowVariants = cva(
-  'font-mono text-xs font-normal uppercase leading-5 tracking-[1.2px]',
+  'font-mono text-xs leading-5 font-normal tracking-[1.2px] uppercase',
   {
     variants: {
       variant: {

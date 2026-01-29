@@ -46,7 +46,7 @@ export const WithInput: Story = {
         id="email"
         type="email"
         placeholder="you@example.com"
-        className="border-border bg-card text-body focus:ring-sunflower h-10 w-64 rounded-md border px-3 font-sans focus:outline-none focus:ring-2 focus:ring-offset-2"
+        className="border-border bg-card text-body focus:ring-sunflower h-10 w-64 rounded-md border px-3 font-sans focus:ring-2 focus:ring-offset-2 focus:outline-none"
       />
     </div>
   ),

@@ -14,7 +14,7 @@ describe('DateTimePicker', () => {
   it('renders with a selected date and time', () => {
     const date = new Date(2025, 0, 15, 14, 30) // January 15, 2025 at 14:30
     render(<DateTimePicker value={date} />)
-    expect(screen.getByText('01/15/2025 14:30')).toBeInTheDocument()
+    expect(screen.getByText('2025-01-15 14:30')).toBeInTheDocument()
   })
 
   it('opens the calendar when clicked', async () => {

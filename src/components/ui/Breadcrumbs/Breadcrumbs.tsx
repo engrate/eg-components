@@ -18,7 +18,7 @@ const breadcrumbsVariants = cva('text-small flex items-center font-sans', {
 })
 
 const breadcrumbItemVariants = cva(
-  'focus-visible:ring-sunflower inline-flex items-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+  'focus-visible:ring-sunflower inline-flex items-center transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
   {
     variants: {
       isCurrentPage: {

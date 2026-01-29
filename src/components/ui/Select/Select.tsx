@@ -28,7 +28,7 @@ const SelectTrigger = React.forwardRef<
     className={cn(
       'bg-card text-body text-primary flex h-10 w-full items-center justify-between rounded-md border px-3 py-2 font-sans transition-colors',
       'placeholder:text-tertiary',
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+      'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
       'disabled:cursor-not-allowed disabled:opacity-50',
       '[&>span]:line-clamp-1',
       variant === 'default'
@@ -169,7 +169,7 @@ const SelectLabel = React.forwardRef<
   <SelectPrimitive.Label
     ref={ref}
     className={cn(
-      'text-small text-tertiary py-1.5 pl-8 pr-2 font-normal',
+      'text-small text-tertiary py-1.5 pr-2 pl-8 font-normal',
       className
     )}
     {...props}
@@ -187,7 +187,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'text-body relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 outline-none',
+      'text-body relative flex w-full cursor-default items-center rounded-sm py-1.5 pr-2 pl-8 outline-none select-none',
       'focus:bg-vanilla focus:text-primary',
       'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className

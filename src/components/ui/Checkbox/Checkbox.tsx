@@ -26,7 +26,7 @@ const Checkbox = React.forwardRef<
     ref={ref}
     className={cn(
       'border-border bg-card peer h-5 w-5 shrink-0 rounded border transition-colors',
-      'focus-visible:ring-sunflower focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+      'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
       'disabled:cursor-not-allowed disabled:opacity-50',
       'data-[state=checked]:border-sunflower data-[state=checked]:bg-sunflower data-[state=checked]:text-primary',
       className
