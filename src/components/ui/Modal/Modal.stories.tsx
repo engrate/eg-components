@@ -315,7 +315,7 @@ export const CustomStyling: Story = {
       <ModalTrigger asChild>
         <Button>Custom Styled Modal</Button>
       </ModalTrigger>
-      <ModalContent className="border-sunflower bg-sunflower/10">
+      <ModalContent className="border-sunflower bg-sunflower">
         <ModalHeader className="border-b border-sunflower pb-4">
           <ModalTitle>Custom Styled</ModalTitle>
           <ModalDescription>
@@ -330,7 +330,7 @@ export const CustomStyling: Story = {
         </div>
         <ModalFooter className="border-t border-sunflower pt-4">
           <ModalClose asChild>
-            <Button>Got it!</Button>
+            <Button variant="secondary">Got it!</Button>
           </ModalClose>
         </ModalFooter>
       </ModalContent>
