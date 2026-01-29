@@ -21,11 +21,11 @@ export const engrateTheme: Config['theme'] = {
       secondary: '#4A4A4A',
       tertiary: '#6A6A6A',
       white: '#FFFFFF',
-      main: '#F9F9F9',
+      main: '#FAFAFA',
       alt: '#F5F5F5',
-      card: '#F5F5F5',
+      card: '#F9F9F9',
       contrast: '#EFEFEF',
-      border: '#E5E7EB',
+      border: '#E5E5E5',
 
       // Complementary colors (use sparingly)
       'warm-purple': '#721B5D',

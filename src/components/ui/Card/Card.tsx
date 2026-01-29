@@ -27,18 +27,18 @@ const cardVariants = cva(
         contrast: 'bg-contrast',
         transparent: 'bg-transparent',
         // Brand colors
-        sunflower: 'bg-sunflower',
-        'sunflower-hover': 'bg-sunflower-hover',
-        'lemon-meringue': 'bg-lemon-meringue',
-        vanilla: 'bg-vanilla',
-        eggshell: 'bg-eggshell',
+        sunflower: 'border-none bg-sunflower',
+        'sunflower-hover': 'border-none bg-sunflower-hover',
+        'lemon-meringue': 'border-none bg-lemon-meringue',
+        vanilla: 'border-none bg-vanilla',
+        eggshell: 'border-none bg-eggshell',
         // Complementary colors
-        'warm-purple': 'bg-warm-purple text-white',
-        'cool-purple': 'bg-cool-purple text-white',
-        'electric-blue': 'bg-electric-blue text-white',
-        'deep-blue': 'bg-deep-blue text-white',
+        'warm-purple': 'border-none bg-warm-purple',
+        'cool-purple': 'border-none bg-cool-purple',
+        'electric-blue': 'border-none bg-electric-blue',
+        'deep-blue': 'border-none bg-deep-blue',
         // Semantic
-        error: 'bg-error text-white',
+        error: 'border-none bg-error',
       },
     },
     defaultVariants: {
