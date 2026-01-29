@@ -4,7 +4,7 @@ import { Button } from '../Button'
 import { Spinner } from './Spinner'
 
 const meta = {
-  title: 'UI/Spinner',
+  title: 'Misc/Spinner',
   component: Spinner,
   parameters: {
     layout: 'centered',

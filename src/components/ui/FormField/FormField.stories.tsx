@@ -14,7 +14,7 @@ import { Checkbox } from '../Checkbox'
 import { Label } from '../Label'
 
 const meta = {
-  title: 'UI/FormField',
+  title: 'Forms/FormField',
   component: FormField,
   parameters: {
     layout: 'centered',

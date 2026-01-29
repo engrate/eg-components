@@ -10,7 +10,7 @@ import {
 } from './Tooltip'
 
 const meta = {
-  title: 'UI/Tooltip',
+  title: 'Misc/Tooltip',
   component: TooltipContent,
   parameters: {
     layout: 'centered',

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ProgressIndicator } from './ProgressIndicator'
 
 const meta = {
-  title: 'UI/ProgressIndicator',
+  title: 'Misc/ProgressIndicator',
   component: ProgressIndicator,
   parameters: {
     layout: 'centered',

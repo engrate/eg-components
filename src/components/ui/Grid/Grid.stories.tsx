@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Grid, GridItem } from './Grid'
 
 const meta = {
-  title: 'UI/Grid',
+  title: 'Layout/Grid',
   component: Grid,
   parameters: {
     layout: 'padded',

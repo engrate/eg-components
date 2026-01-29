@@ -190,7 +190,7 @@ describe('Stack', () => {
   })
 
   it('forwards ref correctly', () => {
-    const ref = { current: null } as React.RefObject<HTMLDivElement>
+    const ref = { current: null } as unknown as React.RefObject<HTMLDivElement>
     render(
       <Stack ref={ref} data-testid="stack">
         Content

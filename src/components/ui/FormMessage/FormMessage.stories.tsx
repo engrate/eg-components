@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { FormMessage } from './FormMessage'
 
 const meta = {
-  title: 'UI/FormMessage',
+  title: 'Forms/FormMessage',
   component: FormMessage,
   parameters: {
     layout: 'centered',

@@ -18,7 +18,7 @@ import {
 const meta: Meta<typeof Table> = {
   component: Table,
   tags: ['autodocs'],
-  title: 'Components/Table',
+  title: 'Misc/Table',
   parameters: {
     layout: 'padded',
   },

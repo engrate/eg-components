@@ -5,7 +5,7 @@ import { Text } from '../Text'
 import { Card } from './Card'
 
 const meta = {
-  title: 'UI/Card',
+  title: 'Misc/Card',
   component: Card,
   parameters: {
     layout: 'centered',

@@ -72,7 +72,7 @@ function ControlledExample() {
 }
 
 const meta = {
-  title: 'UI/DatePicker',
+  title: 'Misc/DatePicker',
   component: DatePicker,
   parameters: {
     layout: 'centered',

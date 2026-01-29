@@ -14,7 +14,7 @@ import {
 } from './AlertDialog'
 
 const meta = {
-  title: 'UI/AlertDialog',
+  title: 'Modals/AlertDialog',
   component: AlertDialog,
   parameters: {
     layout: 'centered',

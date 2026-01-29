@@ -3,7 +3,7 @@ import { Eyebrow } from './Eyebrow'
 import { Heading } from '../Heading'
 
 const meta = {
-  title: 'UI/Eyebrow',
+  title: 'Typography/Eyebrow',
   component: Eyebrow,
   parameters: {
     layout: 'centered',

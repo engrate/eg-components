@@ -110,7 +110,7 @@ function MinuteStepExample() {
 }
 
 const meta = {
-  title: 'UI/DateTimePicker',
+  title: 'Forms/DateTimePicker',
   component: DateTimePicker,
   parameters: {
     layout: 'centered',
