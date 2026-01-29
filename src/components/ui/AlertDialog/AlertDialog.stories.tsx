@@ -189,7 +189,7 @@ export const LongContent: Story = {
             Please read and accept our terms and conditions before continuing.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <div className="text-text-secondary max-h-[300px] overflow-y-auto text-sm">
+        <div className="text-text-secondary max-h-75 overflow-y-auto text-sm">
           <p className="mb-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
             euismod, nisi vel consectetur interdum, nisl nunc egestas nunc,
