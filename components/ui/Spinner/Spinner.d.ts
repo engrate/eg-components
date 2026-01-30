@@ -2,7 +2,7 @@ import { VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 declare const spinnerVariants: (props?: ({
     variant?: "default" | "muted" | "inverted" | null | undefined;
-    size?: "sm" | "default" | "lg" | "xl" | null | undefined;
+    size?: "default" | "sm" | "lg" | "xl" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof spinnerVariants> {
     /** Accessible label for screen readers */

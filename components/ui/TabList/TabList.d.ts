@@ -36,7 +36,7 @@ interface TabListProps extends React.HTMLAttributes<HTMLDivElement>, VariantProp
 declare const TabList: React.ForwardRefExoticComponent<TabListProps & React.RefAttributes<HTMLDivElement>>;
 declare const tabTriggerVariants: (props?: ({
     variant?: "default" | "pills" | null | undefined;
-    size?: "sm" | "default" | "lg" | null | undefined;
+    size?: "default" | "sm" | "lg" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface TabTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof tabTriggerVariants> {
     /** Unique value identifying this tab */
@@ -47,7 +47,7 @@ interface TabTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement>,
  */
 declare const TabTrigger: React.ForwardRefExoticComponent<TabTriggerProps & React.RefAttributes<HTMLButtonElement>>;
 declare const tabContentVariants: (props?: ({
-    size?: "sm" | "default" | "lg" | null | undefined;
+    size?: "default" | "sm" | "lg" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface TabContentProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof tabContentVariants> {
     /** Value matching the TabTrigger this content belongs to */

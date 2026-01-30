@@ -1,5 +1,7 @@
+export * from './Accordion';
 export * from './AlertDialog';
 export * from './Badge';
+export * from './Banner';
 export * from './BarChart';
 export * from './Breadcrumbs';
 export * from './Button';
@@ -20,6 +22,7 @@ export * from './Label';
 export * from './LineChart';
 export * from './Link';
 export * from './Modal';
+export * from './Pagination';
 export * from './PieChart';
 export * from './ProgressIndicator';
 export * from './Radio';

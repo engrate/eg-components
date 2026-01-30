@@ -1,7 +1,7 @@
 import { VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 declare const pieChartVariants: (props?: ({
-    size?: "sm" | "default" | "lg" | null | undefined;
+    size?: "default" | "sm" | "lg" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 /** A single data point for the pie chart */
 interface PieChartDataPoint {

@@ -1,7 +1,7 @@
 import { VariantProps } from 'class-variance-authority';
 import { buttonVariants } from '../Button';
-import * as React from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
+import * as React from 'react';
 declare const AlertDialog: React.FC<AlertDialogPrimitive.AlertDialogProps>;
 declare const AlertDialogTrigger: React.ForwardRefExoticComponent<AlertDialogPrimitive.AlertDialogTriggerProps & React.RefAttributes<HTMLButtonElement>>;
 declare const AlertDialogPortal: React.FC<AlertDialogPrimitive.AlertDialogPortalProps>;
@@ -9,7 +9,7 @@ interface AlertDialogOverlayProps extends React.ComponentPropsWithoutRef<typeof 
 }
 declare const AlertDialogOverlay: React.ForwardRefExoticComponent<AlertDialogOverlayProps & React.RefAttributes<HTMLDivElement>>;
 declare const alertDialogContentVariants: (props?: ({
-    size?: "sm" | "default" | "lg" | null | undefined;
+    size?: "default" | "sm" | "lg" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface AlertDialogContentProps extends React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content>, VariantProps<typeof alertDialogContentVariants> {
 }

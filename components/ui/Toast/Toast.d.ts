@@ -1,12 +1,12 @@
 import { VariantProps } from 'class-variance-authority';
-import * as React from 'react';
 import * as ToastPrimitives from '@radix-ui/react-toast';
+import * as React from 'react';
 declare const ToastProvider: React.FC<ToastPrimitives.ToastProviderProps>;
 interface ToastViewportProps extends React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport> {
 }
 declare const ToastViewport: React.ForwardRefExoticComponent<ToastViewportProps & React.RefAttributes<HTMLOListElement>>;
 declare const toastVariants: (props?: ({
-    variant?: "default" | "error" | "success" | "warning" | "info" | null | undefined;
+    variant?: "default" | "error" | "info" | "success" | "warning" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface ToastProps extends React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root>, VariantProps<typeof toastVariants> {
 }

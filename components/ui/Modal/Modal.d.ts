@@ -1,6 +1,6 @@
 import { VariantProps } from 'class-variance-authority';
-import * as React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
+import * as React from 'react';
 declare const Modal: React.FC<DialogPrimitive.DialogProps>;
 declare const ModalTrigger: React.ForwardRefExoticComponent<DialogPrimitive.DialogTriggerProps & React.RefAttributes<HTMLButtonElement>>;
 declare const ModalPortal: React.FC<DialogPrimitive.DialogPortalProps>;
@@ -9,7 +9,7 @@ interface ModalOverlayProps extends React.ComponentPropsWithoutRef<typeof Dialog
 }
 declare const ModalOverlay: React.ForwardRefExoticComponent<ModalOverlayProps & React.RefAttributes<HTMLDivElement>>;
 declare const modalContentVariants: (props?: ({
-    size?: "sm" | "default" | "lg" | "full" | null | undefined;
+    size?: "default" | "sm" | "lg" | "full" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface ModalContentProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, VariantProps<typeof modalContentVariants> {
     /** Whether to show the default close button in the top-right corner */

@@ -2,7 +2,7 @@ import { VariantProps } from 'class-variance-authority';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import * as React from 'react';
 declare const labelVariants: (props?: ({
-    size?: "sm" | "default" | null | undefined;
+    size?: "default" | "sm" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface LabelProps extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>, VariantProps<typeof labelVariants> {
 }

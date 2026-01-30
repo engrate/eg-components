@@ -2,7 +2,7 @@ import { VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 declare const linkVariants: (props?: ({
     variant?: "default" | "nav" | "muted" | null | undefined;
-    size?: "sm" | "default" | "lg" | null | undefined;
+    size?: "default" | "sm" | "lg" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>, VariantProps<typeof linkVariants> {
     /** Render as a child component (for use with Next.js Link, etc.) */

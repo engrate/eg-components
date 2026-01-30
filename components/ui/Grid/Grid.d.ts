@@ -1,7 +1,7 @@
 import * as React from 'react';
 declare const gridVariants: (props?: ({
     cols?: 1 | 2 | 3 | 4 | 5 | 12 | 6 | null | undefined;
-    gap?: "sm" | "lg" | "none" | "md" | "xl" | "xs" | "2xl" | null | undefined;
+    gap?: "none" | "sm" | "lg" | "md" | "xl" | "xs" | "2xl" | null | undefined;
     align?: "end" | "start" | "center" | "stretch" | "baseline" | null | undefined;
     justify?: "end" | "start" | "center" | "stretch" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
