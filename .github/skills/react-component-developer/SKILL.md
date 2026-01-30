@@ -48,7 +48,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           // Base styles
           'inline-flex items-center justify-center rounded-md font-medium transition-colors',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+          'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
           'disabled:pointer-events-none disabled:opacity-50',
           // Variants
           {
@@ -98,7 +98,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 const buttonVariants = cva(
   // Base
-  'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
@@ -322,7 +322,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           className={cn(
             'flex h-10 w-full rounded-md border bg-white px-3 py-2 text-sm',
             'placeholder:text-gray-400',
-            'focus:outline-none focus:ring-2 focus:ring-offset-2',
+            'focus:ring-2 focus:ring-offset-2 focus:outline-none',
             error
               ? 'border-red-500 focus:ring-red-500'
               : 'border-gray-300 focus:ring-blue-500',

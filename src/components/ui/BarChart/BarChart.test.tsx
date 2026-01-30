@@ -13,21 +13,6 @@ const mockData: BarChartDataPoint[] = [
   { label: 'May', revenue: 1890, expenses: 4800 },
 ]
 
-// Mock ResizeObserver for ResponsiveContainer
-class ResizeObserverMock {
-  observe() {
-    // Mock implementation - no-op for testing
-  }
-  unobserve() {
-    // Mock implementation - no-op for testing
-  }
-  disconnect() {
-    // Mock implementation - no-op for testing
-  }
-}
-
-global.ResizeObserver = ResizeObserverMock
-
 describe('BarChart', () => {
   it('renders with data', () => {
     render(<BarChart data={mockData} aria-label="Revenue chart" />)

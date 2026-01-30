@@ -9,5 +9,7 @@
     "agent-browser": true,
     "npx prettier": true
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  // ignore unknown at-rules like @apply, @theme, and @layer which are Tailwind CSS v4 directives.
+  "css.lint.unknownAtRules": "ignore"
 }

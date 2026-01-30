@@ -13,21 +13,6 @@ const mockData: DataPoint[] = [
   { label: 'May', revenue: 1890, expenses: 4800 },
 ]
 
-// Mock ResizeObserver for ResponsiveContainer
-class ResizeObserverMock {
-  observe() {
-    // Mock implementation - no-op for testing
-  }
-  unobserve() {
-    // Mock implementation - no-op for testing
-  }
-  disconnect() {
-    // Mock implementation - no-op for testing
-  }
-}
-
-global.ResizeObserver = ResizeObserverMock
-
 describe('LineChart', () => {
   it('renders with data', () => {
     render(<LineChart data={mockData} aria-label="Revenue chart" />)

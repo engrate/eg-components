@@ -5,7 +5,7 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
-const skeletonVariants = cva('bg-alt animate-pulse', {
+const skeletonVariants = cva('bg-contrast animate-pulse', {
   variants: {
     variant: {
       default: 'rounded-md',

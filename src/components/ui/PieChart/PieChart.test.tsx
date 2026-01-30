@@ -12,21 +12,6 @@ const mockData: PieChartDataPoint[] = [
   { name: 'Other', value: 100 },
 ]
 
-// Mock ResizeObserver for ResponsiveContainer
-class ResizeObserverMock {
-  observe() {
-    // Mock implementation - no-op for testing
-  }
-  unobserve() {
-    // Mock implementation - no-op for testing
-  }
-  disconnect() {
-    // Mock implementation - no-op for testing
-  }
-}
-
-global.ResizeObserver = ResizeObserverMock
-
 describe('PieChart', () => {
   it('renders with data', () => {
     render(<PieChart data={mockData} aria-label="Traffic by device" />)

@@ -163,7 +163,12 @@ const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
         role="img"
         {...props}
       >
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer
+          width="100%"
+          height="100%"
+          minWidth={100}
+          minHeight={100}
+        >
           <RechartsPieChart>
             {showTooltip && (
               <Tooltip
