@@ -17,7 +17,7 @@ export declare const engrateTheme: {
     readonly colors: {
         readonly sunflower: {
             readonly DEFAULT: "#FFBE26";
-            readonly hover: "#E5AB22";
+            readonly hover: "#FFD966";
         };
         readonly 'lemon-meringue': "#FFF8A2";
         readonly vanilla: "#FFFCD0";
