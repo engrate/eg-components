@@ -4,9 +4,15 @@ import { vi } from 'vitest'
 
 // Mock ResizeObserver for Recharts ResponsiveContainer
 class ResizeObserverMock {
-  observe() {}
-  unobserve() {}
-  disconnect() {}
+  observe() {
+    // no-op for testing
+  }
+  unobserve() {
+    // no-op for testing
+  }
+  disconnect() {
+    // no-op for testing
+  }
 }
 
 global.ResizeObserver = ResizeObserverMock
