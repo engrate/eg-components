@@ -8,7 +8,7 @@ import {
 } from './Accordion'
 
 const meta = {
-  title: 'Components/Accordion',
+  title: 'Misc/Accordion',
   component: Accordion,
   parameters: {
     layout: 'centered',
@@ -153,7 +153,7 @@ export const Sizes: Story = {
     <div className="flex flex-col gap-8">
       <div>
         <p className="text-secondary mb-2 text-sm">Small</p>
-        <Accordion type="single" collapsible className="w-[400px]">
+        <Accordion type="single" collapsible className="w-100">
           <AccordionItem value="item-1">
             <AccordionTrigger size="sm">Small trigger text</AccordionTrigger>
             <AccordionContent>
@@ -164,7 +164,7 @@ export const Sizes: Story = {
       </div>
       <div>
         <p className="text-secondary mb-2 text-sm">Default</p>
-        <Accordion type="single" collapsible className="w-[400px]">
+        <Accordion type="single" collapsible className="w-100">
           <AccordionItem value="item-1">
             <AccordionTrigger size="default">
               Default trigger text
@@ -177,7 +177,7 @@ export const Sizes: Story = {
       </div>
       <div>
         <p className="text-secondary mb-2 text-sm">Large</p>
-        <Accordion type="single" collapsible className="w-[400px]">
+        <Accordion type="single" collapsible className="w-100">
           <AccordionItem value="item-1">
             <AccordionTrigger size="lg">Large trigger text</AccordionTrigger>
             <AccordionContent>
@@ -196,7 +196,7 @@ export const FAQ: Story = {
     collapsible: true,
   },
   render: () => (
-    <div className="w-[600px]">
+    <div className="w-150">
       <h2 className="text-primary font-display mb-6 text-2xl">
         Frequently Asked Questions
       </h2>
