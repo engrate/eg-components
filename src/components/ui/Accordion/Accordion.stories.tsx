@@ -8,7 +8,7 @@ import {
 } from './Accordion'
 
 const meta = {
-  title: 'Misc/Accordion',
+  title: 'Navigation/Accordion',
   component: Accordion,
   parameters: {
     layout: 'centered',

@@ -5,7 +5,7 @@ import { Button } from '../Button'
 import { Banner } from './Banner'
 
 const meta = {
-  title: 'Misc/Banner',
+  title: 'Feedback/Banner',
   component: Banner,
   parameters: {
     layout: 'fullscreen',

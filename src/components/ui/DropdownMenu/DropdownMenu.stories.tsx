@@ -22,7 +22,7 @@ import {
 } from './DropdownMenu'
 
 const meta = {
-  title: 'Misc/DropdownMenu',
+  title: 'Menu/DropdownMenu',
   component: DropdownMenu,
   parameters: {
     layout: 'centered',

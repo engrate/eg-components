@@ -5,7 +5,7 @@ import { Card } from '../Card'
 import { Skeleton } from './Skeleton'
 
 const meta = {
-  title: 'Misc/Skeleton',
+  title: 'Feedback/Skeleton',
   component: Skeleton,
   parameters: {
     layout: 'centered',

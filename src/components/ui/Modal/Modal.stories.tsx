@@ -17,7 +17,7 @@ import {
 } from './Modal'
 
 const meta = {
-  title: 'Modals/Modal',
+  title: 'Overlays/Modal',
   component: Modal,
   parameters: {
     layout: 'centered',
