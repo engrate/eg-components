@@ -237,12 +237,8 @@ export const InTableRow: Story = {
     <table className="w-full border-collapse">
       <thead>
         <tr className="border-border border-b">
-          <th className="text-small text-secondary p-3 text-left font-semibold">
-            Name
-          </th>
-          <th className="text-small text-secondary p-3 text-left font-semibold">
-            Status
-          </th>
+          <th className="text-small text-secondary p-3 text-left">Name</th>
+          <th className="text-small text-secondary p-3 text-left">Status</th>
           <th className="w-12 p-3"></th>
         </tr>
       </thead>

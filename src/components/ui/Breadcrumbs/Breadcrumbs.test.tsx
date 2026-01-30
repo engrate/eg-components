@@ -149,10 +149,10 @@ describe('BreadcrumbItem', () => {
 
   it('applies styling classes', () => {
     const { rerender } = render(<BreadcrumbItem href="#">Link</BreadcrumbItem>)
-    expect(screen.getByRole('link')).toHaveClass('text-secondary')
+    expect(screen.getByRole('link')).toHaveClass('text-quaternary')
 
     rerender(<BreadcrumbItem isCurrentPage>Current</BreadcrumbItem>)
-    expect(screen.getByText('Current')).toHaveClass('text-primary')
+    expect(screen.getByText('Current')).toHaveClass('text-black')
   })
 })
 

@@ -24,8 +24,8 @@ const breadcrumbItemVariants = cva(
   {
     variants: {
       isCurrentPage: {
-        true: 'text-primary cursor-default font-medium',
-        false: 'text-secondary hover:text-primary',
+        true: 'cursor-default text-black',
+        false: 'text-quaternary hover:text-primary',
       },
     },
     defaultVariants: {

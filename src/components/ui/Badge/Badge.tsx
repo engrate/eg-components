@@ -12,9 +12,10 @@ const badgeVariants = cva(
     variants: {
       variant: {
         sunflower: 'bg-sunflower text-primary',
-        'lemon-meringue': 'bg-lemon-meringue text-primary',
-        vanilla: 'bg-vanilla text-primary',
-        eggshell: 'bg-eggshell text-primary',
+        'lemon-meringue':
+          'bg-lemon-meringue text-primary border-tertiary border',
+        vanilla: 'bg-vanilla text-primary border-tertiary border',
+        eggshell: 'bg-eggshell text-primary border-tertiary border',
         'warm-purple': 'bg-warm-purple text-white',
         'cool-purple': 'bg-cool-purple text-white',
         'electric-blue': 'bg-electric-blue text-white',

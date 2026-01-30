@@ -11,7 +11,7 @@ const eyebrowVariants = cva(
   {
     variants: {
       variant: {
-        default: 'text-sunflower',
+        default: 'text-primary',
         primary: 'text-primary',
         secondary: 'text-secondary',
       },

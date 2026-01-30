@@ -17,7 +17,7 @@ export const engrateTheme = {
   colors: {
     sunflower: {
       DEFAULT: '#FFBE26',
-      hover: '#E5AB22',
+      hover: '#FFD966',
     },
     'lemon-meringue': '#FFF8A2',
     vanilla: '#FFFCD0',

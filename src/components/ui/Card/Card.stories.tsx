@@ -174,13 +174,13 @@ export const Interactive: Story = {
   },
 }
 
-export const WhiteBackground: Story = {
+export const CardBackground: Story = {
   args: {
-    bg: 'white',
+    bg: 'card',
     children: (
       <>
-        <Heading level="h3">White Card</Heading>
-        <Text>This card uses white background.</Text>
+        <Heading level="h3">Card Background</Heading>
+        <Text>This card uses the card background color.</Text>
       </>
     ),
   },
@@ -228,8 +228,8 @@ export const AllBackgroundColors: Story = {
       <Card>
         <Text className="text-small font-medium">default (alt)</Text>
       </Card>
-      <Card bg="white">
-        <Text className="text-small font-medium">white</Text>
+      <Card bg="card">
+        <Text className="text-small font-medium">card</Text>
       </Card>
       <Card bg="main">
         <Text className="text-small font-medium">main</Text>

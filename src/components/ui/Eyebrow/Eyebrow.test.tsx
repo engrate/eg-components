@@ -19,7 +19,7 @@ describe('Eyebrow', () => {
   it('renders with default variant', () => {
     const { getByText } = render(<Eyebrow>Default</Eyebrow>)
     const element = getByText('Default')
-    expect(element).toHaveClass('text-sunflower')
+    expect(element).toHaveClass('text-primary')
   })
 
   it('renders with primary variant', () => {

@@ -4,7 +4,7 @@
 @theme {
   /* Primary brand colors */
   --color-sunflower: #ffbe26;
-  --color-sunflower-hover: #e5ab22;
+  --color-sunflower-hover: #ffda51;
   --color-lemon-meringue: #fff8a2;
   --color-vanilla: #fffcd0;
   --color-eggshell: #fffde8;
@@ -13,6 +13,8 @@
   --color-primary: #1a1a1a;
   --color-secondary: #4a4a4a;
   --color-tertiary: #6a6a6a;
+  --color-quaternary: #8a8a8a;
+  --color-quinary: #ededed;
   --color-white: #ffffff;
   --color-main: #fafafa;
   --color-alt: #f5f5f5;
@@ -37,39 +39,39 @@
   /* Font sizes with line heights and letter spacing */
   --text-hero: 3.75rem;
   --text-hero--line-height: 1.1;
-  --text-hero--letter-spacing: -0.02em;
+  --text-hero--letter-spacing: -0.05em;
 
   --text-h1: 2.5rem;
-  --text-h1--line-height: 1.025;
-  --text-h1--letter-spacing: -0.04em;
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.05em;
 
   --text-h2: 1.875rem;
   --text-h2--line-height: 1.067;
-  --text-h2--letter-spacing: -0.03em;
+  --text-h2--letter-spacing: -0.05em;
 
   --text-h3: 1.5625rem;
   --text-h3--line-height: 1.08;
-  --text-h3--letter-spacing: -0.02em;
+  --text-h3--letter-spacing: -0.05em;
 
   --text-h4: 1.5625rem;
   --text-h4--line-height: 1.08;
-  --text-h4--letter-spacing: -0.01em;
+  --text-h4--letter-spacing: -0.05em;
 
   --text-lead: 1.25rem;
   --text-lead--line-height: 1.1;
-  --text-lead--letter-spacing: -0.02em;
+  --text-lead--letter-spacing: -0.05em;
 
   --text-semi-lead: 0.9375rem;
   --text-semi-lead--line-height: 1.6;
-  --text-semi-lead--letter-spacing: 0;
+  --text-semi-lead--letter-spacing: -0.05em;
 
   --text-body-lg: 0.875rem;
   --text-body-lg--line-height: 1.25;
-  --text-body-lg--letter-spacing: 0.01em;
+  --text-body-lg--letter-spacing: -0.05em;
 
   --text-body: 1rem;
   --text-body--line-height: 1.5;
-  --text-body--letter-spacing: 0;
+  --text-body--letter-spacing: -0.05em;
 
   --text-descriptive: 0.75rem;
   --text-descriptive--line-height: 1.75;
@@ -77,11 +79,11 @@
 
   --text-small: 0.875rem;
   --text-small--line-height: 1.5;
-  --text-small--letter-spacing: 0.01em;
+  --text-small--letter-spacing: -0.05em;
 
   --text-label: 0.75rem;
   --text-label--line-height: 1.4;
-  --text-label--letter-spacing: 0.02em;
+  --text-label--letter-spacing: 0.08em;
 
   --text-label-sm: 0.625rem;
   --text-label-sm--line-height: 2.4;
@@ -91,8 +93,8 @@
   --radius-pill: 9999px;
 
   /* Spacing */
-  --spacing-btn-x: 2.5rem;
-  --spacing-btn-y: 1rem;
+  --spacing-btn-x: 2rem;
+  --spacing-btn-y: 0.75rem;
 }
 
 @layer base {

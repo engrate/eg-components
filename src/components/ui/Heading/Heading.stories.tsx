@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Heading } from './Heading'
+import { Eyebrow } from '../Eyebrow'
 
 const meta = {
   title: 'Typography/Heading',
@@ -88,9 +89,9 @@ export const AllLevels: Story = {
 export const WithSemanticOverride: Story = {
   render: () => (
     <div className="space-y-4">
-      <p className="text-label text-tertiary">
+      <Eyebrow>
         Hero styling with h2 semantics (for when h1 is used elsewhere):
-      </p>
+      </Eyebrow>
       <Heading level="hero" as="h2">
         Visually Hero, Semantically H2
       </Heading>

@@ -9,10 +9,10 @@ const headingVariants = cva('text-primary font-normal', {
   variants: {
     level: {
       hero: 'font-display text-hero',
-      h1: 'text-h1 font-sans',
-      h2: 'text-h2 font-sans',
-      h3: 'text-h3 font-sans',
-      h4: 'text-h4 font-sans',
+      h1: 'text-h1 font-sans font-normal',
+      h2: 'text-h2 font-sans font-normal',
+      h3: 'text-h3 font-sans font-normal',
+      h4: 'text-h4 font-sans font-normal',
     },
   },
   defaultVariants: {

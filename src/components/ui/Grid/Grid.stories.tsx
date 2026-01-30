@@ -326,7 +326,7 @@ export const ResponsiveComplexLayout: Story = {
       </GridItem>
       <GridItem colSpan={{ base: 'full', md: 2, lg: 3 }}>
         <DemoBox className="h-full">
-          <h4 className="mb-2 font-semibold">Nav</h4>
+          <h4 className="mb-2">Nav</h4>
           <p className="text-secondary text-sm">
             Full on mobile
             <br />
@@ -338,7 +338,7 @@ export const ResponsiveComplexLayout: Story = {
       </GridItem>
       <GridItem colSpan={{ base: 'full', md: 4, lg: 6 }}>
         <DemoBox className="h-full">
-          <h4 className="mb-2 font-semibold">Main Content</h4>
+          <h4 className="mb-2">Main Content</h4>
           <p className="text-secondary text-sm">
             Full on mobile
             <br />
@@ -350,7 +350,7 @@ export const ResponsiveComplexLayout: Story = {
       </GridItem>
       <GridItem colSpan={{ base: 'full', md: 6, lg: 3 }}>
         <DemoBox className="h-full">
-          <h4 className="mb-2 font-semibold">Aside</h4>
+          <h4 className="font mb-2">Aside</h4>
           <p className="text-secondary text-sm">
             Full on mobile
             <br />

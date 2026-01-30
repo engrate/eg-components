@@ -9,7 +9,7 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 
 ### Core Message
 
-- We solve problems – preferably the biggest ones we can find
+- We solve problems — preferably the biggest ones we can find
 - Everything starts and ends with energy
 - We're building a platform that makes the transition to sustainability faster, more democratic, and more profitable
 - Our overarching goal: to become the global standard for energy data
@@ -55,6 +55,7 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 - Inspired by the eternal power of the sun
 - Represents balance in energy perspective (between green and red spectrum)
 - The most powerful color in the identity
+- **NEVER use Sunflower for text** — reserve for UI elements, accents, and highlights only
 
 **Philosophy:**
 
@@ -66,7 +67,7 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 
 ### 3.2 Secondary Colors (Yellow Spectrum)
 
-**CRITICAL RULE:** All colors work as individual, strong, and complementary colors – **NEVER** as tints or fades.
+**CRITICAL RULE:** All colors work as individual, strong, and complementary colors — **NEVER** as tints or fades.
 
 | Color              | HEX     | Usage                          |
 | ------------------ | ------- | ------------------------------ |
@@ -146,7 +147,29 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 
 ## 4. Typography
 
-### 4.1 Type Hierarchy
+### 4.1 Universal Typography Rules
+
+**CRITICAL RULE - Letter Spacing (Tracking):**
+
+- **All typography above 10pt must use -5% letter spacing**
+- This applies universally: headings, body text, labels, buttons, links, breadcrumbs — everything
+- Only exception: very small labels (≤10pt) may use neutral or slightly positive tracking
+
+**CRITICAL RULE - Text Colors:**
+
+- **NEVER use colored text** (no Sunflower, no yellow spectrum, no complementary colors)
+- **All text must be grayscale only**
+- **Prioritize black (#1A1A1A)** for most text
+- Use gray (#4A4A4A, #6A6A6A) only when helpful for hierarchy
+- **Avoid white text** — use only when absolutely necessary on dark images
+
+**CRITICAL RULE - Work Sans Weight:**
+
+- Work Sans must **ALWAYS** be Regular
+- **NO other weights are allowed** — no Bold, no Medium, no Light
+- Hierarchy is created through size and color, NEVER through weight
+
+### 4.2 Type Hierarchy
 
 **CRITICAL RULE - When to use Libre Baskerville:**
 
@@ -166,11 +189,11 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 **Summary:**
 
 - **Libre Baskerville**: Only large hero headings (≥60pt)
-- **Work Sans**: Everything else (headings <60pt, body text, labels)
+- **Work Sans Regular**: Everything else (headings <60pt, body text, labels, links, buttons)
 
 ---
 
-### 4.2 Primary Typeface: Libre Baskerville (Only Large Hero Headings)
+### 4.3 Primary Typeface: Libre Baskerville (Only Large Hero Headings)
 
 **Usage Area:** ONLY really large hero headings (60pt and up)
 
@@ -178,7 +201,12 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 
 | Level   | Size  | Line Height | Letter Spacing | Weight  |
 | ------- | ----- | ----------- | -------------- | ------- |
-| Hero H1 | 60pt+ | 60pt        | -2%            | Regular |
+| Hero H1 | 60pt+ | 110%        | -5%            | Regular |
+
+**Hero Heading Specifications:**
+
+- Line height: **110%** (tight, impactful)
+- Letter spacing: **-5%** (consistent with all typography >10pt)
 
 **ABSOLUTE RULE:**
 
@@ -187,27 +215,27 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 
 ---
 
-### 4.3 Secondary Typeface: Work Sans (Standard for Everything Else)
+### 4.4 Secondary Typeface: Work Sans (Standard for Everything Else)
 
-**Usage Area:** All headings under 60pt, body text, labels
+**Usage Area:** All headings under 60pt, body text, labels, links, buttons
 
 #### Headings
 
 | Level         | Size | Line Height | Letter Spacing | Weight  |
 | ------------- | ---- | ----------- | -------------- | ------- |
-| H1 (Standard) | 40pt | 41pt        | -4%            | Regular |
-| H2            | 30pt | 32pt        | -3%            | Regular |
-| H3            | 25pt | 27pt        | -2%            | Regular |
-| H4            | 25pt | 27pt        | -1%            | Regular |
+| H1 (Standard) | 40pt | 41pt        | -5%            | Regular |
+| H2            | 30pt | 32pt        | -5%            | Regular |
+| H3            | 25pt | 27pt        | -5%            | Regular |
+| H4            | 20pt | 22pt        | -5%            | Regular |
 
 #### Body Text
 
 | Type                 | Size | Line Height | Letter Spacing | Weight  | Color              |
 | -------------------- | ---- | ----------- | -------------- | ------- | ------------------ |
-| **Lead**             | 20pt | 22pt        | -2%            | Regular | #1A1A1A or #4A4A4A |
-| **Semi-Lead**        | 15pt | 24pt        | 0%             | Regular | #4A4A4A            |
-| **Large Body**       | 12pt | 15pt        | +1%            | Regular | #4A4A4A            |
-| **Body**             | 10pt | 13pt        | +2%            | Regular | #4A4A4A            |
+| **Lead**             | 20pt | 22pt        | -5%            | Regular | #1A1A1A or #4A4A4A |
+| **Semi-Lead**        | 15pt | 24pt        | -5%            | Regular | #4A4A4A            |
+| **Large Body**       | 12pt | 15pt        | -5%            | Regular | #4A4A4A            |
+| **Body**             | 10pt | 13pt        | -5%            | Regular | #4A4A4A            |
 | **Descriptive Text** | 8pt  | 14pt        | +4%            | Regular | #4A4A4A or #6A6A6A |
 
 #### Labels & Meta Information
@@ -216,21 +244,6 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 | --------------- | ---- | ----------- | -------------- | ------- | ------- |
 | **Large Label** | 8pt  | 16pt        | +8%            | Regular | #6A6A6A |
 | **Small Label** | 5pt  | 12pt        | +14%           | Regular | #6A6A6A |
-
-**CRITICAL RULE - Work Sans Weight:**
-
-- Work Sans should **ALWAYS** be in Regular
-- **NEVER** use Bold or other weights
-- Only exception: Medium can be used sparingly for Lead text where extra emphasis is needed
-- Hierarchy is created through size and spacing, NOT through weight
-
-**CRITICAL RULE - Text Colors:**
-
-- **All text** should be in one of the defined dark gray colors
-- **Headings**: #1A1A1A (Text Primary)
-- **Body text**: #4A4A4A (Text Secondary)
-- **Labels/Meta**: #6A6A6A (Text Tertiary)
-- **NEVER** use pure black (#000000) or other colors for text
 
 ---
 
@@ -247,22 +260,170 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 
 **Button Styles:**
 
-| Element            | Specification                   |
-| ------------------ | ------------------------------- |
-| **Background**     | #FFBE26 (Sunflower)             |
-| **Text**           | Work Sans Regular, 15pt         |
-| **Text Color**     | #1A1A1A (Text Primary)          |
-| **Padding**        | 16px vertical, 40px horizontal  |
-| **Border-radius**  | 9999px (fully rounded)          |
-| **Letter-spacing** | 0%                              |
-| **Hover Effect**   | Background #E5AB22, slight lift |
+| Element            | Specification                  |
+| ------------------ | ------------------------------ |
+| **Background**     | #FFBE26 (Sunflower)            |
+| **Text**           | Work Sans Regular, 15pt        |
+| **Text Color**     | #1A1A1A (Text Primary)         |
+| **Padding**        | 12px vertical, 32px horizontal |
+| **Border-radius**  | 9999px (fully rounded)         |
+| **Letter-spacing** | -5%                            |
+
+**IMPORTANT - Button Size:**
+
+- Buttons should be compact and slim
+- Vertical padding: 12px (not 16px)
+- Horizontal padding: 32px (not 40px)
+- This creates a more refined, elegant button appearance
+
+**Button Hover States:**
+
+| Button Type        | Default Background | Hover Background | Notes                    |
+| ------------------ | ------------------ | ---------------- | ------------------------ |
+| **Primary**        | #FFBE26            | #FFD966          | Brighter yellow on hover |
+| **Secondary/Gray** | #E5E5E5            | #FFFFFF          | Bright white on hover    |
 
 **Examples:**
 
 ```
-Primary button: Yellow background (#FFBE26), dark gray text (#1A1A1A), rounded form
-Secondary button: Transparent with yellow border, dark gray text, rounded form
+Primary button: Yellow background (#FFBE26), hover: brighter yellow (#FFD966)
+Gray button: Gray background (#E5E5E5), hover: white (#FFFFFF)
 ```
+
+---
+
+### 5.2 Badges
+
+**CRITICAL RULE - Badges on Light Gray Surfaces:**
+
+When using **Lemon Meringue (#FFF8A2)**, **Vanilla (#FFFCD0)**, or **Eggshell (#FFFDE8)** as badge background color placed on a light gray surface:
+
+- **Always add a 1px border** in dark gray (#6A6A6A or #4A4A4A) to the outer shape
+- This ensures the badge is clearly visible and defined against the background
+
+**Badge Specifications:**
+
+| Element       | Specification                                  |
+| ------------- | ---------------------------------------------- |
+| Background    | Lemon Meringue, Vanilla, or Eggshell           |
+| Border        | 1px solid #6A6A6A (when on light gray surface) |
+| Text          | Work Sans Regular, -5% tracking                |
+| Text Color    | #1A1A1A or #4A4A4A                             |
+| Border-radius | 4px or fully rounded depending on context      |
+
+---
+
+### 5.3 Breadcrumbs
+
+**Breadcrumb Specifications:**
+
+| Element            | Specification                                    |
+| ------------------ | ------------------------------------------------ |
+| **Font**           | Work Sans Regular only (NO Bold or other styles) |
+| **Letter Spacing** | -5%                                              |
+| **Inactive Pages** | Lighter gray (#6A6A6A or #9A9A9A)                |
+| **Current Page**   | Full black (#1A1A1A)                             |
+| **Separator**      | Gray, subtle                                     |
+
+**Example:**
+
+```
+Home / Products / Category / Current Page
+(gray)  (gray)    (gray)     (black)
+```
+
+---
+
+### 5.4 Cards
+
+**CRITICAL RULE - Card Spacing:**
+
+- Space between headline and body text below: **100% of the body text's line height**
+- This creates breathing room and visual clarity
+
+**Card Specifications:**
+
+| Element                  | Specification                   |
+| ------------------------ | ------------------------------- |
+| **Background**           | #F9F9F9 (light gray)            |
+| **Headline**             | Work Sans Regular, -5% tracking |
+| **Body Text**            | Work Sans Regular, -5% tracking |
+| **Headline-to-Body Gap** | 100% of body text line height   |
+| **Padding**              | Generous, consistent            |
+| **Border-radius**        | 8px–16px                        |
+
+---
+
+### 5.5 Date Picker
+
+**Date Picker Specifications:**
+
+| Element           | Specification                                   |
+| ----------------- | ----------------------------------------------- |
+| **Selected Date** | Solid fill of Lemon Meringue (#FFF8A2)          |
+| **"Today" Label** | Sunflower (#FFBE26)                             |
+| **Calendar Text** | Work Sans Regular, -5% tracking, grayscale only |
+
+**IMPORTANT:**
+
+- Selected date should have a **solid fill** (NOT an outline)
+- Use Lemon Meringue (#FFF8A2) for the selected date background
+- The word "Today" remains in Sunflower (#FFBE26)
+
+---
+
+### 5.6 Links
+
+**CRITICAL RULE - Link Typography:**
+
+- **NEVER** use any weight other than Regular for Work Sans
+- **Always** use -5% letter spacing
+
+**Link Specifications:**
+
+| Element            | Specification              |
+| ------------------ | -------------------------- |
+| **Font**           | Work Sans Regular          |
+| **Letter Spacing** | -5%                        |
+| **Color**          | #1A1A1A or #4A4A4A         |
+| **Hover**          | Underline or subtle change |
+
+---
+
+### 5.7 Progress Indicator Bars
+
+**Progress Bar Specifications:**
+
+| Element        | Specification                         |
+| -------------- | ------------------------------------- |
+| **Height**     | Slim (4px–6px recommended)            |
+| **Background** | Light gray (#E5E5E5)                  |
+| **Fill**       | Sunflower (#FFBE26)                   |
+| **Corners**    | Fully rounded (border-radius: 9999px) |
+
+**IMPORTANT:** Keep progress bars quite slim — thinner than typical defaults.
+
+---
+
+### 5.8 Tables
+
+**CRITICAL RULES for Tables:**
+
+1. **Row separators:** Use very light gray underline (#E5E5E5) on baseline only
+2. **Header row:** Use full black underline (#1A1A1A)
+3. **Cell backgrounds:** NEVER use differing background colors for individual cells
+4. **Typography:** Work Sans Regular, -5% tracking, grayscale text only
+
+**Table Specifications:**
+
+| Element              | Specification                              |
+| -------------------- | ------------------------------------------ |
+| **Header underline** | 1px solid #1A1A1A (full black)             |
+| **Row underline**    | 1px solid #E5E5E5 (very light gray)        |
+| **Cell background**  | None (transparent, inherit from container) |
+| **Text**             | Work Sans Regular, -5% tracking            |
+| **Header text**      | #1A1A1A                                    |
+| **Body text**        | #4A4A4A                                    |
 
 ---
 
@@ -279,38 +440,85 @@ Secondary button: Transparent with yellow border, dark gray text, rounded form
 - Prioritize left alignment in all typography
 - Creates clarity and readability
 
-### 6.3 Hierarchies
+### 6.3 Text Width
+
+**CRITICAL RULE - Maximum Line Length:**
+
+- **Body text and paragraphs must never exceed 65 characters** (including spaces)
+- This ensures optimal readability and reduces eye strain
+- Approximate max-width values:
+  - 15px body text: ~500px
+  - 18px lead text: ~550px
+  - 20px lead text: ~580px
+- Use CSS `max-width` or `ch` units (e.g., `max-width: 65ch`)
+
+### 6.4 Slide & Presentation Layout
+
+**CRITICAL RULE - Content Width in Slides:**
+
+- Content (text, tables, charts, diagrams) should **never span the full width** of the slide
+- Keep content blocks relatively **square in proportion** — avoid ultra-wide, thin layouts
+- This creates visual balance and breathing room
+- **Exception:** Photographs may span full width when used as backgrounds or hero images
+
+**Examples:**
+
+```
+Good: Table that is 60-70% of slide width, centered or left-aligned
+Bad: Table stretching edge-to-edge across the entire slide
+
+Good: Text block with comfortable margins on both sides
+Bad: Text spanning from left edge to right edge
+```
+
+### 6.5 Hierarchies
 
 **CRITICAL SIZE RULE:**
 
 - Really large headings (≥60pt) should be in **Libre Baskerville**
-- All other headings should be in **Work Sans**
+- All other headings should be in **Work Sans Regular**
 - Heading should be **at least twice as large** as body text
 - Clear, unambiguous hierarchies
 - Use labels for meta information
 
-### 6.4 Margins and Grid System
+### 6.6 Margins and Grid System
 
 **Basic Principle: Even margins**
 
 - Equal margins to **top** and **left side**
 - Creates natural squares in the layout
 
-### 6.5 Heading Layout
+### 6.7 Grid Spacing
+
+**CRITICAL RULE - Grid Item Spacing:**
+
+- Space between grid items should be **50% less** than typical defaults
+- Creates tighter, more cohesive layouts
+- Reduces excessive whitespace between cards, thumbnails, and grid elements
+
+**Examples:**
+
+```
+If default gap is 32px → use 16px
+If default gap is 24px → use 12px
+If default gap is 16px → use 8px
+```
+
+### 6.8 Heading Layout
 
 **Two approved positions:**
 
 1. **Vertical centering:** Heading centered vertically
 2. **Top alignment:** Heading aligned to top (with correct margin)
 
-### 6.6 Body Text Positioning
+### 6.9 Body Text Positioning
 
 **Allowed variation:**
 
 - Body text can have large gap from heading
 - Creates breathing room and visual balance
 
-### 6.7 Meta Text Positioning
+### 6.10 Meta Text Positioning
 
 **Placement:**
 
@@ -318,7 +526,7 @@ Secondary button: Transparent with yellow border, dark gray text, rounded form
 - At the sides
 - Functions as anchor points
 
-### 6.8 Corner Alignment
+### 6.11 Corner Alignment
 
 **Principle:**
 
@@ -370,15 +578,6 @@ Secondary button: Transparent with yellow border, dark gray text, rounded form
 | **Eggshell**         | #FFFDE8         | Subtle color fields, soft highlighting |
 | **Light Gray Field** | #FAFAFA-#F5F5F5 | Neutral separation                     |
 
-**Examples:**
-
-```
-Hero section: #FFFDE8 background (light yellow)
-Product card: #F9F9F9 background (light gray)
-Accent area: #FFFCD0 background (vanilla)
-Standard section: #FAFAFA background (light gray)
-```
-
 ---
 
 ## 8. Design Principles - Summary
@@ -388,6 +587,7 @@ Standard section: #FAFAFA background (light gray)
 1. **Sunflower (#FFBE26) is always the starting point**
    - The most powerful color
    - Used when only one color can be chosen
+   - **NEVER for text**
 
 2. **Follow the 10/90 rule STRICTLY**
    - 10% color
@@ -399,15 +599,16 @@ Standard section: #FAFAFA background (light gray)
    - Or light yellow (#FFFCD0, #FFFDE8) for color fields
    - Creates warmth and premium feel
 
-4. **All text in defined dark gray colors**
-   - Headings: #1A1A1A
-   - Body text: #4A4A4A
-   - Labels: #6A6A6A
-   - NEVER pure black (#000000)
+4. **All text in grayscale only**
+   - **NEVER colored text** (no yellow, no blue, no purple)
+   - Prioritize black (#1A1A1A) for most text
+   - Gray (#4A4A4A, #6A6A6A) only for hierarchy
+   - Avoid white text unless on dark images
 
 5. **Complementary colors (purple/blue) may NEVER dominate**
    - Secondary role only
    - Less presence than yellow spectrum
+   - Never for text
 
 6. **Secondary yellow colors used as individual colors**
    - NOT as tints
@@ -416,40 +617,54 @@ Standard section: #FAFAFA background (light gray)
 
 ### 8.2 Typography
 
-1. **Libre Baskerville ONLY for really large headings (≥60pt)**
+1. **Universal -5% letter spacing for all text above 10pt**
+   - Headings, body, links, buttons, breadcrumbs — everything
+   - No exceptions
+
+2. **Libre Baskerville ONLY for really large headings (≥60pt)**
    - Hero headings, landing pages
-   - Creates distinct identity for main messages
+   - Line height: 110%
+   - Letter spacing: -5%
    - NEVER for body text or smaller headings
 
-2. **Work Sans for everything else**
+3. **Work Sans Regular for everything else**
    - All headings under 60pt
    - All body text
-   - Labels
+   - All labels, links, buttons, breadcrumbs
+   - **NO other weights allowed** — no Bold, no Medium, no Light
 
-3. **Work Sans ALWAYS in Regular**
-   - NEVER Bold
-   - Exception: Medium for Lead text when needed
-   - Hierarchy created through size, not weight
+4. **Text color rules:**
+   - NEVER colored text
+   - Prioritize black (#1A1A1A)
+   - Gray for hierarchy only
+   - Avoid white text
 
-4. **Follow EXACT specifications**
+5. **Follow EXACT specifications**
    - Size according to table
    - Line height according to table
-   - Letter spacing according to table
+   - Letter spacing: -5% for text >10pt
    - No improvisation
-
-5. **Letter-spacing rule:**
-   - Negative spacing for larger headings
-   - Positive spacing for smaller text
 
 ### 8.3 UI Elements
 
 1. **Buttons have ALWAYS fully rounded corners**
    - Border-radius: 9999px (pill-form)
    - NEVER square or slightly rounded
+   - Yellow button hover: brighter yellow (#FFD966)
+   - Gray button hover: white (#FFFFFF)
 
-2. **Button text in Work Sans Regular**
-   - NEVER Bold
-   - Color: #1A1A1A (dark gray)
+2. **Badges on light gray need 1px dark gray border**
+   - When using Lemon Meringue, Vanilla, or Eggshell on light gray surfaces
+
+3. **Progress bars should be slim**
+   - 4px–6px height
+
+4. **Tables use baseline underlines only**
+   - Header: black underline
+   - Rows: light gray underline
+   - No colored cell backgrounds
+
+5. **Links always Work Sans Regular, -5% tracking**
 
 ### 8.4 Layout
 
@@ -459,11 +674,25 @@ Standard section: #FAFAFA background (light gray)
 2. **Heading at least 2x larger than body text**
    - Clear hierarchy
 
-3. **Even margins top/left**
+3. **Body text max 65 characters wide**
+   - Use `max-width: 65ch` or equivalent pixel value
+   - Ensures optimal readability
+
+4. **Slide content: never full width**
+   - Tables, charts, text blocks should be ~60-70% of slide width
+   - Keep content relatively square in proportion
+   - Exception: photographs may span full width
+
+5. **Even margins top/left**
    - Creates natural squares
 
-4. **Corner alignment prioritized**
+6. **Corner alignment prioritized**
    - Structure and order
+
+7. **Grid spacing: 50% tighter than default**
+   - Reduces whitespace between grid items
+
+8. **Card headline-to-body gap: 100% of body line height**
 
 ### 8.5 Logo
 
@@ -481,7 +710,7 @@ Standard section: #FAFAFA background (light gray)
 - Technical precision with human warmth
 - Clarity built on precision
 - Rounded buttons for softer feel
-- All text in defined dark gray shades
+- All text in grayscale — never colored
 
 ---
 
@@ -491,17 +720,24 @@ Standard section: #FAFAFA background (light gray)
 
 - [ ] Am I following the 10/90 rule for color vs grayscale?
 - [ ] Is Sunflower (#FFBE26) the dominant color if color is used?
+- [ ] Is all text grayscale only (no colored text)?
+- [ ] Am I using -5% letter spacing for all text above 10pt?
 - [ ] Am I using Libre Baskerville ONLY for really large headings (≥60pt)?
-- [ ] Am I using Work Sans Regular (NOT Bold) for everything else?
-- [ ] Is all text in defined dark gray colors (#1A1A1A, #4A4A4A, #6A6A6A)?
-- [ ] Are labels in dark gray (#6A6A6A)?
+- [ ] Am I using Work Sans Regular (NO Bold, NO Medium) for everything else?
 - [ ] Is the heading at least twice as large as body text?
 - [ ] Is the text left-aligned?
+- [ ] Are body text paragraphs max 65 characters wide?
+- [ ] In slides: is content (tables, charts, text) limited to ~60-70% width (not full width)?
 - [ ] Do I have even margins top/left?
-- [ ] Am I using light gray (#FAFAFA, #F5F5F5, #F9F9F9) or light yellow (#FFFCD0, #FFFDE8) backgrounds instead of white?
+- [ ] Am I using light gray or light yellow backgrounds instead of white?
 - [ ] Do all buttons have fully rounded corners (border-radius: 9999px)?
-- [ ] Are all letter spacings and line heights correct?
-- [ ] Do complementary colors have less presence than yellow spectrum?
+- [ ] Do yellow buttons hover to brighter yellow, gray buttons to white?
+- [ ] Do badges on light gray have 1px dark gray borders?
+- [ ] Are progress bars slim (4-6px)?
+- [ ] Do tables use baseline underlines only (no colored cell backgrounds)?
+- [ ] Are breadcrumbs in Regular with inactive pages in lighter gray?
+- [ ] Is grid spacing 50% tighter than default?
+- [ ] Do cards have 100% line-height gap between headline and body?
 - [ ] Is the layout built on precision and clarity?
 
 ---
@@ -510,32 +746,44 @@ Standard section: #FAFAFA background (light gray)
 
 ### Typefaces
 
-| Element            | Typeface          | Weight         | When?       |
-| ------------------ | ----------------- | -------------- | ----------- |
-| Hero headings      | Libre Baskerville | Regular        | ≥60pt       |
-| All other headings | Work Sans         | Regular        | <60pt       |
-| Body text          | Work Sans         | Regular        | Always      |
-| Lead (exception)   | Work Sans         | Regular/Medium | When needed |
-| Labels             | Work Sans         | Regular        | Always      |
+| Element            | Typeface          | Weight  | Letter Spacing | When?  |
+| ------------------ | ----------------- | ------- | -------------- | ------ |
+| Hero headings      | Libre Baskerville | Regular | -5%            | ≥60pt  |
+| All other headings | Work Sans         | Regular | -5%            | <60pt  |
+| Body text          | Work Sans         | Regular | -5%            | >10pt  |
+| Small labels       | Work Sans         | Regular | +4% to +14%    | ≤10pt  |
+| Links              | Work Sans         | Regular | -5%            | Always |
+| Buttons            | Work Sans         | Regular | -5%            | Always |
+| Breadcrumbs        | Work Sans         | Regular | -5%            | Always |
 
 ### Colors
 
 | Usage                  | HEX     | Description                |
 | ---------------------- | ------- | -------------------------- |
-| Primary color          | #FFBE26 | Sunflower                  |
-| Text Primary           | #1A1A1A | Headings                   |
+| Primary color          | #FFBE26 | Sunflower (never for text) |
+| Text Primary           | #1A1A1A | Headings, main text        |
 | Text Secondary         | #4A4A4A | Body text                  |
 | Text Tertiary          | #6A6A6A | Labels, meta               |
+| Text Quaternary        | #6C6C6C | Muted text                 |
+| Text Quinary           | #EDEDED | Very muted text            |
 | Main Background        | #FAFAFA | Light gray page background |
 | Alternative Background | #F5F5F5 | Light gray sections        |
 | Card Background        | #F9F9F9 | Light gray cards           |
 | Color Field Vanilla    | #FFFCD0 | Light yellow accent        |
 | Color Field Eggshell   | #FFFDE8 | Light yellow soft          |
 
-### UI
+### UI Quick Reference
 
-| Element              | Specification                   |
-| -------------------- | ------------------------------- |
-| Button border-radius | 9999px                          |
-| Button background    | #FFBE26                         |
-| Button text          | Work Sans Regular 15pt, #1A1A1A |
+| Element               | Key Specification                          |
+| --------------------- | ------------------------------------------ |
+| Button border-radius  | 9999px                                     |
+| Button padding        | 12px vertical, 32px horizontal (compact)   |
+| Button hover (yellow) | #FFD966 (brighter yellow)                  |
+| Button hover (gray)   | #FFFFFF (white)                            |
+| Badge border          | 1px solid #6A6A6A (on light gray surfaces) |
+| Progress bar height   | 4px–6px (slim)                             |
+| Table header line     | 1px solid #1A1A1A                          |
+| Table row line        | 1px solid #E5E5E5                          |
+| Grid gap              | 50% of default                             |
+| Card headline gap     | 100% of body text line height              |
+| Date picker selected  | Solid fill #FFF8A2                         |
