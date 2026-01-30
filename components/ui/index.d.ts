@@ -1,5 +1,6 @@
 export * from './AlertDialog';
 export * from './Badge';
+export * from './BarChart';
 export * from './Breadcrumbs';
 export * from './Button';
 export * from './Card';
@@ -16,8 +17,10 @@ export * from './Grid';
 export * from './Heading';
 export * from './Input';
 export * from './Label';
+export * from './LineChart';
 export * from './Link';
 export * from './Modal';
+export * from './PieChart';
 export * from './ProgressIndicator';
 export * from './Radio';
 export * from './Select';

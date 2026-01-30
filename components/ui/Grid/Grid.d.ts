@@ -1,6 +1,6 @@
 import * as React from 'react';
 declare const gridVariants: (props?: ({
-    cols?: 1 | 2 | 3 | 4 | 5 | 6 | 12 | null | undefined;
+    cols?: 1 | 2 | 3 | 4 | 5 | 12 | 6 | null | undefined;
     gap?: "sm" | "lg" | "none" | "md" | "xl" | "xs" | "2xl" | null | undefined;
     align?: "end" | "start" | "center" | "stretch" | "baseline" | null | undefined;
     justify?: "end" | "start" | "center" | "stretch" | null | undefined;
@@ -53,9 +53,9 @@ interface GridProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'cols'> {
  */
 declare const Grid: React.ForwardRefExoticComponent<GridProps & React.RefAttributes<HTMLDivElement>>;
 declare const gridItemVariants: (props?: ({
-    colSpan?: 1 | 2 | 3 | 4 | 5 | 6 | 11 | 12 | 10 | "full" | 7 | 8 | 9 | null | undefined;
+    colSpan?: 1 | 2 | 3 | 4 | 5 | 12 | 10 | 6 | 11 | "full" | 7 | 8 | 9 | null | undefined;
     rowSpan?: 1 | 2 | 3 | 4 | 5 | 6 | "full" | null | undefined;
-    colStart?: 1 | "auto" | 2 | 3 | 4 | 5 | 6 | 11 | 12 | 10 | 7 | 8 | 9 | null | undefined;
+    colStart?: 1 | "auto" | 2 | 3 | 4 | 5 | 12 | 10 | 6 | 11 | 7 | 8 | 9 | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 type ColSpanValue = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 'full';
 type RowSpanValue = 1 | 2 | 3 | 4 | 5 | 6 | 'full';

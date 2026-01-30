@@ -4,7 +4,7 @@ declare const dateTimePickerTriggerVariants: (props?: ({
     variant?: "default" | "error" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 declare const calendarDayVariants: (props?: ({
-    state?: "default" | "disabled" | "selected" | "today" | "outside" | null | undefined;
+    state?: "default" | "disabled" | "outside" | "selected" | "today" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface DateTimePickerProps extends VariantProps<typeof dateTimePickerTriggerVariants> {
     /** The currently selected date and time */
