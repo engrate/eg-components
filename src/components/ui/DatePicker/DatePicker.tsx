@@ -1,9 +1,9 @@
 'use client'
 
-import * as React from 'react'
 import * as PopoverPrimitive from '@radix-ui/react-popover'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react'
+import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -364,7 +364,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
                       month: 'long',
                       day: 'numeric',
                     })}
-                    aria-selected={state === 'selected'}
+                    aria-pressed={state === 'selected'}
                     tabIndex={isOutside ? -1 : 0}
                   >
                     {date.getDate()}

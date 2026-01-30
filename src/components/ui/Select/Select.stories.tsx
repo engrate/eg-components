@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Label } from '../Label'
+
 import {
   Select,
   SelectContent,

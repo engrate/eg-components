@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import { axe } from 'vitest-axe'
 import { describe, expect, it } from 'vitest'
+import { axe } from 'vitest-axe'
+
+import { Input } from '../Input'
 
 import { FormField } from './FormField'
-import { Input } from '../Input'
 
 describe('FormField', () => {
   it('renders children', () => {

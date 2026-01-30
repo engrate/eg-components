@@ -134,7 +134,7 @@ export const WithDifferentGaps: Story = {
   render: () => (
     <Stack gap="xl">
       <div>
-        <p className="text-secondary mb-2 text-sm">gap="xs"</p>
+        <p className="text-secondary mb-2 text-sm">gap=&quot;xs&quot;</p>
         <Stack direction="horizontal" gap="xs">
           <DemoBox>1</DemoBox>
           <DemoBox>2</DemoBox>
@@ -142,7 +142,7 @@ export const WithDifferentGaps: Story = {
         </Stack>
       </div>
       <div>
-        <p className="text-secondary mb-2 text-sm">gap="md"</p>
+        <p className="text-secondary mb-2 text-sm">gap=&quot;md&quot;</p>
         <Stack direction="horizontal" gap="md">
           <DemoBox>1</DemoBox>
           <DemoBox>2</DemoBox>
@@ -150,7 +150,7 @@ export const WithDifferentGaps: Story = {
         </Stack>
       </div>
       <div>
-        <p className="text-secondary mb-2 text-sm">gap="xl"</p>
+        <p className="text-secondary mb-2 text-sm">gap=&quot;xl&quot;</p>
         <Stack direction="horizontal" gap="xl">
           <DemoBox>1</DemoBox>
           <DemoBox>2</DemoBox>

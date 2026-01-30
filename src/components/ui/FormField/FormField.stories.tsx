@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { FormField } from './FormField'
+import { Checkbox } from '../Checkbox'
 import { Input } from '../Input'
-import { Textarea } from '../Textarea'
+import { Label } from '../Label'
 import {
   Select,
   SelectContent,
@@ -10,8 +10,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../Select'
-import { Checkbox } from '../Checkbox'
-import { Label } from '../Label'
+import { Textarea } from '../Textarea'
+
+import { FormField } from './FormField'
 
 const meta = {
   title: 'Forms/FormField',

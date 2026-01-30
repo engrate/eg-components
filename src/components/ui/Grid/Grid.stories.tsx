@@ -142,7 +142,7 @@ export const GapVariants: Story = {
   render: () => (
     <div className="space-y-8">
       <div>
-        <p className="text-secondary mb-2 text-sm">gap="none"</p>
+        <p className="text-secondary mb-2 text-sm">gap=&quot;none&quot;</p>
         <Grid cols={3} gap="none">
           <DemoBox>1</DemoBox>
           <DemoBox>2</DemoBox>
@@ -150,7 +150,7 @@ export const GapVariants: Story = {
         </Grid>
       </div>
       <div>
-        <p className="text-secondary mb-2 text-sm">gap="sm"</p>
+        <p className="text-secondary mb-2 text-sm">gap=&quot;sm&quot;</p>
         <Grid cols={3} gap="sm">
           <DemoBox>1</DemoBox>
           <DemoBox>2</DemoBox>
@@ -158,7 +158,9 @@ export const GapVariants: Story = {
         </Grid>
       </div>
       <div>
-        <p className="text-secondary mb-2 text-sm">gap="md" (default)</p>
+        <p className="text-secondary mb-2 text-sm">
+          gap=&quot;md&quot; (default)
+        </p>
         <Grid cols={3} gap="md">
           <DemoBox>1</DemoBox>
           <DemoBox>2</DemoBox>
@@ -166,7 +168,7 @@ export const GapVariants: Story = {
         </Grid>
       </div>
       <div>
-        <p className="text-secondary mb-2 text-sm">gap="xl"</p>
+        <p className="text-secondary mb-2 text-sm">gap=&quot;xl&quot;</p>
         <Grid cols={3} gap="xl">
           <DemoBox>1</DemoBox>
           <DemoBox>2</DemoBox>
@@ -181,7 +183,7 @@ export const AlignmentOptions: Story = {
   render: () => (
     <div className="space-y-8">
       <div>
-        <p className="text-secondary mb-2 text-sm">align="start"</p>
+        <p className="text-secondary mb-2 text-sm">align=&quot;start&quot;</p>
         <Grid cols={3} gap="md" align="start" className="bg-alt h-32">
           <DemoBox>Short</DemoBox>
           <DemoBox className="py-8">Tall</DemoBox>
@@ -189,7 +191,7 @@ export const AlignmentOptions: Story = {
         </Grid>
       </div>
       <div>
-        <p className="text-secondary mb-2 text-sm">align="center"</p>
+        <p className="text-secondary mb-2 text-sm">align=&quot;center&quot;</p>
         <Grid cols={3} gap="md" align="center" className="bg-alt h-32">
           <DemoBox>Short</DemoBox>
           <DemoBox className="py-8">Tall</DemoBox>
@@ -197,7 +199,7 @@ export const AlignmentOptions: Story = {
         </Grid>
       </div>
       <div>
-        <p className="text-secondary mb-2 text-sm">align="end"</p>
+        <p className="text-secondary mb-2 text-sm">align=&quot;end&quot;</p>
         <Grid cols={3} gap="md" align="end" className="bg-alt h-32">
           <DemoBox>Short</DemoBox>
           <DemoBox className="py-8">Tall</DemoBox>

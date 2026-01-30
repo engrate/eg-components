@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import { axe } from 'vitest-axe'
-import { describe, expect, it } from 'vitest'
 import * as React from 'react'
+import { describe, expect, it } from 'vitest'
+import { axe } from 'vitest-axe'
 
 import { Card } from './Card'
 

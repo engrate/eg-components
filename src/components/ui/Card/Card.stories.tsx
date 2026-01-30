@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Heading } from '../Heading'
 import { Text } from '../Text'
+
 import { Card } from './Card'
 
 const meta = {

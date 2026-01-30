@@ -2,9 +2,10 @@
 
 import * as React from 'react'
 
-import { cn } from '@/lib/utils'
-import { Label } from '../Label'
 import { FormMessage } from '../FormMessage'
+import { Label } from '../Label'
+
+import { cn } from '@/lib/utils'
 
 interface FormFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   /** The label for the field */

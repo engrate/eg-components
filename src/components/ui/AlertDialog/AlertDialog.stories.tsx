@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '../Button'
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -142,7 +143,7 @@ export const ConfirmationDialog: Story = {
           <AlertDialogTitle>Publish changes?</AlertDialogTitle>
           <AlertDialogDescription>
             Your changes will be visible to all users immediately. Make sure
-            you've reviewed everything before publishing.
+            you&apos;ve reviewed everything before publishing.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

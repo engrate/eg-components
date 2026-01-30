@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import { axe } from 'vitest-axe'
 import { describe, expect, it } from 'vitest'
+import { axe } from 'vitest-axe'
+
+import { Label } from '../Label'
 
 import {
   Select,
@@ -9,7 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from './Select'
-import { Label } from '../Label'
 
 describe('Select', () => {
   it('renders with placeholder', () => {

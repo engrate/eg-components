@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Card } from '../Card'
+
 import { Skeleton } from './Skeleton'
 
 const meta = {
