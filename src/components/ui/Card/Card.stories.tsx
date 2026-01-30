@@ -26,6 +26,7 @@ const meta = {
       control: 'select',
       options: [
         'card',
+        'white',
         'main',
         'alt',
         'contrast',
@@ -173,6 +174,18 @@ export const Interactive: Story = {
   },
 }
 
+export const WhiteBackground: Story = {
+  args: {
+    bg: 'white',
+    children: (
+      <>
+        <Heading level="h3">White Card</Heading>
+        <Text>This card uses white background.</Text>
+      </>
+    ),
+  },
+}
+
 export const SunflowerBackground: Story = {
   args: {
     bg: 'sunflower',
@@ -212,8 +225,11 @@ export const DeepBlueBackground: Story = {
 export const AllBackgroundColors: Story = {
   render: () => (
     <div className="grid max-w-2xl grid-cols-2 gap-4">
-      <Card bg="card">
-        <Text className="text-small font-medium">card (default)</Text>
+      <Card>
+        <Text className="text-small font-medium">default (card)</Text>
+      </Card>
+      <Card bg="white">
+        <Text className="text-small font-medium">white</Text>
       </Card>
       <Card bg="main">
         <Text className="text-small font-medium">main</Text>

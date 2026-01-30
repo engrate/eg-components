@@ -21,6 +21,7 @@ const cardVariants = cva(
       },
       bg: {
         // Default backgrounds
+        white: 'bg-white',
         card: 'bg-card',
         main: 'bg-main',
         alt: 'bg-alt',
