@@ -47,7 +47,7 @@ const cardVariants = cva(
     defaultVariants: {
       variant: 'default',
       padding: 'default',
-      bg: 'card',
+      bg: 'alt',
     },
   }
 )

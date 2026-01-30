@@ -226,7 +226,7 @@ export const AllBackgroundColors: Story = {
   render: () => (
     <div className="grid max-w-2xl grid-cols-2 gap-4">
       <Card>
-        <Text className="text-small font-medium">default (card)</Text>
+        <Text className="text-small font-medium">default (alt)</Text>
       </Card>
       <Card bg="white">
         <Text className="text-small font-medium">white</Text>
