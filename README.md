@@ -84,7 +84,7 @@ npm install
 
 | Command                   | Description                              |
 | ------------------------- | ---------------------------------------- |
-| `npm run dev`             | Start Vite dev server                    |
+| `npm run dev`             | Start Storybook at http://localhost:6006 |
 | `npm run build`           | Build library to `dist/`                 |
 | `npm run storybook`       | Start Storybook at http://localhost:6006 |
 | `npm run build-storybook` | Build static Storybook                   |
@@ -122,7 +122,7 @@ src/
    - `ComponentName.stories.tsx` - Storybook stories
    - `index.ts` - Barrel export
 3. Export from `src/components/ui/index.ts`
-4. Run tests and Storybook to verify
+4. Run `npm run verify` and Storybook to verify
 
 ### Testing
 
@@ -142,16 +142,6 @@ describe('Button', () => {
   })
 })
 ```
-
-## Brand Guidelines
-
-This library follows Engrate's brand guidelines:
-
-- **10/90 Rule**: 10% color, 90% grayscale
-- **Never pure white**: Use `bg-main` (#FAFAFA) or warmer alternatives
-- **Pill-shaped buttons**: Full border-radius (`rounded-pill`)
-- **No bold fonts**: Use Regular weight only (Medium for emphasis)
-- **Left-aligned text**: Default alignment
 
 ## Publishing
 

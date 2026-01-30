@@ -25,7 +25,7 @@ describe('Eyebrow', () => {
   it('renders with primary variant', () => {
     const { getByText } = render(<Eyebrow variant="primary">Primary</Eyebrow>)
     const element = getByText('Primary')
-    expect(element).toHaveClass('text-text-primary')
+    expect(element).toHaveClass('text-primary')
   })
 
   it('renders with secondary variant', () => {
@@ -33,7 +33,7 @@ describe('Eyebrow', () => {
       <Eyebrow variant="secondary">Secondary</Eyebrow>
     )
     const element = getByText('Secondary')
-    expect(element).toHaveClass('text-text-secondary')
+    expect(element).toHaveClass('text-secondary')
   })
 
   it('renders with different sizes', () => {

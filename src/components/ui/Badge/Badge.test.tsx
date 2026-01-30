@@ -43,10 +43,7 @@ describe('Badge', () => {
   })
 
   it('applies size variants', () => {
-    const { rerender } = render(<Badge size="xs">XS</Badge>)
-    expect(screen.getByText('XS')).toHaveClass('px-1.5')
-
-    rerender(<Badge size="sm">SM</Badge>)
+    const { rerender } = render(<Badge size="sm">SM</Badge>)
     expect(screen.getByText('SM')).toHaveClass('px-2')
 
     rerender(<Badge size="md">MD</Badge>)

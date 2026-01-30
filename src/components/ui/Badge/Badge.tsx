@@ -21,11 +21,10 @@ const badgeVariants = cva(
         secondary: 'border-border bg-alt text-secondary border',
       },
       size: {
-        xs: 'rounded-pill px-1.5 py-0.5 text-xs',
         sm: 'rounded-pill px-2 py-0.5 text-xs',
-        md: 'rounded-pill px-2.5 py-1 text-sm',
-        lg: 'rounded-pill text-body px-3.5 py-1',
-        xl: 'rounded-pill text-body px-4 py-1.5',
+        md: 'rounded-pill px-2.5 py-1 text-xs',
+        lg: 'rounded-pill text-body px-3.5 py-1 text-sm',
+        xl: 'rounded-pill text-body px-4 py-1.5 text-xl',
       },
     },
     defaultVariants: {

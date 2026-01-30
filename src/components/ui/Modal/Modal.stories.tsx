@@ -42,7 +42,7 @@ export const Default: Story = {
           </ModalDescription>
         </ModalHeader>
         <div className="py-4">
-          <p className="text-text-secondary">
+          <p className="text-secondary">
             Modal content goes here. You can put any content inside the modal
             body.
           </p>
@@ -200,17 +200,15 @@ export const LongContent: Story = {
             Please read our terms of service carefully.
           </ModalDescription>
         </ModalHeader>
-        <div className="text-text-secondary max-h-[50vh] overflow-y-auto py-4 text-sm">
-          <h3 className="text-text-primary mb-2 font-semibold">
-            1. Introduction
-          </h3>
+        <div className="text-secondary max-h-[50vh] overflow-y-auto py-4 text-sm">
+          <h3 className="text-primary mb-2 font-semibold">1. Introduction</h3>
           <p className="mb-4">
             Welcome to our service. These Terms of Service govern your use of
             our website and services. By accessing or using our services, you
             agree to be bound by these terms.
           </p>
 
-          <h3 className="text-text-primary mb-2 font-semibold">
+          <h3 className="text-primary mb-2 font-semibold">
             2. Use of Services
           </h3>
           <p className="mb-4">
@@ -219,9 +217,7 @@ export const LongContent: Story = {
             terms or policies or if we are investigating suspected misconduct.
           </p>
 
-          <h3 className="text-text-primary mb-2 font-semibold">
-            3. Privacy Policy
-          </h3>
+          <h3 className="text-primary mb-2 font-semibold">3. Privacy Policy</h3>
           <p className="mb-4">
             Our privacy policy explains how we treat your personal data and
             protect your privacy when you use our services. By using our
@@ -229,7 +225,7 @@ export const LongContent: Story = {
             privacy policies.
           </p>
 
-          <h3 className="text-text-primary mb-2 font-semibold">
+          <h3 className="text-primary mb-2 font-semibold">
             4. Content in Services
           </h3>
           <p className="mb-4">
@@ -238,7 +234,7 @@ export const LongContent: Story = {
             rights that you hold in that content.
           </p>
 
-          <h3 className="text-text-primary mb-2 font-semibold">
+          <h3 className="text-primary mb-2 font-semibold">
             5. Software in Services
           </h3>
           <p className="mb-4">
@@ -247,7 +243,7 @@ export const LongContent: Story = {
             or feature is available.
           </p>
 
-          <h3 className="text-text-primary mb-2 font-semibold">
+          <h3 className="text-primary mb-2 font-semibold">
             6. Modifying and Terminating
           </h3>
           <p className="mb-4">
@@ -256,16 +252,14 @@ export const LongContent: Story = {
             service altogether.
           </p>
 
-          <h3 className="text-text-primary mb-2 font-semibold">7. Liability</h3>
+          <h3 className="text-primary mb-2 font-semibold">7. Liability</h3>
           <p className="mb-4">
             When permitted by law, we will not be responsible for lost profits,
             revenues, or data, financial losses or indirect, special,
             consequential, exemplary, or punitive damages.
           </p>
 
-          <h3 className="text-text-primary mb-2 font-semibold">
-            8. Business Uses
-          </h3>
+          <h3 className="text-primary mb-2 font-semibold">8. Business Uses</h3>
           <p className="mb-4">
             If you are using our services on behalf of a business, that business
             accepts these terms. It will hold harmless and indemnify us from any
@@ -323,7 +317,7 @@ export const CustomStyling: Story = {
           </ModalDescription>
         </ModalHeader>
         <div className="py-4">
-          <p className="text-text-secondary">
+          <p className="text-secondary">
             You can customize the appearance by passing className to any of the
             modal parts.
           </p>

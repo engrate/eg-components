@@ -28,7 +28,7 @@ const meta = {
     },
     size: {
       control: 'select',
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      options: ['sm', 'md', 'lg', 'xl'],
       description: 'The size of the badge (t-shirt sizes)',
     },
     asChild: {
@@ -117,13 +117,6 @@ export const Secondary: Story = {
   },
 }
 
-export const ExtraSmall: Story = {
-  args: {
-    children: 'XS',
-    size: 'xs',
-  },
-}
-
 export const Small: Story = {
   args: {
     children: 'Small',
@@ -172,7 +165,6 @@ export const AllVariants: Story = {
 export const AllSizes: Story = {
   render: () => (
     <div className="flex items-center gap-2">
-      <Badge size="xs">XS</Badge>
       <Badge size="sm">Small</Badge>
       <Badge size="md">Medium</Badge>
       <Badge size="lg">Large</Badge>

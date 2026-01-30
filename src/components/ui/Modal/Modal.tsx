@@ -112,11 +112,11 @@ const ModalContent = React.forwardRef<
         <DialogPrimitive.Close
           className={cn(
             'absolute top-4 right-4 rounded-sm opacity-70',
-            'ring-offset-bg-main transition-opacity',
+            'ring-offset-main transition-opacity',
             'hover:opacity-100',
             'focus:ring-sunflower focus:ring-2 focus:ring-offset-2 focus:outline-none',
             'disabled:pointer-events-none',
-            'data-[state=open]:bg-bg-alt data-[state=open]:text-text-secondary'
+            'data-[state=open]:bg-alt data-[state=open]:text-secondary'
           )}
         >
           <X className="h-4 w-4" />
@@ -183,7 +183,7 @@ const ModalTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     className={cn(
-      'text-text-primary text-lg leading-none font-semibold tracking-tight',
+      'text-primary text-lg leading-none font-semibold tracking-tight',
       className
     )}
     {...props}
@@ -205,7 +205,7 @@ const ModalDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn('text-text-secondary text-sm', className)}
+    className={cn('text-secondary text-sm', className)}
     {...props}
   />
 ))
