@@ -22,13 +22,13 @@ interface ToastViewportProps extends React.ComponentPropsWithoutRef<
 > {}
 
 const ToastViewport = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Viewport>,
+  React.ComponentRef<typeof ToastPrimitives.Viewport>,
   ToastViewportProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
-      'fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:top-auto sm:right-0 sm:bottom-0 sm:flex-col md:max-w-[420px]',
+      'fixed top-0 z-100 flex max-h-screen w-full flex-col-reverse p-4 sm:top-auto sm:right-0 sm:bottom-0 sm:flex-col md:max-w-105',
       className
     )}
     {...props}
@@ -71,7 +71,7 @@ interface ToastProps
     VariantProps<typeof toastVariants> {}
 
 const Toast = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Root>,
+  React.ComponentRef<typeof ToastPrimitives.Root>,
   ToastProps
 >(({ className, variant, ...props }, ref) => (
   <ToastPrimitives.Root
@@ -91,7 +91,7 @@ interface ToastActionProps extends React.ComponentPropsWithoutRef<
 > {}
 
 const ToastAction = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Action>,
+  React.ComponentRef<typeof ToastPrimitives.Action>,
   ToastActionProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Action
@@ -119,7 +119,7 @@ interface ToastCloseProps extends React.ComponentPropsWithoutRef<
 > {}
 
 const ToastClose = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Close>,
+  React.ComponentRef<typeof ToastPrimitives.Close>,
   ToastCloseProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Close
@@ -150,7 +150,7 @@ interface ToastTitleProps extends React.ComponentPropsWithoutRef<
 > {}
 
 const ToastTitle = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Title>,
+  React.ComponentRef<typeof ToastPrimitives.Title>,
   ToastTitleProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Title
@@ -170,7 +170,7 @@ interface ToastDescriptionProps extends React.ComponentPropsWithoutRef<
 > {}
 
 const ToastDescription = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Description>,
+  React.ComponentRef<typeof ToastPrimitives.Description>,
   ToastDescriptionProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Description

@@ -40,7 +40,7 @@ interface ModalOverlayProps extends React.ComponentPropsWithoutRef<
 > {}
 
 const ModalOverlay = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Overlay>,
+  React.ComponentRef<typeof DialogPrimitive.Overlay>,
   ModalOverlayProps
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Overlay
@@ -99,7 +99,7 @@ interface ModalContentProps
 }
 
 const ModalContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
+  React.ComponentRef<typeof DialogPrimitive.Content>,
   ModalContentProps
 >(({ className, children, size, showCloseButton = true, ...props }, ref) => (
   <ModalPortal>
@@ -179,7 +179,7 @@ interface ModalTitleProps extends React.ComponentPropsWithoutRef<
 > {}
 
 const ModalTitle = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Title>,
+  React.ComponentRef<typeof DialogPrimitive.Title>,
   ModalTitleProps
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title

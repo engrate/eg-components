@@ -34,7 +34,7 @@ interface AlertDialogOverlayProps extends React.ComponentPropsWithoutRef<
 > {}
 
 const AlertDialogOverlay = React.forwardRef<
-  React.ElementRef<typeof AlertDialogPrimitive.Overlay>,
+  React.ComponentRef<typeof AlertDialogPrimitive.Overlay>,
   AlertDialogOverlayProps
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Overlay
@@ -89,7 +89,7 @@ interface AlertDialogContentProps
     VariantProps<typeof alertDialogContentVariants> {}
 
 const AlertDialogContent = React.forwardRef<
-  React.ElementRef<typeof AlertDialogPrimitive.Content>,
+  React.ComponentRef<typeof AlertDialogPrimitive.Content>,
   AlertDialogContentProps
 >(({ className, size, ...props }, ref) => (
   <AlertDialogPortal>
@@ -154,7 +154,7 @@ interface AlertDialogTitleProps extends React.ComponentPropsWithoutRef<
 > {}
 
 const AlertDialogTitle = React.forwardRef<
-  React.ElementRef<typeof AlertDialogPrimitive.Title>,
+  React.ComponentRef<typeof AlertDialogPrimitive.Title>,
   AlertDialogTitleProps
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Title
@@ -198,7 +198,7 @@ interface AlertDialogActionProps
     VariantProps<typeof buttonVariants> {}
 
 const AlertDialogAction = React.forwardRef<
-  React.ElementRef<typeof AlertDialogPrimitive.Action>,
+  React.ComponentRef<typeof AlertDialogPrimitive.Action>,
   AlertDialogActionProps
 >(({ className, variant = 'primary', size = 'default', ...props }, ref) => (
   <AlertDialogPrimitive.Action
@@ -219,7 +219,7 @@ interface AlertDialogCancelProps
     VariantProps<typeof buttonVariants> {}
 
 const AlertDialogCancel = React.forwardRef<
-  React.ElementRef<typeof AlertDialogPrimitive.Cancel>,
+  React.ComponentRef<typeof AlertDialogPrimitive.Cancel>,
   AlertDialogCancelProps
 >(({ className, variant = 'secondary', size = 'default', ...props }, ref) => (
   <AlertDialogPrimitive.Cancel
