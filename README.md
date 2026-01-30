@@ -88,8 +88,8 @@ npm install
 | `npm run build`           | Build library to `dist/`                 |
 | `npm run storybook`       | Start Storybook at http://localhost:6006 |
 | `npm run build-storybook` | Build static Storybook                   |
-| `npm run test`            | Run tests in watch mode                  |
-| `npm run test:run`        | Single test run                          |
+| `npm run test`            | Single test run                          |
+| `npm run test:watch`      | Run tests in watch mode                  |
 | `npm run test:coverage`   | Run tests with coverage                  |
 | `npm run lint`            | Check for linting errors                 |
 | `npm run lint:fix`        | Fix linting errors                       |

@@ -24,8 +24,8 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "tsc -p tsconfig.app.json && vite build",
-    "test": "vitest",
-    "test:run": "vitest run",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -34,7 +34,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
-    "verify": "npm run test:run && npm run lint:fix && npm run format:check && npm run typecheck"
+    "verify": "npm run test && npm run lint:fix && npm run format:check && npm run typecheck"
   },
   "repository": {
     "type": "git",

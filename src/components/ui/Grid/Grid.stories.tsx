@@ -247,3 +247,122 @@ export const CardGrid: Story = {
     </Grid>
   ),
 }
+
+export const ResponsiveColumns: Story = {
+  render: () => (
+    <div className="space-y-8">
+      <div>
+        <p className="text-secondary mb-4 text-sm">
+          Responsive grid: 1 column on mobile, 2 on tablet, 3 on desktop
+        </p>
+        <Grid cols={{ base: 1, md: 2, lg: 3 }} gap="md">
+          <DemoBox>Item 1</DemoBox>
+          <DemoBox>Item 2</DemoBox>
+          <DemoBox>Item 3</DemoBox>
+          <DemoBox>Item 4</DemoBox>
+          <DemoBox>Item 5</DemoBox>
+          <DemoBox>Item 6</DemoBox>
+        </Grid>
+      </div>
+    </div>
+  ),
+}
+
+export const ResponsiveGap: Story = {
+  render: () => (
+    <div className="space-y-8">
+      <div>
+        <p className="text-secondary mb-4 text-sm">
+          Responsive gap: small on mobile, large on desktop
+        </p>
+        <Grid cols={3} gap={{ base: 'sm', lg: 'xl' }}>
+          <DemoBox>1</DemoBox>
+          <DemoBox>2</DemoBox>
+          <DemoBox>3</DemoBox>
+          <DemoBox>4</DemoBox>
+          <DemoBox>5</DemoBox>
+          <DemoBox>6</DemoBox>
+        </Grid>
+      </div>
+    </div>
+  ),
+}
+
+export const ResponsiveLayout: Story = {
+  render: () => (
+    <div className="space-y-8">
+      <div>
+        <p className="text-secondary mb-4 text-sm">
+          Stacked on mobile, sidebar layout on desktop
+        </p>
+        <Grid cols={{ base: 1, lg: 12 }} gap="lg">
+          <GridItem colSpan={{ base: 'full', lg: 8 }}>
+            <DemoBox className="h-full">
+              <h3 className="font-display mb-2 text-lg">Main Content</h3>
+              <p className="text-secondary text-sm">
+                Full width on mobile, 8 columns on desktop
+              </p>
+            </DemoBox>
+          </GridItem>
+          <GridItem colSpan={{ base: 'full', lg: 4 }}>
+            <DemoBox className="h-full">
+              <h3 className="font-display mb-2 text-lg">Sidebar</h3>
+              <p className="text-secondary text-sm">
+                Full width on mobile, 4 columns on desktop
+              </p>
+            </DemoBox>
+          </GridItem>
+        </Grid>
+      </div>
+    </div>
+  ),
+}
+
+export const ResponsiveComplexLayout: Story = {
+  render: () => (
+    <Grid cols={{ base: 1, md: 6, lg: 12 }} gap={{ base: 'md', lg: 'lg' }}>
+      <GridItem colSpan="full">
+        <DemoBox>Header (Always Full Width)</DemoBox>
+      </GridItem>
+      <GridItem colSpan={{ base: 'full', md: 2, lg: 3 }}>
+        <DemoBox className="h-full">
+          <h4 className="mb-2 font-semibold">Nav</h4>
+          <p className="text-secondary text-sm">
+            Full on mobile
+            <br />
+            2/6 on tablet
+            <br />
+            3/12 on desktop
+          </p>
+        </DemoBox>
+      </GridItem>
+      <GridItem colSpan={{ base: 'full', md: 4, lg: 6 }}>
+        <DemoBox className="h-full">
+          <h4 className="mb-2 font-semibold">Main Content</h4>
+          <p className="text-secondary text-sm">
+            Full on mobile
+            <br />
+            4/6 on tablet
+            <br />
+            6/12 on desktop
+          </p>
+        </DemoBox>
+      </GridItem>
+      <GridItem colSpan={{ base: 'full', md: 6, lg: 3 }}>
+        <DemoBox className="h-full">
+          <h4 className="mb-2 font-semibold">Aside</h4>
+          <p className="text-secondary text-sm">
+            Full on mobile
+            <br />
+            Full (6/6) on tablet
+            <br />
+            3/12 on desktop
+          </p>
+        </DemoBox>
+      </GridItem>
+      <GridItem colSpan="full">
+        <DemoBox>Footer (Always Full Width)</DemoBox>
+      </GridItem>
+    </Grid>
+  ),
+}

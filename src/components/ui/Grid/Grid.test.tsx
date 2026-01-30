@@ -137,6 +137,82 @@ describe('Grid', () => {
     const results = await axe(container)
     expect(results).toHaveNoViolations()
   })
+
+  describe('Responsive behavior', () => {
+    it('applies responsive cols classes', () => {
+      render(
+        <Grid data-testid="grid" cols={{ base: 1, md: 2, lg: 3 }}>
+          Content
+        </Grid>
+      )
+      const grid = screen.getByTestId('grid')
+      expect(grid).toHaveClass('grid-cols-1')
+      expect(grid).toHaveClass('md:grid-cols-2')
+      expect(grid).toHaveClass('lg:grid-cols-3')
+    })
+
+    it('applies responsive gap classes', () => {
+      render(
+        <Grid data-testid="grid" gap={{ base: 'sm', lg: 'xl' }}>
+          Content
+        </Grid>
+      )
+      const grid = screen.getByTestId('grid')
+      expect(grid).toHaveClass('gap-2')
+      expect(grid).toHaveClass('lg:gap-8')
+    })
+
+    it('applies responsive align classes', () => {
+      render(
+        <Grid data-testid="grid" align={{ base: 'start', md: 'center' }}>
+          Content
+        </Grid>
+      )
+      const grid = screen.getByTestId('grid')
+      expect(grid).toHaveClass('items-start')
+      expect(grid).toHaveClass('md:items-center')
+    })
+
+    it('applies responsive justify classes', () => {
+      render(
+        <Grid data-testid="grid" justify={{ base: 'start', lg: 'center' }}>
+          Content
+        </Grid>
+      )
+      const grid = screen.getByTestId('grid')
+      expect(grid).toHaveClass('justify-items-start')
+      expect(grid).toHaveClass('lg:justify-items-center')
+    })
+
+    it('applies all breakpoints', () => {
+      render(
+        <Grid
+          data-testid="grid"
+          cols={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5, '2xl': 6 }}
+        >
+          Content
+        </Grid>
+      )
+      const grid = screen.getByTestId('grid')
+      expect(grid).toHaveClass('grid-cols-1')
+      expect(grid).toHaveClass('sm:grid-cols-2')
+      expect(grid).toHaveClass('md:grid-cols-3')
+      expect(grid).toHaveClass('lg:grid-cols-4')
+      expect(grid).toHaveClass('xl:grid-cols-5')
+      expect(grid).toHaveClass('2xl:grid-cols-6')
+    })
+
+    it('applies default values when base is not provided', () => {
+      render(
+        <Grid data-testid="grid" cols={{ md: 3 }}>
+          Content
+        </Grid>
+      )
+      const grid = screen.getByTestId('grid')
+      expect(grid).toHaveClass('grid-cols-1') // default value
+      expect(grid).toHaveClass('md:grid-cols-3')
+    })
+  })
 })
 
 describe('GridItem', () => {
@@ -229,5 +305,54 @@ describe('GridItem', () => {
     )
     const results = await axe(container)
     expect(results).toHaveNoViolations()
+  })
+
+  describe('Responsive behavior', () => {
+    it('applies responsive colSpan classes', () => {
+      render(
+        <GridItem
+          data-testid="grid-item"
+          colSpan={{ base: 'full', md: 6, lg: 4 }}
+        >
+          Content
+        </GridItem>
+      )
+      const item = screen.getByTestId('grid-item')
+      expect(item).toHaveClass('col-span-full')
+      expect(item).toHaveClass('md:col-span-6')
+      expect(item).toHaveClass('lg:col-span-4')
+    })
+
+    it('applies responsive rowSpan classes', () => {
+      render(
+        <GridItem data-testid="grid-item" rowSpan={{ base: 1, lg: 2 }}>
+          Content
+        </GridItem>
+      )
+      const item = screen.getByTestId('grid-item')
+      expect(item).toHaveClass('row-span-1')
+      expect(item).toHaveClass('lg:row-span-2')
+    })
+
+    it('applies responsive colStart classes', () => {
+      render(
+        <GridItem data-testid="grid-item" colStart={{ base: 'auto', md: 2 }}>
+          Content
+        </GridItem>
+      )
+      const item = screen.getByTestId('grid-item')
+      expect(item).toHaveClass('col-start-auto')
+      expect(item).toHaveClass('md:col-start-2')
+    })
+
+    it('works without base value', () => {
+      render(
+        <GridItem data-testid="grid-item" colSpan={{ md: 6 }}>
+          Content
+        </GridItem>
+      )
+      const item = screen.getByTestId('grid-item')
+      expect(item).toHaveClass('md:col-span-6')
+    })
   })
 })

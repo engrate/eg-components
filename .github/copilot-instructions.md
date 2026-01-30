@@ -73,14 +73,13 @@ All components must have Storybook stories demonstrating variants and usage exam
 
 ## Commands
 
-| Task          | Command             |
-| ------------- | ------------------- |
-| Dev server    | `npm run dev`       |
-| Tests (watch) | `npm test`          |
-| Tests (CI)    | `npm run test:run`  |
-| Storybook     | `npm run storybook` |
-| Build         | `npm run build`     |
-| Verify        | `npm run verify`    |
+| Task       | Command             |
+| ---------- | ------------------- |
+| Dev server | `npm run dev`       |
+| Tests.     | `npm run test`      |
+| Storybook  | `npm run storybook` |
+| Build      | `npm run build`     |
+| Verify     | `npm run verify`    |
 
 ## Browser Automation
 
