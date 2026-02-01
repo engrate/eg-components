@@ -359,6 +359,110 @@ interface MyButtonProps extends ButtonProps {
 }
 ```
 
+## Layout Guidelines
+
+Follow these layout principles when building UIs with Engrate components:
+
+### Text Alignment & Width
+
+- **Always left-align text** — creates clarity and readability
+- **Body text max 65 characters wide** — use `max-width: 65ch` or equivalent
+- Heading should be **at least twice as large** as body text
+
+### Spacing & Grid
+
+- **Grid spacing should be 50% tighter than typical defaults** — creates cohesive layouts
+- **Even margins** — equal margins to top and left side creates natural squares
+- **Card headline-to-body gap** — use 100% of body text line height for breathing room
+
+### Content Width
+
+- Tables, charts, and text blocks should be ~60-70% of container width (not full width)
+- Keep content blocks relatively **square in proportion** — avoid ultra-wide, thin layouts
+- Exception: photographs may span full width as backgrounds or hero images
+
+### Backgrounds
+
+- **Never use pure white (#FFFFFF)** for backgrounds
+- Use light gray backgrounds: `bg-main` (#FAFAFA), `bg-alt` (#F5F5F5), `bg-card` (#F9F9F9)
+- Light yellow backgrounds (Vanilla, Eggshell) can highlight sections
+
+## Spacing
+
+The component library uses a consistent spacing scale based on Tailwind's default values.
+
+### Gap Values
+
+Use `Stack` and `Grid` components with the `gap` prop:
+
+| Gap   | Value   | Tailwind | Use Case                           |
+| ----- | ------- | -------- | ---------------------------------- |
+| `xs`  | 0.25rem | `gap-1`  | Tight spacing (icon + label)       |
+| `sm`  | 0.5rem  | `gap-2`  | Compact layouts                    |
+| `md`  | 1rem    | `gap-4`  | Default spacing (cards, form rows) |
+| `lg`  | 1.5rem  | `gap-6`  | Section spacing                    |
+| `xl`  | 2rem    | `gap-8`  | Major sections                     |
+| `2xl` | 3rem    | `gap-12` | Page sections                      |
+
+### Spacing Guidelines
+
+```tsx
+// Form fields — use md gap
+<Stack gap="md">
+  <FormField label="Name"><Input /></FormField>
+  <FormField label="Email"><Input /></FormField>
+</Stack>
+
+// Button groups — use sm gap
+<Stack direction="horizontal" gap="sm">
+  <Button variant="secondary">Cancel</Button>
+  <Button variant="primary">Save</Button>
+</Stack>
+
+// Page sections — use xl or 2xl gap
+<Stack gap="xl">
+  <section>Hero content</section>
+  <section>Features</section>
+</Stack>
+```
+
+### Brand Spacing Rules
+
+- **Grid spacing 50% tighter than defaults** — prefer `sm` over `md`, `md` over `lg`
+- **Card headline-to-body gap** — use 100% of body text line height
+- **Even margins** — equal top and left margins create natural squares
+
+## Design Rules
+
+Critical rules to maintain brand consistency:
+
+### Color Usage
+
+| Rule                     | Description                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------ |
+| **10/90 Rule**           | 10% color, 90% grayscale — colors look best when used sparingly                |
+| **No colored text**      | All text must be grayscale only — never use Sunflower or other colors for text |
+| **Sunflower is primary** | When only one color can be used, use Sunflower (#FFBE26)                       |
+
+### Typography
+
+| Rule                    | Description                                                   |
+| ----------------------- | ------------------------------------------------------------- |
+| **-5% letter spacing**  | All text above 10pt uses -5% tracking (built into components) |
+| **Libre Baskerville**   | Only for hero headings ≥60pt                                  |
+| **Work Sans Regular**   | Everything else — no Bold, Medium, or Light weights allowed   |
+| **Grayscale text only** | Prioritize black (#1A1A1A), use gray only for hierarchy       |
+
+### Design Checklist
+
+Before shipping, verify:
+
+- [ ] Following 10/90 color vs grayscale ratio
+- [ ] All text is grayscale (no colored text)
+- [ ] Text is left-aligned
+- [ ] Body text max 65 characters wide
+- [ ] Using light gray backgrounds, not pure white
+
 ## Related Resources
 
 - **Storybook Documentation**: Interactive component examples at https://engrate.github.io/eg-components
