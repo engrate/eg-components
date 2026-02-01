@@ -111,3 +111,4 @@ Core workflow:
 
 - Always reference `.github/skills/engrate-designer/SKILL.md` when designing React components.
 - Always reference `.github/skills/react-component-developer/SKILL.md` when working on React components.
+- Always update `SKILL.md` files when making changes to components.
