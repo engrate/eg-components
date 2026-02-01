@@ -8,6 +8,8 @@ declare const stackVariants: (props?: ({
     wrap?: "wrap" | "nowrap" | "wrap-reverse" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface StackProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof stackVariants> {
+    /** The HTML element to render as (e.g., 'section', 'nav', 'ul') */
+    as?: React.ElementType;
     /** Render as a child component using Slot */
     asChild?: boolean;
 }

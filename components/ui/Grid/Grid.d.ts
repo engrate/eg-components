@@ -26,6 +26,8 @@ interface GridProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'cols'> {
     align?: ResponsiveValue<AlignValue>;
     /** Horizontal alignment of items. Supports responsive values. */
     justify?: ResponsiveValue<JustifyValue>;
+    /** The HTML element to render as (e.g., 'section', 'main', 'nav') */
+    as?: React.ElementType;
     /** Render as a child component using Slot */
     asChild?: boolean;
 }
@@ -67,6 +69,8 @@ interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
     rowSpan?: ResponsiveValue<RowSpanValue>;
     /** Column start position for the item. Supports responsive values. */
     colStart?: ResponsiveValue<ColStartValue>;
+    /** The HTML element to render as (e.g., 'section', 'article', 'aside') */
+    as?: React.ElementType;
     /** Render as a child component using Slot */
     asChild?: boolean;
 }
