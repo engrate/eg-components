@@ -30,6 +30,11 @@ const meta = {
       options: ['start', 'center', 'end', 'stretch'],
       description: 'Horizontal alignment of items',
     },
+    as: {
+      control: 'select',
+      options: ['div', 'nav', 'main', 'aside', 'section'],
+      description: 'HTML element to render the grid as',
+    },
   },
 } satisfies Meta<typeof Grid>
 
@@ -365,6 +370,52 @@ export const ResponsiveComplexLayout: Story = {
       <GridItem colSpan="full">
         <DemoBox>Footer (Always Full Width)</DemoBox>
       </GridItem>
+    </Grid>
+  ),
+}
+
+export const AsPolymorphism: Story = {
+  render: () => (
+    <Grid as="section" cols={12} gap="lg" aria-label="Page layout">
+      <GridItem as="header" colSpan="full">
+        <DemoBox>Header (rendered as header element)</DemoBox>
+      </GridItem>
+      <GridItem as="nav" colSpan={3}>
+        <DemoBox className="h-full">
+          Navigation (rendered as nav element)
+        </DemoBox>
+      </GridItem>
+      <GridItem as="main" colSpan={6}>
+        <DemoBox className="h-full">
+          Main Content (rendered as main element)
+        </DemoBox>
+      </GridItem>
+      <GridItem as="aside" colSpan={3}>
+        <DemoBox className="h-full">
+          Sidebar (rendered as aside element)
+        </DemoBox>
+      </GridItem>
+      <GridItem as="footer" colSpan="full">
+        <DemoBox>Footer (rendered as footer element)</DemoBox>
+      </GridItem>
+    </Grid>
+  ),
+}
+
+export const AsChildPolymorphism: Story = {
+  render: () => (
+    <Grid asChild cols={3} gap="md">
+      <ul className="list-none p-0">
+        <li>
+          <DemoBox>List Item 1</DemoBox>
+        </li>
+        <li>
+          <DemoBox>List Item 2</DemoBox>
+        </li>
+        <li>
+          <DemoBox>List Item 3</DemoBox>
+        </li>
+      </ul>
     </Grid>
   ),
 }

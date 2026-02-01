@@ -35,6 +35,11 @@ const meta = {
       options: ['nowrap', 'wrap', 'wrap-reverse'],
       description: 'Whether items should wrap',
     },
+    as: {
+      control: 'select',
+      options: ['div', 'section', 'nav', 'article', 'aside'],
+      description: 'HTML element to render the stack as',
+    },
   },
 } satisfies Meta<typeof Stack>
 
@@ -233,20 +238,48 @@ export const FormLayout: Story = {
   ),
 }
 
+export const AsPolymorphism: Story = {
+  render: () => (
+    <Stack
+      as="nav"
+      direction="horizontal"
+      gap="lg"
+      aria-label="Main navigation"
+    >
+      <a href="#" className="hover:underline">
+        Home
+      </a>
+      <a href="#" className="hover:underline">
+        About
+      </a>
+      <a href="#" className="hover:underline">
+        Services
+      </a>
+      <a href="#" className="hover:underline">
+        Contact
+      </a>
+    </Stack>
+  ),
+}
+
+export const AsListPolymorphism: Story = {
+  render: () => (
+    <Stack as="ul" gap="sm" className="list-disc pl-5">
+      <li>First list item</li>
+      <li>Second list item</li>
+      <li>Third list item</li>
+    </Stack>
+  ),
+}
+
 export const AsChildPolymorphism: Story = {
   render: () => (
     <Stack asChild gap="md">
-      <nav aria-label="Main navigation">
-        <a href="#" className="hover:underline">
-          Home
-        </a>
-        <a href="#" className="hover:underline">
-          About
-        </a>
-        <a href="#" className="hover:underline">
-          Contact
-        </a>
-      </nav>
+      <section aria-label="Features section">
+        <DemoBox>Feature 1</DemoBox>
+        <DemoBox>Feature 2</DemoBox>
+        <DemoBox>Feature 3</DemoBox>
+      </section>
     </Stack>
   ),
 }

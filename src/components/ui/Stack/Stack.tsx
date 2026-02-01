@@ -55,6 +55,8 @@ interface StackProps
   extends
     React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof stackVariants> {
+  /** The HTML element to render as (e.g., 'section', 'nav', 'ul') */
+  as?: React.ElementType
   /** Render as a child component using Slot */
   asChild?: boolean
 }
@@ -88,12 +90,13 @@ const Stack = React.forwardRef<HTMLDivElement, StackProps>(
       align,
       justify,
       wrap,
+      as: Tag = 'div',
       asChild = false,
       ...props
     },
     ref
   ) => {
-    const Comp = asChild ? Slot : 'div'
+    const Comp = asChild ? Slot : Tag
     return (
       <Comp
         className={cn(

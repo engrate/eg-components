@@ -148,6 +148,8 @@ interface GridProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'cols'> {
   align?: ResponsiveValue<AlignValue>
   /** Horizontal alignment of items. Supports responsive values. */
   justify?: ResponsiveValue<JustifyValue>
+  /** The HTML element to render as (e.g., 'section', 'main', 'nav') */
+  as?: React.ElementType
   /** Render as a child component using Slot */
   asChild?: boolean
 }
@@ -176,10 +178,19 @@ interface GridProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'cols'> {
  */
 const Grid = React.forwardRef<HTMLDivElement, GridProps>(
   (
-    { className, cols, gap, align, justify, asChild = false, ...props },
+    {
+      className,
+      cols,
+      gap,
+      align,
+      justify,
+      as: Tag = 'div',
+      asChild = false,
+      ...props
+    },
     ref
   ) => {
-    const Comp = asChild ? Slot : 'div'
+    const Comp = asChild ? Slot : Tag
 
     const colsClasses = getResponsiveClasses(cols, colsClassMap, 1)
     const gapClasses = getResponsiveClasses(gap, gapClassMap, 'md')
@@ -310,6 +321,8 @@ interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
   rowSpan?: ResponsiveValue<RowSpanValue>
   /** Column start position for the item. Supports responsive values. */
   colStart?: ResponsiveValue<ColStartValue>
+  /** The HTML element to render as (e.g., 'section', 'article', 'aside') */
+  as?: React.ElementType
   /** Render as a child component using Slot */
   asChild?: boolean
 }
@@ -335,10 +348,18 @@ interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
  */
 const GridItem = React.forwardRef<HTMLDivElement, GridItemProps>(
   (
-    { className, colSpan, rowSpan, colStart, asChild = false, ...props },
+    {
+      className,
+      colSpan,
+      rowSpan,
+      colStart,
+      as: Tag = 'div',
+      asChild = false,
+      ...props
+    },
     ref
   ) => {
-    const Comp = asChild ? Slot : 'div'
+    const Comp = asChild ? Slot : Tag
 
     const colSpanClasses = getResponsiveClasses(colSpan, colSpanClassMap)
     const rowSpanClasses = getResponsiveClasses(rowSpan, rowSpanClassMap)
