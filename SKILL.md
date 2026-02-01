@@ -190,11 +190,10 @@ import { Heading, Text, Eyebrow, Stack } from '@engrate/components'
 ;<Stack gap="md">
   <Eyebrow>Category</Eyebrow>
   <Heading level={1}>Page Title</Heading>
-  <Text size="lg">Lead paragraph with larger text.</Text>
-  <Text>Regular body text for content.</Text>
-  <Text size="sm" color="secondary">
-    Secondary smaller text.
-  </Text>
+  <Text variant="lead">Lead paragraph with larger text.</Text>
+  <Text variant="semi-lead'">Semi lead paragraph</Text>
+  <Text variant="body">Regular body text for content.</Text>
+  <Text variant="descriptive">Descriptive smaller text.</Text>
 </Stack>
 ```
 
