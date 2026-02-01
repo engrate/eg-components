@@ -2,6 +2,8 @@
 
 A React component library built with Tailwind CSS, following Engrate's brand guidelines. Features accessible, customizable components with TypeScript support.
 
+> **🤖 AI Agents:** See [SKILL.md](SKILL.md) for comprehensive usage instructions and component patterns.
+
 ## Installation
 
 ```bash
