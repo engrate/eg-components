@@ -9,6 +9,8 @@ import { cn } from '@/lib/utils'
 interface TabsContextValue {
   activeTab: string
   setActiveTab: (value: string) => void
+  registerTrigger: (value: string, element: HTMLButtonElement | null) => void
+  variant?: 'default' | 'pills'
 }
 
 const TabsContext = React.createContext<TabsContextValue | null>(null)
@@ -53,6 +55,7 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
     ref
   ) => {
     const [internalValue, setInternalValue] = React.useState(defaultValue)
+    const triggerRefs = React.useRef<Map<string, HTMLButtonElement>>(new Map())
 
     const activeTab = value !== undefined ? value : internalValue
     const setActiveTab = React.useCallback(
@@ -65,8 +68,21 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
       [value, onValueChange]
     )
 
+    const registerTrigger = React.useCallback(
+      (tabValue: string, element: HTMLButtonElement | null) => {
+        if (element) {
+          triggerRefs.current.set(tabValue, element)
+        } else {
+          triggerRefs.current.delete(tabValue)
+        }
+      },
+      []
+    )
+
     return (
-      <TabsContext.Provider value={{ activeTab, setActiveTab }}>
+      <TabsContext.Provider
+        value={{ activeTab, setActiveTab, registerTrigger }}
+      >
         <div ref={ref} className={cn('w-full', className)} {...props}>
           {children}
         </div>
@@ -82,7 +98,7 @@ const tabListVariants = cva(
   {
     variants: {
       variant: {
-        default: 'border-border gap-1 border-b',
+        default: 'border-border relative gap-1 border-b',
         pills: 'rounded-pill bg-alt gap-2 p-1',
       },
     },
@@ -91,6 +107,14 @@ const tabListVariants = cva(
     },
   }
 )
+
+// Context for TabList to share indicator state
+interface TabListContextValue {
+  variant?: 'default' | 'pills'
+  setActiveRect: (rect: { left: number; width: number } | null) => void
+}
+
+const TabListContext = React.createContext<TabListContextValue | null>(null)
 
 interface TabListProps
   extends
@@ -102,13 +126,76 @@ interface TabListProps
  */
 const TabList = React.forwardRef<HTMLDivElement, TabListProps>(
   ({ className, variant, ...props }, ref) => {
+    const containerRef = React.useRef<HTMLDivElement>(null)
+    const [indicatorStyle, setIndicatorStyle] = React.useState<{
+      left: number
+      width: number
+    } | null>(null)
+    const [isInitialized, setIsInitialized] = React.useState(false)
+    const isInitializedRef = React.useRef(false)
+
+    const setActiveRect = React.useCallback(
+      (rect: { left: number; width: number } | null) => {
+        if (rect && containerRef.current) {
+          const containerRect = containerRef.current.getBoundingClientRect()
+          setIndicatorStyle({
+            left: rect.left - containerRect.left,
+            width: rect.width,
+          })
+          // Mark as initialized after first measurement
+          if (!isInitializedRef.current) {
+            isInitializedRef.current = true
+            setIsInitialized(true)
+          }
+        }
+      },
+      []
+    )
+
+    // Merge refs
+    const mergedRef = React.useCallback(
+      (node: HTMLDivElement | null) => {
+        ;(
+          containerRef as React.MutableRefObject<HTMLDivElement | null>
+        ).current = node
+        if (typeof ref === 'function') {
+          ref(node)
+        } else if (ref) {
+          ref.current = node
+        }
+      },
+      [ref]
+    )
+
+    const contextValue = React.useMemo(
+      () => ({ variant: variant ?? 'default', setActiveRect }),
+      [variant, setActiveRect]
+    )
+
     return (
-      <div
-        ref={ref}
-        role="tablist"
-        className={cn(tabListVariants({ variant, className }))}
-        {...props}
-      />
+      <TabListContext.Provider value={contextValue}>
+        <div
+          ref={mergedRef}
+          role="tablist"
+          className={cn(tabListVariants({ variant, className }))}
+          {...props}
+        >
+          {props.children}
+          {variant !== 'pills' && indicatorStyle && (
+            <span
+              className={cn(
+                'bg-sunflower pointer-events-none absolute bottom-0 h-0.5',
+                isInitialized && 'transition-all duration-200 ease-out'
+              )}
+              style={{
+                left: indicatorStyle.left,
+                width: indicatorStyle.width,
+              }}
+              aria-hidden="true"
+            />
+          )}
+        </div>
+      </TabListContext.Provider>
     )
   }
 )
@@ -121,7 +208,7 @@ const tabTriggerVariants = cva(
     variants: {
       variant: {
         default:
-          'text-secondary hover:text-primary data-[state=active]:border-sunflower data-[state=active]:text-primary border-b-2 border-transparent px-4 py-2',
+          'text-secondary hover:text-primary data-[state=active]:text-primary px-4 py-2',
         pills:
           'rounded-pill text-secondary hover:text-primary data-[state=active]:bg-card data-[state=active]:text-primary px-4 py-1.5 data-[state=active]:shadow-sm',
       },
@@ -152,11 +239,45 @@ interface TabTriggerProps
 const TabTrigger = React.forwardRef<HTMLButtonElement, TabTriggerProps>(
   ({ className, variant, size, value, ...props }, ref) => {
     const { activeTab, setActiveTab } = useTabsContext()
+    const tabListContext = React.useContext(TabListContext)
+    const buttonRef = React.useRef<HTMLButtonElement>(null)
     const isActive = activeTab === value
+
+    // Merge refs
+    const mergedRef = React.useCallback(
+      (node: HTMLButtonElement | null) => {
+        ;(
+          buttonRef as React.MutableRefObject<HTMLButtonElement | null>
+        ).current = node
+        if (typeof ref === 'function') {
+          ref(node)
+        } else if (ref) {
+          ref.current = node
+        }
+      },
+      [ref]
+    )
+
+    // Report position to TabList when active
+    React.useEffect(() => {
+      if (isActive && buttonRef.current && tabListContext) {
+        const updatePosition = () => {
+          if (buttonRef.current) {
+            const rect = buttonRef.current.getBoundingClientRect()
+            tabListContext.setActiveRect({ left: rect.left, width: rect.width })
+          }
+        }
+        updatePosition()
+
+        // Update on resize
+        window.addEventListener('resize', updatePosition)
+        return () => window.removeEventListener('resize', updatePosition)
+      }
+    }, [isActive, tabListContext])
 
     return (
       <button
-        ref={ref}
+        ref={mergedRef}
         role="tab"
         type="button"
         aria-selected={isActive}

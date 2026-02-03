@@ -177,7 +177,7 @@ describe('Tabs', () => {
       </Tabs>
     )
 
-    expect(screen.getByRole('tab')).toHaveClass('border-b-2')
+    expect(screen.getByRole('tab')).toHaveClass('px-4')
 
     rerender(
       <Tabs defaultValue="tab1">
