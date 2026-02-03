@@ -44,12 +44,13 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 
 ### Layout Components
 
-| Component | Purpose                                  |
-| --------- | ---------------------------------------- |
-| `Stack`   | Vertical/horizontal flex layout with gap |
-| `Grid`    | CSS Grid layout wrapper                  |
-| `Card`    | Container with border and background     |
-| `Divider` | Visual separator line                    |
+| Component     | Purpose                                  |
+| ------------- | ---------------------------------------- |
+| `Stack`       | Vertical/horizontal flex layout with gap |
+| `Grid`        | CSS Grid layout wrapper                  |
+| `Card`        | Container with border and background     |
+| `Divider`     | Visual separator line                    |
+| `EngrateLogo` | Brand logo with compact mode (icon only) |
 
 ### Typography Components
 
@@ -96,6 +97,8 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 | `TabList`     | Tab navigation                      |
 | `Pagination`  | Page navigation                     |
 | `Sidebar`     | Collapsible application sidebar nav |
+| `Header`      | Page header with logo and nav       |
+| `Footer`      | Page footer with links and info     |
 
 ### Overlay Components
 
@@ -128,7 +131,7 @@ function MyComponent() {
   return (
     <Card>
       <Stack gap="md">
-        <Heading level={2}>Welcome</Heading>
+        <Heading level="h2">Welcome</Heading>
         <Text>This is a card with stacked content.</Text>
         <Button variant="primary">Get Started</Button>
       </Stack>
@@ -169,11 +172,11 @@ function LoginForm() {
   return (
     <form>
       <Stack gap="lg">
-        <FormField label="Email" required>
-          <Input type="email" placeholder="you@example.com" />
+        <FormField label="Email" htmlFor="email">
+          <Input id="email" type="email" placeholder="you@example.com" />
         </FormField>
-        <FormField label="Password" required>
-          <Input type="password" />
+        <FormField label="Password" htmlFor="password">
+          <Input id="password" type="password" />
         </FormField>
         <Button type="submit" variant="primary">
           Sign In
@@ -190,9 +193,10 @@ function LoginForm() {
 import { Heading, Text, Eyebrow, Stack } from '@engrate/components'
 ;<Stack gap="md">
   <Eyebrow>Category</Eyebrow>
-  <Heading level={1}>Page Title</Heading>
+  <Heading level="hero">Hero Title</Heading>
+  <Heading level="h1">Page Title</Heading>
   <Text variant="lead">Lead paragraph with larger text.</Text>
-  <Text variant="semi-lead'">Semi lead paragraph</Text>
+  <Text variant="semi-lead">Semi lead paragraph.</Text>
   <Text variant="body">Regular body text for content.</Text>
   <Text variant="descriptive">Descriptive smaller text.</Text>
 </Stack>
@@ -202,7 +206,7 @@ import { Heading, Text, Eyebrow, Stack } from '@engrate/components'
 
 ```tsx
 import { Grid, Card } from '@engrate/components'
-;<Grid columns={3} gap="lg">
+;<Grid cols={3} gap="lg">
   <Card>Column 1</Card>
   <Card>Column 2</Card>
   <Card>Column 3</Card>
@@ -212,25 +216,40 @@ import { Grid, Card } from '@engrate/components'
 ### Modal Dialog
 
 ```tsx
-import { Modal, Button } from '@engrate/components'
-import { useState } from 'react'
+import {
+  Modal,
+  ModalTrigger,
+  ModalContent,
+  ModalHeader,
+  ModalTitle,
+  ModalDescription,
+  ModalFooter,
+  ModalClose,
+  Button,
+  Stack,
+  Text,
+} from '@engrate/components'
 
 function Example() {
-  const [open, setOpen] = useState(false)
-
   return (
-    <>
-      <Button onClick={() => setOpen(true)}>Open Modal</Button>
-      <Modal open={open} onOpenChange={setOpen} title="Confirm Action">
+    <Modal>
+      <ModalTrigger asChild>
+        <Button>Open Modal</Button>
+      </ModalTrigger>
+      <ModalContent>
+        <ModalHeader>
+          <ModalTitle>Confirm Action</ModalTitle>
+          <ModalDescription>This action cannot be undone.</ModalDescription>
+        </ModalHeader>
         <Text>Are you sure you want to proceed?</Text>
-        <Stack direction="horizontal" gap="sm" justify="end">
-          <Button variant="secondary" onClick={() => setOpen(false)}>
-            Cancel
-          </Button>
+        <ModalFooter>
+          <ModalClose asChild>
+            <Button variant="secondary">Cancel</Button>
+          </ModalClose>
           <Button variant="primary">Confirm</Button>
-        </Stack>
-      </Modal>
-    </>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
   )
 }
 ```
@@ -248,6 +267,7 @@ import {
   SidebarItem,
   SidebarSeparator,
   SidebarTrigger,
+  EngrateLogo,
 } from '@engrate/components'
 import { Home, Settings, BarChart3, LogOut } from 'lucide-react'
 
@@ -256,7 +276,7 @@ function AppLayout() {
     <div style={{ display: 'flex', height: '100vh' }}>
       <Sidebar aria-label="Main navigation">
         <SidebarHeader>
-          <SidebarLogo />
+          <EngrateLogo size="sm" compact />
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
@@ -288,6 +308,67 @@ function AppLayout() {
 }
 ```
 
+### Header and Footer
+
+```tsx
+import {
+  Header,
+  HeaderLogo,
+  HeaderNav,
+  HeaderActions,
+  Footer,
+  FooterContent,
+  FooterSection,
+  FooterHeading,
+  FooterLinks,
+  FooterBottom,
+  FooterCopyright,
+  EngrateLogo,
+  Button,
+  Link,
+} from '@engrate/components'
+
+function PageLayout() {
+  return (
+    <>
+      <Header sticky>
+        <HeaderLogo>
+          <EngrateLogo />
+        </HeaderLogo>
+        <HeaderNav>
+          <Link variant="nav" href="/about">
+            About
+          </Link>
+          <Link variant="nav" href="/services">
+            Services
+          </Link>
+        </HeaderNav>
+        <HeaderActions>
+          <Button variant="primary">Sign In</Button>
+        </HeaderActions>
+      </Header>
+
+      <main>{/* Page content */}</main>
+
+      <Footer>
+        <FooterContent>
+          <FooterSection>
+            <FooterHeading>Company</FooterHeading>
+            <FooterLinks>
+              <Link href="/about">About</Link>
+              <Link href="/careers">Careers</Link>
+            </FooterLinks>
+          </FooterSection>
+        </FooterContent>
+        <FooterBottom>
+          <FooterCopyright>© 2026 Engrate</FooterCopyright>
+        </FooterBottom>
+      </Footer>
+    </>
+  )
+}
+```
+
 ## Design Tokens
 
 The library exposes CSS custom properties for use in custom components.
@@ -310,11 +391,11 @@ The library exposes CSS custom properties for use in custom components.
 
 ### Typography
 
-| Token                   | Usage                        |
-| ----------------------- | ---------------------------- |
-| `--font-family-display` | Libre Baskerville (headings) |
-| `--font-family-sans`    | Work Sans (body text)        |
-| `--font-family-mono`    | IBM Plex Mono (code)         |
+| Token            | Usage                        |
+| ---------------- | ---------------------------- |
+| `--font-display` | Libre Baskerville (headings) |
+| `--font-sans`    | Work Sans (body text)        |
+| `--font-mono`    | IBM Plex Mono (code)         |
 
 ### Using Tokens in Custom Components
 
@@ -348,7 +429,7 @@ function CustomBanner() {
 ### Responsive Layouts
 
 ```tsx
-<Grid columns={{ default: 1, md: 2, lg: 3 }} gap="lg">
+<Grid cols={{ base: 1, md: 2, lg: 3 }} gap="lg">
   {items.map((item) => (
     <Card key={item.id}>{item.content}</Card>
   ))}
@@ -374,20 +455,40 @@ import { Skeleton, Spinner, Stack } from '@engrate/components'
 ### Toast Notifications
 
 ```tsx
-import { Toast, useToast } from '@engrate/components'
+import {
+  Toast,
+  ToastProvider,
+  ToastViewport,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  Button,
+} from '@engrate/components'
+import { useState } from 'react'
 
 function Example() {
-  const { toast } = useToast()
+  const [open, setOpen] = useState(false)
 
-  const handleClick = () => {
-    toast({
-      title: 'Success',
-      description: 'Your changes have been saved.',
-      variant: 'success',
-    })
-  }
-
-  return <Button onClick={handleClick}>Save</Button>
+  return (
+    <ToastProvider>
+      <Button
+        onClick={() => {
+          setOpen(true)
+          setTimeout(() => setOpen(false), 3000)
+        }}
+      >
+        Save
+      </Button>
+      <Toast open={open} onOpenChange={setOpen} variant="success">
+        <div className="grid gap-1">
+          <ToastTitle>Success</ToastTitle>
+          <ToastDescription>Your changes have been saved.</ToastDescription>
+        </div>
+        <ToastClose />
+      </Toast>
+      <ToastViewport />
+    </ToastProvider>
+  )
 }
 ```
 
