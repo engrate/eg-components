@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { EngrateLogo } from './EngrateLogo'
 
 const meta: Meta<typeof EngrateLogo> = {
-  title: 'Components/EngrateLogo',
+  title: 'Misc/EngrateLogo',
   component: EngrateLogo,
   parameters: {
     layout: 'centered',
