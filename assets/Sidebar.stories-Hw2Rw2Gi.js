@@ -1,0 +1,230 @@
+import{j as e}from"./jsx-runtime-u17CrQMm.js";import{r as i}from"./iframe-BxtZELN4.js";import{S as W}from"./index-CPwMR7dn.js";import{c as z}from"./index-DDA3KdpW.js";import{c as o}from"./utils-ryREhF4q.js";import{a as X,C as Y}from"./chevron-right-C0Ih0VGE.js";import{E as Z}from"./EngrateLogo-DidPVj4c.js";import{c as j}from"./createLucideIcon-B5EhZ-80.js";import"./preload-helper-PPVm8Dsz.js";import"./index-C9-vS83p.js";const ee=[["path",{d:"M3 3v16a2 2 0 0 0 2 2h16",key:"c24i48"}],["path",{d:"M18 17V9",key:"2bz60n"}],["path",{d:"M13 17V5",key:"1frdt8"}],["path",{d:"M8 17v-3",key:"17ska0"}]],v=j("chart-column",ee);const ae=[["path",{d:"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",key:"1oefj6"}],["path",{d:"M14 2v5a1 1 0 0 0 1 1h5",key:"wfsgrz"}],["path",{d:"M10 9H8",key:"b1mrlr"}],["path",{d:"M16 13H8",key:"t4e002"}],["path",{d:"M16 17H8",key:"z1uh3a"}]],B=j("file-text",ae);const re=[["path",{d:"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8",key:"5wwlr5"}],["path",{d:"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",key:"r6nss1"}]],y=j("house",re);const se=[["path",{d:"m16 17 5-5-5-5",key:"1bji2h"}],["path",{d:"M21 12H9",key:"dn1m92"}],["path",{d:"M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4",key:"1uf3rs"}]],ne=j("log-out",se);const ie=[["path",{d:"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915",key:"1i5ecw"}],["circle",{cx:"12",cy:"12",r:"3",key:"1v7zrd"}]],P=j("settings",ie);const te=[["path",{d:"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2",key:"1yyitq"}],["path",{d:"M16 3.128a4 4 0 0 1 0 7.744",key:"16gr8j"}],["path",{d:"M22 21v-2a4 4 0 0 0-3-3.87",key:"kshegd"}],["circle",{cx:"9",cy:"7",r:"4",key:"nufk8"}]],de=j("users",te),$=i.createContext(null);function k(){const a=i.useContext($);if(!a)throw new Error("Sidebar components must be used within a Sidebar");return a}const oe=z(["border-border bg-card flex h-dvh flex-col border-r transition-[width] duration-300 ease-in-out","focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"],{variants:{variant:{default:"",bordered:"border-border border"},width:{sm:"",default:"",lg:""}},defaultVariants:{variant:"default",width:"default"}}),le={sm:{expanded:"w-52",collapsed:"w-14"},default:{expanded:"w-64",collapsed:"w-16"},lg:{expanded:"w-72",collapsed:"w-20"}},c=i.forwardRef(({className:a,variant:n,width:s="default",defaultCollapsed:t=!1,collapsed:d,onCollapsedChange:x,collapsible:m=!0,autoCollapseMobile:f=!0,children:F,...T},O)=>{const[U,Q]=i.useState(t),E=d!==void 0,N=E?d:U,w=i.useCallback(g=>{m&&(E||Q(g),x?.(g))},[E,x,m]);i.useEffect(()=>{if(!f||!m||typeof window>"u"||!window.matchMedia)return;const g=window.matchMedia("(max-width: 768px)"),R=K=>{w(K.matches)};return R(g),g.addEventListener("change",R),()=>g.removeEventListener("change",R)},[f,m,w]);const J=i.useMemo(()=>({collapsed:N,setCollapsed:w,collapsible:m}),[N,w,m]),D=le[s||"default"];return e.jsx($.Provider,{value:J,children:e.jsx("aside",{ref:O,className:o(oe({variant:n}),N?D.collapsed:D.expanded,a),"data-collapsed":N,...T,children:F})})});c.displayName="Sidebar";const b=i.forwardRef(({className:a,...n},s)=>e.jsx("div",{ref:s,className:o("flex items-center gap-2 px-4 pt-4 pb-2",a),...n}));b.displayName="SidebarHeader";const p=i.forwardRef(({className:a,...n},s)=>e.jsx("div",{ref:s,className:o("flex-1 overflow-y-auto px-3 py-2",a),...n}));p.displayName="SidebarContent";const h=i.forwardRef(({className:a,...n},s)=>e.jsx("div",{ref:s,className:o("border-border mt-auto border-t px-3 py-3",a),...n}));h.displayName="SidebarFooter";const l=i.forwardRef(({className:a,...n},s)=>e.jsx("div",{ref:s,className:o("space-y-1 py-2",a),...n}));l.displayName="SidebarGroup";const u=i.forwardRef(({className:a,...n},s)=>{const{collapsed:t}=k();return t?null:e.jsx("div",{ref:s,className:o("text-label text-tertiary px-3 py-2 font-sans uppercase",a),...n})});u.displayName="SidebarGroupLabel";const q=z(["text-small flex w-full items-center gap-3 rounded-md px-3 py-2 font-sans transition-colors","text-secondary hover:bg-alt hover:text-primary","focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"],{variants:{active:{true:"bg-alt text-primary font-medium",false:""}},defaultVariants:{active:!1}}),r=i.forwardRef(({className:a,active:n,icon:s,asChild:t=!1,children:d,...x},m)=>{const{collapsed:f}=k(),F=t?W:"button",T=e.jsxs(e.Fragment,{children:[s&&e.jsx("span",{className:"flex h-5 w-5 shrink-0 items-center justify-center",children:s}),!f&&e.jsx("span",{className:"truncate",children:d})]});return t?e.jsx(W,{ref:m,className:o(q({active:n}),f&&"justify-center px-2",a),...x,children:i.isValidElement(d)?i.cloneElement(d,{children:e.jsxs(e.Fragment,{children:[s&&e.jsx("span",{className:"flex h-5 w-5 shrink-0 items-center justify-center",children:s}),!f&&e.jsx("span",{className:"truncate",children:d.props.children})]})}):d}):e.jsx(F,{ref:m,className:o(q({active:n}),f&&"justify-center px-2",a),...x,children:T})});r.displayName="SidebarItem";const S=i.forwardRef(({className:a,...n},s)=>{const{collapsed:t,setCollapsed:d,collapsible:x}=k();return x?e.jsx("button",{ref:s,type:"button",className:o("text-small flex w-full items-center rounded-md p-2 font-sans transition-colors","text-secondary hover:bg-alt hover:text-primary","focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none",a),onClick:()=>d(!t),"aria-label":t?"Expand sidebar":"Collapse sidebar",...n,children:t?e.jsx(X,{className:"h-5 w-5"}):e.jsx(Y,{className:"h-5 w-5"})}):null});S.displayName="SidebarTrigger";const A=i.forwardRef(({className:a,...n},s)=>e.jsx("hr",{ref:s,className:o("border-border my-2 border-t",a),...n}));A.displayName="SidebarSeparator";function V({...a}){const{collapsed:n}=k();return e.jsx(Z,{compact:n,...a})}V.displayName="SidebarLogo";c.__docgenInfo={description:`Sidebar component for application navigation.
+Supports collapsible behavior, navigation items with icons, and sections.
+
+@example
+\`\`\`tsx
+<Sidebar>
+  <SidebarHeader>
+    <SidebarLogo />
+  </SidebarHeader>
+  <SidebarContent>
+    <SidebarGroup>
+      <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+      <SidebarItem icon={<HomeIcon />} active>Home</SidebarItem>
+      <SidebarItem icon={<SettingsIcon />}>Settings</SidebarItem>
+    </SidebarGroup>
+  </SidebarContent>
+  <SidebarFooter>
+    <SidebarTrigger />
+  </SidebarFooter>
+</Sidebar>
+\`\`\``,methods:[],displayName:"Sidebar",props:{defaultCollapsed:{required:!1,tsType:{name:"boolean"},description:"Whether the sidebar is in collapsed state",defaultValue:{value:"false",computed:!1}},collapsed:{required:!1,tsType:{name:"boolean"},description:"Controlled collapsed state"},onCollapsedChange:{required:!1,tsType:{name:"signature",type:"function",raw:"(collapsed: boolean) => void",signature:{arguments:[{type:{name:"boolean"},name:"collapsed"}],return:{name:"void"}}},description:"Callback when collapsed state changes"},collapsible:{required:!1,tsType:{name:"boolean"},description:"Whether the sidebar is collapsible",defaultValue:{value:"true",computed:!1}},autoCollapseMobile:{required:!1,tsType:{name:"boolean"},description:"Automatically collapse on mobile screens (default: true)",defaultValue:{value:"true",computed:!1}},width:{defaultValue:{value:"'default'",computed:!1},required:!1}},composes:["VariantProps"]};b.__docgenInfo={description:"",methods:[],displayName:"SidebarHeader"};p.__docgenInfo={description:"",methods:[],displayName:"SidebarContent"};h.__docgenInfo={description:"",methods:[],displayName:"SidebarFooter"};l.__docgenInfo={description:"",methods:[],displayName:"SidebarGroup"};u.__docgenInfo={description:"",methods:[],displayName:"SidebarGroupLabel"};r.__docgenInfo={description:"",methods:[],displayName:"SidebarItem",props:{icon:{required:!1,tsType:{name:"ReactReactNode",raw:"React.ReactNode"},description:"Icon to display before the label"},asChild:{required:!1,tsType:{name:"boolean"},description:"Render as a child component (for use with Next.js Link, etc.)",defaultValue:{value:"false",computed:!1}}},composes:["VariantProps"]};S.__docgenInfo={description:"",methods:[],displayName:"SidebarTrigger"};A.__docgenInfo={description:"",methods:[],displayName:"SidebarSeparator"};V.__docgenInfo={description:`SidebarLogo component that automatically syncs the EngrateLogo compact state
+with the Sidebar's collapsed state. Shows the full logo when expanded and
+the compact icon-only version when collapsed.
+
+Must be used within a Sidebar component.
+
+@example
+\`\`\`tsx
+<Sidebar>
+  <SidebarHeader>
+    <SidebarLogo />
+  </SidebarHeader>
+  ...
+</Sidebar>
+\`\`\``,methods:[],displayName:"SidebarLogo",composes:["Omit"]};const je={title:"Navigation/Sidebar",component:c,parameters:{layout:"fullscreen"},tags:["autodocs"],argTypes:{variant:{control:"select",options:["default","bordered"],description:"The visual style of the sidebar"},width:{control:"select",options:["sm","default","lg"],description:"The width of the sidebar"},defaultCollapsed:{control:"boolean",description:"Whether the sidebar starts collapsed"},collapsible:{control:"boolean",description:"Whether the sidebar can be collapsed"}},decorators:[a=>e.jsxs("div",{style:{height:"500px",display:"flex"},children:[e.jsx(a,{}),e.jsx("div",{className:"bg-main flex-1 p-6",children:e.jsx("p",{className:"text-secondary",children:"Main content area"})})]})]},C={args:{},render:a=>e.jsxs(c,{...a,"aria-label":"Main navigation",children:[e.jsx(b,{children:e.jsx("div",{className:"px-2 pt-3",children:e.jsx(V,{})})}),e.jsxs(p,{children:[e.jsxs(l,{children:[e.jsx(u,{children:"Main"}),e.jsx(r,{icon:e.jsx(y,{className:"h-4 w-4"}),active:!0,children:"Dashboard"}),e.jsx(r,{icon:e.jsx(v,{className:"h-4 w-4"}),children:"Analytics"}),e.jsx(r,{icon:e.jsx(B,{className:"h-4 w-4"}),children:"Reports"})]}),e.jsx(A,{}),e.jsxs(l,{children:[e.jsx(u,{children:"Management"}),e.jsx(r,{icon:e.jsx(de,{className:"h-4 w-4"}),children:"Users"}),e.jsx(r,{icon:e.jsx(P,{className:"h-4 w-4"}),children:"Settings"})]})]}),e.jsx(h,{children:e.jsx(r,{icon:e.jsx(ne,{className:"h-4 w-4"}),children:"Logout"})})]})},I={args:{defaultCollapsed:!0},render:a=>e.jsxs(c,{...a,"aria-label":"Main navigation",children:[e.jsx(b,{children:e.jsx("div",{className:"flex items-center justify-center",children:e.jsx("div",{className:"bg-sunflower h-8 w-8 rounded-full"})})}),e.jsx(p,{children:e.jsxs(l,{children:[e.jsx(u,{children:"Main"}),e.jsx(r,{icon:e.jsx(y,{className:"h-4 w-4"}),active:!0,children:"Dashboard"}),e.jsx(r,{icon:e.jsx(v,{className:"h-4 w-4"}),children:"Analytics"}),e.jsx(r,{icon:e.jsx(B,{className:"h-4 w-4"}),children:"Reports"})]})}),e.jsx(h,{children:e.jsx(S,{})})]})},M={args:{width:"sm"},render:a=>e.jsxs(c,{...a,"aria-label":"Main navigation",children:[e.jsx(b,{children:e.jsxs("div",{className:"flex items-center gap-2",children:[e.jsx("div",{className:"bg-sunflower h-8 w-8 rounded-full"}),e.jsx("span",{className:"text-body text-primary font-sans font-medium",children:"Engrate"})]})}),e.jsx(p,{children:e.jsxs(l,{children:[e.jsx(r,{icon:e.jsx(y,{className:"h-4 w-4"}),active:!0,children:"Dashboard"}),e.jsx(r,{icon:e.jsx(v,{className:"h-4 w-4"}),children:"Analytics"})]})}),e.jsx(h,{children:e.jsx(S,{})})]})},H={args:{width:"lg"},render:a=>e.jsxs(c,{...a,"aria-label":"Main navigation",children:[e.jsx(b,{children:e.jsxs("div",{className:"flex items-center gap-2",children:[e.jsx("div",{className:"bg-sunflower h-8 w-8 rounded-full"}),e.jsx("span",{className:"text-body text-primary font-sans font-medium",children:"Engrate"})]})}),e.jsx(p,{children:e.jsxs(l,{children:[e.jsx(r,{icon:e.jsx(y,{className:"h-4 w-4"}),active:!0,children:"Dashboard"}),e.jsx(r,{icon:e.jsx(v,{className:"h-4 w-4"}),children:"Analytics"})]})}),e.jsx(h,{children:e.jsx(S,{})})]})},L={args:{},render:a=>e.jsxs(c,{...a,"aria-label":"Main navigation",children:[e.jsx(b,{children:e.jsxs("div",{className:"flex items-center gap-2",children:[e.jsx("div",{className:"bg-sunflower h-8 w-8 rounded-full"}),e.jsx("span",{className:"text-body text-primary font-sans font-medium",children:"Engrate"})]})}),e.jsx(p,{children:e.jsxs(l,{children:[e.jsx(u,{children:"Navigation"}),e.jsx(r,{asChild:!0,icon:e.jsx(y,{className:"h-4 w-4"}),active:!0,children:e.jsx("a",{href:"#dashboard",children:"Dashboard"})}),e.jsx(r,{asChild:!0,icon:e.jsx(v,{className:"h-4 w-4"}),children:e.jsx("a",{href:"#analytics",children:"Analytics"})}),e.jsx(r,{asChild:!0,icon:e.jsx(P,{className:"h-4 w-4"}),children:e.jsx("a",{href:"#settings",children:"Settings"})})]})}),e.jsx(h,{children:e.jsx(S,{})})]})},G={args:{},render:function(n){const[s,t]=i.useState(!1);return e.jsxs(c,{...n,"aria-label":"Main navigation",collapsed:s,onCollapsedChange:t,children:[e.jsx(b,{children:e.jsxs("div",{className:"flex items-center gap-2",children:[e.jsx("div",{className:"bg-sunflower h-8 w-8 rounded-full"}),!s&&e.jsx("span",{className:"text-body text-primary font-sans font-medium",children:"Engrate"})]})}),e.jsx(p,{children:e.jsxs(l,{children:[e.jsx(u,{children:"Main"}),e.jsx(r,{icon:e.jsx(y,{className:"h-4 w-4"}),active:!0,children:"Dashboard"}),e.jsx(r,{icon:e.jsx(v,{className:"h-4 w-4"}),children:"Analytics"})]})}),e.jsx(h,{children:e.jsx(S,{})})]})}},_={args:{},render:a=>e.jsxs(c,{...a,"aria-label":"Main navigation",children:[e.jsx(b,{children:e.jsx("span",{className:"text-body text-primary font-sans font-medium",children:"Menu"})}),e.jsx(p,{children:e.jsxs(l,{children:[e.jsx(u,{children:"Pages"}),e.jsx(r,{active:!0,children:"Home"}),e.jsx(r,{children:"About"}),e.jsx(r,{children:"Services"}),e.jsx(r,{children:"Contact"})]})}),e.jsx(h,{children:e.jsx(S,{})})]})};C.parameters={...C.parameters,docs:{...C.parameters?.docs,source:{originalSource:`{
+  args: {},
+  render: args => <Sidebar {...args} aria-label="Main navigation">
+      <SidebarHeader>
+        <div className="px-2 pt-3">
+          <SidebarLogo />
+        </div>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Main</SidebarGroupLabel>
+          <SidebarItem icon={<Home className="h-4 w-4" />} active>
+            Dashboard
+          </SidebarItem>
+          <SidebarItem icon={<BarChart3 className="h-4 w-4" />}>
+            Analytics
+          </SidebarItem>
+          <SidebarItem icon={<FileText className="h-4 w-4" />}>
+            Reports
+          </SidebarItem>
+        </SidebarGroup>
+        <SidebarSeparator />
+        <SidebarGroup>
+          <SidebarGroupLabel>Management</SidebarGroupLabel>
+          <SidebarItem icon={<Users className="h-4 w-4" />}>Users</SidebarItem>
+          <SidebarItem icon={<Settings className="h-4 w-4" />}>
+            Settings
+          </SidebarItem>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarItem icon={<LogOut className="h-4 w-4" />}>Logout</SidebarItem>
+      </SidebarFooter>
+    </Sidebar>
+}`,...C.parameters?.docs?.source}}};I.parameters={...I.parameters,docs:{...I.parameters?.docs,source:{originalSource:`{
+  args: {
+    defaultCollapsed: true
+  },
+  render: args => <Sidebar {...args} aria-label="Main navigation">
+      <SidebarHeader>
+        <div className="flex items-center justify-center">
+          <div className="bg-sunflower h-8 w-8 rounded-full" />
+        </div>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Main</SidebarGroupLabel>
+          <SidebarItem icon={<Home className="h-4 w-4" />} active>
+            Dashboard
+          </SidebarItem>
+          <SidebarItem icon={<BarChart3 className="h-4 w-4" />}>
+            Analytics
+          </SidebarItem>
+          <SidebarItem icon={<FileText className="h-4 w-4" />}>
+            Reports
+          </SidebarItem>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarTrigger />
+      </SidebarFooter>
+    </Sidebar>
+}`,...I.parameters?.docs?.source}}};M.parameters={...M.parameters,docs:{...M.parameters?.docs,source:{originalSource:`{
+  args: {
+    width: 'sm'
+  },
+  render: args => <Sidebar {...args} aria-label="Main navigation">
+      <SidebarHeader>
+        <div className="flex items-center gap-2">
+          <div className="bg-sunflower h-8 w-8 rounded-full" />
+          <span className="text-body text-primary font-sans font-medium">
+            Engrate
+          </span>
+        </div>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarItem icon={<Home className="h-4 w-4" />} active>
+            Dashboard
+          </SidebarItem>
+          <SidebarItem icon={<BarChart3 className="h-4 w-4" />}>
+            Analytics
+          </SidebarItem>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarTrigger />
+      </SidebarFooter>
+    </Sidebar>
+}`,...M.parameters?.docs?.source}}};H.parameters={...H.parameters,docs:{...H.parameters?.docs,source:{originalSource:`{
+  args: {
+    width: 'lg'
+  },
+  render: args => <Sidebar {...args} aria-label="Main navigation">
+      <SidebarHeader>
+        <div className="flex items-center gap-2">
+          <div className="bg-sunflower h-8 w-8 rounded-full" />
+          <span className="text-body text-primary font-sans font-medium">
+            Engrate
+          </span>
+        </div>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarItem icon={<Home className="h-4 w-4" />} active>
+            Dashboard
+          </SidebarItem>
+          <SidebarItem icon={<BarChart3 className="h-4 w-4" />}>
+            Analytics
+          </SidebarItem>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarTrigger />
+      </SidebarFooter>
+    </Sidebar>
+}`,...H.parameters?.docs?.source}}};L.parameters={...L.parameters,docs:{...L.parameters?.docs,source:{originalSource:`{
+  args: {},
+  render: args => <Sidebar {...args} aria-label="Main navigation">
+      <SidebarHeader>
+        <div className="flex items-center gap-2">
+          <div className="bg-sunflower h-8 w-8 rounded-full" />
+          <span className="text-body text-primary font-sans font-medium">
+            Engrate
+          </span>
+        </div>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+          <SidebarItem asChild icon={<Home className="h-4 w-4" />} active>
+            <a href="#dashboard">Dashboard</a>
+          </SidebarItem>
+          <SidebarItem asChild icon={<BarChart3 className="h-4 w-4" />}>
+            <a href="#analytics">Analytics</a>
+          </SidebarItem>
+          <SidebarItem asChild icon={<Settings className="h-4 w-4" />}>
+            <a href="#settings">Settings</a>
+          </SidebarItem>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarTrigger />
+      </SidebarFooter>
+    </Sidebar>
+}`,...L.parameters?.docs?.source}}};G.parameters={...G.parameters,docs:{...G.parameters?.docs,source:{originalSource:`{
+  args: {},
+  render: function ControlledSidebar(args) {
+    const [collapsed, setCollapsed] = React.useState(false);
+    return <Sidebar {...args} aria-label="Main navigation" collapsed={collapsed} onCollapsedChange={setCollapsed}>
+        <SidebarHeader>
+          <div className="flex items-center gap-2">
+            <div className="bg-sunflower h-8 w-8 rounded-full" />
+            {!collapsed && <span className="text-body text-primary font-sans font-medium">
+                Engrate
+              </span>}
+          </div>
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarGroup>
+            <SidebarGroupLabel>Main</SidebarGroupLabel>
+            <SidebarItem icon={<Home className="h-4 w-4" />} active>
+              Dashboard
+            </SidebarItem>
+            <SidebarItem icon={<BarChart3 className="h-4 w-4" />}>
+              Analytics
+            </SidebarItem>
+          </SidebarGroup>
+        </SidebarContent>
+        <SidebarFooter>
+          <SidebarTrigger />
+        </SidebarFooter>
+      </Sidebar>;
+  }
+}`,...G.parameters?.docs?.source}}};_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
+  args: {},
+  render: args => <Sidebar {...args} aria-label="Main navigation">
+      <SidebarHeader>
+        <span className="text-body text-primary font-sans font-medium">
+          Menu
+        </span>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Pages</SidebarGroupLabel>
+          <SidebarItem active>Home</SidebarItem>
+          <SidebarItem>About</SidebarItem>
+          <SidebarItem>Services</SidebarItem>
+          <SidebarItem>Contact</SidebarItem>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarTrigger />
+      </SidebarFooter>
+    </Sidebar>
+}`,..._.parameters?.docs?.source}}};const ve=["Default","Collapsed","SmallWidth","LargeWidth","WithLinks","Controlled","WithoutIcons"];export{I as Collapsed,G as Controlled,C as Default,H as LargeWidth,M as SmallWidth,L as WithLinks,_ as WithoutIcons,ve as __namedExportsOrder,je as default};
