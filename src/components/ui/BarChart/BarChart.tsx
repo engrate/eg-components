@@ -264,6 +264,9 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   color: 'var(--color-secondary)',
                   fontWeight: 400,
                 }}
+                itemStyle={{
+                  color: 'var(--color-secondary)',
+                }}
                 cursor={{ fill: 'rgba(0, 0, 0, 0.05)' }}
               />
             )}
@@ -272,8 +275,12 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                 wrapperStyle={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '14px',
-                  color: 'var(--color-secondary)',
                 }}
+                formatter={(value) => (
+                  <span style={{ color: 'var(--color-secondary)' }}>
+                    {value}
+                  </span>
+                )}
               />
             )}
             {resolvedSeries.map((s, index) => (

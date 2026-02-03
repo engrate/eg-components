@@ -184,6 +184,9 @@ const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
                   color: 'var(--color-secondary)',
                   fontWeight: 400,
                 }}
+                itemStyle={{
+                  color: 'var(--color-secondary)',
+                }}
                 formatter={(value, name) => [
                   `${value} (${total > 0 ? ((Number(value) / total) * 100).toFixed(1) : 0}%)`,
                   name,
@@ -195,8 +198,12 @@ const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
                 wrapperStyle={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '14px',
-                  color: 'var(--color-secondary)',
                 }}
+                formatter={(value) => (
+                  <span style={{ color: 'var(--color-secondary)' }}>
+                    {value}
+                  </span>
+                )}
               />
             )}
             <Pie

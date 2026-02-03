@@ -216,6 +216,9 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                   color: 'var(--color-secondary)',
                   fontWeight: 400,
                 }}
+                itemStyle={{
+                  color: 'var(--color-secondary)',
+                }}
               />
             )}
             {showLegend && (
@@ -223,8 +226,12 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                 wrapperStyle={{
                   fontFamily: 'var(--font-sans)',
                   fontSize: '14px',
-                  color: 'var(--color-secondary)',
                 }}
+                formatter={(value) => (
+                  <span style={{ color: 'var(--color-secondary)' }}>
+                    {value}
+                  </span>
+                )}
               />
             )}
             {resolvedSeries.map((s, index) => (
