@@ -90,11 +90,12 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 
 ### Navigation Components
 
-| Component     | Purpose         |
-| ------------- | --------------- |
-| `Breadcrumbs` | Navigation path |
-| `TabList`     | Tab navigation  |
-| `Pagination`  | Page navigation |
+| Component     | Purpose                             |
+| ------------- | ----------------------------------- |
+| `Breadcrumbs` | Navigation path                     |
+| `TabList`     | Tab navigation                      |
+| `Pagination`  | Page navigation                     |
+| `Sidebar`     | Collapsible application sidebar nav |
 
 ### Overlay Components
 
@@ -230,6 +231,59 @@ function Example() {
         </Stack>
       </Modal>
     </>
+  )
+}
+```
+
+### Sidebar Navigation
+
+```tsx
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarItem,
+  SidebarSeparator,
+  SidebarTrigger,
+} from '@engrate/components'
+import { Home, Settings, BarChart3, LogOut } from 'lucide-react'
+
+function AppLayout() {
+  return (
+    <div style={{ display: 'flex', height: '100vh' }}>
+      <Sidebar aria-label="Main navigation">
+        <SidebarHeader>
+          <SidebarLogo />
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarGroup>
+            <SidebarGroupLabel>Main</SidebarGroupLabel>
+            <SidebarItem icon={<Home className="h-4 w-4" />} active>
+              Dashboard
+            </SidebarItem>
+            <SidebarItem icon={<BarChart3 className="h-4 w-4" />}>
+              Analytics
+            </SidebarItem>
+          </SidebarGroup>
+          <SidebarSeparator />
+          <SidebarGroup>
+            <SidebarGroupLabel>Settings</SidebarGroupLabel>
+            <SidebarItem icon={<Settings className="h-4 w-4" />}>
+              Preferences
+            </SidebarItem>
+          </SidebarGroup>
+        </SidebarContent>
+        <SidebarFooter>
+          <SidebarItem icon={<LogOut className="h-4 w-4" />}>
+            Logout
+          </SidebarItem>
+        </SidebarFooter>
+      </Sidebar>
+      <main className="flex-1 p-6">{/* Main content */}</main>
+    </div>
   )
 }
 ```
