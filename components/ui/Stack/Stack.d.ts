@@ -3,7 +3,7 @@ import * as React from 'react';
 declare const stackVariants: (props?: ({
     direction?: "horizontal" | "vertical" | null | undefined;
     gap?: "none" | "sm" | "lg" | "md" | "xl" | "xs" | "2xl" | null | undefined;
-    align?: "end" | "start" | "center" | "stretch" | "baseline" | null | undefined;
+    align?: "end" | "start" | "center" | "baseline" | "stretch" | null | undefined;
     justify?: "end" | "start" | "center" | "between" | "around" | "evenly" | null | undefined;
     wrap?: "wrap" | "nowrap" | "wrap-reverse" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
