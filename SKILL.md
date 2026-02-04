@@ -70,6 +70,7 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 | `Textarea`       | Multi-line text input       |
 | `Checkbox`       | Boolean input               |
 | `Radio`          | Single selection from group |
+| `Slider`         | Value selection via drag    |
 | `Switch`         | Toggle on/off               |
 | `Select`         | Dropdown selection          |
 | `DatePicker`     | Date selection              |
