@@ -1,6 +1,6 @@
 {
   "name": "@engrate/components",
-  "version": "0.1.10",
+  "version": "0.1.12",
   "description": "Engrate Component Library",
   "type": "module",
   "main": "./dist/index.cjs.js",
@@ -19,11 +19,12 @@
       "require": "./dist/index.cjs.js"
     },
     "./styles.css": "./dist/styles.css",
-    "./fonts/*": "./dist/fonts/*"
+    "./fonts/*": "./dist/fonts/*",
+    "./skills/engrate-designer.md": "./dist/skills/engrate-designer.md"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "tsc -p tsconfig.app.json && vite build",
+    "build": "tsc -p tsconfig.app.json && vite build && mkdir -p dist/skills && cp .github/skills/engrate-designer/SKILL.md dist/skills/engrate-designer.md",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
