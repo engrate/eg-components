@@ -34,7 +34,7 @@ function useSidebarContext() {
 
 const sidebarVariants = cva(
   [
-    'border-border bg-card flex h-dvh flex-col border-r transition-[width] duration-300 ease-in-out',
+    'border-border bg-alt flex h-dvh flex-col border-r transition-[width] duration-300 ease-in-out',
     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
   ],
   {
@@ -264,7 +264,7 @@ const SidebarGroupLabel = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        'text-label text-tertiary px-3 py-2 font-sans uppercase',
+        'text-tertiary px-3 py-2 font-mono text-xs leading-5 font-normal tracking-[1.2px] uppercase',
         className
       )}
       {...props}
@@ -279,14 +279,14 @@ SidebarGroupLabel.displayName = 'SidebarGroupLabel'
 
 const sidebarItemVariants = cva(
   [
-    'text-small flex w-full items-center gap-3 rounded-md px-3 py-2 font-sans transition-colors',
-    'text-secondary hover:bg-alt hover:text-primary',
+    'text-small relative flex w-full items-center gap-3 rounded-md px-3 py-2 font-sans font-normal',
+    'text-secondary hover:bg-vanilla hover:text-primary',
     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
   ],
   {
     variants: {
       active: {
-        true: 'bg-alt text-primary font-medium',
+        true: 'text-primary',
         false: '',
       },
     },
@@ -311,8 +311,16 @@ const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>(
     const { collapsed } = useSidebarContext()
     const Comp = asChild ? Slot : 'button'
 
+    const activeIndicator = active ? (
+      <span
+        className="bg-sunflower absolute top-1 bottom-1 left-0 w-[3px] rounded-full"
+        aria-hidden="true"
+      />
+    ) : null
+
     const content = (
       <>
+        {activeIndicator}
         {icon && (
           <span className="flex h-5 w-5 shrink-0 items-center justify-center">
             {icon}
@@ -339,6 +347,7 @@ const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>(
                 {
                   children: (
                     <>
+                      {activeIndicator}
                       {icon && (
                         <span className="flex h-5 w-5 shrink-0 items-center justify-center">
                           {icon}
@@ -400,8 +409,8 @@ const SidebarTrigger = React.forwardRef<HTMLButtonElement, SidebarTriggerProps>(
         ref={ref}
         type="button"
         className={cn(
-          'text-small flex w-full items-center rounded-md p-2 font-sans transition-colors',
-          'text-secondary hover:bg-alt hover:text-primary',
+          'text-small flex w-full items-center rounded-md p-2 font-sans font-normal',
+          'text-secondary hover:bg-vanilla hover:text-primary',
           'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
           className
         )}
@@ -430,7 +439,7 @@ const SidebarSeparator = React.forwardRef<HTMLHRElement, SidebarSeparatorProps>(
   ({ className, ...props }, ref) => (
     <hr
       ref={ref}
-      className={cn('border-border my-2 border-t', className)}
+      className={cn('border-border my-3 border-t', className)}
       {...props}
     />
   )

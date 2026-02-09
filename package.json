@@ -20,11 +20,11 @@
     },
     "./styles.css": "./dist/styles.css",
     "./fonts/*": "./dist/fonts/*",
-    "./skills/engrate-designer.md": "./dist/skills/engrate-designer.md"
+    "./skills/engrate-component-user.md": "./dist/skills/engrate-component-user.md"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "tsc -p tsconfig.app.json && vite build && mkdir -p dist/skills && cp .github/skills/engrate-designer/SKILL.md dist/skills/engrate-designer.md",
+    "build": "tsc -p tsconfig.app.json && vite build && mkdir -p dist/skills && cp SKILL.md dist/skills/engrate-component-user.md",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",

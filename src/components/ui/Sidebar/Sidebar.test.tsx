@@ -411,7 +411,13 @@ describe('SidebarItem', () => {
         </SidebarContent>
       </Sidebar>
     )
-    expect(screen.getByTestId('active-item')).toHaveClass('bg-alt')
+    expect(screen.getByTestId('active-item')).toHaveClass('text-primary')
+    // Active indicator bar should be rendered
+    const indicator = screen
+      .getByTestId('active-item')
+      .querySelector('[aria-hidden="true"]')
+    expect(indicator).toBeInTheDocument()
+    expect(indicator).toHaveClass('bg-sunflower')
   })
 
   it('renders as child with asChild prop', () => {
