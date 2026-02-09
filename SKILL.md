@@ -92,14 +92,15 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 
 ### Navigation Components
 
-| Component     | Purpose                             |
-| ------------- | ----------------------------------- |
-| `Breadcrumbs` | Navigation path                     |
-| `TabList`     | Tab navigation                      |
-| `Pagination`  | Page navigation                     |
-| `Sidebar`     | Collapsible application sidebar nav |
-| `Header`      | Page header with logo and nav       |
-| `Footer`      | Page footer with links and info     |
+| Component        | Purpose                             |
+| ---------------- | ----------------------------------- |
+| `Breadcrumbs`    | Navigation path                     |
+| `TabList`        | Tab navigation                      |
+| `Pagination`     | Page navigation                     |
+| `PaginationDots` | Dot indicator for content switching |
+| `Sidebar`        | Collapsible application sidebar nav |
+| `Header`         | Page header with logo and nav       |
+| `Footer`         | Page footer with links and info     |
 
 ### Overlay Components
 
