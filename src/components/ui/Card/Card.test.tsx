@@ -89,4 +89,43 @@ describe('Card', () => {
     rerender(<Card bg="transparent">Transparent</Card>)
     expect(container.firstChild).toHaveClass('bg-transparent')
   })
+
+  it('does not apply accent classes by default', () => {
+    const { container } = render(<Card>No accent</Card>)
+    expect(container.firstChild).not.toHaveClass('relative')
+    expect(container.firstChild).not.toHaveClass(
+      '[--card-accent-color:var(--color-sunflower)]'
+    )
+  })
+
+  it('applies accent classes for sunflower', () => {
+    const { container } = render(<Card accent="sunflower">With accent</Card>)
+    expect(container.firstChild).toHaveClass('relative')
+    expect(container.firstChild).toHaveClass(
+      '[--card-accent-color:var(--color-sunflower)]'
+    )
+  })
+
+  it('applies accent classes for each color', () => {
+    const accents = [
+      { accent: 'border' as const, expected: '--color-border' },
+      { accent: 'warm-purple' as const, expected: '--color-warm-purple' },
+      { accent: 'cool-purple' as const, expected: '--color-cool-purple' },
+      { accent: 'electric-blue' as const, expected: '--color-electric-blue' },
+      { accent: 'deep-blue' as const, expected: '--color-deep-blue' },
+      { accent: 'error' as const, expected: '--color-error' },
+    ]
+
+    accents.forEach(({ accent, expected }) => {
+      const { container } = render(<Card accent={accent}>Accent {accent}</Card>)
+      expect(container.firstChild).toHaveClass(
+        `[--card-accent-color:var(${expected})]`
+      )
+    })
+  })
+
+  it('has no accessibility violations with accent', async () => {
+    const { container } = render(<Card accent="sunflower">Accent card</Card>)
+    expect(await axe(container)).toHaveNoViolations()
+  })
 })

@@ -6,6 +6,18 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
+const accentBase = [
+  'relative',
+  "before:content-['']",
+  'before:absolute',
+  'before:inset-y-0',
+  'before:left-0',
+  'before:w-[3px]',
+  'before:z-20',
+  'before:rounded-l',
+  'before:bg-[linear-gradient(to_bottom,var(--card-accent-color)_0%,transparent_60%)]',
+].join(' ')
+
 const cardVariants = cva(
   'focus-visible:ring-sunflower rounded transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
   {
@@ -42,11 +54,22 @@ const cardVariants = cva(
         // Semantic
         error: 'bg-error',
       },
+      accent: {
+        none: '',
+        border: `${accentBase} [--card-accent-color:var(--color-border)]`,
+        sunflower: `${accentBase} [--card-accent-color:var(--color-sunflower)]`,
+        'warm-purple': `${accentBase} [--card-accent-color:var(--color-warm-purple)]`,
+        'cool-purple': `${accentBase} [--card-accent-color:var(--color-cool-purple)]`,
+        'electric-blue': `${accentBase} [--card-accent-color:var(--color-electric-blue)]`,
+        'deep-blue': `${accentBase} [--card-accent-color:var(--color-deep-blue)]`,
+        error: `${accentBase} [--card-accent-color:var(--color-error)]`,
+      },
     },
     defaultVariants: {
       variant: 'default',
       padding: 'default',
       bg: 'alt',
+      accent: 'none',
     },
   }
 )
@@ -59,6 +82,8 @@ interface CardProps
   asChild?: boolean
   /** Background color from Engrate design tokens */
   bg?: VariantProps<typeof cardVariants>['bg']
+  /** Left accent gradient stripe color */
+  accent?: VariantProps<typeof cardVariants>['accent']
 }
 
 /**
@@ -73,14 +98,20 @@ interface CardProps
  * </Card>
  * <Card variant="elevated" padding="lg">Elevated card</Card>
  * <Card bg="sunflower">Highlighted card</Card>
+ * <Card accent="sunflower">Card with accent stripe</Card>
  * ```
  */
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant, padding, bg, asChild = false, ...props }, ref) => {
+  (
+    { className, variant, padding, bg, accent, asChild = false, ...props },
+    ref
+  ) => {
     const Comp = asChild ? Slot : 'div'
     return (
       <Comp
-        className={cn(cardVariants({ variant, padding, bg, className }))}
+        className={cn(
+          cardVariants({ variant, padding, bg, accent, className })
+        )}
         ref={ref}
         {...props}
       />

@@ -1,6 +1,6 @@
 {
   "name": "@engrate/components",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Engrate Component Library",
   "type": "module",
   "main": "./dist/index.cjs.js",

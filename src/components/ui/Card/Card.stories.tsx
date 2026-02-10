@@ -45,6 +45,20 @@ const meta = {
       ],
       description: 'The background color from Engrate design tokens',
     },
+    accent: {
+      control: 'select',
+      options: [
+        'none',
+        'border',
+        'sunflower',
+        'warm-purple',
+        'cool-purple',
+        'electric-blue',
+        'deep-blue',
+        'error',
+      ],
+      description: 'Left accent gradient stripe color',
+    },
     asChild: {
       control: 'boolean',
       description: 'Render as a child component',
@@ -269,6 +283,59 @@ export const AllBackgroundColors: Story = {
         <Text className="text-small font-medium">deep-blue</Text>
       </Card>
       <Card bg="error">
+        <Text className="text-small font-medium">error</Text>
+      </Card>
+    </div>
+  ),
+}
+
+export const WithAccent: Story = {
+  args: {
+    accent: 'sunflower',
+    children: (
+      <>
+        <Heading level="h3">Accented Card</Heading>
+        <Text>This card has a sunflower accent gradient on the left edge.</Text>
+      </>
+    ),
+  },
+}
+
+export const AccentElevated: Story = {
+  args: {
+    accent: 'sunflower',
+    variant: 'elevated',
+    children: (
+      <>
+        <Heading level="h3">Elevated + Accent</Heading>
+        <Text>Combines the elevated shadow with a left accent stripe.</Text>
+      </>
+    ),
+  },
+}
+
+export const AllAccentColors: Story = {
+  render: () => (
+    <div className="grid max-w-2xl grid-cols-2 gap-4">
+      <Card accent="border">
+        <Text className="text-small font-medium">border (subtle)</Text>
+      </Card>
+      <Card accent="sunflower">
+        <Text className="text-small font-medium">sunflower</Text>
+      </Card>
+      <Card accent="warm-purple">
+        <Text className="text-small font-medium">warm-purple</Text>
+      </Card>
+      <Card accent="cool-purple">
+        <Text className="text-small font-medium">cool-purple</Text>
+      </Card>
+      <Card accent="electric-blue">
+        <Text className="text-small font-medium">electric-blue</Text>
+      </Card>
+      <Card accent="deep-blue">
+        <Text className="text-small font-medium">deep-blue</Text>
+      </Card>
+      <Card accent="error">
         <Text className="text-small font-medium">error</Text>
       </Card>
     </div>
