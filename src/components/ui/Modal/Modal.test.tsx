@@ -123,8 +123,8 @@ describe('Modal', () => {
 
       expect(screen.getByRole('dialog')).toBeInTheDocument()
 
-      // Click on the overlay (the backdrop element with bg-black/50 class)
-      const overlay = document.querySelector('.bg-black\\/50')
+      // Click on the overlay (the backdrop element with bg-black/20 class)
+      const overlay = document.querySelector('.bg-black\\/20')
       expect(overlay).toBeInTheDocument()
       if (overlay) {
         await user.click(overlay)

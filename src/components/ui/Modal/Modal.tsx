@@ -3,15 +3,59 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { X } from 'lucide-react'
+import { AnimatePresence, motion } from 'motion/react'
 import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
 /* -------------------------------------------------------------------------------------------------
- * Modal (Root)
+ * ModalContext (tracks open state for AnimatePresence)
  * -----------------------------------------------------------------------------------------------*/
 
-const Modal = DialogPrimitive.Root
+const ModalContext = React.createContext(false)
+
+/* -------------------------------------------------------------------------------------------------
+ * Modal (Root) — wraps Radix Root to track open state
+ * -----------------------------------------------------------------------------------------------*/
+
+interface ModalProps extends React.ComponentPropsWithoutRef<
+  typeof DialogPrimitive.Root
+> {}
+
+const Modal = ({
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
+  children,
+  ...props
+}: ModalProps) => {
+  const [uncontrolledOpen, setUncontrolledOpen] = React.useState(defaultOpen)
+  const isControlled = controlledOpen !== undefined
+  const isOpen = isControlled ? controlledOpen : uncontrolledOpen
+
+  const handleOpenChange = React.useCallback(
+    (value: boolean) => {
+      if (!isControlled) {
+        setUncontrolledOpen(value)
+      }
+      onOpenChange?.(value)
+    },
+    [isControlled, onOpenChange]
+  )
+
+  return (
+    <ModalContext.Provider value={isOpen}>
+      <DialogPrimitive.Root
+        open={isOpen}
+        onOpenChange={handleOpenChange}
+        {...props}
+      >
+        {children}
+      </DialogPrimitive.Root>
+    </ModalContext.Provider>
+  )
+}
+Modal.displayName = 'Modal'
 
 /* -------------------------------------------------------------------------------------------------
  * ModalTrigger
@@ -43,17 +87,15 @@ const ModalOverlay = React.forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Overlay>,
   ModalOverlayProps
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Overlay
-    ref={ref}
-    className={cn(
-      'fixed inset-0 z-50 bg-black/50',
-      'data-[state=open]:animate-in data-[state=closed]:animate-out',
-      'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
-      'duration-200',
-      className
-    )}
-    {...props}
-  />
+  <DialogPrimitive.Overlay ref={ref} forceMount asChild {...props}>
+    <motion.div
+      initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+      animate={{ opacity: 1, backdropFilter: 'blur(4px)' }}
+      exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+      transition={{ duration: 0.2 }}
+      className={cn('fixed inset-0 z-50 bg-black/20', className)}
+    />
+  </DialogPrimitive.Overlay>
 ))
 ModalOverlay.displayName = 'ModalOverlay'
 
@@ -68,12 +110,6 @@ const modalContentVariants = cva(
     'max-h-[85vh] overflow-y-auto',
     'border-border rounded-lg border',
     'focus-visible:ring-sunflower focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-    'data-[state=open]:animate-in data-[state=closed]:animate-out',
-    'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
-    'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
-    'data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%]',
-    'data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]',
-    'duration-200',
   ],
   {
     variants: {
@@ -101,33 +137,45 @@ interface ModalContentProps
 const ModalContent = React.forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Content>,
   ModalContentProps
->(({ className, children, size, showCloseButton = true, ...props }, ref) => (
-  <ModalPortal>
-    <ModalOverlay />
-    <DialogPrimitive.Content
-      ref={ref}
-      className={cn(modalContentVariants({ size }), className)}
-      {...props}
-    >
-      {children}
-      {showCloseButton && (
-        <DialogPrimitive.Close
-          className={cn(
-            'absolute top-4 right-4 rounded-sm opacity-70',
-            'ring-offset-main transition-opacity',
-            'hover:opacity-100',
-            'focus:ring-sunflower focus:ring-2 focus:ring-offset-2 focus:outline-none',
-            'disabled:pointer-events-none',
-            'data-[state=open]:bg-alt data-[state=open]:text-secondary'
-          )}
-        >
-          <X className="h-4 w-4" />
-          <span className="sr-only">Close</span>
-        </DialogPrimitive.Close>
+>(({ className, children, size, showCloseButton = true, ...props }, ref) => {
+  const isOpen = React.useContext(ModalContext)
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <ModalPortal forceMount>
+          <ModalOverlay />
+          <DialogPrimitive.Content ref={ref} forceMount asChild {...props}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className={cn(modalContentVariants({ size }), className)}
+            >
+              {children}
+              {showCloseButton && (
+                <DialogPrimitive.Close
+                  className={cn(
+                    'absolute top-4 right-4 rounded-sm opacity-70',
+                    'ring-offset-main transition-opacity',
+                    'hover:opacity-100',
+                    'focus:ring-sunflower focus:ring-2 focus:ring-offset-2 focus:outline-none',
+                    'disabled:pointer-events-none',
+                    'data-[state=open]:bg-alt data-[state=open]:text-secondary'
+                  )}
+                >
+                  <X className="h-4 w-4" />
+                  <span className="sr-only">Close</span>
+                </DialogPrimitive.Close>
+              )}
+            </motion.div>
+          </DialogPrimitive.Content>
+        </ModalPortal>
       )}
-    </DialogPrimitive.Content>
-  </ModalPortal>
-))
+    </AnimatePresence>
+  )
+})
 ModalContent.displayName = 'ModalContent'
 
 /* -------------------------------------------------------------------------------------------------
