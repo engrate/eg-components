@@ -1,7 +1,12 @@
 import { VariantProps } from 'class-variance-authority';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import * as React from 'react';
-declare const Modal: React.FC<DialogPrimitive.DialogProps>;
+interface ModalProps extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Root> {
+}
+declare const Modal: {
+    ({ open: controlledOpen, defaultOpen, onOpenChange, children, ...props }: ModalProps): import("react/jsx-runtime").JSX.Element;
+    displayName: string;
+};
 declare const ModalTrigger: React.ForwardRefExoticComponent<DialogPrimitive.DialogTriggerProps & React.RefAttributes<HTMLButtonElement>>;
 declare const ModalPortal: React.FC<DialogPrimitive.DialogPortalProps>;
 declare const ModalClose: React.ForwardRefExoticComponent<DialogPrimitive.DialogCloseProps & React.RefAttributes<HTMLButtonElement>>;
