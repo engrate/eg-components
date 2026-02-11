@@ -97,7 +97,7 @@ interface SidebarLogoProps extends Omit<EngrateLogoProps, 'compact'> {
  * </Sidebar>
  * ```
  */
-declare function SidebarLogo({ ...props }: SidebarLogoProps): import("react/jsx-runtime").JSX.Element;
+declare function SidebarLogo({ ...props }: SidebarLogoProps): import("react/jsx-runtime").JSX.Element | null;
 declare namespace SidebarLogo {
     var displayName: string;
 }
