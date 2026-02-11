@@ -20,27 +20,27 @@ describe('Card', () => {
     const { rerender, container } = render(
       <Card variant="default">Default</Card>
     )
-    expect(container.firstChild).toHaveClass('bg-alt')
+    expect(container.firstChild).toHaveClass('bg-card')
 
     rerender(<Card variant="elevated">Elevated</Card>)
     expect(container.firstChild).toHaveClass('shadow')
 
     rerender(<Card variant="ghost">Ghost</Card>)
-    expect(container.firstChild).toHaveClass('bg-alt')
+    expect(container.firstChild).toHaveClass('bg-card')
   })
 
   it('applies padding classes', () => {
     const { rerender, container } = render(<Card>Default</Card>)
-    expect(container.firstChild).toHaveClass('p-6')
+    expect(container.firstChild).toHaveClass('p-8')
 
     rerender(<Card padding="none">None</Card>)
     expect(container.firstChild).toHaveClass('p-0')
 
     rerender(<Card padding="sm">Small</Card>)
-    expect(container.firstChild).toHaveClass('p-4')
+    expect(container.firstChild).toHaveClass('p-6')
 
     rerender(<Card padding="lg">Large</Card>)
-    expect(container.firstChild).toHaveClass('p-8')
+    expect(container.firstChild).toHaveClass('p-10')
   })
 
   it('accepts custom className', () => {
@@ -62,7 +62,7 @@ describe('Card', () => {
     )
     const element = screen.getByTestId('custom-element')
     expect(element.tagName).toBe('SECTION')
-    expect(element).toHaveClass('bg-alt')
+    expect(element).toHaveClass('bg-card')
   })
 
   it('accepts HTML div attributes', () => {
@@ -78,7 +78,7 @@ describe('Card', () => {
 
   it('applies background color classes', () => {
     const { rerender, container } = render(<Card>Default bg</Card>)
-    expect(container.firstChild).toHaveClass('bg-alt')
+    expect(container.firstChild).toHaveClass('bg-card')
 
     rerender(<Card bg="sunflower">Sunflower</Card>)
     expect(container.firstChild).toHaveClass('bg-sunflower')
