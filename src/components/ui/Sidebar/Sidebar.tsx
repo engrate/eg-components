@@ -313,7 +313,10 @@ const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>(
     const activeIndicator = (
       <span
         className={cn(
-          'bg-sunflower absolute top-1 bottom-1 left-0 w-0.75 rounded-full transition-opacity',
+          'bg-sunflower absolute rounded-full transition-opacity',
+          collapsed
+            ? 'right-1 bottom-0 left-1 h-0.75'
+            : 'top-1 bottom-1 left-0 w-0.75',
           active ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
         )}
         aria-hidden="true"
@@ -477,7 +480,8 @@ interface SidebarLogoProps extends Omit<EngrateLogoProps, 'compact'> {}
  */
 function SidebarLogo({ ...props }: SidebarLogoProps) {
   const { collapsed } = useSidebarContext()
-  return <EngrateLogo compact={collapsed} {...props} />
+  if (collapsed) return null
+  return <EngrateLogo {...props} />
 }
 SidebarLogo.displayName = 'SidebarLogo'
 
