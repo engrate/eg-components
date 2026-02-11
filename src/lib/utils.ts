@@ -20,6 +20,7 @@ const twMerge = extendTailwindMerge({
             'semi-lead',
             'body-lg',
             'body',
+            'body-sm',
             'descriptive',
             'small',
             'label',

@@ -13,6 +13,7 @@ const textVariants = cva('font-sans', {
       'semi-lead': 'text-semi-lead text-secondary',
       'body-lg': 'text-body-lg text-secondary',
       body: 'text-body text-secondary',
+      'body-sm': 'text-body-sm text-secondary',
       descriptive: 'text-descriptive text-secondary',
       label: 'text-label text-tertiary',
       'label-sm': 'text-label-sm text-tertiary',

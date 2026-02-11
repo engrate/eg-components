@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import * as React from 'react'
 
 import { EngrateLogo, type EngrateLogoProps } from '@/components/ui/EngrateLogo'
+import { Text } from '@/components/ui/Text'
 import { cn } from '@/lib/utils'
 
 /* -------------------------------------------------------------------------------------------------
@@ -261,12 +262,10 @@ const SidebarGroupLabel = React.forwardRef<
   }
 
   return (
-    <div
+    <Text
+      variant="label"
       ref={ref}
-      className={cn(
-        'text-tertiary px-3 py-2 font-mono text-xs leading-5 font-normal tracking-[1.2px] uppercase',
-        className
-      )}
+      className={cn('px-3 py-2 uppercase', className)}
       {...props}
     />
   )
@@ -313,7 +312,7 @@ const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>(
 
     const activeIndicator = active ? (
       <span
-        className="bg-sunflower absolute top-1 bottom-1 left-0 w-[3px] rounded-full"
+        className="bg-sunflower absolute top-1 bottom-1 left-0 w-0.75 rounded-full"
         aria-hidden="true"
       />
     ) : null
@@ -326,7 +325,11 @@ const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>(
             {icon}
           </span>
         )}
-        {!collapsed && <span className="truncate">{children}</span>}
+        {!collapsed && (
+          <Text variant="body-sm" className="truncate">
+            {children}
+          </Text>
+        )}
       </>
     )
 

@@ -40,6 +40,12 @@ describe('Text', () => {
     expect(text).toHaveClass('font-sans', 'font-normal')
   })
 
+  it('applies body-sm variant classes', () => {
+    render(<Text variant="body-sm">Small body text</Text>)
+    const text = screen.getByText('Small body text')
+    expect(text).toHaveClass('font-sans', 'font-normal')
+  })
+
   it('applies descriptive variant classes', () => {
     render(<Text variant="descriptive">Descriptive text</Text>)
     const text = screen.getByText('Descriptive text')
@@ -118,6 +124,7 @@ describe('Text', () => {
         <Text variant="semi-lead">Semi-lead text</Text>
         <Text variant="body-lg">Large body text</Text>
         <Text variant="body">Body text</Text>
+        <Text variant="body-sm">Small body text</Text>
         <Text variant="descriptive">Descriptive text</Text>
         <Text variant="label">Label text</Text>
       </div>

@@ -199,7 +199,9 @@ import { Heading, Text, Eyebrow, Stack } from '@engrate/components'
   <Heading level="h1">Page Title</Heading>
   <Text variant="lead">Lead paragraph with larger text.</Text>
   <Text variant="semi-lead">Semi lead paragraph.</Text>
+  <Text variant="body-lg">Large body text for emphasis.</Text>
   <Text variant="body">Regular body text for content.</Text>
+  <Text variant="body-sm">Smaller body text for secondary content.</Text>
   <Text variant="descriptive">Descriptive smaller text.</Text>
 </Stack>
 ```
