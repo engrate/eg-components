@@ -334,29 +334,30 @@ function useSortableTable<T>({
   initialSortKey = null,
   initialSortDirection = 'asc',
 }: UseSortableTableOptions<T>): UseSortableTableReturn<T> {
-  const [sortKey, setSortKey] = React.useState<keyof T | null>(initialSortKey)
-  const [sortDirection, setSortDirection] =
-    React.useState<SortDirection>(initialSortDirection)
+  const [sortState, setSortState] = React.useState<{
+    key: keyof T | null
+    direction: SortDirection
+  }>({
+    key: initialSortKey ?? null,
+    direction: initialSortKey ? (initialSortDirection ?? 'asc') : null,
+  })
 
   const handleSort = React.useCallback((key: keyof T) => {
-    setSortKey((prevKey) => {
-      if (prevKey === key) {
-        setSortDirection((prevDirection) => {
-          if (prevDirection === 'asc') return 'desc'
-          if (prevDirection === 'desc') {
-            // Clear sort key when direction becomes null
-            setSortKey(null)
-            return null
-          }
-          return 'asc'
-        })
-        return prevKey
-      } else {
-        setSortDirection('asc')
-        return key
+    setSortState((prev) => {
+      if (prev.key !== key) {
+        return { key, direction: 'asc' }
       }
+      if (prev.direction === 'asc') {
+        return { key, direction: 'desc' }
+      }
+      if (prev.direction === 'desc') {
+        return { key: null, direction: null }
+      }
+      return { key, direction: 'asc' }
     })
   }, [])
+
+  const { key: sortKey, direction: sortDirection } = sortState
 
   const sortedData = React.useMemo(() => {
     if (!sortKey || !sortDirection) return data
