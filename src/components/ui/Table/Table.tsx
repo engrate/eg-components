@@ -3,6 +3,7 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 
+import { Text } from '@/components/ui/Text'
 import { cn } from '@/lib/utils'
 
 const tableVariants = cva(
@@ -283,14 +284,18 @@ TableHead.displayName = 'TableHead'
 interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {}
 
 const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, children, ...props }, ref) => {
     const { size } = React.useContext(TableContext)
     return (
       <td
         ref={ref}
         className={cn(tableCellVariants({ size }), className)}
         {...props}
-      />
+      >
+        <Text variant="body-sm" as="span">
+          {children}
+        </Text>
+      </td>
     )
   }
 )
@@ -304,7 +309,7 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={cn('text-small text-tertiary mt-4', className)}
+    className={cn('text-small text-tertiary mt-4 text-left', className)}
     {...props}
   />
 ))
