@@ -271,7 +271,9 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             aria-haspopup="dialog"
             aria-expanded={open}
           >
-            <span className={cn('truncate', !value && 'text-tertiary')}>
+            <span
+              className={cn('truncate', !value && 'text-tertiary text-body-sm')}
+            >
               {value ? formatDate(value, format) : placeholder}
             </span>
             <Calendar className="text-tertiary h-4 w-4 shrink-0" />

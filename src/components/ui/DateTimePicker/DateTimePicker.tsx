@@ -343,7 +343,9 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
             aria-haspopup="dialog"
             aria-expanded={open}
           >
-            <span className={cn('truncate', !value && 'text-tertiary')}>
+            <span
+              className={cn('truncate', !value && 'text-tertiary text-body-sm')}
+            >
               {value ? formatDateTime(value, format, use24Hour) : placeholder}
             </span>
             <div className="flex items-center gap-1">
@@ -464,7 +466,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
                   onChange={handleTimeChange}
                   step={minuteStep * 60}
                   className={cn(
-                    'bg-card text-body text-primary border-border rounded-md border px-2 py-1',
+                    'bg-card text-body-sm text-primary placeholder:text-body-sm border-border rounded-md border px-2 py-1',
                     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:outline-none'
                   )}
                   aria-label="Select time"

@@ -6,7 +6,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const inputVariants = cva(
-  'bg-card text-body text-primary placeholder:text-tertiary flex h-10 w-full rounded-md border px-3 py-2 font-sans transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+  'bg-card text-body-sm text-primary placeholder:text-tertiary placeholder:text-body-sm flex h-8 w-full rounded-md border px-3 py-1 font-sans transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
