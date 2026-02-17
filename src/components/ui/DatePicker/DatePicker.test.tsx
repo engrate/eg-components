@@ -37,8 +37,12 @@ describe('DatePicker', () => {
     await user.click(trigger)
 
     // Click on a day button (the "15" day)
-    const dayButton = screen.getByRole('button', { name: /15/i })
-    await user.click(dayButton)
+    const dayButtons = screen.getAllByRole('gridcell')
+    const day15 = dayButtons.find(
+      (cell) => cell.querySelector('button')?.textContent === '15'
+    )
+    const day15Btn = day15?.querySelector('button') as HTMLButtonElement
+    await user.click(day15Btn)
 
     expect(handleChange).toHaveBeenCalledWith(expect.any(Date))
   })
@@ -50,8 +54,12 @@ describe('DatePicker', () => {
     const trigger = screen.getByRole('button', { name: /choose date/i })
     await user.click(trigger)
 
-    const dayButton = screen.getByRole('button', { name: /15/i })
-    await user.click(dayButton)
+    const dayButtons = screen.getAllByRole('gridcell')
+    const day15 = dayButtons.find(
+      (cell) => cell.querySelector('button')?.textContent === '15'
+    )
+    const day15Btn = day15?.querySelector('button') as HTMLButtonElement
+    await user.click(day15Btn)
 
     expect(screen.queryByRole('grid')).not.toBeInTheDocument()
   })

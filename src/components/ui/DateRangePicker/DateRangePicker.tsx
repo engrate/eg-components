@@ -4,6 +4,7 @@ import * as PopoverPrimitive from '@radix-ui/react-popover'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { Calendar as CalendarIcon } from 'lucide-react'
 import * as React from 'react'
+import type { DateRange } from 'react-day-picker'
 
 import { Calendar } from '@/components/ui/Calendar'
 import { cn } from '@/lib/utils'
@@ -12,7 +13,10 @@ import { cn } from '@/lib/utils'
  * Helper Functions
  * -----------------------------------------------------------------------------------------------*/
 
-function formatDate(date: Date | null, format = 'yyyy-MM-dd'): string {
+function formatDate(
+  date: Date | null | undefined,
+  format = 'yyyy-MM-dd'
+): string {
   if (!date) return ''
   const month = String(date.getMonth() + 1).padStart(2, '0')
   const day = String(date.getDate()).padStart(2, '0')
@@ -24,11 +28,19 @@ function formatDate(date: Date | null, format = 'yyyy-MM-dd'): string {
     .replace('dd', day)
 }
 
+function formatRange(range: DateRange | undefined, format: string): string {
+  if (!range?.from) return ''
+  const fromStr = formatDate(range.from, format)
+  if (!range.to) return `${fromStr} – ...`
+  const toStr = formatDate(range.to, format)
+  return `${fromStr} – ${toStr}`
+}
+
 /* -------------------------------------------------------------------------------------------------
- * DatePicker Variants
+ * DateRangePicker Variants
  * -----------------------------------------------------------------------------------------------*/
 
-const datePickerTriggerVariants = cva(
+const dateRangePickerTriggerVariants = cva(
   [
     'bg-card text-body text-primary placeholder:text-tertiary',
     'flex h-10 w-full items-center justify-between rounded-md border px-3 py-2',
@@ -50,17 +62,17 @@ const datePickerTriggerVariants = cva(
 )
 
 /* -------------------------------------------------------------------------------------------------
- * DatePicker
+ * DateRangePicker
  * -----------------------------------------------------------------------------------------------*/
 
-interface DatePickerProps extends VariantProps<
-  typeof datePickerTriggerVariants
+interface DateRangePickerProps extends VariantProps<
+  typeof dateRangePickerTriggerVariants
 > {
-  /** The currently selected date */
-  value?: Date | null
-  /** Callback when the date changes */
-  onChange?: (date: Date | null) => void
-  /** Placeholder text when no date is selected */
+  /** The currently selected date range */
+  value?: DateRange
+  /** Callback when the date range changes */
+  onChange?: (range: DateRange | undefined) => void
+  /** Placeholder text when no date range is selected */
   placeholder?: string
   /** Date format string (supports MM, dd, yyyy) */
   format?: string
@@ -68,8 +80,10 @@ interface DatePickerProps extends VariantProps<
   minDate?: Date
   /** Maximum selectable date */
   maxDate?: Date
-  /** Whether the date picker is disabled */
+  /** Whether the date range picker is disabled */
   disabled?: boolean
+  /** Number of months to display side by side (default: 2) */
+  numberOfMonths?: number
   /** Additional class name for the trigger */
   className?: string
   /** ID for the trigger element */
@@ -83,25 +97,29 @@ interface DatePickerProps extends VariantProps<
 }
 
 /**
- * DatePicker component following Engrate brand guidelines.
- * Features a calendar popup with month/year navigation and accessible keyboard controls.
+ * DateRangePicker component following Engrate brand guidelines.
+ * Features a two-month calendar popup for selecting a date range with accessible keyboard controls.
  *
  * @example
  * ```tsx
- * const [date, setDate] = useState<Date | null>(null)
- * <DatePicker value={date} onChange={setDate} placeholder="Select a date" />
+ * const [range, setRange] = useState<DateRange | undefined>()
+ * <DateRangePicker value={range} onChange={setRange} placeholder="Select date range" />
  * ```
  */
-const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
+const DateRangePicker = React.forwardRef<
+  HTMLButtonElement,
+  DateRangePickerProps
+>(
   (
     {
       value,
       onChange,
-      placeholder = 'Select a date',
+      placeholder = 'Select date range',
       format = 'MM/dd/yyyy',
       minDate,
       maxDate,
       disabled = false,
+      numberOfMonths = 2,
       variant,
       className,
       id,
@@ -112,7 +130,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
     ref
   ) => {
     const [open, setOpen] = React.useState(false)
-    const [month, setMonth] = React.useState<Date>(value || new Date())
+    const [month, setMonth] = React.useState<Date>(value?.from || new Date())
 
     // Build disabled matchers for min/max dates
     const disabledMatchers = React.useMemo(() => {
@@ -122,25 +140,30 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
       return matchers.length > 0 ? matchers : undefined
     }, [minDate, maxDate])
 
-    const handleSelect = (date: Date | undefined) => {
-      onChange?.(date ?? null)
-      if (date) {
+    const handleSelect = (range: DateRange | undefined) => {
+      onChange?.(range)
+      // Close popover when both dates are selected
+      if (range?.from && range?.to) {
         setOpen(false)
       }
     }
 
     const handleTodayClick = () => {
       const today = new Date()
-      onChange?.(today)
+      onChange?.({ from: today, to: today })
       setOpen(false)
+    }
+
+    const handleClearClick = () => {
+      onChange?.(undefined)
     }
 
     // Update view month when value changes
     React.useEffect(() => {
-      if (value) {
-        setMonth(value)
+      if (value?.from) {
+        setMonth(value.from)
       }
-    }, [value])
+    }, [value?.from])
 
     return (
       <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
@@ -150,23 +173,33 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             id={id}
             type="button"
             disabled={disabled}
-            className={cn(datePickerTriggerVariants({ variant }), className)}
-            aria-label={ariaLabel || 'Choose date'}
+            className={cn(
+              dateRangePickerTriggerVariants({ variant }),
+              className
+            )}
+            aria-label={ariaLabel || 'Choose date range'}
             aria-describedby={ariaDescribedBy}
             aria-haspopup="dialog"
             aria-expanded={open}
           >
             <span
-              className={cn('truncate', !value && 'text-tertiary text-body-sm')}
+              className={cn(
+                'truncate',
+                !value?.from && 'text-tertiary text-body-sm'
+              )}
             >
-              {value ? formatDate(value, format) : placeholder}
+              {value?.from ? formatRange(value, format) : placeholder}
             </span>
             <CalendarIcon className="text-tertiary h-4 w-4 shrink-0" />
             {name && (
               <input
                 type="hidden"
                 name={name}
-                value={value ? formatDate(value, 'yyyy-MM-dd') : ''}
+                value={
+                  value?.from
+                    ? `${formatDate(value.from, 'yyyy-MM-dd')}/${formatDate(value.to, 'yyyy-MM-dd')}`
+                    : ''
+                }
               />
             )}
           </button>
@@ -186,21 +219,32 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
             align="start"
           >
             <Calendar
-              mode="single"
-              selected={value ?? undefined}
+              mode="range"
+              selected={value}
               onSelect={handleSelect}
               month={month}
               onMonthChange={setMonth}
+              numberOfMonths={numberOfMonths}
               disabled={disabledMatchers}
             />
 
-            {/* Today Button */}
-            <div className="border-border mt-4 border-t pt-4">
+            {/* Footer */}
+            <div className="border-border mt-4 flex items-center justify-between border-t pt-4">
+              <button
+                type="button"
+                onClick={handleClearClick}
+                className={cn(
+                  'text-tertiary hover:text-secondary text-sm',
+                  'transition-colors focus-visible:underline focus-visible:outline-none'
+                )}
+              >
+                Clear
+              </button>
               <button
                 type="button"
                 onClick={handleTodayClick}
                 className={cn(
-                  'text-sunflower hover:text-sunflower-hover w-full text-center text-sm font-medium',
+                  'text-sunflower hover:text-sunflower-hover text-sm font-medium',
                   'transition-colors focus-visible:underline focus-visible:outline-none'
                 )}
               >
@@ -213,7 +257,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
     )
   }
 )
-DatePicker.displayName = 'DatePicker'
+DateRangePicker.displayName = 'DateRangePicker'
 
-export { DatePicker, datePickerTriggerVariants }
-export type { DatePickerProps }
+export { DateRangePicker, dateRangePickerTriggerVariants }
+export type { DateRangePickerProps, DateRange }

@@ -371,6 +371,14 @@ Home / Products / Category / Current Page
 - Use Lemon Meringue (#FFF8A2) for the selected date background
 - The word "Today" remains in Sunflower (#FFBE26)
 
+**Date Range Picker Specifications:**
+
+| Element             | Specification                                          |
+| ------------------- | ------------------------------------------------------ |
+| **Range Endpoints** | Solid fill of Sunflower (#FFBE26) with rounded corners |
+| **Range Middle**    | Solid fill of Lemon Meringue (#FFF8A2)                 |
+| **Default Months**  | Shows 2 calendar months side-by-side                   |
+
 ---
 
 ### 5.6 Links

@@ -1,6 +1,6 @@
 {
   "name": "@engrate/components",
-  "version": "0.1.23",
+  "version": "0.1.24",
   "description": "Engrate Component Library",
   "type": "module",
   "main": "./dist/index.cjs.js",
@@ -81,6 +81,7 @@
     "clsx": "2.1.1",
     "lucide-react": "0.563.0",
     "motion": "^12.34.0",
+    "react-day-picker": "^9.13.2",
     "recharts": "3.7.0",
     "tailwind-merge": "3.4.0",
     "tailwindcss": "4.1.18"

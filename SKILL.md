@@ -63,21 +63,23 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 
 ### Form Components
 
-| Component        | Purpose                     |
-| ---------------- | --------------------------- |
-| `Button`         | Primary action element      |
-| `Input`          | Text input field            |
-| `Textarea`       | Multi-line text input       |
-| `Checkbox`       | Boolean input               |
-| `Radio`          | Single selection from group |
-| `Slider`         | Value selection via drag    |
-| `Switch`         | Toggle on/off               |
-| `Select`         | Dropdown selection          |
-| `DatePicker`     | Date selection              |
-| `DateTimePicker` | Date and time selection     |
-| `Label`          | Form field label            |
-| `FormField`      | Field wrapper with label    |
-| `FormMessage`    | Validation message display  |
+| Component         | Purpose                     |
+| ----------------- | --------------------------- |
+| `Button`          | Primary action element      |
+| `Input`           | Text input field            |
+| `Textarea`        | Multi-line text input       |
+| `Checkbox`        | Boolean input               |
+| `Radio`           | Single selection from group |
+| `Slider`          | Value selection via drag    |
+| `Switch`          | Toggle on/off               |
+| `Select`          | Dropdown selection          |
+| `DatePicker`      | Date selection              |
+| `DateRangePicker` | Date range selection        |
+| `DateTimePicker`  | Date and time selection     |
+| `Calendar`        | Calendar primitive (shared) |
+| `Label`           | Form field label            |
+| `FormField`       | Field wrapper with label    |
+| `FormMessage`     | Validation message display  |
 
 ### Feedback Components
 
