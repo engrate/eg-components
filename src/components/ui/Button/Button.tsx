@@ -14,7 +14,7 @@ const buttonVariants = cva(
         primary:
           'bg-sunflower text-primary hover:bg-sunflower-hover active:bg-sunflower-hover',
         secondary:
-          'border-border bg-border text-primary active:bg-alt border hover:bg-white',
+          'border-border bg-alt text-primary active:bg-contrast hover:bg-main border',
         ghost: 'text-primary hover:bg-alt active:bg-contrast',
       },
       size: {

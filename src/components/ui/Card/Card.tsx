@@ -29,12 +29,13 @@ const cardVariants = cva(
       },
       padding: {
         none: 'p-0',
-        sm: 'p-4',
-        default: 'p-6',
-        lg: 'p-8',
+        sm: 'p-6',
+        default: 'p-8',
+        lg: 'p-10',
       },
       bg: {
         // Default backgrounds
+        default: 'bg-card',
         card: 'bg-card',
         main: 'bg-main',
         alt: 'bg-alt',
@@ -68,7 +69,7 @@ const cardVariants = cva(
     defaultVariants: {
       variant: 'default',
       padding: 'default',
-      bg: 'alt',
+      bg: 'default',
       accent: 'none',
     },
   }

@@ -234,9 +234,10 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 | -------------------- | ---- | ----------- | -------------- | ------- | ------------------ |
 | **Lead**             | 20pt | 22pt        | -5%            | Regular | #1A1A1A or #4A4A4A |
 | **Semi-Lead**        | 15pt | 24pt        | -5%            | Regular | #4A4A4A            |
-| **Large Body**       | 12pt | 15pt        | -5%            | Regular | #4A4A4A            |
-| **Body**             | 10pt | 13pt        | -5%            | Regular | #4A4A4A            |
-| **Descriptive Text** | 8pt  | 14pt        | +4%            | Regular | #4A4A4A or #6A6A6A |
+| **Large Body**       | 18pt | 25pt        | -5%            | Regular | #4A4A4A            |
+| **Body**             | 16pt | 24pt        | -5%            | Regular | #4A4A4A            |
+| **Small Body**       | 14pt | 18pt        | -5%            | Regular | #4A4A4A            |
+| **Descriptive Text** | 12pt | 21pt        | +4%            | Regular | #4A4A4A or #6A6A6A |
 
 #### Labels & Meta Information
 

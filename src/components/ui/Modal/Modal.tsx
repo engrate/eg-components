@@ -6,6 +6,9 @@ import { X } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import * as React from 'react'
 
+import { Button } from '@/components/ui/Button'
+import { Heading } from '@/components/ui/Heading'
+import { Text } from '@/components/ui/Text'
 import { cn } from '@/lib/utils'
 
 /* -------------------------------------------------------------------------------------------------
@@ -106,7 +109,7 @@ ModalOverlay.displayName = 'ModalOverlay'
 const modalContentVariants = cva(
   [
     'fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2',
-    'bg-main grid w-full gap-4 p-6 shadow-lg',
+    'bg-main grid w-full gap-4 p-8 shadow-lg',
     'max-h-[85vh] overflow-y-auto',
     'border-border rounded-lg border',
     'focus-visible:ring-sunflower focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
@@ -155,18 +158,15 @@ const ModalContent = React.forwardRef<
             >
               {children}
               {showCloseButton && (
-                <DialogPrimitive.Close
-                  className={cn(
-                    'absolute top-4 right-4 rounded-sm opacity-70',
-                    'ring-offset-main transition-opacity',
-                    'hover:opacity-100',
-                    'focus:ring-sunflower focus:ring-2 focus:ring-offset-2 focus:outline-none',
-                    'disabled:pointer-events-none',
-                    'data-[state=open]:bg-alt data-[state=open]:text-secondary'
-                  )}
-                >
-                  <X className="h-4 w-4" />
-                  <span className="sr-only">Close</span>
+                <DialogPrimitive.Close asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-6 right-6"
+                  >
+                    <X className="h-4 w-4" />
+                    <span className="sr-only">Close</span>
+                  </Button>
                 </DialogPrimitive.Close>
               )}
             </motion.div>
@@ -229,15 +229,12 @@ interface ModalTitleProps extends React.ComponentPropsWithoutRef<
 const ModalTitle = React.forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Title>,
   ModalTitleProps
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title
-    ref={ref}
-    className={cn(
-      'text-primary text-lg leading-none tracking-tight',
-      className
-    )}
-    {...props}
-  />
+>(({ className, children, ...props }, ref) => (
+  <DialogPrimitive.Title ref={ref} asChild {...props}>
+    <Heading level="h3" className={className}>
+      {children}
+    </Heading>
+  </DialogPrimitive.Title>
 ))
 ModalTitle.displayName = 'ModalTitle'
 
@@ -252,12 +249,12 @@ interface ModalDescriptionProps extends React.ComponentPropsWithoutRef<
 const ModalDescription = React.forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Description>,
   ModalDescriptionProps
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Description
-    ref={ref}
-    className={cn('text-secondary text-sm', className)}
-    {...props}
-  />
+>(({ className, children, ...props }, ref) => (
+  <DialogPrimitive.Description ref={ref} asChild {...props}>
+    <Text variant="semi-lead" className={className}>
+      {children}
+    </Text>
+  </DialogPrimitive.Description>
 ))
 ModalDescription.displayName = 'ModalDescription'
 

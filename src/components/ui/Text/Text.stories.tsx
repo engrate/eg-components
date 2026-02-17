@@ -17,6 +17,7 @@ const meta = {
         'semi-lead',
         'body-lg',
         'body',
+        'body-sm',
         'descriptive',
         'label',
         'label-sm',
@@ -79,8 +80,16 @@ export const SemiLead: Story = {
 export const BodyLarge: Story = {
   args: {
     children:
-      'Large body text provides slightly more prominence than standard body text while remaining readable for longer content.',
+      'Large body text provides more prominence than standard body text while remaining readable for longer content.',
     variant: 'body-lg',
+  },
+}
+
+export const BodySmall: Story = {
+  args: {
+    children:
+      'Small body text is slightly smaller than standard body text, useful for secondary content.',
+    variant: 'body-sm',
   },
 }
 
@@ -119,8 +128,9 @@ export const AllVariants: Story = {
     <div className="space-y-6">
       <Text variant="lead">Lead — Primary introductory text</Text>
       <Text variant="semi-lead">Semi-lead — Secondary introductory text</Text>
-      <Text variant="body-lg">Body Large — Slightly emphasized body text</Text>
+      <Text variant="body-lg">Body Large — Emphasized body text</Text>
       <Text variant="body">Body — Standard paragraph text</Text>
+      <Text variant="body-sm">Body Small — Slightly smaller body text</Text>
       <Text variant="descriptive">Descriptive — Captions and metadata</Text>
       <Text variant="label">Label — Form labels and small headings</Text>
       <Text variant="label-sm">LABEL SMALL — TINY LABELS</Text>
@@ -159,22 +169,30 @@ export const TypographyScale: Story = {
       </div>
       <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
-          Body Large — Work Sans, 14pt, +1% tracking, Secondary color
+          Body Large — Work Sans, 18pt, -5% tracking, Secondary color
         </Text>
         <Text variant="body-lg">
-          We offer comprehensive installation services including site
-          assessment, system design, permitting, and ongoing maintenance
-          support.
+          Large body text for content that needs more prominence than standard
+          body text while remaining comfortable for reading.
         </Text>
       </div>
       <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
-          Body — Work Sans, 16pt, 0% tracking, Secondary color
+          Body — Work Sans, 16pt, -5% tracking, Secondary color
         </Text>
         <Text variant="body">
           Standard body text for general content. This is the most commonly used
           text style throughout the application and should be used for
           paragraphs, descriptions, and most written content.
+        </Text>
+      </div>
+      <div className="border-border border-b pb-4">
+        <Text variant="label" className="mb-2">
+          Body Small — Work Sans, 14pt, -5% tracking, Secondary color
+        </Text>
+        <Text variant="body-sm">
+          Small body text for secondary content, side notes, and supplementary
+          information that doesn&apos;t need full body prominence.
         </Text>
       </div>
       <div className="border-border border-b pb-4">

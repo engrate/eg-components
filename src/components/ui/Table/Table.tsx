@@ -3,6 +3,7 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 
+import { Text } from '@/components/ui/Text'
 import { cn } from '@/lib/utils'
 
 const tableVariants = cva(
@@ -283,14 +284,18 @@ TableHead.displayName = 'TableHead'
 interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {}
 
 const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, children, ...props }, ref) => {
     const { size } = React.useContext(TableContext)
     return (
       <td
         ref={ref}
         className={cn(tableCellVariants({ size }), className)}
         {...props}
-      />
+      >
+        <Text variant="body-sm" as="span">
+          {children}
+        </Text>
+      </td>
     )
   }
 )
@@ -304,7 +309,7 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={cn('text-small text-tertiary mt-4', className)}
+    className={cn('text-small text-tertiary mt-4 text-left', className)}
     {...props}
   />
 ))
@@ -329,29 +334,30 @@ function useSortableTable<T>({
   initialSortKey = null,
   initialSortDirection = 'asc',
 }: UseSortableTableOptions<T>): UseSortableTableReturn<T> {
-  const [sortKey, setSortKey] = React.useState<keyof T | null>(initialSortKey)
-  const [sortDirection, setSortDirection] =
-    React.useState<SortDirection>(initialSortDirection)
+  const [sortState, setSortState] = React.useState<{
+    key: keyof T | null
+    direction: SortDirection
+  }>({
+    key: initialSortKey ?? null,
+    direction: initialSortKey ? (initialSortDirection ?? 'asc') : null,
+  })
 
   const handleSort = React.useCallback((key: keyof T) => {
-    setSortKey((prevKey) => {
-      if (prevKey === key) {
-        setSortDirection((prevDirection) => {
-          if (prevDirection === 'asc') return 'desc'
-          if (prevDirection === 'desc') {
-            // Clear sort key when direction becomes null
-            setSortKey(null)
-            return null
-          }
-          return 'asc'
-        })
-        return prevKey
-      } else {
-        setSortDirection('asc')
-        return key
+    setSortState((prev) => {
+      if (prev.key !== key) {
+        return { key, direction: 'asc' }
       }
+      if (prev.direction === 'asc') {
+        return { key, direction: 'desc' }
+      }
+      if (prev.direction === 'desc') {
+        return { key: null, direction: null }
+      }
+      return { key, direction: 'asc' }
     })
   }, [])
+
+  const { key: sortKey, direction: sortDirection } = sortState
 
   const sortedData = React.useMemo(() => {
     if (!sortKey || !sortDirection) return data

@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import * as React from 'react'
 
 import { EngrateLogo, type EngrateLogoProps } from '@/components/ui/EngrateLogo'
+import { Text } from '@/components/ui/Text'
 import { cn } from '@/lib/utils'
 
 /* -------------------------------------------------------------------------------------------------
@@ -190,7 +191,7 @@ const SidebarHeader = React.forwardRef<HTMLDivElement, SidebarHeaderProps>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('flex items-center gap-2 px-4 pt-4 pb-2', className)}
+      className={cn('flex items-center gap-4 px-6 pt-6 pb-4', className)}
       {...props}
     />
   )
@@ -207,7 +208,7 @@ const SidebarContent = React.forwardRef<HTMLDivElement, SidebarContentProps>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('flex-1 overflow-y-auto px-3 py-2', className)}
+      className={cn('flex-1 overflow-y-auto px-5 py-4', className)}
       {...props}
     />
   )
@@ -224,7 +225,7 @@ const SidebarFooter = React.forwardRef<HTMLDivElement, SidebarFooterProps>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('border-border mt-auto border-t px-3 py-3', className)}
+      className={cn('border-border mt-auto border-t px-5 py-5', className)}
       {...props}
     />
   )
@@ -239,7 +240,7 @@ interface SidebarGroupProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const SidebarGroup = React.forwardRef<HTMLDivElement, SidebarGroupProps>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('space-y-1 py-2', className)} {...props} />
+    <div ref={ref} className={cn('space-y-2 py-4', className)} {...props} />
   )
 )
 SidebarGroup.displayName = 'SidebarGroup'
@@ -261,12 +262,10 @@ const SidebarGroupLabel = React.forwardRef<
   }
 
   return (
-    <div
+    <Text
+      variant="label"
       ref={ref}
-      className={cn(
-        'text-tertiary px-3 py-2 font-mono text-xs leading-5 font-normal tracking-[1.2px] uppercase',
-        className
-      )}
+      className={cn('px-4 py-3 uppercase', className)}
       {...props}
     />
   )
@@ -279,8 +278,8 @@ SidebarGroupLabel.displayName = 'SidebarGroupLabel'
 
 const sidebarItemVariants = cva(
   [
-    'text-small relative flex w-full items-center gap-3 rounded-md px-3 py-2 font-sans font-normal',
-    'text-secondary hover:bg-vanilla hover:text-primary',
+    'group text-small relative flex w-full cursor-pointer items-center gap-3 rounded-md px-4 py-3 font-sans font-normal',
+    'text-secondary hover:text-primary',
     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
   ],
   {
@@ -311,12 +310,18 @@ const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>(
     const { collapsed } = useSidebarContext()
     const Comp = asChild ? Slot : 'button'
 
-    const activeIndicator = active ? (
+    const activeIndicator = (
       <span
-        className="bg-sunflower absolute top-1 bottom-1 left-0 w-[3px] rounded-full"
+        className={cn(
+          'bg-sunflower absolute rounded-full transition-opacity',
+          collapsed
+            ? 'right-1 bottom-0 left-1 h-0.75'
+            : 'top-1 bottom-1 left-0 w-0.75',
+          active ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+        )}
         aria-hidden="true"
       />
-    ) : null
+    )
 
     const content = (
       <>
@@ -326,7 +331,11 @@ const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>(
             {icon}
           </span>
         )}
-        {!collapsed && <span className="truncate">{children}</span>}
+        {!collapsed && (
+          <Text variant="body-sm" className="truncate">
+            {children}
+          </Text>
+        )}
       </>
     )
 
@@ -439,7 +448,7 @@ const SidebarSeparator = React.forwardRef<HTMLHRElement, SidebarSeparatorProps>(
   ({ className, ...props }, ref) => (
     <hr
       ref={ref}
-      className={cn('border-border my-3 border-t', className)}
+      className={cn('border-border my-5 border-t', className)}
       {...props}
     />
   )
@@ -471,7 +480,8 @@ interface SidebarLogoProps extends Omit<EngrateLogoProps, 'compact'> {}
  */
 function SidebarLogo({ ...props }: SidebarLogoProps) {
   const { collapsed } = useSidebarContext()
-  return <EngrateLogo compact={collapsed} {...props} />
+  if (collapsed) return null
+  return <EngrateLogo {...props} />
 }
 SidebarLogo.displayName = 'SidebarLogo'
 
