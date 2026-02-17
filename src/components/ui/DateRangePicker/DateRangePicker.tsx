@@ -42,8 +42,8 @@ function formatRange(range: DateRange | undefined, format: string): string {
 
 const dateRangePickerTriggerVariants = cva(
   [
-    'bg-card text-body text-primary placeholder:text-tertiary',
-    'flex h-10 w-full items-center justify-between rounded-md border px-3 py-2',
+    'bg-card text-body-sm text-primary placeholder:text-tertiary',
+    'flex h-8 w-full items-center justify-between rounded-md border px-3 py-1',
     'font-sans transition-colors',
     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
     'disabled:cursor-not-allowed disabled:opacity-50',
@@ -142,16 +142,11 @@ const DateRangePicker = React.forwardRef<
 
     const handleSelect = (range: DateRange | undefined) => {
       onChange?.(range)
-      // Close popover when both dates are selected
-      if (range?.from && range?.to) {
-        setOpen(false)
-      }
     }
 
     const handleTodayClick = () => {
       const today = new Date()
       onChange?.({ from: today, to: today })
-      setOpen(false)
     }
 
     const handleClearClick = () => {
@@ -182,12 +177,7 @@ const DateRangePicker = React.forwardRef<
             aria-haspopup="dialog"
             aria-expanded={open}
           >
-            <span
-              className={cn(
-                'truncate',
-                !value?.from && 'text-tertiary text-body-sm'
-              )}
-            >
+            <span className={cn('truncate', !value?.from && 'text-tertiary')}>
               {value?.from ? formatRange(value, format) : placeholder}
             </span>
             <CalendarIcon className="text-tertiary h-4 w-4 shrink-0" />

@@ -56,8 +56,8 @@ function parseTimeString(timeStr: string): { hours: number; minutes: number } {
 
 const dateTimePickerTriggerVariants = cva(
   [
-    'bg-card text-body text-primary placeholder:text-tertiary',
-    'flex h-10 w-full items-center justify-between rounded-md border px-3 py-2',
+    'bg-card text-body-sm text-primary placeholder:text-tertiary',
+    'flex h-8 w-full items-center justify-between rounded-md border px-3 py-1',
     'font-sans transition-colors',
     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
     'disabled:cursor-not-allowed disabled:opacity-50',
@@ -221,9 +221,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
             aria-haspopup="dialog"
             aria-expanded={open}
           >
-            <span
-              className={cn('truncate', !value && 'text-tertiary text-body-sm')}
-            >
+            <span className={cn('truncate', !value && 'text-tertiary')}>
               {value ? formatDateTime(value, format, use24Hour) : placeholder}
             </span>
             <div className="flex items-center gap-1">
