@@ -3,9 +3,6 @@ import * as React from 'react';
 declare const dateTimePickerTriggerVariants: (props?: ({
     variant?: "default" | "error" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
-declare const calendarDayVariants: (props?: ({
-    state?: "default" | "disabled" | "outside" | "selected" | "today" | null | undefined;
-} & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface DateTimePickerProps extends VariantProps<typeof dateTimePickerTriggerVariants> {
     /** The currently selected date and time */
     value?: Date | null;
@@ -47,5 +44,5 @@ interface DateTimePickerProps extends VariantProps<typeof dateTimePickerTriggerV
  * ```
  */
 declare const DateTimePicker: React.ForwardRefExoticComponent<DateTimePickerProps & React.RefAttributes<HTMLButtonElement>>;
-export { DateTimePicker, dateTimePickerTriggerVariants, calendarDayVariants as dateTimePickerCalendarDayVariants, };
+export { DateTimePicker, dateTimePickerTriggerVariants };
 export type { DateTimePickerProps };
