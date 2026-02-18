@@ -1,0 +1,23 @@
+export {
+  Stepper,
+  stepperVariants,
+  StepperItem,
+  stepperItemVariants,
+  StepperTrigger,
+  stepperTriggerVariants,
+  StepperIndicator,
+  stepperIndicatorVariants,
+  StepperTitle,
+  StepperDescription,
+  StepperSeparator,
+  stepperSeparatorVariants,
+} from './Stepper'
+export type {
+  StepperProps,
+  StepperItemProps,
+  StepperTriggerProps,
+  StepperIndicatorProps,
+  StepperTitleProps,
+  StepperDescriptionProps,
+  StepperSeparatorProps,
+} from './Stepper'

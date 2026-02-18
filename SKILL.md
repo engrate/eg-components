@@ -98,6 +98,7 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 | ---------------- | ----------------------------------- |
 | `Breadcrumbs`    | Navigation path                     |
 | `TabList`        | Tab navigation                      |
+| `Stepper`        | Multi-step progress indicator       |
 | `Pagination`     | Page navigation                     |
 | `PaginationDots` | Dot indicator for content switching |
 | `Sidebar`        | Collapsible application sidebar nav |
