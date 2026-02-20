@@ -221,3 +221,174 @@ describe('Stepper', () => {
     expect(await axe(container)).toHaveNoViolations()
   })
 })
+
+describe('Stepper variant="mini"', () => {
+  it('renders the correct number of step indicators', () => {
+    render(<Stepper variant="mini" totalSteps={4} activeStep={1} />)
+
+    const buttons = screen.getAllByRole('button')
+    expect(buttons).toHaveLength(4)
+  })
+
+  it('displays step numbers', () => {
+    render(<Stepper variant="mini" totalSteps={3} activeStep={1} />)
+
+    expect(screen.getByText('1')).toBeInTheDocument()
+    expect(screen.getByText('2')).toBeInTheDocument()
+    expect(screen.getByText('3')).toBeInTheDocument()
+  })
+
+  it('marks the active step with aria-current', () => {
+    render(<Stepper variant="mini" totalSteps={3} activeStep={2} />)
+
+    const buttons = screen.getAllByRole('button')
+    expect(buttons[0]).not.toHaveAttribute('aria-current')
+    expect(buttons[1]).toHaveAttribute('aria-current', 'step')
+    expect(buttons[2]).not.toHaveAttribute('aria-current')
+  })
+
+  it('applies correct data-state to steps', () => {
+    render(<Stepper variant="mini" totalSteps={3} activeStep={2} />)
+
+    const buttons = screen.getAllByRole('button')
+    expect(buttons[0]).toHaveAttribute('data-state', 'completed')
+    expect(buttons[1]).toHaveAttribute('data-state', 'active')
+    expect(buttons[2]).toHaveAttribute('data-state', 'inactive')
+  })
+
+  it('shows check icon for completed steps', () => {
+    render(<Stepper variant="mini" totalSteps={3} activeStep={3} />)
+
+    const buttons = screen.getAllByRole('button')
+    expect(buttons[0]?.querySelector('svg')).toBeInTheDocument()
+    expect(buttons[1]?.querySelector('svg')).toBeInTheDocument()
+    expect(buttons[2]).toHaveTextContent('3')
+  })
+
+  it('uses default aria-labels when no labels provided', () => {
+    render(<Stepper variant="mini" totalSteps={3} activeStep={1} />)
+
+    expect(screen.getByRole('button', { name: 'Step 1' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Step 2' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Step 3' })).toBeInTheDocument()
+  })
+
+  it('uses custom labels for aria-labels', () => {
+    render(
+      <Stepper
+        variant="mini"
+        totalSteps={3}
+        activeStep={1}
+        labels={['Details', 'Payment', 'Confirm']}
+      />
+    )
+
+    expect(screen.getByRole('button', { name: 'Details' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Payment' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Confirm' })).toBeInTheDocument()
+  })
+
+  it('calls onStepClick when a step is clicked', async () => {
+    const user = userEvent.setup()
+    const handleClick = vi.fn()
+
+    render(
+      <Stepper
+        variant="mini"
+        totalSteps={3}
+        activeStep={1}
+        onStepClick={handleClick}
+      />
+    )
+
+    await user.click(screen.getByRole('button', { name: 'Step 2' }))
+    expect(handleClick).toHaveBeenCalledWith(2)
+  })
+
+  it('disables buttons when no onStepClick is provided', () => {
+    render(<Stepper variant="mini" totalSteps={3} activeStep={1} />)
+
+    const buttons = screen.getAllByRole('button')
+    buttons.forEach((button) => {
+      expect(button).toBeDisabled()
+    })
+  })
+
+  it('enables buttons when onStepClick is provided', () => {
+    const noop = vi.fn()
+    render(
+      <Stepper
+        variant="mini"
+        totalSteps={3}
+        activeStep={1}
+        onStepClick={noop}
+      />
+    )
+
+    const buttons = screen.getAllByRole('button')
+    buttons.forEach((button) => {
+      expect(button).not.toBeDisabled()
+    })
+  })
+
+  it('has progress group role with label', () => {
+    render(<Stepper variant="mini" totalSteps={3} activeStep={1} />)
+
+    expect(screen.getByRole('group')).toHaveAttribute('aria-label', 'Progress')
+  })
+
+  it('renders separator lines between steps', () => {
+    const { container } = render(
+      <Stepper variant="mini" totalSteps={3} activeStep={2} />
+    )
+
+    const separators = container.querySelectorAll('div[aria-hidden="true"]')
+    expect(separators).toHaveLength(2)
+  })
+
+  it('supports custom className', () => {
+    const { container } = render(
+      <Stepper
+        variant="mini"
+        totalSteps={3}
+        activeStep={1}
+        className="custom-mini"
+      />
+    )
+
+    expect(container.querySelector('.custom-mini')).toBeInTheDocument()
+  })
+
+  it('supports sm size variant', () => {
+    render(<Stepper variant="mini" totalSteps={2} activeStep={1} size="sm" />)
+
+    const buttons = screen.getAllByRole('button')
+    expect(buttons).toHaveLength(2)
+  })
+
+  it('supports lg size variant', () => {
+    render(<Stepper variant="mini" totalSteps={2} activeStep={1} size="lg" />)
+
+    const buttons = screen.getAllByRole('button')
+    expect(buttons).toHaveLength(2)
+  })
+
+  it('has no accessibility violations', async () => {
+    const { container } = render(
+      <Stepper variant="mini" totalSteps={3} activeStep={2} />
+    )
+    expect(await axe(container)).toHaveNoViolations()
+  })
+
+  it('has no accessibility violations with labels', async () => {
+    const { container } = render(
+      <Stepper
+        variant="mini"
+        totalSteps={3}
+        activeStep={2}
+        labels={['Details', 'Payment', 'Confirm']}
+      />
+    )
+    expect(await axe(container)).toHaveNoViolations()
+  })
+})

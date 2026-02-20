@@ -67,22 +67,82 @@ const stepperVariants = cva('flex', {
   },
 })
 
+/* -------------------------------------------------------------------------------------------------
+ * Mini variant styles
+ * -----------------------------------------------------------------------------------------------*/
+
+const miniStepperVariants = cva('inline-flex items-center font-sans', {
+  variants: {
+    size: {
+      sm: 'gap-1',
+      default: 'gap-1.5',
+      lg: 'gap-2',
+    },
+  },
+  defaultVariants: {
+    size: 'default',
+  },
+})
+
+const miniStepperIndicatorVariants = cva(
+  'inline-flex shrink-0 items-center justify-center rounded-full transition-colors',
+  {
+    variants: {
+      size: {
+        sm: 'h-5 w-5 text-[10px]',
+        default: 'h-6 w-6 text-[11px]',
+        lg: 'h-7 w-7 text-xs',
+      },
+    },
+    defaultVariants: {
+      size: 'default',
+    },
+  }
+)
+
+const miniStepperSeparatorVariants = cva('transition-colors', {
+  variants: {
+    size: {
+      sm: 'h-0.5 w-3',
+      default: 'h-0.5 w-4',
+      lg: 'h-0.5 w-5',
+    },
+  },
+  defaultVariants: {
+    size: 'default',
+  },
+})
+
 interface StepperProps
   extends
     React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof stepperVariants> {
+  /** Visual style — `"default"` for compound component, `"mini"` for inline compact stepper */
+  variant?: 'default' | 'mini'
   /** The current active step (1-indexed) */
   activeStep?: number
-  /** Orientation of the stepper */
+  /** Orientation of the stepper (default variant only) */
   orientation?: 'horizontal' | 'vertical'
+  /** Total number of steps (mini variant only) */
+  totalSteps?: number
+  /** Indicator size (mini variant only) */
+  size?: 'sm' | 'default' | 'lg' | null
+  /** Labels for each step, used as aria-label (mini variant only) */
+  labels?: string[]
+  /** Callback when a step indicator is clicked (mini variant only) */
+  onStepClick?: (step: number) => void
 }
 
 /**
  * Root container for the stepper component.
  * Displays progress through a multi-step process.
  *
+ * Use `variant="default"` (or omit) for a compound component with titles/descriptions.
+ * Use `variant="mini"` for a compact inline stepper with numbered dots and connectors.
+ *
  * @example
  * ```tsx
+ * // Default — compound component
  * <Stepper activeStep={2}>
  *   <StepperItem step={1}>
  *     <StepperTrigger>
@@ -98,19 +158,29 @@ interface StepperProps
  *     </StepperTrigger>
  *   </StepperItem>
  * </Stepper>
+ *
+ * // Mini — compact inline
+ * <Stepper variant="mini" totalSteps={4} activeStep={2} />
+ * <Stepper variant="mini" totalSteps={3} activeStep={2} size="sm" labels={['A','B','C']} />
  * ```
  */
 const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
   (
     {
       className,
+      variant = 'default',
       activeStep = 1,
       orientation = 'horizontal',
+      totalSteps: totalStepsProp,
+      size,
+      labels,
+      onStepClick,
       children,
       ...props
     },
     ref
   ) => {
+    // Hooks must be called unconditionally (rules of hooks)
     const [totalSteps, setTotalSteps] = React.useState(0)
 
     const contextValue = React.useMemo(
@@ -118,6 +188,82 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
       [activeStep, orientation, totalSteps]
     )
 
+    /* ---- Mini variant ---- */
+    if (variant === 'mini') {
+      const count = totalStepsProp ?? 0
+      const steps = Array.from({ length: count }, (_, i) => i + 1)
+
+      return (
+        <div
+          ref={ref}
+          role="group"
+          aria-label="Progress"
+          className={cn(miniStepperVariants({ size }), className)}
+          {...props}
+        >
+          {steps.map((step) => {
+            const state: 'completed' | 'active' | 'inactive' =
+              step < activeStep
+                ? 'completed'
+                : step === activeStep
+                  ? 'active'
+                  : 'inactive'
+
+            const label = labels?.[step - 1] ?? `Step ${step}`
+            const isLast = step === count
+
+            return (
+              <React.Fragment key={step}>
+                <button
+                  type="button"
+                  aria-current={state === 'active' ? 'step' : undefined}
+                  aria-label={label}
+                  data-state={state}
+                  disabled={!onStepClick}
+                  onClick={() => onStepClick?.(step)}
+                  className={cn(
+                    miniStepperIndicatorVariants({ size }),
+                    'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+                    onStepClick
+                      ? 'cursor-pointer'
+                      : 'cursor-default disabled:opacity-100',
+                    state === 'completed' && 'bg-sunflower text-primary',
+                    state === 'active' &&
+                      'border-sunflower text-primary border-2',
+                    state === 'inactive' &&
+                      'border-border text-tertiary border-2'
+                  )}
+                >
+                  {state === 'completed' ? (
+                    <Check
+                      className={cn(
+                        size === 'sm' && 'h-2.5 w-2.5',
+                        size === 'lg' && 'h-3.5 w-3.5',
+                        (!size || size === 'default') && 'h-3 w-3'
+                      )}
+                      strokeWidth={3}
+                    />
+                  ) : (
+                    step
+                  )}
+                </button>
+                {!isLast && (
+                  <div
+                    aria-hidden="true"
+                    className={cn(
+                      miniStepperSeparatorVariants({ size }),
+                      step < activeStep ? 'bg-sunflower' : 'bg-border'
+                    )}
+                  />
+                )}
+              </React.Fragment>
+            )
+          })}
+        </div>
+      )
+    }
+
+    /* ---- Default variant (compound component) ---- */
     return (
       <StepperContext.Provider value={contextValue}>
         <div
@@ -424,6 +570,9 @@ StepperSeparator.displayName = 'StepperSeparator'
 export {
   Stepper,
   stepperVariants,
+  miniStepperVariants,
+  miniStepperIndicatorVariants,
+  miniStepperSeparatorVariants,
   StepperItem,
   stepperItemVariants,
   StepperTrigger,

@@ -303,3 +303,163 @@ export const Interactive: Story = {
     )
   },
 }
+
+/* -------------------------------------------------------------------------------------------------
+ * Mini variant stories
+ * -----------------------------------------------------------------------------------------------*/
+
+export const Mini: Story = {
+  args: {
+    variant: 'mini',
+    activeStep: 2,
+  },
+  render: ({ activeStep }) => (
+    <Stepper variant="mini" totalSteps={4} activeStep={activeStep} />
+  ),
+}
+
+export const MiniFirstStep: Story = {
+  args: {
+    variant: 'mini',
+    activeStep: 1,
+  },
+  render: ({ activeStep }) => (
+    <Stepper variant="mini" totalSteps={3} activeStep={activeStep} />
+  ),
+}
+
+export const MiniAllCompleted: Story = {
+  args: {
+    variant: 'mini',
+    activeStep: 5,
+  },
+  render: ({ activeStep }) => (
+    <Stepper variant="mini" totalSteps={4} activeStep={activeStep} />
+  ),
+}
+
+export const MiniSmall: Story = {
+  args: {
+    variant: 'mini',
+    activeStep: 3,
+  },
+  render: ({ activeStep }) => (
+    <Stepper variant="mini" totalSteps={5} activeStep={activeStep} size="sm" />
+  ),
+}
+
+export const MiniLarge: Story = {
+  args: {
+    variant: 'mini',
+    activeStep: 2,
+  },
+  render: ({ activeStep }) => (
+    <Stepper variant="mini" totalSteps={4} activeStep={activeStep} size="lg" />
+  ),
+}
+
+export const MiniWithLabels: Story = {
+  args: {
+    variant: 'mini',
+    activeStep: 2,
+  },
+  render: ({ activeStep }) => (
+    <Stepper
+      variant="mini"
+      totalSteps={3}
+      activeStep={activeStep}
+      labels={['Details', 'Payment', 'Confirm']}
+    />
+  ),
+}
+
+export const MiniAllSizes: Story = {
+  args: {
+    activeStep: 2,
+  },
+  render: () => (
+    <div className="flex flex-col items-center gap-6">
+      <div className="flex items-center gap-4">
+        <span className="text-tertiary text-small w-16 text-right font-sans">
+          sm
+        </span>
+        <Stepper variant="mini" totalSteps={4} activeStep={2} size="sm" />
+      </div>
+      <div className="flex items-center gap-4">
+        <span className="text-tertiary text-small w-16 text-right font-sans">
+          default
+        </span>
+        <Stepper variant="mini" totalSteps={4} activeStep={2} size="default" />
+      </div>
+      <div className="flex items-center gap-4">
+        <span className="text-tertiary text-small w-16 text-right font-sans">
+          lg
+        </span>
+        <Stepper variant="mini" totalSteps={4} activeStep={2} size="lg" />
+      </div>
+    </div>
+  ),
+}
+
+export const MiniInteractive: Story = {
+  args: {
+    activeStep: 1,
+  },
+  render: () => {
+    const [activeStep, setActiveStep] = useState(1)
+    const totalSteps = 5
+
+    return (
+      <div className="flex flex-col items-center gap-6">
+        <Stepper
+          variant="mini"
+          totalSteps={totalSteps}
+          activeStep={activeStep}
+          onStepClick={setActiveStep}
+          labels={['Account', 'Profile', 'Settings', 'Review', 'Complete']}
+        />
+        <div className="flex gap-3">
+          <button
+            onClick={() => setActiveStep((s) => Math.max(1, s - 1))}
+            disabled={activeStep <= 1}
+            className="rounded-pill bg-alt text-primary hover:bg-contrast text-small px-4 py-1.5 font-sans transition-colors disabled:opacity-50"
+          >
+            Back
+          </button>
+          <button
+            onClick={() =>
+              setActiveStep((s) => Math.min(totalSteps + 1, s + 1))
+            }
+            disabled={activeStep > totalSteps}
+            className="rounded-pill bg-sunflower text-primary hover:bg-sunflower-hover text-small px-4 py-1.5 font-sans transition-colors disabled:opacity-50"
+          >
+            {activeStep >= totalSteps ? 'Done' : 'Next'}
+          </button>
+        </div>
+      </div>
+    )
+  },
+}
+
+export const MiniInContext: Story = {
+  args: {
+    activeStep: 2,
+  },
+  render: () => (
+    <div className="bg-card border-border flex w-[400px] flex-col gap-4 rounded-lg border p-6">
+      <div className="text-primary text-body font-sans font-medium tracking-tight">
+        Create your account
+      </div>
+      <div className="bg-alt h-24 rounded-md" />
+      <div className="flex items-center justify-between">
+        <button className="rounded-pill bg-alt text-primary hover:bg-contrast text-small px-4 py-1.5 font-sans transition-colors">
+          Back
+        </button>
+        <Stepper variant="mini" totalSteps={4} activeStep={2} size="sm" />
+        <button className="rounded-pill bg-sunflower text-primary hover:bg-sunflower-hover text-small px-4 py-1.5 font-sans transition-colors">
+          Next
+        </button>
+      </div>
+    </div>
+  ),
+}

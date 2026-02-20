@@ -1,6 +1,9 @@
 export {
   Stepper,
   stepperVariants,
+  miniStepperVariants,
+  miniStepperIndicatorVariants,
+  miniStepperSeparatorVariants,
   StepperItem,
   stepperItemVariants,
   StepperTrigger,

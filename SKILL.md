@@ -94,16 +94,16 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 
 ### Navigation Components
 
-| Component        | Purpose                             |
-| ---------------- | ----------------------------------- |
-| `Breadcrumbs`    | Navigation path                     |
-| `TabList`        | Tab navigation                      |
-| `Stepper`        | Multi-step progress indicator       |
-| `Pagination`     | Page navigation                     |
-| `PaginationDots` | Dot indicator for content switching |
-| `Sidebar`        | Collapsible application sidebar nav |
-| `Header`         | Page header with logo and nav       |
-| `Footer`         | Page footer with links and info     |
+| Component        | Purpose                                                 |
+| ---------------- | ------------------------------------------------------- |
+| `Breadcrumbs`    | Navigation path                                         |
+| `TabList`        | Tab navigation                                          |
+| `Stepper`        | Multi-step progress indicator (default & mini variants) |
+| `Pagination`     | Page navigation                                         |
+| `PaginationDots` | Dot indicator for content switching                     |
+| `Sidebar`        | Collapsible application sidebar nav                     |
+| `Header`         | Page header with logo and nav                           |
+| `Footer`         | Page footer with links and info                         |
 
 ### Overlay Components
 
@@ -313,6 +313,75 @@ function AppLayout() {
     </div>
   )
 }
+```
+
+### Stepper
+
+```tsx
+import {
+  Stepper,
+  StepperItem,
+  StepperTrigger,
+  StepperIndicator,
+  StepperTitle,
+  StepperDescription,
+  StepperSeparator,
+} from '@engrate/components'
+import { useState } from 'react'
+
+function OnboardingWizard() {
+  const [activeStep, setActiveStep] = useState(1)
+
+  return (
+    <Stepper activeStep={activeStep}>
+      <StepperItem step={1}>
+        <StepperTrigger onClick={() => setActiveStep(1)}>
+          <StepperIndicator />
+          <StepperTitle>Your details</StepperTitle>
+          <StepperDescription>Provide your name and email</StepperDescription>
+        </StepperTrigger>
+        <StepperSeparator />
+      </StepperItem>
+      <StepperItem step={2}>
+        <StepperTrigger onClick={() => setActiveStep(2)}>
+          <StepperIndicator />
+          <StepperTitle>Company details</StepperTitle>
+          <StepperDescription>About your company</StepperDescription>
+        </StepperTrigger>
+        <StepperSeparator />
+      </StepperItem>
+      <StepperItem step={3}>
+        <StepperTrigger onClick={() => setActiveStep(3)}>
+          <StepperIndicator />
+          <StepperTitle>Invite your team</StepperTitle>
+          <StepperDescription>Start collaborating</StepperDescription>
+        </StepperTrigger>
+      </StepperItem>
+    </Stepper>
+  )
+}
+
+// Vertical orientation
+;<Stepper activeStep={2} orientation="vertical">
+  {/* Same StepperItem pattern */}
+</Stepper>
+
+// Mini variant — compact inline stepper
+<Stepper variant="mini" totalSteps={4} activeStep={2} />
+
+// Mini with small size, good for modal footers
+<Stepper variant="mini" totalSteps={3} activeStep={1} size="sm" />
+
+// Mini with accessible labels and click handler
+<Stepper
+  variant="mini"
+  totalSteps={3}
+  activeStep={2}
+  labels={['Details', 'Payment', 'Confirm']}
+  onStepClick={(step) => setActive(step)}
+/>
+
+// Mini sizes: sm, default, lg
 ```
 
 ### Header and Footer
