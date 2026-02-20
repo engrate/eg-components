@@ -101,5 +101,45 @@ declare function SidebarLogo({ ...props }: SidebarLogoProps): import("react/jsx-
 declare namespace SidebarLogo {
     var displayName: string;
 }
-export { Sidebar, SidebarHeader, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarItem, SidebarTrigger, SidebarSeparator, SidebarLogo, sidebarVariants, sidebarItemVariants, useSidebarContext, };
-export type { SidebarProps, SidebarHeaderProps, SidebarContentProps, SidebarFooterProps, SidebarGroupProps, SidebarGroupLabelProps, SidebarItemProps, SidebarTriggerProps, SidebarSeparatorProps, SidebarLogoProps, };
+interface SidebarSubContextValue {
+    open: boolean;
+    setOpen: (open: boolean) => void;
+}
+declare function useSidebarSubContext(): SidebarSubContextValue;
+interface SidebarSubProps extends React.HTMLAttributes<HTMLDivElement> {
+    /** Whether the sub-items are open by default */
+    defaultOpen?: boolean;
+    /** Controlled open state */
+    open?: boolean;
+    /** Callback when open state changes */
+    onOpenChange?: (open: boolean) => void;
+}
+/**
+ * Wraps a SidebarSubTrigger and SidebarSubContent to create an expandable
+ * navigation item with sub-items.
+ *
+ * When the sidebar is expanded the sub-items collapse/expand inline.
+ * When the sidebar is collapsed they appear in a popover on hover.
+ *
+ * @example
+ * ```tsx
+ * <SidebarSub>
+ *   <SidebarSubTrigger icon={<Zap />}>Power Tariffs</SidebarSubTrigger>
+ *   <SidebarSubContent>
+ *     <SidebarItem>Spot Prices</SidebarItem>
+ *     <SidebarItem>Forward Prices</SidebarItem>
+ *   </SidebarSubContent>
+ * </SidebarSub>
+ * ```
+ */
+declare const SidebarSub: React.ForwardRefExoticComponent<SidebarSubProps & React.RefAttributes<HTMLDivElement>>;
+interface SidebarSubTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof sidebarItemVariants> {
+    /** Icon to display before the label */
+    icon?: React.ReactNode;
+}
+declare const SidebarSubTrigger: React.ForwardRefExoticComponent<SidebarSubTriggerProps & React.RefAttributes<HTMLButtonElement>>;
+interface SidebarSubContentProps extends React.HTMLAttributes<HTMLDivElement> {
+}
+declare const SidebarSubContent: React.ForwardRefExoticComponent<SidebarSubContentProps & React.RefAttributes<HTMLDivElement>>;
+export { Sidebar, SidebarHeader, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarItem, SidebarTrigger, SidebarSeparator, SidebarLogo, SidebarSub, SidebarSubTrigger, SidebarSubContent, sidebarVariants, sidebarItemVariants, useSidebarContext, useSidebarSubContext, };
+export type { SidebarProps, SidebarHeaderProps, SidebarContentProps, SidebarFooterProps, SidebarGroupProps, SidebarGroupLabelProps, SidebarItemProps, SidebarTriggerProps, SidebarSeparatorProps, SidebarLogoProps, SidebarSubProps, SidebarSubTriggerProps, SidebarSubContentProps, };

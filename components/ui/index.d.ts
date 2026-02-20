@@ -38,6 +38,7 @@ export * from './Skeleton';
 export * from './Slider';
 export * from './Spinner';
 export * from './Stack';
+export * from './Stepper';
 export * from './Switch';
 export * from './Table';
 export * from './TabList';
