@@ -94,16 +94,16 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 
 ### Navigation Components
 
-| Component        | Purpose                                                 |
-| ---------------- | ------------------------------------------------------- |
-| `Breadcrumbs`    | Navigation path                                         |
-| `TabList`        | Tab navigation                                          |
-| `Stepper`        | Multi-step progress indicator (default & mini variants) |
-| `Pagination`     | Page navigation                                         |
-| `PaginationDots` | Dot indicator for content switching                     |
-| `Sidebar`        | Collapsible application sidebar nav                     |
-| `Header`         | Page header with logo and nav                           |
-| `Footer`         | Page footer with links and info                         |
+| Component        | Purpose                                                   |
+| ---------------- | --------------------------------------------------------- |
+| `Breadcrumbs`    | Navigation path                                           |
+| `TabList`        | Tab navigation                                            |
+| `Stepper`        | Multi-step progress indicator (default & mini variants)   |
+| `Pagination`     | Page navigation                                           |
+| `PaginationDots` | Dot indicator for content switching                       |
+| `Sidebar`        | Collapsible application sidebar nav with sub-item support |
+| `Header`         | Page header with logo and nav                             |
+| `Footer`         | Page footer with links and info                           |
 
 ### Overlay Components
 
@@ -273,10 +273,13 @@ import {
   SidebarHeader,
   SidebarItem,
   SidebarSeparator,
+  SidebarSub,
+  SidebarSubContent,
+  SidebarSubTrigger,
   SidebarTrigger,
   EngrateLogo,
 } from '@engrate/components'
-import { Home, Settings, BarChart3, LogOut } from 'lucide-react'
+import { Home, Settings, BarChart3, LogOut, Zap } from 'lucide-react'
 
 function AppLayout() {
   return (
@@ -294,6 +297,16 @@ function AppLayout() {
             <SidebarItem icon={<BarChart3 className="h-4 w-4" />}>
               Analytics
             </SidebarItem>
+            <SidebarSub>
+              <SidebarSubTrigger icon={<Zap className="h-4 w-4" />}>
+                Power Tariffs
+              </SidebarSubTrigger>
+              <SidebarSubContent>
+                <SidebarItem>Spot Prices</SidebarItem>
+                <SidebarItem>Forward Prices</SidebarItem>
+                <SidebarItem>Network Tariffs</SidebarItem>
+              </SidebarSubContent>
+            </SidebarSub>
           </SidebarGroup>
           <SidebarSeparator />
           <SidebarGroup>

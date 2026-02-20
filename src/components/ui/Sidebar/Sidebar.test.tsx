@@ -13,6 +13,9 @@ import {
   SidebarHeader,
   SidebarItem,
   SidebarSeparator,
+  SidebarSub,
+  SidebarSubContent,
+  SidebarSubTrigger,
   SidebarTrigger,
 } from './Sidebar'
 
@@ -513,5 +516,222 @@ describe('SidebarFooter', () => {
       </Sidebar>
     )
     expect(ref.current).toBeInstanceOf(HTMLDivElement)
+  })
+})
+
+describe('SidebarSub', () => {
+  it('renders trigger and hides sub-items by default', () => {
+    render(
+      <Sidebar>
+        <SidebarContent>
+          <SidebarSub>
+            <SidebarSubTrigger>Power Tariffs</SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarContent>
+      </Sidebar>
+    )
+    expect(screen.getByText('Power Tariffs')).toBeInTheDocument()
+    expect(screen.queryByText('Spot Prices')).not.toBeInTheDocument()
+  })
+
+  it('has no accessibility violations', async () => {
+    const { container } = render(
+      <Sidebar aria-label="Main navigation">
+        <SidebarContent>
+          <SidebarSub>
+            <SidebarSubTrigger>Power Tariffs</SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarContent>
+      </Sidebar>
+    )
+    expect(await axe(container)).toHaveNoViolations()
+  })
+
+  it('toggles sub-items when trigger is clicked', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <Sidebar>
+        <SidebarContent>
+          <SidebarSub>
+            <SidebarSubTrigger>Power Tariffs</SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarContent>
+      </Sidebar>
+    )
+
+    expect(screen.queryByText('Spot Prices')).not.toBeInTheDocument()
+
+    await user.click(screen.getByText('Power Tariffs'))
+    expect(screen.getByText('Spot Prices')).toBeInTheDocument()
+
+    await user.click(screen.getByText('Power Tariffs'))
+    expect(screen.queryByText('Spot Prices')).not.toBeInTheDocument()
+  })
+
+  it('shows sub-items when defaultOpen is true', () => {
+    render(
+      <Sidebar>
+        <SidebarContent>
+          <SidebarSub defaultOpen>
+            <SidebarSubTrigger>Power Tariffs</SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarContent>
+      </Sidebar>
+    )
+    expect(screen.getByText('Spot Prices')).toBeInTheDocument()
+  })
+
+  it('supports controlled open/onOpenChange', async () => {
+    const user = userEvent.setup()
+    const handleOpenChange = vi.fn()
+
+    function ControlledSub() {
+      const [open, setOpen] = React.useState(false)
+      return (
+        <Sidebar>
+          <SidebarContent>
+            <SidebarSub
+              open={open}
+              onOpenChange={(v) => {
+                setOpen(v)
+                handleOpenChange(v)
+              }}
+            >
+              <SidebarSubTrigger>Power Tariffs</SidebarSubTrigger>
+              <SidebarSubContent>
+                <SidebarItem>Spot Prices</SidebarItem>
+              </SidebarSubContent>
+            </SidebarSub>
+          </SidebarContent>
+        </Sidebar>
+      )
+    }
+
+    render(<ControlledSub />)
+    expect(screen.queryByText('Spot Prices')).not.toBeInTheDocument()
+
+    await user.click(screen.getByText('Power Tariffs'))
+    expect(handleOpenChange).toHaveBeenCalledWith(true)
+    expect(screen.getByText('Spot Prices')).toBeInTheDocument()
+  })
+
+  it('renders with icon on trigger', () => {
+    render(
+      <Sidebar>
+        <SidebarContent>
+          <SidebarSub>
+            <SidebarSubTrigger icon={<span data-testid="sub-icon">⚡</span>}>
+              Power Tariffs
+            </SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarContent>
+      </Sidebar>
+    )
+    expect(screen.getByTestId('sub-icon')).toBeInTheDocument()
+  })
+
+  it('renders active state on trigger', () => {
+    render(
+      <Sidebar>
+        <SidebarContent>
+          <SidebarSub>
+            <SidebarSubTrigger active>Power Tariffs</SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarContent>
+      </Sidebar>
+    )
+    const trigger = screen.getByText('Power Tariffs').closest('button')
+    expect(trigger).toHaveClass('text-primary')
+  })
+
+  it('forwards ref on SidebarSub', () => {
+    const ref = React.createRef<HTMLDivElement>()
+    render(
+      <Sidebar>
+        <SidebarContent>
+          <SidebarSub ref={ref}>
+            <SidebarSubTrigger>Power Tariffs</SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarContent>
+      </Sidebar>
+    )
+    expect(ref.current).toBeInstanceOf(HTMLDivElement)
+  })
+
+  it('forwards ref on SidebarSubTrigger', () => {
+    const ref = React.createRef<HTMLButtonElement>()
+    render(
+      <Sidebar>
+        <SidebarContent>
+          <SidebarSub>
+            <SidebarSubTrigger ref={ref}>Power Tariffs</SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarContent>
+      </Sidebar>
+    )
+    expect(ref.current).toBeInstanceOf(HTMLButtonElement)
+  })
+
+  it('renders multiple sub-items in sub-content', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <Sidebar>
+        <SidebarContent>
+          <SidebarSub>
+            <SidebarSubTrigger>Power Tariffs</SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+              <SidebarItem>Network Tariffs</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarContent>
+      </Sidebar>
+    )
+
+    await user.click(screen.getByText('Power Tariffs'))
+    expect(screen.getByText('Spot Prices')).toBeInTheDocument()
+    expect(screen.getByText('Network Tariffs')).toBeInTheDocument()
+  })
+
+  it('applies custom className to SidebarSub', () => {
+    render(
+      <Sidebar>
+        <SidebarContent>
+          <SidebarSub data-testid="sub" className="custom-class">
+            <SidebarSubTrigger>Power Tariffs</SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarContent>
+      </Sidebar>
+    )
+    expect(screen.getByTestId('sub')).toHaveClass('custom-class')
   })
 })

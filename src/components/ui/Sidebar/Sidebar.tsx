@@ -1,8 +1,10 @@
 'use client'
 
+import * as Collapsible from '@radix-ui/react-collapsible'
+import * as Popover from '@radix-ui/react-popover'
 import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import * as React from 'react'
 
 import { EngrateLogo, type EngrateLogoProps } from '@/components/ui/EngrateLogo'
@@ -485,6 +487,264 @@ function SidebarLogo({ ...props }: SidebarLogoProps) {
 }
 SidebarLogo.displayName = 'SidebarLogo'
 
+/* -------------------------------------------------------------------------------------------------
+ * SidebarSubContext
+ * -----------------------------------------------------------------------------------------------*/
+
+interface SidebarSubContextValue {
+  open: boolean
+  setOpen: (open: boolean) => void
+}
+
+const SidebarSubContext = React.createContext<SidebarSubContextValue | null>(
+  null
+)
+
+function useSidebarSubContext() {
+  const context = React.useContext(SidebarSubContext)
+  if (!context) {
+    throw new Error('SidebarSub components must be used within a SidebarSub')
+  }
+  return context
+}
+
+/* -------------------------------------------------------------------------------------------------
+ * SidebarSub
+ * -----------------------------------------------------------------------------------------------*/
+
+interface SidebarSubProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Whether the sub-items are open by default */
+  defaultOpen?: boolean
+  /** Controlled open state */
+  open?: boolean
+  /** Callback when open state changes */
+  onOpenChange?: (open: boolean) => void
+}
+
+/**
+ * Wraps a SidebarSubTrigger and SidebarSubContent to create an expandable
+ * navigation item with sub-items.
+ *
+ * When the sidebar is expanded the sub-items collapse/expand inline.
+ * When the sidebar is collapsed they appear in a popover on hover.
+ *
+ * @example
+ * ```tsx
+ * <SidebarSub>
+ *   <SidebarSubTrigger icon={<Zap />}>Power Tariffs</SidebarSubTrigger>
+ *   <SidebarSubContent>
+ *     <SidebarItem>Spot Prices</SidebarItem>
+ *     <SidebarItem>Forward Prices</SidebarItem>
+ *   </SidebarSubContent>
+ * </SidebarSub>
+ * ```
+ */
+const SidebarSub = React.forwardRef<HTMLDivElement, SidebarSubProps>(
+  (
+    {
+      className,
+      defaultOpen = false,
+      open: controlledOpen,
+      onOpenChange,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const [internalOpen, setInternalOpen] = React.useState(defaultOpen)
+    const { collapsed } = useSidebarContext()
+
+    const isControlled = controlledOpen !== undefined
+    const open = isControlled ? controlledOpen : internalOpen
+
+    const setOpen = React.useCallback(
+      (value: boolean) => {
+        if (!isControlled) {
+          setInternalOpen(value)
+        }
+        onOpenChange?.(value)
+      },
+      [isControlled, onOpenChange]
+    )
+
+    const contextValue = React.useMemo(
+      () => ({ open, setOpen }),
+      [open, setOpen]
+    )
+
+    if (collapsed) {
+      return (
+        <SidebarSubContext.Provider value={contextValue}>
+          <Popover.Root open={open} onOpenChange={setOpen}>
+            <div ref={ref} className={cn('relative', className)} {...props}>
+              {children}
+            </div>
+          </Popover.Root>
+        </SidebarSubContext.Provider>
+      )
+    }
+
+    return (
+      <SidebarSubContext.Provider value={contextValue}>
+        <Collapsible.Root open={open} onOpenChange={setOpen} asChild>
+          <div ref={ref} className={className} {...props}>
+            {children}
+          </div>
+        </Collapsible.Root>
+      </SidebarSubContext.Provider>
+    )
+  }
+)
+SidebarSub.displayName = 'SidebarSub'
+
+/* -------------------------------------------------------------------------------------------------
+ * SidebarSubTrigger
+ * -----------------------------------------------------------------------------------------------*/
+
+interface SidebarSubTriggerProps
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof sidebarItemVariants> {
+  /** Icon to display before the label */
+  icon?: React.ReactNode
+}
+
+const SidebarSubTrigger = React.forwardRef<
+  HTMLButtonElement,
+  SidebarSubTriggerProps
+>(({ className, active, icon, children, ...props }, ref) => {
+  const { collapsed } = useSidebarContext()
+  const { open } = useSidebarSubContext()
+
+  const activeIndicator = (
+    <span
+      className={cn(
+        'bg-sunflower absolute rounded-full transition-opacity',
+        collapsed
+          ? 'right-1 bottom-0 left-1 h-0.75'
+          : 'top-1 bottom-1 left-0 w-0.75',
+        active ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+      )}
+      aria-hidden="true"
+    />
+  )
+
+  const triggerContent = (
+    <>
+      {activeIndicator}
+      {icon && (
+        <span className="flex h-5 w-5 shrink-0 items-center justify-center">
+          {icon}
+        </span>
+      )}
+      {!collapsed && (
+        <>
+          <Text variant="body-sm" className="flex-1 truncate text-left">
+            {children}
+          </Text>
+          <ChevronDown
+            className={cn(
+              'h-4 w-4 shrink-0 transition-transform duration-200',
+              open && 'rotate-180'
+            )}
+            aria-hidden="true"
+          />
+        </>
+      )}
+    </>
+  )
+
+  if (collapsed) {
+    return (
+      <Popover.Trigger asChild>
+        <button
+          ref={ref}
+          type="button"
+          className={cn(
+            sidebarItemVariants({ active }),
+            'justify-center px-2',
+            className
+          )}
+          {...props}
+        >
+          {activeIndicator}
+          {icon && (
+            <span className="flex h-5 w-5 shrink-0 items-center justify-center">
+              {icon}
+            </span>
+          )}
+        </button>
+      </Popover.Trigger>
+    )
+  }
+
+  return (
+    <Collapsible.Trigger asChild>
+      <button
+        ref={ref}
+        type="button"
+        className={cn(sidebarItemVariants({ active }), className)}
+        {...props}
+      >
+        {triggerContent}
+      </button>
+    </Collapsible.Trigger>
+  )
+})
+SidebarSubTrigger.displayName = 'SidebarSubTrigger'
+
+/* -------------------------------------------------------------------------------------------------
+ * SidebarSubContent
+ * -----------------------------------------------------------------------------------------------*/
+
+interface SidebarSubContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+const SidebarSubContent = React.forwardRef<
+  HTMLDivElement,
+  SidebarSubContentProps
+>(({ className, children, ...props }, ref) => {
+  const { collapsed } = useSidebarContext()
+
+  if (collapsed) {
+    return (
+      <Popover.Portal>
+        <Popover.Content
+          ref={ref}
+          side="right"
+          align="start"
+          sideOffset={8}
+          className={cn(
+            'bg-card border-border z-50 min-w-[180px] rounded-md border p-2 shadow-md',
+            'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95',
+            'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
+            'data-[side=right]:slide-in-from-left-2',
+            className
+          )}
+          {...props}
+        >
+          {children}
+        </Popover.Content>
+      </Popover.Portal>
+    )
+  }
+
+  return (
+    <Collapsible.Content
+      ref={ref}
+      className={cn(
+        'overflow-hidden',
+        'data-[state=open]:animate-collapsible-down',
+        'data-[state=closed]:animate-collapsible-up',
+        className
+      )}
+      {...props}
+    >
+      <div className="space-y-1 pt-1 pl-8">{children}</div>
+    </Collapsible.Content>
+  )
+})
+SidebarSubContent.displayName = 'SidebarSubContent'
+
 export {
   Sidebar,
   SidebarHeader,
@@ -496,9 +756,13 @@ export {
   SidebarTrigger,
   SidebarSeparator,
   SidebarLogo,
+  SidebarSub,
+  SidebarSubTrigger,
+  SidebarSubContent,
   sidebarVariants,
   sidebarItemVariants,
   useSidebarContext,
+  useSidebarSubContext,
 }
 
 export type {
@@ -512,4 +776,7 @@ export type {
   SidebarTriggerProps,
   SidebarSeparatorProps,
   SidebarLogoProps,
+  SidebarSubProps,
+  SidebarSubTriggerProps,
+  SidebarSubContentProps,
 }

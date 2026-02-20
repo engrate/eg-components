@@ -6,6 +6,9 @@ import {
   LogOut,
   Settings,
   Users,
+  Zap,
+  Globe,
+  DollarSign,
 } from 'lucide-react'
 import * as React from 'react'
 
@@ -19,6 +22,9 @@ import {
   SidebarItem,
   SidebarLogo,
   SidebarSeparator,
+  SidebarSub,
+  SidebarSubContent,
+  SidebarSubTrigger,
   SidebarTrigger,
 } from './Sidebar'
 
@@ -286,6 +292,135 @@ export const WithoutIcons: Story = {
           <SidebarItem>About</SidebarItem>
           <SidebarItem>Services</SidebarItem>
           <SidebarItem>Contact</SidebarItem>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarTrigger />
+      </SidebarFooter>
+    </Sidebar>
+  ),
+}
+
+export const WithSubItems: Story = {
+  args: {},
+  render: (args) => (
+    <Sidebar {...args} aria-label="Main navigation">
+      <SidebarHeader>
+        <div className="px-2 pt-3">
+          <SidebarLogo />
+        </div>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Main</SidebarGroupLabel>
+          <SidebarItem icon={<Home className="h-4 w-4" />} active>
+            Dashboard
+          </SidebarItem>
+          <SidebarSub>
+            <SidebarSubTrigger icon={<Zap className="h-4 w-4" />}>
+              Power Tariffs
+            </SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+              <SidebarItem>Forward Prices</SidebarItem>
+              <SidebarItem>Network Tariffs</SidebarItem>
+              <SidebarItem>Distribution Fees</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+          <SidebarSub>
+            <SidebarSubTrigger icon={<Globe className="h-4 w-4" />}>
+              Markets
+            </SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Europe</SidebarItem>
+              <SidebarItem>North America</SidebarItem>
+              <SidebarItem>Asia Pacific</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+          <SidebarItem icon={<BarChart3 className="h-4 w-4" />}>
+            Analytics
+          </SidebarItem>
+        </SidebarGroup>
+        <SidebarSeparator />
+        <SidebarGroup>
+          <SidebarGroupLabel>Management</SidebarGroupLabel>
+          <SidebarItem icon={<Users className="h-4 w-4" />}>Users</SidebarItem>
+          <SidebarItem icon={<Settings className="h-4 w-4" />}>
+            Settings
+          </SidebarItem>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarItem icon={<LogOut className="h-4 w-4" />}>Logout</SidebarItem>
+        <SidebarTrigger />
+      </SidebarFooter>
+    </Sidebar>
+  ),
+}
+
+export const SubItemsDefaultOpen: Story = {
+  args: {},
+  render: (args) => (
+    <Sidebar {...args} aria-label="Main navigation">
+      <SidebarHeader>
+        <div className="px-2 pt-3">
+          <SidebarLogo />
+        </div>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+          <SidebarItem icon={<Home className="h-4 w-4" />}>
+            Dashboard
+          </SidebarItem>
+          <SidebarSub defaultOpen>
+            <SidebarSubTrigger icon={<DollarSign className="h-4 w-4" />} active>
+              Billing
+            </SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem active>Invoices</SidebarItem>
+              <SidebarItem>Payment Methods</SidebarItem>
+              <SidebarItem>Subscription</SidebarItem>
+              <SidebarItem>Usage</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarTrigger />
+      </SidebarFooter>
+    </Sidebar>
+  ),
+}
+
+export const CollapsedWithSubItems: Story = {
+  args: {
+    defaultCollapsed: true,
+  },
+  render: (args) => (
+    <Sidebar {...args} aria-label="Main navigation">
+      <SidebarHeader>
+        <div className="flex items-center justify-center">
+          <div className="bg-sunflower h-8 w-8 rounded-full" />
+        </div>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarItem icon={<Home className="h-4 w-4" />} active>
+            Dashboard
+          </SidebarItem>
+          <SidebarSub>
+            <SidebarSubTrigger icon={<Zap className="h-4 w-4" />}>
+              Power Tariffs
+            </SidebarSubTrigger>
+            <SidebarSubContent>
+              <SidebarItem>Spot Prices</SidebarItem>
+              <SidebarItem>Forward Prices</SidebarItem>
+            </SidebarSubContent>
+          </SidebarSub>
+          <SidebarItem icon={<BarChart3 className="h-4 w-4" />}>
+            Analytics
+          </SidebarItem>
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
