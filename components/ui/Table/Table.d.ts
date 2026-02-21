@@ -12,6 +12,8 @@ declare const tableHeadVariants: (props?: ({
     size?: "default" | "compact" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface TableProps extends React.HTMLAttributes<HTMLTableElement>, VariantProps<typeof tableVariants> {
+    /** Add visible horizontal borders between table rows */
+    bordered?: boolean;
 }
 /**
  * Table root component following Engrate brand guidelines.
