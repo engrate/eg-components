@@ -7,20 +7,15 @@ import { Text } from '@/components/ui/Text'
 import { cn } from '@/lib/utils'
 
 const tableVariants = cva(
-  'text-body w-full caption-bottom border-collapse font-sans',
+  'text-body w-full caption-bottom border-collapse border-separate border-spacing-0 font-sans',
   {
     variants: {
-      variant: {
-        default: 'border-separate border-spacing-0',
-        striped: 'border-separate border-spacing-0',
-      },
       size: {
         default: '',
         compact: '',
       },
     },
     defaultVariants: {
-      variant: 'default',
       size: 'default',
     },
   }
@@ -36,17 +31,13 @@ const tableBodyVariants = cva('', {
   defaultVariants: {},
 })
 
-const tableRowVariants = cva('transition-colors', {
-  variants: {
-    variant: {
-      default: 'border-border hover:bg-alt/50 border-b',
-      striped: 'border-border even:bg-alt/30 hover:bg-alt border-b',
-    },
-  },
-  defaultVariants: {
-    variant: 'default',
-  },
-})
+const tableRowVariants = cva(
+  'border-border hover:bg-alt/50 border-b transition-colors',
+  {
+    variants: {},
+    defaultVariants: {},
+  }
+)
 
 const tableHeadVariants = cva(
   'text-small text-primary text-left align-middle font-sans font-normal [&:has([role=checkbox])]:pr-0',
@@ -121,15 +112,12 @@ interface TableProps
  * ```
  */
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
-  (
-    { className, variant, size = 'default', bordered = false, ...props },
-    ref
-  ) => (
+  ({ className, size = 'default', bordered = false, ...props }, ref) => (
     <TableContext.Provider value={{ size: size ?? 'default', bordered }}>
       <div className="relative w-full overflow-auto">
         <table
           ref={ref}
-          className={cn(tableVariants({ variant, size }), className)}
+          className={cn(tableVariants({ size }), className)}
           {...props}
         />
       </div>
@@ -154,20 +142,17 @@ TableHeader.displayName = 'TableHeader'
 interface TableBodyProps extends React.HTMLAttributes<HTMLTableSectionElement> {}
 
 const TableBody = React.forwardRef<HTMLTableSectionElement, TableBodyProps>(
-  ({ className, ...props }, ref) => {
-    const { bordered } = React.useContext(TableContext)
-    return (
-      <tbody
-        ref={ref}
-        className={cn(
-          tableBodyVariants(),
-          bordered && '[&>tr:last-child>td]:border-b-0',
-          className
-        )}
-        {...props}
-      />
-    )
-  }
+  ({ className, ...props }, ref) => (
+    <tbody
+      ref={ref}
+      className={cn(
+        tableBodyVariants(),
+        '[&>tr:last-child>td]:border-b-0',
+        className
+      )}
+      {...props}
+    />
+  )
 )
 TableBody.displayName = 'TableBody'
 
@@ -187,18 +172,11 @@ const TableFooter = React.forwardRef<HTMLTableSectionElement, TableFooterProps>(
 )
 TableFooter.displayName = 'TableFooter'
 
-interface TableRowProps
-  extends
-    React.HTMLAttributes<HTMLTableRowElement>,
-    VariantProps<typeof tableRowVariants> {}
+interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {}
 
 const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
-  ({ className, variant, ...props }, ref) => (
-    <tr
-      ref={ref}
-      className={cn(tableRowVariants({ variant }), className)}
-      {...props}
-    />
+  ({ className, ...props }, ref) => (
+    <tr ref={ref} className={cn(tableRowVariants(), className)} {...props} />
   )
 )
 TableRow.displayName = 'TableRow'
@@ -462,4 +440,4 @@ export {
   useFilterableTable,
 }
 
-export type { TableProps, TableHeadProps, TableRowProps, SortDirection }
+export type { TableProps, TableHeadProps, SortDirection }

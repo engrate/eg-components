@@ -69,21 +69,6 @@ describe('Table', () => {
     expect(await axe(container)).toHaveNoViolations()
   })
 
-  it('applies variant classes correctly', () => {
-    const { container } = render(
-      <Table variant="striped">
-        <TableBody>
-          <TableRow variant="striped">
-            <TableCell>Content</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-    )
-
-    const table = container.querySelector('table')
-    expect(table).toHaveClass('border-separate')
-  })
-
   it('applies bordered classes when bordered prop is set', () => {
     const { container } = render(
       <Table bordered>
@@ -146,6 +131,10 @@ describe('Table', () => {
 
     const td = container.querySelector('td')
     expect(td).not.toHaveClass('border-r')
+
+    // Last row cells never have a border
+    const tbody = container.querySelector('tbody')
+    expect(tbody).toHaveClass('[&>tr:last-child>td]:border-b-0')
   })
 
   it('has no accessibility violations when bordered', async () => {

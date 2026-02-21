@@ -128,47 +128,6 @@ export const WithFooter: Story = {
   ),
 }
 
-export const Striped: Story = {
-  render: () => (
-    <Table variant="striped">
-      <TableHeader>
-        <TableRow>
-          <TableHead>Station ID</TableHead>
-          <TableHead>Location</TableHead>
-          <TableHead>Capacity (kW)</TableHead>
-          <TableHead>Status</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <TableRow variant="striped">
-          <TableCell>STN-001</TableCell>
-          <TableCell>Stockholm Central</TableCell>
-          <TableCell>150</TableCell>
-          <TableCell>Online</TableCell>
-        </TableRow>
-        <TableRow variant="striped">
-          <TableCell>STN-002</TableCell>
-          <TableCell>Gothenburg Port</TableCell>
-          <TableCell>200</TableCell>
-          <TableCell>Online</TableCell>
-        </TableRow>
-        <TableRow variant="striped">
-          <TableCell>STN-003</TableCell>
-          <TableCell>Malmö Industrial</TableCell>
-          <TableCell>175</TableCell>
-          <TableCell>Maintenance</TableCell>
-        </TableRow>
-        <TableRow variant="striped">
-          <TableCell>STN-004</TableCell>
-          <TableCell>Uppsala University</TableCell>
-          <TableCell>120</TableCell>
-          <TableCell>Online</TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
-  ),
-}
-
 export const Bordered: Story = {
   render: () => (
     <Table bordered>
@@ -198,41 +157,6 @@ export const Bordered: Story = {
           <TableCell>Malmö Industrial</TableCell>
           <TableCell>175</TableCell>
           <TableCell>Maintenance</TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
-  ),
-}
-
-export const BorderedStriped: Story = {
-  render: () => (
-    <Table bordered variant="striped">
-      <TableHeader>
-        <TableRow>
-          <TableHead>Sensor</TableHead>
-          <TableHead>Reading</TableHead>
-          <TableHead>Unit</TableHead>
-          <TableHead>Status</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        <TableRow variant="striped">
-          <TableCell>Temperature</TableCell>
-          <TableCell>22.5</TableCell>
-          <TableCell>°C</TableCell>
-          <TableCell>Normal</TableCell>
-        </TableRow>
-        <TableRow variant="striped">
-          <TableCell>Voltage</TableCell>
-          <TableCell>240.2</TableCell>
-          <TableCell>V</TableCell>
-          <TableCell>Normal</TableCell>
-        </TableRow>
-        <TableRow variant="striped">
-          <TableCell>Current</TableCell>
-          <TableCell>15.8</TableCell>
-          <TableCell>A</TableCell>
-          <TableCell>Normal</TableCell>
         </TableRow>
       </TableBody>
     </Table>
@@ -286,10 +210,10 @@ export const Compact: Story = {
   ),
 }
 
-export const CompactStriped: Story = {
+export const CompactBordered: Story = {
   render: () => (
-    <Table size="compact" variant="striped">
-      <TableCaption>Compact striped table for dense data display</TableCaption>
+    <Table size="compact" bordered>
+      <TableCaption>Compact bordered table for dense data display</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>Sensor</TableHead>
@@ -299,31 +223,31 @@ export const CompactStriped: Story = {
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow variant="striped">
+        <TableRow>
           <TableCell>Temperature</TableCell>
           <TableCell>22.5</TableCell>
           <TableCell>°C</TableCell>
           <TableCell>Normal</TableCell>
         </TableRow>
-        <TableRow variant="striped">
+        <TableRow>
           <TableCell>Voltage</TableCell>
           <TableCell>240.2</TableCell>
           <TableCell>V</TableCell>
           <TableCell>Normal</TableCell>
         </TableRow>
-        <TableRow variant="striped">
+        <TableRow>
           <TableCell>Current</TableCell>
           <TableCell>15.8</TableCell>
           <TableCell>A</TableCell>
           <TableCell>Normal</TableCell>
         </TableRow>
-        <TableRow variant="striped">
+        <TableRow>
           <TableCell>Frequency</TableCell>
           <TableCell>50.1</TableCell>
           <TableCell>Hz</TableCell>
           <TableCell>Normal</TableCell>
         </TableRow>
-        <TableRow variant="striped">
+        <TableRow>
           <TableCell>Power Factor</TableCell>
           <TableCell>0.98</TableCell>
           <TableCell>-</TableCell>

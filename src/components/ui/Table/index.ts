@@ -12,9 +12,4 @@ export {
   useFilterableTable,
 } from './Table'
 
-export type {
-  TableProps,
-  TableHeadProps,
-  TableRowProps,
-  SortDirection,
-} from './Table'
+export type { TableProps, TableHeadProps, SortDirection } from './Table'
