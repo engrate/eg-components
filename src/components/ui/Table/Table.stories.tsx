@@ -169,6 +169,76 @@ export const Striped: Story = {
   ),
 }
 
+export const Bordered: Story = {
+  render: () => (
+    <Table bordered>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Station ID</TableHead>
+          <TableHead>Location</TableHead>
+          <TableHead>Capacity (kW)</TableHead>
+          <TableHead>Status</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>STN-001</TableCell>
+          <TableCell>Stockholm Central</TableCell>
+          <TableCell>150</TableCell>
+          <TableCell>Online</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>STN-002</TableCell>
+          <TableCell>Gothenburg Port</TableCell>
+          <TableCell>200</TableCell>
+          <TableCell>Online</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>STN-003</TableCell>
+          <TableCell>Malmö Industrial</TableCell>
+          <TableCell>175</TableCell>
+          <TableCell>Maintenance</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  ),
+}
+
+export const BorderedStriped: Story = {
+  render: () => (
+    <Table bordered variant="striped">
+      <TableHeader>
+        <TableRow>
+          <TableHead>Sensor</TableHead>
+          <TableHead>Reading</TableHead>
+          <TableHead>Unit</TableHead>
+          <TableHead>Status</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow variant="striped">
+          <TableCell>Temperature</TableCell>
+          <TableCell>22.5</TableCell>
+          <TableCell>°C</TableCell>
+          <TableCell>Normal</TableCell>
+        </TableRow>
+        <TableRow variant="striped">
+          <TableCell>Voltage</TableCell>
+          <TableCell>240.2</TableCell>
+          <TableCell>V</TableCell>
+          <TableCell>Normal</TableCell>
+        </TableRow>
+        <TableRow variant="striped">
+          <TableCell>Current</TableCell>
+          <TableCell>15.8</TableCell>
+          <TableCell>A</TableCell>
+          <TableCell>Normal</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  ),
+}
+
 export const Compact: Story = {
   render: () => (
     <Table size="compact">

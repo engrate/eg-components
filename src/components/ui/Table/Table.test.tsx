@@ -84,6 +84,91 @@ describe('Table', () => {
     expect(table).toHaveClass('border-separate')
   })
 
+  it('applies bordered classes when bordered prop is set', () => {
+    const { container } = render(
+      <Table bordered>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Name</TableHead>
+            <TableHead>Email</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>John</TableCell>
+            <TableCell>john@example.com</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Jane</TableCell>
+            <TableCell>jane@example.com</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    )
+
+    // Horizontal borders on header cells
+    const ths = container.querySelectorAll('th')
+    ths.forEach((th) => {
+      expect(th).toHaveClass('border-b', 'border-border')
+      expect(th).not.toHaveClass('border-r')
+    })
+
+    // Horizontal borders on body cells
+    const tds = container.querySelectorAll('td')
+    tds.forEach((td) => {
+      expect(td).toHaveClass('border-b', 'border-border')
+      expect(td).not.toHaveClass('border-r')
+    })
+
+    // Last row exclusion applied via tbody
+    const tbody = container.querySelector('tbody')
+    expect(tbody).toHaveClass('[&>tr:last-child>td]:border-b-0')
+  })
+
+  it('does not apply extra bordered classes by default', () => {
+    const { container } = render(
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Name</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>John</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    )
+
+    const th = container.querySelector('th')
+    expect(th).not.toHaveClass('border-r')
+
+    const td = container.querySelector('td')
+    expect(td).not.toHaveClass('border-r')
+  })
+
+  it('has no accessibility violations when bordered', async () => {
+    const { container } = render(
+      <Table bordered>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Name</TableHead>
+            <TableHead>Age</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>John</TableCell>
+            <TableCell>30</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    )
+
+    expect(await axe(container)).toHaveNoViolations()
+  })
+
   it('applies compact size correctly', () => {
     const { container } = render(
       <Table size="compact">

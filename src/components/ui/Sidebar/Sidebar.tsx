@@ -242,7 +242,7 @@ interface SidebarGroupProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const SidebarGroup = React.forwardRef<HTMLDivElement, SidebarGroupProps>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('space-y-2 py-4', className)} {...props} />
+    <div ref={ref} className={cn(className)} {...props} />
   )
 )
 SidebarGroup.displayName = 'SidebarGroup'
@@ -317,8 +317,8 @@ const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>(
         className={cn(
           'bg-sunflower absolute rounded-full transition-opacity',
           collapsed
-            ? 'right-1 bottom-0 left-1 h-0.75'
-            : 'top-1 bottom-1 left-0 w-0.75',
+            ? 'right-1 bottom-0 left-1 h-0.5'
+            : 'top-1 bottom-1 left-0 w-0.5',
           active ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
         )}
         aria-hidden="true"
@@ -621,8 +621,8 @@ const SidebarSubTrigger = React.forwardRef<
       className={cn(
         'bg-sunflower absolute rounded-full transition-opacity',
         collapsed
-          ? 'right-1 bottom-0 left-1 h-0.75'
-          : 'top-1 bottom-1 left-0 w-0.75',
+          ? 'right-1 bottom-0 left-1 h-0.5'
+          : 'top-1 bottom-1 left-0 w-0.5',
         active ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
       )}
       aria-hidden="true"

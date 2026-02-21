@@ -83,15 +83,22 @@ const tableCellVariants = cva(
   }
 )
 
-// Context for size prop
-const TableContext = React.createContext<{ size: 'default' | 'compact' }>({
+// Context for size and bordered props
+const TableContext = React.createContext<{
+  size: 'default' | 'compact'
+  bordered: boolean
+}>({
   size: 'default',
+  bordered: false,
 })
 
 interface TableProps
   extends
     React.HTMLAttributes<HTMLTableElement>,
-    VariantProps<typeof tableVariants> {}
+    VariantProps<typeof tableVariants> {
+  /** Add visible horizontal borders between table rows */
+  bordered?: boolean
+}
 
 /**
  * Table root component following Engrate brand guidelines.
@@ -114,8 +121,11 @@ interface TableProps
  * ```
  */
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
-  ({ className, variant, size = 'default', ...props }, ref) => (
-    <TableContext.Provider value={{ size: size ?? 'default' }}>
+  (
+    { className, variant, size = 'default', bordered = false, ...props },
+    ref
+  ) => (
+    <TableContext.Provider value={{ size: size ?? 'default', bordered }}>
       <div className="relative w-full overflow-auto">
         <table
           ref={ref}
@@ -144,13 +154,20 @@ TableHeader.displayName = 'TableHeader'
 interface TableBodyProps extends React.HTMLAttributes<HTMLTableSectionElement> {}
 
 const TableBody = React.forwardRef<HTMLTableSectionElement, TableBodyProps>(
-  ({ className, ...props }, ref) => (
-    <tbody
-      ref={ref}
-      className={cn(tableBodyVariants(), className)}
-      {...props}
-    />
-  )
+  ({ className, ...props }, ref) => {
+    const { bordered } = React.useContext(TableContext)
+    return (
+      <tbody
+        ref={ref}
+        className={cn(
+          tableBodyVariants(),
+          bordered && '[&>tr:last-child>td]:border-b-0',
+          className
+        )}
+        {...props}
+      />
+    )
+  }
 )
 TableBody.displayName = 'TableBody'
 
@@ -212,7 +229,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
     },
     ref
   ) => {
-    const { size } = React.useContext(TableContext)
+    const { size, bordered } = React.useContext(TableContext)
 
     const handleClick = () => {
       if (sortable && onSort) {
@@ -230,7 +247,11 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
     return (
       <th
         ref={ref}
-        className={cn(tableHeadVariants({ sortable, size }), className)}
+        className={cn(
+          tableHeadVariants({ sortable, size }),
+          bordered && 'border-border border-b',
+          className
+        )}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         tabIndex={sortable ? 0 : undefined}
@@ -285,11 +306,15 @@ interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {}
 
 const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
   ({ className, children, ...props }, ref) => {
-    const { size } = React.useContext(TableContext)
+    const { size, bordered } = React.useContext(TableContext)
     return (
       <td
         ref={ref}
-        className={cn(tableCellVariants({ size }), className)}
+        className={cn(
+          tableCellVariants({ size }),
+          bordered && 'border-border border-b',
+          className
+        )}
         {...props}
       >
         <Text variant="body-sm" as="span">
