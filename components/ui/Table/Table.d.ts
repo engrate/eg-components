@@ -1,11 +1,7 @@
 import { VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 declare const tableVariants: (props?: ({
-    variant?: "default" | "striped" | null | undefined;
     size?: "default" | "compact" | null | undefined;
-} & import('class-variance-authority/types').ClassProp) | undefined) => string;
-declare const tableRowVariants: (props?: ({
-    variant?: "default" | "striped" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 declare const tableHeadVariants: (props?: ({
     sortable?: boolean | null | undefined;
@@ -45,7 +41,7 @@ declare const TableBody: React.ForwardRefExoticComponent<TableBodyProps & React.
 interface TableFooterProps extends React.HTMLAttributes<HTMLTableSectionElement> {
 }
 declare const TableFooter: React.ForwardRefExoticComponent<TableFooterProps & React.RefAttributes<HTMLTableSectionElement>>;
-interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement>, VariantProps<typeof tableRowVariants> {
+interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
 }
 declare const TableRow: React.ForwardRefExoticComponent<TableRowProps & React.RefAttributes<HTMLTableRowElement>>;
 type SortDirection = 'asc' | 'desc' | null;
@@ -87,4 +83,4 @@ interface UseFilterableTableReturn<T> {
 }
 declare function useFilterableTable<T>({ data, filterKeys, }: UseFilterableTableOptions<T>): UseFilterableTableReturn<T>;
 export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption, tableVariants, useSortableTable, useFilterableTable, };
-export type { TableProps, TableHeadProps, TableRowProps, SortDirection };
+export type { TableProps, TableHeadProps, SortDirection };
