@@ -330,8 +330,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   fontFamily: 'var(--font-sans)',
                   fontSize: '14px',
                 }}
-                content={({ payload }) => {
-                  const items = payload ? [...payload].reverse() : []
+                content={() => {
                   return (
                     <ul
                       style={{
@@ -343,9 +342,9 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                         padding: 0,
                       }}
                     >
-                      {items.map((entry) => (
+                      {resolvedSeries.map((s, index) => (
                         <li
-                          key={String(entry.value)}
+                          key={s.key}
                           style={{
                             display: 'flex',
                             alignItems: 'center',
@@ -357,7 +356,11 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                               display: 'inline-block',
                               width: 14,
                               height: 10,
-                              backgroundColor: entry.color,
+                              backgroundColor:
+                                s.color ||
+                                DEFAULT_SERIES_COLORS[
+                                  index % DEFAULT_SERIES_COLORS.length
+                                ],
                             }}
                           />
                           <span
@@ -367,7 +370,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                               fontFamily: 'var(--font-sans)',
                             }}
                           >
-                            {entry.value}
+                            {s.name}
                           </span>
                         </li>
                       ))}
