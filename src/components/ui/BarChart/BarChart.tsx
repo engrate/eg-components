@@ -79,6 +79,12 @@ interface BarChartProps
   stacked?: boolean
   /** Layout orientation */
   layout?: 'horizontal' | 'vertical'
+  /** Format tooltip values (e.g. add currency, custom rounding) */
+  tooltipValueFormatter?: (value: number, seriesKey: string) => string
+  /** Format x-axis tick values */
+  xAxisValueFormatter?: (value: string) => string
+  /** Format y-axis tick values */
+  yAxisValueFormatter?: (value: string) => string
 }
 
 /**
@@ -116,6 +122,9 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
       radius = 0,
       stacked = false,
       layout = 'horizontal',
+      tooltipValueFormatter,
+      xAxisValueFormatter,
+      yAxisValueFormatter,
       ...props
     },
     ref
@@ -179,6 +188,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   fontSize={12}
                   tickLine={false}
                   axisLine={{ stroke: 'var(--color-primary)' }}
+                  tickFormatter={xAxisValueFormatter}
                   label={
                     xAxisLabel
                       ? {
@@ -198,6 +208,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   fontSize={12}
                   tickLine={false}
                   axisLine={{ stroke: 'var(--color-primary)' }}
+                  tickFormatter={yAxisValueFormatter}
                   label={
                     yAxisLabel
                       ? {
@@ -219,6 +230,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   fontSize={12}
                   tickLine={false}
                   axisLine={{ stroke: 'var(--color-primary)' }}
+                  tickFormatter={xAxisValueFormatter}
                   label={
                     xAxisLabel
                       ? {
@@ -236,6 +248,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   fontSize={12}
                   tickLine={false}
                   axisLine={{ stroke: 'var(--color-primary)' }}
+                  tickFormatter={yAxisValueFormatter}
                   label={
                     yAxisLabel
                       ? {
@@ -252,22 +265,63 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             )}
             {showTooltip && (
               <Tooltip
-                contentStyle={{
-                  backgroundColor: 'var(--color-white)',
-                  border: '1px solid var(--color-border)',
-                  borderRadius: '4px',
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '14px',
-                  color: 'var(--color-primary)',
-                }}
-                labelStyle={{
-                  color: 'var(--color-secondary)',
-                  fontWeight: 400,
-                }}
-                itemStyle={{
-                  color: 'var(--color-secondary)',
-                }}
                 cursor={{ fill: 'rgba(0, 0, 0, 0.05)' }}
+                content={({ active, payload, label }) => {
+                  if (!active || !payload?.length) return null
+                  return (
+                    <div
+                      style={{
+                        backgroundColor: 'var(--color-white)',
+                        border: '1px solid var(--color-border)',
+                        borderRadius: '4px',
+                        fontFamily: 'var(--font-sans)',
+                        fontSize: '14px',
+                        padding: '10px',
+                      }}
+                    >
+                      <p
+                        style={{
+                          color: 'var(--color-secondary)',
+                          fontWeight: 400,
+                          margin: '0 0 4px',
+                        }}
+                      >
+                        {label}
+                      </p>
+                      {payload.map((entry) => (
+                        <div
+                          key={String(entry.name)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            marginTop: '2px',
+                          }}
+                        >
+                          <span
+                            style={{
+                              display: 'inline-block',
+                              width: 10,
+                              height: 10,
+                              borderRadius: 2,
+                              backgroundColor: entry.color,
+                              flexShrink: 0,
+                            }}
+                          />
+                          <span style={{ color: 'var(--color-secondary)' }}>
+                            {entry.name}:{' '}
+                            {tooltipValueFormatter
+                              ? tooltipValueFormatter(
+                                  entry.value as number,
+                                  entry.dataKey as string
+                                )
+                              : entry.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )
+                }}
               />
             )}
             {showLegend && (
@@ -276,11 +330,50 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                   fontFamily: 'var(--font-sans)',
                   fontSize: '14px',
                 }}
-                formatter={(value) => (
-                  <span style={{ color: 'var(--color-secondary)' }}>
-                    {value}
-                  </span>
-                )}
+                content={({ payload }) => {
+                  const items = payload ? [...payload].reverse() : []
+                  return (
+                    <ul
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        gap: '16px',
+                        listStyle: 'none',
+                        margin: 0,
+                        padding: 0,
+                      }}
+                    >
+                      {items.map((entry) => (
+                        <li
+                          key={String(entry.value)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                          }}
+                        >
+                          <span
+                            style={{
+                              display: 'inline-block',
+                              width: 14,
+                              height: 10,
+                              backgroundColor: entry.color,
+                            }}
+                          />
+                          <span
+                            style={{
+                              color: 'var(--color-secondary)',
+                              fontSize: '14px',
+                              fontFamily: 'var(--font-sans)',
+                            }}
+                          >
+                            {entry.value}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                }}
               />
             )}
             {resolvedSeries.map((s, index) => (
