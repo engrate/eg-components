@@ -40,6 +40,12 @@ interface BarChartProps extends React.HTMLAttributes<HTMLDivElement>, VariantPro
     stacked?: boolean;
     /** Layout orientation */
     layout?: 'horizontal' | 'vertical';
+    /** Format tooltip values (e.g. add currency, custom rounding) */
+    tooltipValueFormatter?: (value: number, seriesKey: string) => string;
+    /** Format x-axis tick values */
+    xAxisValueFormatter?: (value: string) => string;
+    /** Format y-axis tick values */
+    yAxisValueFormatter?: (value: string) => string;
 }
 /**
  * BarChart component for displaying categorical data comparisons.
