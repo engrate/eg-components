@@ -288,7 +288,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                       >
                         {label}
                       </p>
-                      {payload.map((entry) => (
+                      {[...payload].reverse().map((entry) => (
                         <div
                           key={String(entry.name)}
                           style={{
