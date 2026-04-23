@@ -38,13 +38,13 @@ describe('Eyebrow', () => {
 
   it('renders with different sizes', () => {
     const { rerender, getByText } = render(<Eyebrow size="sm">Small</Eyebrow>)
-    expect(getByText('Small')).toHaveClass('text-[10px]')
+    expect(getByText('Small')).toHaveClass('text-label-sm')
 
     rerender(<Eyebrow size="default">Default</Eyebrow>)
-    expect(getByText('Default')).toHaveClass('text-xs')
+    expect(getByText('Default')).toHaveClass('text-label')
 
     rerender(<Eyebrow size="lg">Large</Eyebrow>)
-    expect(getByText('Large')).toHaveClass('text-sm')
+    expect(getByText('Large')).toHaveClass('text-small')
   })
 
   it('applies custom className', () => {

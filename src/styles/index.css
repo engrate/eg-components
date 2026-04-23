@@ -28,6 +28,13 @@
   --color-electric-blue: #0080ff;
   --color-deep-blue: #002fa7;
 
+  /* Chart series colors */
+  --color-chart-teal: #0d9488;
+  --color-chart-coral: #e06552;
+  --color-chart-sky: #38bdf8;
+  --color-chart-amber: #d97706;
+  --color-chart-indigo: #6366f1;
+
   /* Semantic colors */
   --color-error: #dc2626;
 

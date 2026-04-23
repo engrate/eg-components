@@ -104,7 +104,8 @@ describe('BarChart', () => {
       />
     )
     const chart = screen.getByTestId('chart-test')
-    expect(chart).toHaveAttribute('aria-label', 'Test chart')
+    expect(chart).toBeInTheDocument()
+    expect(screen.getByRole('img')).toHaveAttribute('aria-label', 'Test chart')
   })
 
   it('renders with stacked bars', () => {

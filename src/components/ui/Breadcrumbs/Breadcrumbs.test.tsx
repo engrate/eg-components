@@ -152,7 +152,7 @@ describe('BreadcrumbItem', () => {
     expect(screen.getByRole('link')).toHaveClass('text-quaternary')
 
     rerender(<BreadcrumbItem isCurrentPage>Current</BreadcrumbItem>)
-    expect(screen.getByText('Current')).toHaveClass('text-black')
+    expect(screen.getByText('Current')).toHaveClass('text-primary')
   })
 })
 

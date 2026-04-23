@@ -21,7 +21,7 @@ const tableVariants = cva(
   }
 )
 
-const tableHeaderVariants = cva('border-border bg-alt border-b', {
+const tableHeaderVariants = cva('border-primary bg-alt border-b', {
   variants: {},
   defaultVariants: {},
 })
@@ -32,7 +32,7 @@ const tableBodyVariants = cva('', {
 })
 
 const tableRowVariants = cva(
-  'border-border hover:bg-alt/50 border-b transition-colors',
+  'border-border hover:bg-alt border-b transition-colors',
   {
     variants: {},
     defaultVariants: {},

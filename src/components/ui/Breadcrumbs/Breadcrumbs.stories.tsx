@@ -6,7 +6,7 @@ const meta = {
   title: 'Navigation/Breadcrumbs',
   component: Breadcrumbs,
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
   },
   tags: ['autodocs'],
   argTypes: {
@@ -130,5 +130,20 @@ export const LongLabels: Story = {
         Advanced Analytics Dashboard
       </BreadcrumbItem>
     </Breadcrumbs>
+  ),
+}
+
+export const Truncated: Story = {
+  render: (args) => (
+    <div className="w-80 overflow-hidden">
+      <Breadcrumbs {...args}>
+        <BreadcrumbItem href="#">Home</BreadcrumbItem>
+        <BreadcrumbItem href="#">Enterprise Solutions</BreadcrumbItem>
+        <BreadcrumbItem href="#">Energy Management Platform</BreadcrumbItem>
+        <BreadcrumbItem isCurrentPage>
+          Advanced Analytics Dashboard
+        </BreadcrumbItem>
+      </Breadcrumbs>
+    </div>
   ),
 }

@@ -19,7 +19,7 @@ describe('Banner', () => {
 
   it('applies variant styles', () => {
     const { rerender } = render(<Banner variant="info">Info</Banner>)
-    expect(screen.getByRole('alert')).toHaveClass('bg-electric-blue')
+    expect(screen.getByRole('alert')).toHaveClass('bg-eggshell')
 
     rerender(<Banner variant="success">Success</Banner>)
     expect(screen.getByRole('alert')).toHaveClass('bg-sunflower')
@@ -45,7 +45,7 @@ describe('Banner', () => {
   it('applies default variants when none specified', () => {
     render(<Banner>Default</Banner>)
     const banner = screen.getByRole('alert')
-    expect(banner).toHaveClass('bg-electric-blue')
+    expect(banner).toHaveClass('bg-alt')
     expect(banner).toHaveClass('justify-center')
   })
 

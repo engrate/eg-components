@@ -56,8 +56,8 @@ function parseTimeString(timeStr: string): { hours: number; minutes: number } {
 
 const dateTimePickerTriggerVariants = cva(
   [
-    'bg-card text-body-sm text-primary placeholder:text-tertiary',
-    'flex h-8 w-full items-center justify-between rounded-md border px-3 py-1',
+    'bg-alt text-body-sm text-primary placeholder:text-tertiary',
+    'flex w-full items-center justify-between rounded-md border px-3 py-2',
     'font-sans transition-colors',
     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
     'disabled:cursor-not-allowed disabled:opacity-50',
@@ -224,7 +224,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
             <span className={cn('truncate', !value && 'text-tertiary')}>
               {value ? formatDateTime(value, format, use24Hour) : placeholder}
             </span>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
               <Clock className="text-tertiary h-4 w-4 shrink-0" />
               <CalendarIcon className="text-tertiary h-4 w-4 shrink-0" />
             </div>
@@ -241,7 +241,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
         <PopoverPrimitive.Portal>
           <PopoverPrimitive.Content
             className={cn(
-              'bg-main border-border z-50 w-auto rounded-lg border p-4 shadow-lg',
+              'bg-alt border-border z-50 w-auto rounded-lg border p-4 shadow-lg',
               'data-[state=open]:animate-in data-[state=closed]:animate-out',
               'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
               'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -265,7 +265,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
               <div className="flex items-center gap-3">
                 <label
                   htmlFor="time-input"
-                  className="text-secondary text-sm font-medium"
+                  className="text-secondary text-small"
                 >
                   Time
                 </label>
@@ -290,7 +290,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
                 type="button"
                 onClick={handleNow}
                 className={cn(
-                  'text-sunflower hover:text-sunflower-hover w-full text-center text-sm font-medium',
+                  'text-sunflower hover:text-sunflower-hover text-small w-full text-center',
                   'transition-colors focus-visible:underline focus-visible:outline-none'
                 )}
               >

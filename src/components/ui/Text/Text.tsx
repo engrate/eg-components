@@ -20,7 +20,6 @@ const textVariants = cva('font-sans', {
     },
     weight: {
       regular: 'font-normal',
-      medium: 'font-medium',
     },
   },
   defaultVariants: {

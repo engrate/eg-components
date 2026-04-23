@@ -16,9 +16,9 @@ const eyebrowVariants = cva(
         secondary: 'text-secondary',
       },
       size: {
-        default: 'text-xs',
-        sm: 'text-[10px]',
-        lg: 'text-sm',
+        default: 'text-label',
+        sm: 'text-label-sm',
+        lg: 'text-small',
       },
     },
     defaultVariants: {

@@ -6,25 +6,28 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
-const breadcrumbsVariants = cva('text-small flex items-center font-sans', {
-  variants: {
-    size: {
-      sm: 'text-label gap-1.5',
-      default: 'text-small gap-2',
-      lg: 'text-body gap-2.5',
+const breadcrumbsVariants = cva(
+  'text-small flex min-w-0 flex-nowrap items-center overflow-hidden font-sans',
+  {
+    variants: {
+      size: {
+        sm: 'text-label gap-1.5',
+        default: 'text-small gap-2',
+        lg: 'text-body gap-2.5',
+      },
     },
-  },
-  defaultVariants: {
-    size: 'default',
-  },
-})
+    defaultVariants: {
+      size: 'default',
+    },
+  }
+)
 
 const breadcrumbItemVariants = cva(
-  'focus-visible:ring-sunflower inline-flex items-center transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+  'focus-visible:ring-sunflower inline-block truncate align-middle transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
   {
     variants: {
       isCurrentPage: {
-        true: 'cursor-default text-black',
+        true: 'text-primary cursor-default',
         false: 'text-quaternary hover:text-primary',
       },
     },
@@ -71,12 +74,18 @@ const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
     return (
       <nav ref={ref} aria-label="Breadcrumb" {...props}>
         <ol className={cn(breadcrumbsVariants({ size, className }))}>
-          {items.map((child, index) => (
-            <li key={index} className="inline-flex items-center gap-2">
-              {child}
-              {index < items.length - 1 && separator}
-            </li>
-          ))}
+          {items.map((child, index) => {
+            const isLast = index === items.length - 1
+            return (
+              <li
+                key={index}
+                className="inline-flex min-w-0 shrink items-center gap-2"
+              >
+                {child}
+                {!isLast && separator}
+              </li>
+            )
+          })}
         </ol>
       </nav>
     )
@@ -139,7 +148,7 @@ const BreadcrumbSeparator = React.forwardRef<
     ref={ref}
     role="presentation"
     aria-hidden="true"
-    className={cn('text-tertiary', className)}
+    className={cn('text-tertiary shrink-0', className)}
     {...props}
   >
     {children ?? (

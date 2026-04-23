@@ -30,8 +30,8 @@ function formatDate(date: Date | null, format = 'yyyy-MM-dd'): string {
 
 const datePickerTriggerVariants = cva(
   [
-    'bg-card text-body-sm text-primary placeholder:text-tertiary',
-    'flex h-8 w-full items-center justify-between rounded-md border px-3 py-1',
+    'bg-alt text-body-sm text-primary placeholder:text-tertiary',
+    'flex w-full items-center justify-between rounded-md border px-3 py-2',
     'font-sans transition-colors',
     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
     'disabled:cursor-not-allowed disabled:opacity-50',
@@ -173,7 +173,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
         <PopoverPrimitive.Portal>
           <PopoverPrimitive.Content
             className={cn(
-              'bg-main border-border z-50 w-auto rounded-lg border p-4 shadow-lg',
+              'bg-alt border-border z-50 w-auto rounded-lg border p-4 shadow-lg',
               'data-[state=open]:animate-in data-[state=closed]:animate-out',
               'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
               'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -198,7 +198,7 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
                 type="button"
                 onClick={handleTodayClick}
                 className={cn(
-                  'text-sunflower hover:text-sunflower-hover w-full text-center text-sm font-medium',
+                  'text-sunflower hover:text-sunflower-hover text-small w-full text-center',
                   'transition-colors focus-visible:underline focus-visible:outline-none'
                 )}
               >

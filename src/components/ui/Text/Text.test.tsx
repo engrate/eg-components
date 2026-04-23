@@ -64,12 +64,6 @@ describe('Text', () => {
     expect(text).toHaveClass('font-sans', 'font-normal')
   })
 
-  it('applies medium weight', () => {
-    render(<Text weight="medium">Medium weight text</Text>)
-    const text = screen.getByText('Medium weight text')
-    expect(text).toHaveClass('font-medium')
-  })
-
   it('applies regular weight by default', () => {
     render(<Text>Regular weight text</Text>)
     const text = screen.getByText('Regular weight text')

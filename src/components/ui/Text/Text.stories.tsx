@@ -26,8 +26,8 @@ const meta = {
     },
     weight: {
       control: 'select',
-      options: ['regular', 'medium'],
-      description: 'Font weight (medium only for emphasis in lead/semi-lead)',
+      options: ['regular'],
+      description: 'Font weight (always regular per brand guidelines)',
     },
     as: {
       control: 'select',
@@ -57,15 +57,6 @@ export const Lead: Story = {
     children:
       'Lead text is used for introductory paragraphs and important statements that need extra emphasis.',
     variant: 'lead',
-  },
-}
-
-export const LeadWithEmphasis: Story = {
-  args: {
-    children:
-      'Lead text with medium weight for additional emphasis on key messages.',
-    variant: 'lead',
-    weight: 'medium',
   },
 }
 
@@ -152,14 +143,6 @@ export const TypographyScale: Story = {
       </div>
       <div className="border-border border-b pb-4">
         <Text variant="label" className="mb-2">
-          Lead (Medium) — Work Sans, 20pt, -2% tracking, Medium weight
-        </Text>
-        <Text variant="lead" weight="medium">
-          Key message with emphasis for important announcements.
-        </Text>
-      </div>
-      <div className="border-border border-b pb-4">
-        <Text variant="label" className="mb-2">
           Semi-Lead — Work Sans, 15pt, 0% tracking, Secondary color
         </Text>
         <Text variant="semi-lead">
@@ -224,7 +207,7 @@ export const AsSpan: Story = {
   render: () => (
     <Text variant="body">
       This is a paragraph with{' '}
-      <Text variant="lead" weight="medium" as="span">
+      <Text variant="lead" as="span">
         emphasized inline text
       </Text>{' '}
       in the middle of it.

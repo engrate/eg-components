@@ -11,9 +11,9 @@ const bannerVariants = cva(
   {
     variants: {
       variant: {
-        info: 'bg-electric-blue text-white',
+        info: 'bg-eggshell text-primary border-tertiary border',
         success: 'bg-sunflower text-primary',
-        warning: 'bg-lemon-meringue text-primary',
+        warning: 'bg-lemon-meringue text-primary border-tertiary border',
         error: 'bg-error text-white',
         neutral: 'bg-alt text-primary border-border border',
       },
@@ -23,7 +23,7 @@ const bannerVariants = cva(
       },
     },
     defaultVariants: {
-      variant: 'info',
+      variant: 'neutral',
       align: 'center',
     },
   }

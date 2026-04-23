@@ -42,8 +42,8 @@ function formatRange(range: DateRange | undefined, format: string): string {
 
 const dateRangePickerTriggerVariants = cva(
   [
-    'bg-card text-body-sm text-primary placeholder:text-tertiary',
-    'flex h-8 w-full items-center justify-between rounded-md border px-3 py-1',
+    'bg-alt text-body-sm text-primary placeholder:text-tertiary',
+    'flex w-full items-center justify-between rounded-md border px-3 py-2',
     'font-sans transition-colors',
     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
     'disabled:cursor-not-allowed disabled:opacity-50',
@@ -198,7 +198,7 @@ const DateRangePicker = React.forwardRef<
         <PopoverPrimitive.Portal>
           <PopoverPrimitive.Content
             className={cn(
-              'bg-main border-border z-50 w-auto rounded-lg border p-4 shadow-lg',
+              'bg-alt border-border z-50 w-auto rounded-lg border p-4 shadow-lg',
               'data-[state=open]:animate-in data-[state=closed]:animate-out',
               'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
               'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -224,7 +224,7 @@ const DateRangePicker = React.forwardRef<
                 type="button"
                 onClick={handleClearClick}
                 className={cn(
-                  'text-tertiary hover:text-secondary text-sm',
+                  'text-tertiary hover:text-secondary text-small',
                   'transition-colors focus-visible:underline focus-visible:outline-none'
                 )}
               >
@@ -234,7 +234,7 @@ const DateRangePicker = React.forwardRef<
                 type="button"
                 onClick={handleTodayClick}
                 className={cn(
-                  'text-sunflower hover:text-sunflower-hover text-sm font-medium',
+                  'text-sunflower hover:text-sunflower-hover text-small',
                   'transition-colors focus-visible:underline focus-visible:outline-none'
                 )}
               >
