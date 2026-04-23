@@ -2,7 +2,7 @@ import { VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 declare const textVariants: (props?: ({
     variant?: "lead" | "semi-lead" | "body-lg" | "body" | "body-sm" | "descriptive" | "label" | "label-sm" | null | undefined;
-    weight?: "medium" | "regular" | null | undefined;
+    weight?: "regular" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 type TextElement = 'p' | 'span' | 'div' | 'label';
 interface TextProps extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof textVariants> {

@@ -4,7 +4,7 @@ declare const paginationVariants: (props?: ({
     size?: "default" | "sm" | "lg" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 declare const paginationItemVariants: (props?: ({
-    variant?: "default" | "active" | "ellipsis" | null | undefined;
+    variant?: "default" | "ellipsis" | "active" | null | undefined;
     size?: "default" | "sm" | "lg" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface PaginationProps extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof paginationVariants> {
