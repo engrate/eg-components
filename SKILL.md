@@ -125,6 +125,51 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 | `LineChart` | Line chart           |
 | `PieChart`  | Pie chart            |
 
+### AI Chat Elements
+
+Components for building chat surfaces driven by the [Vercel AI SDK](https://ai-sdk.dev/) (`useChat` hook + `UIMessagePart`s). All exported from the same top-level `@engrate/components` import. Storybook stories live under "AI Chat Elements".
+
+| Component          | Purpose                                                        |
+| ------------------ | -------------------------------------------------------------- |
+| `Message`          | Message bubble (user/assistant/system variants) with role label |
+| `MessageContent`   | Dispatcher over `UIMessagePart[]` — renders text, tool calls, reasoning |
+| `MarkdownText`     | Streaming-safe markdown rendering (GFM tables, code, links)    |
+| `ToolCall`         | Pill for an MCP/AI tool invocation with running/used/failed states |
+| `TypingIndicator`  | Animated dots while the model is generating                    |
+| `ChatError`        | Inline error banner for stream failures                        |
+| `EmptyState`       | Landing copy for an empty thread                               |
+
+`ai` is an **optional peer dependency** — only install it in apps that actually use these components.
+
+```tsx
+import {
+  Message,
+  MessageContent,
+  TypingIndicator,
+  ChatError,
+} from '@engrate/components'
+import { useChat } from '@ai-sdk/react'
+
+function ChatThread() {
+  const { messages, status, error } = useChat()
+  return (
+    <div className="flex flex-col gap-3">
+      {messages.map((m) => (
+        <Message
+          key={m.id}
+          from={m.role === 'user' ? 'user' : 'assistant'}
+          name={m.role === 'user' ? 'You' : 'Ellie'}
+        >
+          <MessageContent parts={m.parts} />
+        </Message>
+      ))}
+      {status === 'streaming' ? <TypingIndicator name="Ellie" /> : null}
+      {error ? <ChatError error={error} /> : null}
+    </div>
+  )
+}
+```
+
 ## Component Usage Patterns
 
 ### Basic Import and Use
