@@ -30,7 +30,16 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        // AI Chat Elements deps — externalized so the consumer's bundler
+        // (Next.js / Turbopack) handles SSR boundaries correctly.
+        'react-markdown',
+        'remark-gfm',
+        'ai',
+      ],
       output: {
         globals: {
           react: 'React',
