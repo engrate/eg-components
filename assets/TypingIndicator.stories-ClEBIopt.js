@@ -1,0 +1,8 @@
+import{j as e}from"./jsx-runtime-u17CrQMm.js";import{c as m}from"./utils-kmX6UHYG.js";import{m as i}from"./proxy-B9pxq6v8.js";import"./iframe-DRsmyPNk.js";import"./preload-helper-PPVm8Dsz.js";function n({name:s,className:o}){return e.jsx(i.div,{initial:{opacity:0,y:10},animate:{opacity:1,y:0},exit:{opacity:0,y:-10},className:m("flex justify-start",o),children:e.jsxs("div",{className:"bg-alt rounded-2xl px-4 py-3",children:[s?e.jsx("div",{className:"text-label-sm mb-1 font-medium opacity-70",children:s}):null,e.jsx("div",{className:"flex items-center gap-1",children:[0,1,2].map(r=>e.jsx(i.span,{className:"bg-tertiary h-2 w-2 rounded-full",animate:{y:[0,-6,0],opacity:[.5,1,.5]},transition:{duration:.8,repeat:1/0,delay:r*.15,ease:"easeInOut"}},r))})]})})}n.__docgenInfo={description:`Three bouncing dots in an assistant-styled bubble. Show while the model is
+generating a response, before the first message part arrives.`,methods:[],displayName:"TypingIndicator",props:{name:{required:!1,tsType:{name:"string"},description:'Optional name shown above the dots (e.g. "Ellie"). Omit to hide.'},className:{required:!1,tsType:{name:"string"},description:"Extra classes for the alignment row."}}};const g={title:"AI Chat Elements/TypingIndicator",component:n,parameters:{layout:"padded"},tags:["autodocs"]},a={args:{}},t={args:{name:"Ellie"}};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  args: {}
+}`,...a.parameters?.docs?.source}}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+  args: {
+    name: 'Ellie'
+  }
+}`,...t.parameters?.docs?.source}}};const y=["Default","WithName"];export{a as Default,t as WithName,y as __namedExportsOrder,g as default};

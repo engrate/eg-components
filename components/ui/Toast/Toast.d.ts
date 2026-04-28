@@ -6,7 +6,7 @@ interface ToastViewportProps extends React.ComponentPropsWithoutRef<typeof Toast
 }
 declare const ToastViewport: React.ForwardRefExoticComponent<ToastViewportProps & React.RefAttributes<HTMLOListElement>>;
 declare const toastVariants: (props?: ({
-    variant?: "default" | "error" | "info" | "success" | "warning" | null | undefined;
+    variant?: "error" | "default" | "info" | "success" | "warning" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface ToastProps extends React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root>, VariantProps<typeof toastVariants> {
 }
