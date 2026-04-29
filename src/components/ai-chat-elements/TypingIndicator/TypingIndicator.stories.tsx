@@ -18,8 +18,16 @@ export const Default: Story = {
   args: {},
 }
 
-export const WithName: Story = {
+export const WithEyebrow: Story = {
   args: {
-    name: 'Ellie',
+    eyebrow: 'Ellie',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Eyebrow is only used on the very first chunk of an assistant turn — most calls should omit it.',
+      },
+    },
   },
 }

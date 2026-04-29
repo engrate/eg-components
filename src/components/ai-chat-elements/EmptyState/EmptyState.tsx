@@ -32,11 +32,7 @@ export function EmptyState({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.2 }}
-      className={cn(
-        'text-center',
-        compact ? 'py-4' : 'py-12',
-        className,
-      )}
+      className={cn('text-center', compact ? 'py-4' : 'py-12', className)}
     >
       <p className="text-secondary text-body">{title}</p>
       {children ? <div className="mt-6">{children}</div> : null}

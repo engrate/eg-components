@@ -129,15 +129,15 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 
 Components for building chat surfaces driven by the [Vercel AI SDK](https://ai-sdk.dev/) (`useChat` hook + `UIMessagePart`s). All exported from the same top-level `@engrate/components` import. Storybook stories live under "AI Chat Elements".
 
-| Component          | Purpose                                                        |
-| ------------------ | -------------------------------------------------------------- |
-| `Message`          | Message bubble (user/assistant/system variants) with role label |
-| `MessageContent`   | Dispatcher over `UIMessagePart[]` — renders text, tool calls, reasoning |
-| `MarkdownText`     | Streaming-safe markdown rendering (GFM tables, code, links)    |
-| `ToolCall`         | Pill for an MCP/AI tool invocation with running/used/failed states |
-| `TypingIndicator`  | Animated dots while the model is generating                    |
-| `ChatError`        | Inline error banner for stream failures                        |
-| `EmptyState`       | Landing copy for an empty thread                               |
+| Component         | Purpose                                                                 |
+| ----------------- | ----------------------------------------------------------------------- |
+| `Message`         | Message bubble (user/assistant/system variants) with role label         |
+| `MessageContent`  | Dispatcher over `UIMessagePart[]` — renders text, tool calls, reasoning |
+| `MarkdownText`    | Streaming-safe markdown rendering (GFM tables, code, links)             |
+| `ToolCall`        | Pill for an MCP/AI tool invocation with running/used/failed states      |
+| `TypingIndicator` | Animated dots while the model is generating                             |
+| `ChatError`       | Inline error banner for stream failures                                 |
+| `EmptyState`      | Landing copy for an empty thread                                        |
 
 `ai` is an **optional peer dependency** — only install it in apps that actually use these components.
 
