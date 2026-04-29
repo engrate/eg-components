@@ -22,7 +22,7 @@ const text = (text: string): TextUIPart => ({
 const tool = (
   toolName: string,
   state: DynamicToolUIPart['state'],
-  extra: Partial<DynamicToolUIPart> = {},
+  extra: Partial<DynamicToolUIPart> = {}
 ): DynamicToolUIPart =>
   ({
     type: 'dynamic-tool',
@@ -53,7 +53,7 @@ type Story = StoryObj<typeof meta>
 export const TextOnly: Story = {
   args: {
     parts: [
-      text("Hi! I can look up your user info using the `me_user_info` tool."),
+      text('Hi! I can look up your user info using the `me_user_info` tool.'),
     ],
   },
 }
@@ -61,7 +61,7 @@ export const TextOnly: Story = {
 export const TextThenTool: Story = {
   args: {
     parts: [
-      text("Let me look that up for you."),
+      text('Let me look that up for you.'),
       tool('me_user_info', 'output-available', {
         output: { email: 'rille@engrate.io' },
       }),
@@ -73,7 +73,7 @@ export const TextThenTool: Story = {
 export const ToolRunning: Story = {
   args: {
     parts: [
-      text("Let me look that up for you."),
+      text('Let me look that up for you.'),
       tool('me_user_info', 'input-available'),
     ] satisfies AnyPart[],
   },
@@ -82,7 +82,7 @@ export const ToolRunning: Story = {
 export const ToolFailed: Story = {
   args: {
     parts: [
-      text("Trying to fetch your info..."),
+      text('Trying to fetch your info...'),
       tool('me_user_info', 'output-error', {
         errorText: 'MCP server returned 401 invalid_token.',
       }),
@@ -115,7 +115,7 @@ export const InMessageBubble: Story = {
   },
   render: (args) => (
     <div className="max-w-2xl">
-      <Message from="assistant" name="Ellie">
+      <Message from="assistant" eyebrow="Ellie">
         <MessageContent {...args} />
       </Message>
     </div>

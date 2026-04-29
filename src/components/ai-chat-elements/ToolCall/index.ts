@@ -1,1 +1,6 @@
-export { ToolCall, type ToolCallProps } from './ToolCall'
+export {
+  ToolCall,
+  type ToolCallLabel,
+  type ToolCallProps,
+  type ToolCallState,
+} from './ToolCall'

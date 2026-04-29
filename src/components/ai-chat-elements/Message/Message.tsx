@@ -3,14 +3,17 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 
+import { Eyebrow } from '@/components/ui/Eyebrow'
 import { cn } from '@/lib/utils'
 
+// Row wrapper drives alignment. User turns are right-aligned to preserve the
+// chat-conversation metaphor; assistant + system flow full-width as prose.
 const messageRowVariants = cva('flex w-full', {
   variants: {
     from: {
+      assistant: 'block',
       user: 'justify-end',
-      assistant: 'justify-start',
-      system: 'justify-center',
+      system: 'block',
     },
   },
   defaultVariants: {
@@ -18,50 +21,57 @@ const messageRowVariants = cva('flex w-full', {
   },
 })
 
-const messageBubbleVariants = cva(
-  'max-w-[85%] rounded-2xl px-4 py-3 text-small',
-  {
-    variants: {
-      from: {
-        user: 'bg-sunflower text-gray-900',
-        assistant: 'bg-alt text-gray-900',
-        system: 'bg-card text-secondary border-border border italic',
-      },
-    },
-    defaultVariants: {
-      from: 'assistant',
+const messageBubbleVariants = cva('', {
+  variants: {
+    from: {
+      // Assistant turns sit on the page like prose — no container, the
+      // background is the bubble.
+      assistant: 'text-primary w-full',
+      // User turns are right-aligned bubbles tinted with sunflower so the
+      // brand color is clearly present without going full SMS-bubble.
+      user: 'bg-sunflower text-primary max-w-[75%] rounded-2xl px-4 py-3',
+      // System notes live as marginal italics, almost a footnote.
+      system: 'text-tertiary text-body-sm w-full italic',
     },
   },
-)
+  defaultVariants: {
+    from: 'assistant',
+  },
+})
 
 export interface MessageProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'role'>,
+  extends
+    Omit<React.HTMLAttributes<HTMLDivElement>, 'role'>,
     VariantProps<typeof messageBubbleVariants> {
-  /** Display name shown above the message body. Omit to hide the header. */
-  name?: string
-  /** Override the row class (alignment wrapper). */
-  rowClassName?: string
+  /** Role label rendered above the content as a small eyebrow. Pass only
+   * for the first message of a turn-streak; consecutive messages from the
+   * same speaker should omit it. */
+  eyebrow?: React.ReactNode
 }
 
 /**
- * Layout primitive for a single chat message bubble. Aligns left/right based
- * on `from`, renders a small name header, and slots `children` for the
- * actual content. Pair with `<MessageContent>` to render typed parts from
- * the AI SDK.
+ * A single conversation turn. Assistant messages are unstyled prose on the
+ * page background; user messages are right-aligned sunflower-tinted bubbles;
+ * system notes are inline italics. The optional `eyebrow` labels the speaker
+ * — pass it once per turn-streak.
  */
 export function Message({
   from = 'assistant',
-  name,
+  eyebrow,
   className,
-  rowClassName,
   children,
   ...props
 }: MessageProps) {
   return (
-    <div className={cn(messageRowVariants({ from }), rowClassName)}>
-      <div className={cn(messageBubbleVariants({ from }), className)} {...props}>
-        {name ? (
-          <div className="text-label-sm mb-1 font-medium opacity-70">{name}</div>
+    <div className={cn(messageRowVariants({ from }))}>
+      <div
+        className={cn(messageBubbleVariants({ from }), className)}
+        {...props}
+      >
+        {eyebrow ? (
+          <Eyebrow size="sm" className="text-tertiary mb-1.5 block">
+            {eyebrow}
+          </Eyebrow>
         ) : null}
         {children}
       </div>
