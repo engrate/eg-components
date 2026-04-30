@@ -32,8 +32,10 @@ export interface MessageContentProps extends Omit<
   /** Override how a `text` part is rendered. Defaults to `<MarkdownText>`. */
   renderText?: (part: TextUIPart, key: string) => React.ReactNode
   /** Override how a tool call is rendered. Defaults to `<ToolCall>` with the
-   * `toolLabelMap`, `renderToolOutput`, and `smartToolOutput` props applied. */
-  renderTool?: (part: AnyToolPart, key: string) => React.ReactNode
+   * `toolLabelMap`, `renderToolOutput`, and `smartToolOutput` props applied.
+   * Return `undefined` to fall back to the default `<ToolCall>` for this part
+   * (useful when only some tool calls should get a custom renderer). */
+  renderTool?: (part: AnyToolPart, key: string) => React.ReactNode | undefined
   /** Override how a reasoning part is rendered. Defaults to a dimmed
    * blockquote. Once we add a real `<Reasoning>` component, point this at it. */
   renderReasoning?: (part: ReasoningUIPart, key: string) => React.ReactNode
@@ -112,7 +114,16 @@ export function MessageContent({
     [toolLabelMap, renderToolOutput, smartToolOutput]
   )
 
-  const renderToolFinal = renderTool ?? renderToolDefault
+  const renderToolFinal = React.useCallback(
+    (part: AnyToolPart, key: string) => {
+      if (renderTool) {
+        const node = renderTool(part, key)
+        if (node !== undefined) return node
+      }
+      return renderToolDefault(part, key)
+    },
+    [renderTool, renderToolDefault]
+  )
 
   return (
     <div className={cn('flex flex-col gap-1', className)} {...props}>
