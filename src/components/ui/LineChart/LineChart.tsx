@@ -29,8 +29,8 @@ const lineChartVariants = cva('text-small font-sans tracking-[-0.05em]', {
 
 /** A single data point for the chart */
 interface DataPoint {
-  /** Label for the x-axis (e.g., date, category) */
-  label: string
+  /** Label for the x-axis (e.g., date string, category, or numeric timestamp) */
+  label: string | number
   /** Numeric values for each series */
   [key: string]: string | number
 }
@@ -88,6 +88,8 @@ interface LineChartProps
   xAxisValueFormatter?: (value: string) => string
   /** Format y-axis tick values */
   yAxisValueFormatter?: (value: string) => string
+  /** X-axis type. Use 'number' for time-proportional spacing. */
+  xAxisType?: 'category' | 'number'
 }
 
 /**
@@ -130,6 +132,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       tooltipLabelFormatter,
       xAxisValueFormatter,
       yAxisValueFormatter,
+      xAxisType = 'category',
       'aria-label': ariaLabel,
       ...props
     },
@@ -189,11 +192,15 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
               )}
               <XAxis
                 dataKey="label"
+                type={xAxisType}
                 stroke="var(--color-secondary)"
                 fontSize={12}
                 tickLine={false}
                 axisLine={{ stroke: 'var(--color-primary)' }}
                 tickFormatter={xAxisValueFormatter}
+                {...(xAxisType === 'number' && {
+                  domain: ['dataMin', 'dataMax'],
+                })}
                 label={
                   xAxisLabel
                     ? {
