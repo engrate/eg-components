@@ -5,8 +5,8 @@ declare const lineChartVariants: (props?: ({
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 /** A single data point for the chart */
 interface DataPoint {
-    /** Label for the x-axis (e.g., date, category) */
-    label: string;
+    /** Label for the x-axis (e.g., date string, category, or numeric timestamp) */
+    label: string | number;
     /** Numeric values for each series */
     [key: string]: string | number;
 }
@@ -50,6 +50,8 @@ interface LineChartProps extends React.HTMLAttributes<HTMLDivElement>, VariantPr
     xAxisValueFormatter?: (value: string) => string;
     /** Format y-axis tick values */
     yAxisValueFormatter?: (value: string) => string;
+    /** X-axis type. Use 'number' for time-proportional spacing. */
+    xAxisType?: 'category' | 'number';
 }
 /**
  * LineChart component for displaying data trends over time.
