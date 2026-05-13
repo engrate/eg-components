@@ -44,6 +44,8 @@ interface LineChartProps extends React.HTMLAttributes<HTMLDivElement>, VariantPr
     showDots?: boolean;
     /** Format tooltip values (e.g. add currency, custom rounding) */
     tooltipValueFormatter?: (value: number, seriesKey: string) => string;
+    /** Format the tooltip header label */
+    tooltipLabelFormatter?: (label: string) => string;
     /** Format x-axis tick values */
     xAxisValueFormatter?: (value: string) => string;
     /** Format y-axis tick values */
