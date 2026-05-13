@@ -3,7 +3,7 @@ import * as React from 'react';
 declare const cardVariants: (props?: ({
     variant?: "default" | "ghost" | "elevated" | null | undefined;
     padding?: "default" | "none" | "sm" | "lg" | null | undefined;
-    bg?: "contrast" | "error" | "main" | "default" | "sunflower" | "lemon-meringue" | "vanilla" | "eggshell" | "warm-purple" | "cool-purple" | "electric-blue" | "deep-blue" | "transparent" | "card" | "alt" | "sunflower-hover" | null | undefined;
+    bg?: "contrast" | "error" | "main" | "default" | "transparent" | "sunflower" | "lemon-meringue" | "vanilla" | "eggshell" | "warm-purple" | "cool-purple" | "electric-blue" | "deep-blue" | "card" | "alt" | "sunflower-hover" | null | undefined;
     accent?: "error" | "border" | "none" | "sunflower" | "warm-purple" | "cool-purple" | "electric-blue" | "deep-blue" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface CardProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardVariants> {

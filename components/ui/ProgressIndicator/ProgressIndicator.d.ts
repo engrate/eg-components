@@ -4,7 +4,7 @@ declare const progressIndicatorVariants: (props?: ({
     size?: "default" | "sm" | "lg" | "xl" | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 declare const progressBarVariants: (props?: ({
-    variant?: "default" | "success" | "muted" | null | undefined;
+    variant?: "default" | "muted" | "success" | null | undefined;
     animated?: boolean | null | undefined;
 } & import('class-variance-authority/types').ClassProp) | undefined) => string;
 interface ProgressIndicatorProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof progressIndicatorVariants>, VariantProps<typeof progressBarVariants> {

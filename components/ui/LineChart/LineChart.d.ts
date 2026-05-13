@@ -38,8 +38,16 @@ interface LineChartProps extends React.HTMLAttributes<HTMLDivElement>, VariantPr
     strokeWidth?: number;
     /** Enable curve interpolation */
     curved?: boolean;
+    /** Line interpolation type. Overrides `curved` when set. */
+    interpolation?: 'linear' | 'monotone' | 'stepAfter' | 'stepBefore';
     /** Show dots on data points */
     showDots?: boolean;
+    /** Format tooltip values (e.g. add currency, custom rounding) */
+    tooltipValueFormatter?: (value: number, seriesKey: string) => string;
+    /** Format x-axis tick values */
+    xAxisValueFormatter?: (value: string) => string;
+    /** Format y-axis tick values */
+    yAxisValueFormatter?: (value: string) => string;
 }
 /**
  * LineChart component for displaying data trends over time.

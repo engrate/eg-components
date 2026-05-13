@@ -5,8 +5,9 @@ export interface MarkdownTextProps extends Omit<React.HTMLAttributes<HTMLDivElem
     children: string;
 }
 /**
- * Renders streaming markdown text from an AI SDK `text` part. Supports GFM
- * (tables, strikethrough, task lists). Inline code, fenced code, blockquotes,
- * lists, and links are all themed with Engrate design tokens.
+ * Renders streaming markdown text from an AI SDK `text` part. Each markdown
+ * node is mapped to an Engrate primitive (Heading, Link, Table, CodeBlock,
+ * Divider) so a model-authored table or code block looks identical to the
+ * same content rendered anywhere else in the app.
  */
 export declare function MarkdownText({ children, className, ...props }: MarkdownTextProps): import("react/jsx-runtime").JSX.Element;
