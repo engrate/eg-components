@@ -103,12 +103,30 @@ describe('LineChart', () => {
         aria-label="Test chart"
       />
     )
-    const chart = screen.getByTestId('chart-test')
-    expect(chart).toHaveAttribute('aria-label', 'Test chart')
+    expect(screen.getByTestId('chart-test')).toBeInTheDocument()
+    expect(screen.getByRole('img')).toHaveAttribute('aria-label', 'Test chart')
   })
 
   it('renders with linear curve type when curved is false', () => {
     render(<LineChart data={mockData} curved={false} aria-label="Chart" />)
+    expect(screen.getByRole('img')).toBeInTheDocument()
+  })
+
+  it('renders with stepAfter interpolation', () => {
+    render(
+      <LineChart data={mockData} interpolation="stepAfter" aria-label="Chart" />
+    )
+    expect(screen.getByRole('img')).toBeInTheDocument()
+  })
+
+  it('renders with stepBefore interpolation', () => {
+    render(
+      <LineChart
+        data={mockData}
+        interpolation="stepBefore"
+        aria-label="Chart"
+      />
+    )
     expect(screen.getByRole('img')).toBeInTheDocument()
   })
 

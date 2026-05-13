@@ -31,6 +31,11 @@ const meta = {
       control: 'boolean',
       description: 'Use curved lines (monotone interpolation)',
     },
+    interpolation: {
+      control: 'select',
+      options: ['linear', 'monotone', 'stepAfter', 'stepBefore'],
+      description: 'Line interpolation type. Overrides curved when set.',
+    },
     showDots: {
       control: 'boolean',
       description: 'Show dots on data points',
@@ -46,6 +51,15 @@ const meta = {
     yAxisLabel: {
       control: 'text',
       description: 'Label for the y-axis',
+    },
+    tooltipValueFormatter: {
+      table: { disable: true },
+    },
+    xAxisValueFormatter: {
+      table: { disable: true },
+    },
+    yAxisValueFormatter: {
+      table: { disable: true },
     },
   },
   decorators: [
@@ -138,6 +152,24 @@ export const LinearCurve: Story = {
   },
 }
 
+export const StepAfter: Story = {
+  args: {
+    data: sampleData,
+    series: [{ key: 'revenue', name: 'Revenue' }],
+    interpolation: 'stepAfter',
+    'aria-label': 'Revenue chart with step-after interpolation',
+  },
+}
+
+export const StepBefore: Story = {
+  args: {
+    data: sampleData,
+    series: [{ key: 'revenue', name: 'Revenue' }],
+    interpolation: 'stepBefore',
+    'aria-label': 'Revenue chart with step-before interpolation',
+  },
+}
+
 export const WithoutDots: Story = {
   args: {
     data: sampleData,
@@ -201,5 +233,22 @@ export const Minimal: Story = {
     showLegend: false,
     showDots: false,
     'aria-label': 'Minimal revenue chart',
+  },
+}
+
+export const WithFormatters: Story = {
+  args: {
+    data: sampleData,
+    series: [
+      { key: 'revenue', name: 'Revenue' },
+      { key: 'expenses', name: 'Expenses', color: '#0080FF' },
+    ],
+    xAxisLabel: 'Month',
+    yAxisLabel: 'Amount ($)',
+    tooltipValueFormatter: (value: number) =>
+      `$${value.toLocaleString('en-US')}`,
+    yAxisValueFormatter: (value: string) =>
+      `$${Number(value).toLocaleString('en-US')}`,
+    'aria-label': 'Revenue chart with formatted values',
   },
 }

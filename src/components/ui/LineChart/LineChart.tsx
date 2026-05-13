@@ -4,7 +4,6 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 import {
   CartesianGrid,
-  Legend,
   Line,
   LineChart as RechartsLineChart,
   ResponsiveContainer,
@@ -77,8 +76,16 @@ interface LineChartProps
   strokeWidth?: number
   /** Enable curve interpolation */
   curved?: boolean
+  /** Line interpolation type. Overrides `curved` when set. */
+  interpolation?: 'linear' | 'monotone' | 'stepAfter' | 'stepBefore'
   /** Show dots on data points */
   showDots?: boolean
+  /** Format tooltip values (e.g. add currency, custom rounding) */
+  tooltipValueFormatter?: (value: number, seriesKey: string) => string
+  /** Format x-axis tick values */
+  xAxisValueFormatter?: (value: string) => string
+  /** Format y-axis tick values */
+  yAxisValueFormatter?: (value: string) => string
 }
 
 /**
@@ -115,7 +122,12 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       yAxisLabel,
       strokeWidth = 2,
       curved = true,
+      interpolation,
       showDots = true,
+      tooltipValueFormatter,
+      xAxisValueFormatter,
+      yAxisValueFormatter,
+      'aria-label': ariaLabel,
       ...props
     },
     ref
@@ -142,115 +154,202 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       <div
         ref={ref}
         className={cn(lineChartVariants({ size, className }))}
-        role="img"
+        style={{ display: 'flex', flexDirection: 'column' }}
         {...props}
       >
-        <ResponsiveContainer
-          width="100%"
-          height="100%"
-          minWidth={100}
-          minHeight={100}
+        <div
+          role="img"
+          aria-label={ariaLabel}
+          style={{ flex: '1 1 0', minHeight: 0 }}
         >
-          <RechartsLineChart
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: yAxisLabel ? 20 : 0,
-              bottom: xAxisLabel ? 20 : 5,
+          <ResponsiveContainer
+            width="100%"
+            height="100%"
+            minWidth={100}
+            minHeight={100}
+          >
+            <RechartsLineChart
+              data={data}
+              margin={{
+                top: 5,
+                right: 30,
+                left: yAxisLabel ? 20 : 0,
+                bottom: xAxisLabel ? 20 : 5,
+              }}
+            >
+              {showGrid && (
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  stroke="var(--color-border)"
+                  vertical={false}
+                />
+              )}
+              <XAxis
+                dataKey="label"
+                stroke="var(--color-secondary)"
+                fontSize={12}
+                tickLine={false}
+                axisLine={{ stroke: 'var(--color-primary)' }}
+                tickFormatter={xAxisValueFormatter}
+                label={
+                  xAxisLabel
+                    ? {
+                        value: xAxisLabel,
+                        position: 'insideBottom',
+                        offset: -10,
+                        fill: 'var(--color-secondary)',
+                        fontSize: 12,
+                      }
+                    : undefined
+                }
+              />
+              <YAxis
+                stroke="var(--color-secondary)"
+                fontSize={12}
+                tickLine={false}
+                axisLine={{ stroke: 'var(--color-primary)' }}
+                tickFormatter={yAxisValueFormatter}
+                label={
+                  yAxisLabel
+                    ? {
+                        value: yAxisLabel,
+                        angle: -90,
+                        position: 'insideLeft',
+                        fill: 'var(--color-secondary)',
+                        fontSize: 12,
+                      }
+                    : undefined
+                }
+              />
+              {showTooltip && (
+                <Tooltip
+                  content={({ active, payload, label }) => {
+                    if (!active || !payload?.length) return null
+                    return (
+                      <div
+                        style={{
+                          backgroundColor: 'var(--color-card)',
+                          border: '1px solid var(--color-border)',
+                          borderRadius: '8px',
+                          fontFamily: 'var(--font-sans)',
+                          fontSize: 'var(--text-small)',
+                          padding: '12px 16px',
+                        }}
+                      >
+                        <p
+                          style={{
+                            color: 'var(--color-secondary)',
+                            fontWeight: 400,
+                            margin: '0 0 4px',
+                          }}
+                        >
+                          {label}
+                        </p>
+                        {payload.map((entry) => (
+                          <div
+                            key={String(entry.name)}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '6px',
+                              marginTop: '2px',
+                            }}
+                          >
+                            <span
+                              style={{
+                                display: 'inline-block',
+                                width: 10,
+                                height: 10,
+                                borderRadius: '50%',
+                                backgroundColor: entry.color,
+                                flexShrink: 0,
+                              }}
+                            />
+                            <span style={{ color: 'var(--color-secondary)' }}>
+                              {entry.name}:{' '}
+                              {tooltipValueFormatter
+                                ? tooltipValueFormatter(
+                                    entry.value as number,
+                                    entry.dataKey as string
+                                  )
+                                : entry.value}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )
+                  }}
+                />
+              )}
+              {resolvedSeries.map((s, index) => (
+                <Line
+                  key={s.key}
+                  type={interpolation ?? (curved ? 'monotone' : 'linear')}
+                  dataKey={s.key}
+                  name={s.name}
+                  stroke={
+                    s.color ||
+                    DEFAULT_SERIES_COLORS[index % DEFAULT_SERIES_COLORS.length]
+                  }
+                  strokeWidth={strokeWidth}
+                  dot={showDots}
+                  activeDot={showDots ? { r: 6 } : false}
+                />
+              ))}
+            </RechartsLineChart>
+          </ResponsiveContainer>
+        </div>
+        {showLegend && (
+          <ul
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '8px 16px',
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
             }}
           >
-            {showGrid && (
-              <CartesianGrid
-                strokeDasharray="3 3"
-                stroke="var(--color-border)"
-                vertical={false}
-              />
-            )}
-            <XAxis
-              dataKey="label"
-              stroke="var(--color-secondary)"
-              fontSize={12}
-              tickLine={false}
-              axisLine={{ stroke: 'var(--color-primary)' }}
-              label={
-                xAxisLabel
-                  ? {
-                      value: xAxisLabel,
-                      position: 'insideBottom',
-                      offset: -10,
-                      fill: 'var(--color-secondary)',
-                      fontSize: 12,
-                    }
-                  : undefined
-              }
-            />
-            <YAxis
-              stroke="var(--color-secondary)"
-              fontSize={12}
-              tickLine={false}
-              axisLine={{ stroke: 'var(--color-primary)' }}
-              label={
-                yAxisLabel
-                  ? {
-                      value: yAxisLabel,
-                      angle: -90,
-                      position: 'insideLeft',
-                      fill: 'var(--color-secondary)',
-                      fontSize: 12,
-                    }
-                  : undefined
-              }
-            />
-            {showTooltip && (
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: 'var(--color-white)',
-                  border: '1px solid var(--color-border)',
-                  borderRadius: '4px',
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '14px',
-                  color: 'var(--color-primary)',
-                }}
-                labelStyle={{
-                  color: 'var(--color-secondary)',
-                  fontWeight: 400,
-                }}
-                itemStyle={{
-                  color: 'var(--color-secondary)',
-                }}
-              />
-            )}
-            {showLegend && (
-              <Legend
-                wrapperStyle={{
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '14px',
-                }}
-                formatter={(value) => (
-                  <span style={{ color: 'var(--color-secondary)' }}>
-                    {value}
-                  </span>
-                )}
-              />
-            )}
             {resolvedSeries.map((s, index) => (
-              <Line
+              <li
                 key={s.key}
-                type={curved ? 'monotone' : 'linear'}
-                dataKey={s.key}
-                name={s.name}
-                stroke={
-                  s.color ||
-                  DEFAULT_SERIES_COLORS[index % DEFAULT_SERIES_COLORS.length]
-                }
-                strokeWidth={strokeWidth}
-                dot={showDots}
-                activeDot={showDots ? { r: 6 } : false}
-              />
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                }}
+              >
+                <span
+                  style={{
+                    display: 'inline-block',
+                    width: 10,
+                    height: 10,
+                    borderRadius: '50%',
+                    flexShrink: 0,
+                    backgroundColor:
+                      s.color ||
+                      DEFAULT_SERIES_COLORS[
+                        index % DEFAULT_SERIES_COLORS.length
+                      ],
+                  }}
+                />
+                <span
+                  style={{
+                    color: 'var(--color-secondary)',
+                    fontSize: 'var(--text-small)',
+                    fontFamily: 'var(--font-sans)',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {s.name}
+                </span>
+              </li>
             ))}
-          </RechartsLineChart>
-        </ResponsiveContainer>
+          </ul>
+        )}
       </div>
     )
   }
