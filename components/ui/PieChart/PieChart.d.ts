@@ -31,6 +31,16 @@ interface PieChartProps extends React.HTMLAttributes<HTMLDivElement>, VariantPro
     startAngle?: number;
     /** End angle in degrees */
     endAngle?: number;
+    /** Format tooltip values (e.g. add currency, custom rounding) */
+    tooltipValueFormatter?: (value: number, segmentName: string) => string;
+    /** Format the tooltip header label */
+    tooltipLabelFormatter?: (label: string) => string;
+    /** Format label/category values (used for legend + tooltip labels) */
+    xAxisValueFormatter?: (value: string) => string;
+    /** Format numeric values (used for tooltip values) */
+    yAxisValueFormatter?: (value: string) => string;
+    /** Format segment labels rendered inside slices when showLabels=true */
+    labelFormatter?: (name: string, value: number, percent: number) => string;
 }
 /**
  * PieChart component for displaying proportional data.
