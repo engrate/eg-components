@@ -43,6 +43,26 @@ const meta = {
       control: { type: 'range', min: -360, max: 360 },
       description: 'End angle in degrees',
     },
+    xAxisValueFormatter: {
+      control: false,
+      description: 'Format label/category values in legend and tooltip',
+    },
+    yAxisValueFormatter: {
+      control: false,
+      description: 'Format numeric values in tooltip',
+    },
+    tooltipLabelFormatter: {
+      control: false,
+      description: 'Format tooltip label text',
+    },
+    tooltipValueFormatter: {
+      control: false,
+      description: 'Format tooltip numeric value text',
+    },
+    labelFormatter: {
+      control: false,
+      description: 'Custom segment label text when showLabels is true',
+    },
   },
   decorators: [
     (Story) => (
@@ -68,6 +88,15 @@ const revenueData = [
   { name: 'Subscriptions', value: 3200 },
   { name: 'Services', value: 2100 },
   { name: 'Licensing', value: 800 },
+]
+
+const longLabelData = [
+  { name: 'Residential Solar Installations', value: 3400 },
+  { name: 'Commercial Wind Turbine Contracts', value: 2800 },
+  { name: 'Utility-Scale Battery Storage', value: 1900 },
+  { name: 'Grid Balancing and Ancillary Services', value: 1400 },
+  { name: 'Hydrogen Pilot Program Portfolio', value: 950 },
+  { name: 'Energy Trading Optimization Services', value: 800 },
 ]
 
 export const Default: Story = {
@@ -170,6 +199,29 @@ export const RevenueBreakdown: Story = {
     showLabels: true,
     paddingAngle: 2,
     'aria-label': 'Revenue breakdown by category',
+  },
+}
+
+export const WithFormatters: Story = {
+  args: {
+    data: revenueData,
+    innerRadius: 65,
+    showLabels: true,
+    xAxisValueFormatter: (value) => value.toUpperCase(),
+    yAxisValueFormatter: (value) => `$${Number(value).toLocaleString()}`,
+    tooltipLabelFormatter: (label) => `Segment: ${label}`,
+    tooltipValueFormatter: (value) => `${value.toLocaleString()} USD`,
+    labelFormatter: (_name, _value, percent) => `${percent.toFixed(0)}%`,
+    'aria-label': 'Revenue chart with label and value formatters',
+  },
+}
+
+export const LongLegendLabels: Story = {
+  args: {
+    data: longLabelData,
+    innerRadius: 60,
+    size: 'lg',
+    'aria-label': 'Pie chart with wrapped and truncated legend labels',
   },
 }
 

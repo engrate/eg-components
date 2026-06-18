@@ -115,4 +115,20 @@ describe('PieChart', () => {
     )
     expect(screen.getByRole('img')).toBeInTheDocument()
   })
+
+  it('accepts formatter props', () => {
+    render(
+      <PieChart
+        data={mockData}
+        showLabels
+        xAxisValueFormatter={(value) => value.toUpperCase()}
+        yAxisValueFormatter={(value) => `${value}%`}
+        tooltipLabelFormatter={(label) => `Category: ${label}`}
+        tooltipValueFormatter={(value) => `${value} units`}
+        labelFormatter={(_name, _value, percent) => `${percent.toFixed(0)}%`}
+        aria-label="Formatted pie chart"
+      />
+    )
+    expect(screen.getByRole('img')).toBeInTheDocument()
+  })
 })
