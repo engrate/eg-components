@@ -99,6 +99,15 @@ const justifyClassMap: Record<JustifyValue, string> = {
   stretch: 'justify-items-stretch',
 }
 
+/**
+ * Build the class list for a prop that accepts either a scalar or a
+ * `{ base, sm, md, lg, xl, 2xl }` object.
+ *
+ * NOTE: the breakpoint variants are composed at runtime, so Tailwind's static
+ * extractor cannot see them. The matrix these can produce is safelisted with
+ * `@source inline(...)` in src/styles/index.css — if you widen any of the value
+ * unions below, widen that safelist too or the new value will silently no-op.
+ */
 function getResponsiveClasses<T extends string | number>(
   value: ResponsiveValue<T> | undefined,
   classMap: Record<T, string>,
