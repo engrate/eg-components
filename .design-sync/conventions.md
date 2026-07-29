@@ -52,27 +52,42 @@ matching utility class. Use these names — they are the design language:
 ## Important: the shipped CSS is content-scanned
 
 `_ds_bundle.css` is a Tailwind build of **this library's own source**, so it
-contains every class in the table above but **not every possible Tailwind
-utility**. Verified present: `flex`, `grid`, `grid-cols-1…6`/`12`, `items-*`,
-`justify-*`, `gap-1…4`/`6`/`8`, `p-*`/`px-*`/`py-*`, `mt-*`/`mb-*`/`mx-auto`,
-`w-full`, `h-full`, `max-w-md`/`lg`/`xl`/`2xl`, `rounded-md`/`lg`/`full`,
-`border`, `shadow-sm`, `relative`, `absolute`, `overflow-hidden`. Verified
-**absent**: `gap-5`, `gap-10`, `max-w-4xl`, `max-w-6xl`, `max-w-7xl`,
-`min-h-screen`, `md:flex-row`, `lg:flex-row`. Responsive variants exist only
-where the library used them (`sm:grid-cols-2` and `sm:flex-row` yes,
-`md:flex-row` no).
+contains every class in the table above, plus the common layout utilities the
+library uses (`flex`, `grid`, `grid-cols-1…6`/`12`, `items-*`, `justify-*`,
+`gap-*`, `p-*`/`px-*`/`py-*`, `m*-*`, `w-full`, `h-full`, `max-w-md`…`2xl`,
+`rounded-md`/`lg`/`full`, `border`, `shadow-sm`, `relative`, `absolute`,
+`overflow-hidden`) — but **not every possible Tailwind utility**. An arbitrary
+class you invent may simply not be in the stylesheet, in which case it is
+silently inert and the element renders unstyled.
 
 So for your own layout glue, in order of preference:
 
-1. **Use the layout components** — `Stack` (`direction`, `gap`, `align`,
-   `justify`, `wrap`) and `Grid` (`cols`, `gap`, `align`, `justify`, each
-   accepting responsive objects like `cols={{ base: 1, md: 3 }}`). This is the
-   idiomatic path and sidesteps the coverage question entirely.
+1. **Use the layout components.** `Stack` (`direction`, `gap`, `align`,
+   `justify`, `wrap`) and `Grid` (`cols`, `gap`, `align`, `justify`). Both accept
+   plain scalars (`cols={3}`, `gap="md"`) and responsive objects
+   (`cols={{ base: 1, md: 2, lg: 4 }}`, breakpoints `sm`/`md`/`lg`/`xl`/`2xl`);
+   `GridItem` takes `colSpan`, `rowSpan` and `colStart` the same way. This is the
+   idiomatic path and it sidesteps the coverage question entirely.
+2. **The classes enumerated in the table above** — all verified in the shipped
+   stylesheet.
+3. **`var(--token)` in a `style` prop** for anything else (see below).
+
+If you do want a utility outside the table, confirm it exists in the stylesheet
+first; otherwise reach for a `style` prop. An intrinsic grid is a good
+breakpoint-free option that never depends on class coverage:
+
+```tsx
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+  gap: '1rem',
+}}>
+```
 2. **The classes enumerated above** — all verified in the shipped CSS.
-3. **`var(--token)` in a `style` prop** for anything else. 105 brand tokens
-   (`--color-*`, `--font-*`, `--text-*`, `--radius-*`, `--spacing-*`) are defined
-   on `:root` and always resolve, whatever the utility coverage:
-   `style={{ color: 'var(--color-primary)', padding: 'var(--spacing-btn-x)' }}`.
+Brand tokens always resolve regardless of utility coverage — the `--color-*`,
+`--font-*`, `--text-*`, `--radius-*` and `--spacing-*` custom properties are all
+defined on `:root`:
+`style={{ color: 'var(--color-primary)', padding: 'var(--spacing-btn-x)' }}`.
 
 Do not invent utility names outside this vocabulary — an unrecognised class is
 silently inert and the element renders unstyled.
@@ -99,7 +114,7 @@ import { Card, Grid, Stack, Heading, Text, Badge, Button } from '@engrate/compon
       Fixed price until March 2027. No binding period.
     </Text>
 
-    <Grid cols={{ base: 1, sm: 2 }} gap="md">
+    <Grid cols={2} gap="md">
       <Card>
         <Stack direction="vertical" gap="xs">
           <Text variant="label" className="text-tertiary">CURRENT RATE</Text>
