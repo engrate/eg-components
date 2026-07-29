@@ -1,0 +1,46 @@
+{
+  "projectId": "eaf1a922-9da0-47a0-b457-36a2dc6d47d2",
+  "pkg": "@engrate/components",
+  "globalName": "EngrateComponents",
+  "shape": "storybook",
+  "storybookConfigDir": ".storybook",
+  "storybookStatic": ".design-sync/sb-reference",
+  "buildCmd": "npm run build",
+  "entry": "./dist/index.es.js",
+  "guidelinesGlob": ["DESIGN.md", "SKILL.md"],
+  "readmeHeader": ".design-sync/conventions.md",
+  "libOverrides": {
+    "preview-gen-storybook.mjs": "mirror Storybook's core actions argsEnhancer — argTypes[k].action must inject a handler, else components gating UI on the prop (Banner's onDismiss) render less than storybook"
+  },
+  "titleMap": {
+    "ChatError": null,
+    "EmptyState": null,
+    "MarkdownText": null,
+    "Message": null,
+    "MessageContent": null,
+    "MessageList": null,
+    "ToolCall": null,
+    "TypingIndicator": null
+  },
+  "overrides": {
+    "Accordion": { "cardMode": "column" },
+    "Badge": { "cardMode": "column" },
+    "BarChart": { "cardMode": "column" },
+    "Button": { "cardMode": "column" },
+    "Calendar": { "cardMode": "column" },
+    "Card": { "cardMode": "column" },
+    "EllieMark": { "cardMode": "column" },
+    "EngrateLogo": { "cardMode": "column" },
+    "Grid": { "cardMode": "column" },
+    "Header": { "cardMode": "column" },
+    "Heading": { "cardMode": "column" },
+    "LineChart": { "cardMode": "column" },
+    "Pagination": { "cardMode": "column" },
+    "PieChart": { "cardMode": "column" },
+    "Sidebar": { "cardMode": "column" },
+    "Stepper": { "cardMode": "column" },
+    "TabList": { "cardMode": "column" },
+    "Toast": { "cardMode": "single", "primaryStory": "AllVariants" },
+    "Tooltip": { "cardMode": "column" }
+  }
+}
