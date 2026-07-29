@@ -209,19 +209,25 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
             resolvedLanguage ? 'pt-7' : 'pt-3'
           )}
         >
-          <SyntaxHighlighter
-            language={resolvedLanguage}
-            style={engrateTheme}
-            PreTag="div"
-            CodeTag="code"
-            customStyle={{
-              background: 'transparent',
-              margin: 0,
-              padding: 0,
-            }}
-          >
-            {code}
-          </SyntaxHighlighter>
+          {resolvedLanguage ? (
+            <SyntaxHighlighter
+              language={resolvedLanguage}
+              style={engrateTheme}
+              PreTag="div"
+              CodeTag="code"
+              customStyle={{
+                background: 'transparent',
+                margin: 0,
+                padding: 0,
+              }}
+            >
+              {code}
+            </SyntaxHighlighter>
+          ) : (
+            <div className="font-mono text-body-sm text-primary">
+              <code className="whitespace-pre">{code}</code>
+            </div>
+          )}
         </div>
       </div>
     )
