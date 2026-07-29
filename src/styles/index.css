@@ -2,6 +2,15 @@
 @import './fonts.css';
 
 /*
+ * Keep the design-sync working directory out of Tailwind's content scan. Its
+ * notes and conventions docs quote class names as prose ("bg-quinary is not
+ * generated", "the fix is data-[disabled]:opacity-50"), and the scanner cannot
+ * tell a quoted example from real usage — so documenting a class was enough to
+ * emit it into the shipped stylesheet.
+ */
+@source not "../../.design-sync/**";
+
+/*
  * Grid and GridItem accept responsive objects (`cols={{ base: 1, md: 3 }}`) and
  * build the breakpoint classes at runtime — see getResponsiveClasses in
  * src/components/ui/Grid/Grid.tsx, which prefixes a class-map value with the
