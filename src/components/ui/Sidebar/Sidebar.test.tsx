@@ -293,6 +293,63 @@ describe('Sidebar', () => {
       )
     })
 
+    it('preserves defaultCollapsed on a desktop viewport', () => {
+      // Regression: the mount-time media-query check used to run
+      // unconditionally, so setCollapsed(false) fired on every desktop mount and
+      // clobbered defaultCollapsed before the user saw it.
+      window.matchMedia = vi.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+      }))
+
+      render(
+        <Sidebar data-testid="sidebar" defaultCollapsed>
+          <SidebarContent>Content</SidebarContent>
+        </Sidebar>
+      )
+
+      expect(screen.getByTestId('sidebar')).toHaveAttribute(
+        'data-collapsed',
+        'true'
+      )
+    })
+
+    it('still auto-expands when the viewport changes to desktop', () => {
+      // The mount-time guard must not break the resize behaviour: a real
+      // mobile -> desktop change event should still expand a collapsed sidebar.
+      let changeHandler: ((e: { matches: boolean }) => void) | undefined
+      window.matchMedia = vi.fn().mockImplementation((query) => ({
+        matches: true,
+        media: query,
+        addEventListener: (_: string, cb: (e: { matches: boolean }) => void) => {
+          changeHandler = cb
+        },
+        removeEventListener: vi.fn(),
+      }))
+
+      render(
+        <Sidebar data-testid="sidebar">
+          <SidebarContent>Content</SidebarContent>
+        </Sidebar>
+      )
+
+      expect(screen.getByTestId('sidebar')).toHaveAttribute(
+        'data-collapsed',
+        'true'
+      )
+
+      act(() => {
+        changeHandler?.({ matches: false })
+      })
+
+      expect(screen.getByTestId('sidebar')).toHaveAttribute(
+        'data-collapsed',
+        'false'
+      )
+    })
+
     it('respects autoCollapseMobile=false', () => {
       // Mock mobile viewport
       window.matchMedia = vi.fn().mockImplementation((query) => ({
