@@ -11,6 +11,7 @@ export {
   SidebarSub,
   SidebarSubTrigger,
   SidebarSubContent,
+  SidebarLogo,
   sidebarVariants,
   sidebarItemVariants,
   useSidebarContext,
@@ -27,4 +28,5 @@ export {
   type SidebarSubProps,
   type SidebarSubTriggerProps,
   type SidebarSubContentProps,
+  type SidebarLogoProps,
 } from './Sidebar'
