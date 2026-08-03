@@ -148,8 +148,13 @@ const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
         setCollapsed(e.matches)
       }
 
-      // Check on mount
-      handleChange(mediaQuery)
+      // Only collapse on mount if we're actually on a mobile viewport. Calling
+      // handleChange unconditionally here would fire setCollapsed(false) on every
+      // desktop mount, clobbering an explicit `defaultCollapsed` before the user
+      // ever sees it.
+      if (mediaQuery.matches) {
+        handleChange(mediaQuery)
+      }
 
       // Listen for changes
       mediaQuery.addEventListener('change', handleChange)

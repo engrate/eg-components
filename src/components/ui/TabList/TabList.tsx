@@ -269,9 +269,27 @@ const TabTrigger = React.forwardRef<HTMLButtonElement, TabTriggerProps>(
         }
         updatePosition()
 
-        // Update on resize
+        // The first measurement can land before the webfont swaps in, which sizes
+        // the indicator to fallback metrics and leaves it misaligned for good.
+        // Re-measure once fonts settle, and whenever the trigger itself resizes
+        // (label reflow, container change) — not only on window resize.
+        let observer: ResizeObserver | undefined
+        if (typeof ResizeObserver !== 'undefined') {
+          observer = new ResizeObserver(updatePosition)
+          observer.observe(buttonRef.current)
+        }
+
+        let cancelled = false
+        void document.fonts?.ready.then(() => {
+          if (!cancelled) updatePosition()
+        })
+
         window.addEventListener('resize', updatePosition)
-        return () => window.removeEventListener('resize', updatePosition)
+        return () => {
+          cancelled = true
+          observer?.disconnect()
+          window.removeEventListener('resize', updatePosition)
+        }
       }
     }, [isActive, tabListContext])
 

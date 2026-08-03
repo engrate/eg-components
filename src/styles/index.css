@@ -1,6 +1,33 @@
 @import 'tailwindcss';
 @import './fonts.css';
 
+/*
+ * Keep the design-sync working directory out of Tailwind's content scan. Its
+ * notes and conventions docs quote class names as prose ("bg-quinary is not
+ * generated", "the fix is data-[disabled]:opacity-50"), and the scanner cannot
+ * tell a quoted example from real usage — so documenting a class was enough to
+ * emit it into the shipped stylesheet.
+ */
+@source not "../../.design-sync/**";
+
+/*
+ * Grid and GridItem accept responsive objects (`cols={{ base: 1, md: 3 }}`) and
+ * build the breakpoint classes at runtime — see getResponsiveClasses in
+ * src/components/ui/Grid/Grid.tsx, which prefixes a class-map value with the
+ * breakpoint. Tailwind's static extractor cannot see a concatenated string, so
+ * without this safelist a responsive class only exists when some other file in
+ * src/ happens to spell it literally, and every other breakpoint silently does
+ * nothing. Keep these ranges in sync with the ColsValue / GapValue / AlignValue /
+ * JustifyValue / ColSpanValue / RowSpanValue / ColStartValue unions in Grid.tsx.
+ */
+@source inline("{sm,md,lg,xl,2xl}:grid-cols-{1,2,3,4,5,6,12}");
+@source inline("{sm,md,lg,xl,2xl}:gap-{0,1,2,4,6,8,12}");
+@source inline("{sm,md,lg,xl,2xl}:items-{start,center,end,stretch,baseline}");
+@source inline("{sm,md,lg,xl,2xl}:justify-items-{start,center,end,stretch}");
+@source inline("{sm,md,lg,xl,2xl}:col-span-{1,2,3,4,5,6,7,8,9,10,11,12,full}");
+@source inline("{sm,md,lg,xl,2xl}:row-span-{1,2,3,4,5,6,full}");
+@source inline("{sm,md,lg,xl,2xl}:col-start-{1,2,3,4,5,6,7,8,9,10,11,12,auto}");
+
 @theme {
   /* Primary brand colors */
   --color-sunflower: #ffbe26;
