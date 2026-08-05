@@ -464,6 +464,69 @@ describe('Table', () => {
       expect(header).not.toHaveAttribute('role', 'button')
       expect(header).not.toHaveAttribute('tabIndex')
     })
+
+    it('right-aligns header content when text-right is passed', () => {
+      const { container } = render(
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-right">Price</TableHead>
+            </TableRow>
+          </TableHeader>
+        </Table>
+      )
+
+      const wrapper = container.querySelector('th > div')
+      expect(wrapper).toHaveClass('justify-end')
+    })
+
+    it('center-aligns header content when text-center is passed', () => {
+      const { container } = render(
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-center">Price</TableHead>
+            </TableRow>
+          </TableHeader>
+        </Table>
+      )
+
+      const wrapper = container.querySelector('th > div')
+      expect(wrapper).toHaveClass('justify-center')
+    })
+
+    it('right-aligns a sortable header content when text-right is passed', () => {
+      const { container } = render(
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-right" sortable>
+                Price
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+        </Table>
+      )
+
+      const wrapper = container.querySelector('th > div')
+      expect(wrapper).toHaveClass('justify-end')
+    })
+
+    it('does not apply a justify class when no alignment is specified', () => {
+      const { container } = render(
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Name</TableHead>
+            </TableRow>
+          </TableHeader>
+        </Table>
+      )
+
+      const wrapper = container.querySelector('th > div')
+      expect(wrapper).not.toHaveClass('justify-end')
+      expect(wrapper).not.toHaveClass('justify-center')
+    })
   })
 })
 

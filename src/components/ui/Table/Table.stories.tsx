@@ -229,6 +229,34 @@ export const RowHoverBehavior: Story = {
   ),
 }
 
+export const RightAlignedHeaders: Story = {
+  render: () => (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Product</TableHead>
+          <TableHead className="text-right">Quantity</TableHead>
+          <TableHead className="text-right" sortable onSort={() => undefined}>
+            Price
+          </TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>Solar Panel Kit</TableCell>
+          <TableCell className="text-right">10</TableCell>
+          <TableCell className="text-right">$5,000</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Battery Storage</TableCell>
+          <TableCell className="text-right">5</TableCell>
+          <TableCell className="text-right">$2,500</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  ),
+}
+
 export const PaddingBehavior: Story = {
   render: () => (
     <div className="grid gap-8 md:grid-cols-2">

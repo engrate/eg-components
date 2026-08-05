@@ -215,6 +215,18 @@ TableRow.displayName = 'TableRow'
 
 type SortDirection = 'asc' | 'desc' | null
 
+// TableHead wraps its children in a flex container (to lay out the sort
+// icon alongside the label), which means a `text-right`/`text-center`
+// class on the `th` has no effect on the content's position, since
+// `text-align` doesn't apply to flex children. Mirror the alignment as a
+// `justify-*` class on the inner wrapper instead.
+function getHeadJustifyClass(className?: string) {
+  const classes = className?.split(/\s+/) ?? []
+  if (classes.includes('text-right')) return 'justify-end'
+  if (classes.includes('text-center')) return 'justify-center'
+  return undefined
+}
+
 interface TableHeadProps
   extends
     React.ThHTMLAttributes<HTMLTableCellElement>,
@@ -276,7 +288,12 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
         }
         {...props}
       >
-        <div className="flex items-center gap-2">
+        <div
+          className={cn(
+            'flex items-center gap-2',
+            getHeadJustifyClass(className)
+          )}
+        >
           {children}
           {sortable && (
             <span className="inline-flex flex-col" aria-hidden="true">
