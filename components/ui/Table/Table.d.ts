@@ -10,6 +10,8 @@ declare const tableHeadVariants: (props?: ({
 interface TableProps extends React.HTMLAttributes<HTMLTableElement>, VariantProps<typeof tableVariants> {
     /** Add visible horizontal borders between table rows */
     bordered?: boolean;
+    /** Toggle background color change on row hover */
+    rowHover?: boolean;
 }
 /**
  * Table root component following Engrate brand guidelines.
