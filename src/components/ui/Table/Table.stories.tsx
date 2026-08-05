@@ -229,6 +229,74 @@ export const RowHoverBehavior: Story = {
   ),
 }
 
+export const PaddingBehavior: Story = {
+  render: () => (
+    <div className="grid gap-8 md:grid-cols-2">
+      <div className="space-y-2">
+        <p className="text-small text-secondary">Padding enabled (default)</p>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Name</TableHead>
+              <TableHead>Email</TableHead>
+              <TableHead>Role</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell>Alice Johnson</TableCell>
+              <TableCell>alice@engrate.com</TableCell>
+              <TableCell>Engineer</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Bob Smith</TableCell>
+              <TableCell>bob@engrate.com</TableCell>
+              <TableCell>Designer</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Charlie Brown</TableCell>
+              <TableCell>charlie@engrate.com</TableCell>
+              <TableCell>Product Manager</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </div>
+
+      <div className="space-y-2">
+        <p className="text-small text-secondary">
+          Padding disabled (left aligned)
+        </p>
+        <Table padding={false}>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Name</TableHead>
+              <TableHead>Email</TableHead>
+              <TableHead>Role</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell>Alice Johnson</TableCell>
+              <TableCell>alice@engrate.com</TableCell>
+              <TableCell>Engineer</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Bob Smith</TableCell>
+              <TableCell>bob@engrate.com</TableCell>
+              <TableCell>Designer</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Charlie Brown</TableCell>
+              <TableCell>charlie@engrate.com</TableCell>
+              <TableCell>Product Manager</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </div>
+    </div>
+  ),
+}
+
 export const Compact: Story = {
   render: () => (
     <Table size="compact">

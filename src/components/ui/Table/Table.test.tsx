@@ -235,6 +235,52 @@ describe('Table', () => {
     expect(row).not.toHaveClass('hover:bg-transparent')
   })
 
+  it('applies left padding to header and body cells by default', () => {
+    const { container } = render(
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Name</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>John</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    )
+
+    const th = container.querySelector('th')
+    const td = container.querySelector('td')
+
+    expect(th).not.toHaveClass('pl-0')
+    expect(td).not.toHaveClass('pl-0')
+  })
+
+  it('removes left padding from header and body cells when padding is false', () => {
+    const { container } = render(
+      <Table padding={false}>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Name</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>John</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    )
+
+    const th = container.querySelector('th')
+    const td = container.querySelector('td')
+
+    expect(th).toHaveClass('pl-0')
+    expect(td).toHaveClass('pl-0')
+  })
+
   it('uses transparent footer with regular text weight', () => {
     const { container } = render(
       <Table>

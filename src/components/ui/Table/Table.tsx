@@ -82,10 +82,12 @@ const TableContext = React.createContext<{
   size: 'default' | 'compact'
   bordered: boolean
   rowHover: boolean
+  padding: boolean
 }>({
   size: 'default',
   bordered: false,
   rowHover: false,
+  padding: true,
 })
 
 interface TableProps
@@ -96,6 +98,8 @@ interface TableProps
   bordered?: boolean
   /** Toggle background color change on row hover */
   rowHover?: boolean
+  /** Toggle left padding on header and body cells */
+  padding?: boolean
 }
 
 /**
@@ -125,12 +129,13 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       size = 'default',
       bordered = false,
       rowHover = false,
+      padding = true,
       ...props
     },
     ref
   ) => (
     <TableContext.Provider
-      value={{ size: size ?? 'default', bordered, rowHover }}
+      value={{ size: size ?? 'default', bordered, rowHover, padding }}
     >
       <div className="relative w-full overflow-auto">
         <table
@@ -234,7 +239,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
     },
     ref
   ) => {
-    const { size, bordered, rowHover } = React.useContext(TableContext)
+    const { size, bordered, padding } = React.useContext(TableContext)
 
     const handleClick = () => {
       if (sortable && onSort) {
@@ -254,7 +259,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
         ref={ref}
         className={cn(
           tableHeadVariants({ sortable, size }),
-          !rowHover && 'pl-0',
+          !padding && 'pl-0',
           bordered && 'border-border border-b',
           className
         )}
@@ -312,13 +317,13 @@ interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {}
 
 const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
   ({ className, children, ...props }, ref) => {
-    const { size, bordered, rowHover } = React.useContext(TableContext)
+    const { size, bordered, padding } = React.useContext(TableContext)
     return (
       <td
         ref={ref}
         className={cn(
           tableCellVariants({ size }),
-          !rowHover && 'pl-0',
+          !padding && 'pl-0',
           bordered && 'border-border border-b',
           className
         )}
