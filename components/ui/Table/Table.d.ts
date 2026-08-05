@@ -12,6 +12,8 @@ interface TableProps extends React.HTMLAttributes<HTMLTableElement>, VariantProp
     bordered?: boolean;
     /** Toggle background color change on row hover */
     rowHover?: boolean;
+    /** Toggle left padding on header and body cells */
+    padding?: boolean;
 }
 /**
  * Table root component following Engrate brand guidelines.
