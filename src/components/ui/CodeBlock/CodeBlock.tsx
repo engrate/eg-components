@@ -224,7 +224,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
               {code}
             </SyntaxHighlighter>
           ) : (
-            <div className="font-mono text-body-sm text-primary">
+            <div className="text-body-sm text-primary font-mono">
               <code className="whitespace-pre">{code}</code>
             </div>
           )}

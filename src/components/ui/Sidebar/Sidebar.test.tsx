@@ -323,7 +323,10 @@ describe('Sidebar', () => {
       window.matchMedia = vi.fn().mockImplementation((query) => ({
         matches: true,
         media: query,
-        addEventListener: (_: string, cb: (e: { matches: boolean }) => void) => {
+        addEventListener: (
+          _: string,
+          cb: (e: { matches: boolean }) => void
+        ) => {
           changeHandler = cb
         },
         removeEventListener: vi.fn(),

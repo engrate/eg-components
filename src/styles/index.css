@@ -8,7 +8,7 @@
  * tell a quoted example from real usage — so documenting a class was enough to
  * emit it into the shipped stylesheet.
  */
-@source not "../../.design-sync/**";
+@source not '../../.design-sync/**';
 
 /*
  * Grid and GridItem accept responsive objects (`cols={{ base: 1, md: 3 }}`) and
@@ -20,13 +20,13 @@
  * nothing. Keep these ranges in sync with the ColsValue / GapValue / AlignValue /
  * JustifyValue / ColSpanValue / RowSpanValue / ColStartValue unions in Grid.tsx.
  */
-@source inline("{sm,md,lg,xl,2xl}:grid-cols-{1,2,3,4,5,6,12}");
-@source inline("{sm,md,lg,xl,2xl}:gap-{0,1,2,4,6,8,12}");
-@source inline("{sm,md,lg,xl,2xl}:items-{start,center,end,stretch,baseline}");
-@source inline("{sm,md,lg,xl,2xl}:justify-items-{start,center,end,stretch}");
-@source inline("{sm,md,lg,xl,2xl}:col-span-{1,2,3,4,5,6,7,8,9,10,11,12,full}");
-@source inline("{sm,md,lg,xl,2xl}:row-span-{1,2,3,4,5,6,full}");
-@source inline("{sm,md,lg,xl,2xl}:col-start-{1,2,3,4,5,6,7,8,9,10,11,12,auto}");
+@source inline('{sm,md,lg,xl,2xl}:grid-cols-{1,2,3,4,5,6,12}');
+@source inline('{sm,md,lg,xl,2xl}:gap-{0,1,2,4,6,8,12}');
+@source inline('{sm,md,lg,xl,2xl}:items-{start,center,end,stretch,baseline}');
+@source inline('{sm,md,lg,xl,2xl}:justify-items-{start,center,end,stretch}');
+@source inline('{sm,md,lg,xl,2xl}:col-span-{1,2,3,4,5,6,7,8,9,10,11,12,full}');
+@source inline('{sm,md,lg,xl,2xl}:row-span-{1,2,3,4,5,6,full}');
+@source inline('{sm,md,lg,xl,2xl}:col-start-{1,2,3,4,5,6,7,8,9,10,11,12,auto}');
 
 @theme {
   /* Primary brand colors */

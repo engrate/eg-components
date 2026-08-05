@@ -39,13 +39,13 @@ describe('Button', () => {
 
   it('applies size classes', () => {
     const { rerender } = render(<Button>Default</Button>)
-    expect(screen.getByRole('button')).toHaveClass('px-8')
+    expect(screen.getByRole('button')).toHaveClass('px-4')
 
     rerender(<Button size="sm">Small</Button>)
-    expect(screen.getByRole('button')).toHaveClass('px-5')
+    expect(screen.getByRole('button')).toHaveClass('px-4')
 
     rerender(<Button size="lg">Large</Button>)
-    expect(screen.getByRole('button')).toHaveClass('px-12')
+    expect(screen.getByRole('button')).toHaveClass('px-6')
   })
 
   it('renders as child when asChild is true', () => {

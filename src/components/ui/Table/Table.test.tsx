@@ -204,6 +204,53 @@ describe('Table', () => {
     expect(td).toHaveClass('p-4')
   })
 
+  it('disables row hover background by default', () => {
+    const { container } = render(
+      <Table>
+        <TableBody>
+          <TableRow>
+            <TableCell>John</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    )
+
+    const row = container.querySelector('tbody tr')
+    expect(row).toHaveClass('hover:bg-transparent')
+  })
+
+  it('enables row hover background when rowHover is true', () => {
+    const { container } = render(
+      <Table rowHover>
+        <TableBody>
+          <TableRow>
+            <TableCell>John</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    )
+
+    const row = container.querySelector('tbody tr')
+    expect(row).toHaveClass('hover:bg-alt')
+    expect(row).not.toHaveClass('hover:bg-transparent')
+  })
+
+  it('uses transparent footer with regular text weight', () => {
+    const { container } = render(
+      <Table>
+        <TableFooter>
+          <TableRow>
+            <TableCell>Total</TableCell>
+          </TableRow>
+        </TableFooter>
+      </Table>
+    )
+
+    const footer = container.querySelector('tfoot')
+    expect(footer).toHaveClass('bg-transparent', 'border-t', 'border-border')
+    expect(footer).not.toHaveClass('[&_td>span]:font-semibold')
+  })
+
   describe('TableHead with sorting', () => {
     it('renders sortable column with sort indicators', () => {
       const onSort = vi.fn()
@@ -319,6 +366,41 @@ describe('Table', () => {
       expect(nameHeader).toHaveAttribute('aria-sort', 'ascending')
       expect(ageHeader).toHaveAttribute('aria-sort', 'descending')
       expect(emailHeader).not.toHaveAttribute('aria-sort')
+    })
+
+    it('uses sunflower color for the active sort arrow', () => {
+      const { container } = render(
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead sortable sortDirection="asc">
+                Name
+              </TableHead>
+              <TableHead sortable sortDirection="desc">
+                Age
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+        </Table>
+      )
+
+      const [nameHeader, ageHeader] = Array.from(
+        container.querySelectorAll('th')
+      )
+      expect(nameHeader).toBeDefined()
+      expect(ageHeader).toBeDefined()
+
+      const [ascUpIcon, ascDownIcon] = Array.from(
+        (nameHeader as HTMLElement).querySelectorAll('svg')
+      )
+      expect(ascUpIcon).toHaveClass('text-sunflower')
+      expect(ascDownIcon).toHaveClass('text-tertiary')
+
+      const [descUpIcon, descDownIcon] = Array.from(
+        (ageHeader as HTMLElement).querySelectorAll('svg')
+      )
+      expect(descUpIcon).toHaveClass('text-tertiary')
+      expect(descDownIcon).toHaveClass('text-sunflower')
     })
 
     it('non-sortable header does not have button role', () => {

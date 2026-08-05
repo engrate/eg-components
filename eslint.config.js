@@ -15,6 +15,7 @@ export default tseslint.config(
       'coverage/**',
       'storybook-static/**',
       '.storybook/**',
+      '.design-sync/**',
     ],
   },
 

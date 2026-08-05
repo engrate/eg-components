@@ -21,10 +21,13 @@ const tableVariants = cva(
   }
 )
 
-const tableHeaderVariants = cva('border-primary bg-alt border-b', {
-  variants: {},
-  defaultVariants: {},
-})
+const tableHeaderVariants = cva(
+  'border-primary border-b [&_tr:hover]:bg-transparent',
+  {
+    variants: {},
+    defaultVariants: {},
+  }
+)
 
 const tableBodyVariants = cva('', {
   variants: {},
@@ -40,11 +43,11 @@ const tableRowVariants = cva(
 )
 
 const tableHeadVariants = cva(
-  'text-small text-primary text-left align-middle font-sans font-normal [&:has([role=checkbox])]:pr-0',
+  'text-label text-tertiary text-left align-middle font-sans font-normal uppercase [&:has([role=checkbox])]:pr-0',
   {
     variants: {
       sortable: {
-        true: 'hover:bg-contrast cursor-pointer select-none',
+        true: 'cursor-pointer select-none',
         false: '',
       },
       size: {
@@ -78,9 +81,11 @@ const tableCellVariants = cva(
 const TableContext = React.createContext<{
   size: 'default' | 'compact'
   bordered: boolean
+  rowHover: boolean
 }>({
   size: 'default',
   bordered: false,
+  rowHover: false,
 })
 
 interface TableProps
@@ -89,6 +94,8 @@ interface TableProps
     VariantProps<typeof tableVariants> {
   /** Add visible horizontal borders between table rows */
   bordered?: boolean
+  /** Toggle background color change on row hover */
+  rowHover?: boolean
 }
 
 /**
@@ -112,8 +119,19 @@ interface TableProps
  * ```
  */
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
-  ({ className, size = 'default', bordered = false, ...props }, ref) => (
-    <TableContext.Provider value={{ size: size ?? 'default', bordered }}>
+  (
+    {
+      className,
+      size = 'default',
+      bordered = false,
+      rowHover = false,
+      ...props
+    },
+    ref
+  ) => (
+    <TableContext.Provider
+      value={{ size: size ?? 'default', bordered, rowHover }}
+    >
       <div className="relative w-full overflow-auto">
         <table
           ref={ref}
@@ -162,10 +180,7 @@ const TableFooter = React.forwardRef<HTMLTableSectionElement, TableFooterProps>(
   ({ className, ...props }, ref) => (
     <tfoot
       ref={ref}
-      className={cn(
-        'border-border bg-alt text-primary border-t font-normal',
-        className
-      )}
+      className={cn('border-border border-t bg-transparent', className)}
       {...props}
     />
   )
@@ -175,9 +190,21 @@ TableFooter.displayName = 'TableFooter'
 interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {}
 
 const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
-  ({ className, ...props }, ref) => (
-    <tr ref={ref} className={cn(tableRowVariants(), className)} {...props} />
-  )
+  ({ className, ...props }, ref) => {
+    const { rowHover } = React.useContext(TableContext)
+
+    return (
+      <tr
+        ref={ref}
+        className={cn(
+          tableRowVariants(),
+          !rowHover && 'hover:bg-transparent',
+          className
+        )}
+        {...props}
+      />
+    )
+  }
 )
 TableRow.displayName = 'TableRow'
 
@@ -207,7 +234,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
     },
     ref
   ) => {
-    const { size, bordered } = React.useContext(TableContext)
+    const { size, bordered, rowHover } = React.useContext(TableContext)
 
     const handleClick = () => {
       if (sortable && onSort) {
@@ -227,6 +254,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
         ref={ref}
         className={cn(
           tableHeadVariants({ sortable, size }),
+          !rowHover && 'pl-0',
           bordered && 'border-border border-b',
           className
         )}
@@ -250,7 +278,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
               <svg
                 className={cn(
                   'h-3 w-3 transition-opacity',
-                  sortDirection === 'asc' ? 'opacity-100' : 'opacity-30'
+                  sortDirection === 'asc' ? 'text-sunflower' : 'text-tertiary'
                 )}
                 fill="none"
                 stroke="currentColor"
@@ -262,7 +290,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
               <svg
                 className={cn(
                   '-mt-1 h-3 w-3 transition-opacity',
-                  sortDirection === 'desc' ? 'opacity-100' : 'opacity-30'
+                  sortDirection === 'desc' ? 'text-sunflower' : 'text-tertiary'
                 )}
                 fill="none"
                 stroke="currentColor"
@@ -284,12 +312,13 @@ interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {}
 
 const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
   ({ className, children, ...props }, ref) => {
-    const { size, bordered } = React.useContext(TableContext)
+    const { size, bordered, rowHover } = React.useContext(TableContext)
     return (
       <td
         ref={ref}
         className={cn(
           tableCellVariants({ size }),
+          !rowHover && 'pl-0',
           bordered && 'border-border border-b',
           className
         )}
