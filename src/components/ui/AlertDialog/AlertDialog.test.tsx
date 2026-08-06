@@ -149,7 +149,7 @@ describe('AlertDialog', () => {
       expect(screen.getByRole('alertdialog')).toBeInTheDocument()
 
       // Click on the overlay
-      const overlay = document.querySelector('.bg-black\\/50')
+      const overlay = document.querySelector('.bg-black\\/20')
       expect(overlay).toBeInTheDocument()
       if (overlay) {
         await user.click(overlay)

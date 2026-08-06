@@ -5,6 +5,8 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 
 import { buttonVariants } from '@/components/ui/Button'
+import { Heading } from '@/components/ui/Heading'
+import { Text } from '@/components/ui/Text'
 import { cn } from '@/lib/utils'
 
 /* -------------------------------------------------------------------------------------------------
@@ -40,7 +42,7 @@ const AlertDialogOverlay = React.forwardRef<
   <AlertDialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      'fixed inset-0 z-50 bg-black/50',
+      'fixed inset-0 z-50 bg-black/20',
       'data-[state=open]:animate-in data-[state=closed]:animate-out',
       'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       'duration-200',
@@ -58,9 +60,9 @@ AlertDialogOverlay.displayName = 'AlertDialogOverlay'
 const alertDialogContentVariants = cva(
   [
     'fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2',
-    'bg-main grid w-full gap-4 p-6 shadow-lg',
+    'bg-main grid w-full gap-6 p-8 shadow-lg',
     'max-h-[85vh] overflow-y-auto',
-    'border-border rounded-lg border',
+    'rounded-xs',
     'focus-visible:ring-sunflower focus:outline-none focus-visible:ring-1',
     'data-[state=open]:animate-in data-[state=closed]:animate-out',
     'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
@@ -156,15 +158,12 @@ interface AlertDialogTitleProps extends React.ComponentPropsWithoutRef<
 const AlertDialogTitle = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Title>,
   AlertDialogTitleProps
->(({ className, ...props }, ref) => (
-  <AlertDialogPrimitive.Title
-    ref={ref}
-    className={cn(
-      'text-primary text-lg leading-none tracking-tight',
-      className
-    )}
-    {...props}
-  />
+>(({ className, children, ...props }, ref) => (
+  <AlertDialogPrimitive.Title ref={ref} asChild {...props}>
+    <Heading level="h3" className={className}>
+      {children}
+    </Heading>
+  </AlertDialogPrimitive.Title>
 ))
 AlertDialogTitle.displayName = 'AlertDialogTitle'
 
@@ -179,12 +178,12 @@ interface AlertDialogDescriptionProps extends React.ComponentPropsWithoutRef<
 const AlertDialogDescription = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Description>,
   AlertDialogDescriptionProps
->(({ className, ...props }, ref) => (
-  <AlertDialogPrimitive.Description
-    ref={ref}
-    className={cn('text-secondary text-sm', className)}
-    {...props}
-  />
+>(({ className, children, ...props }, ref) => (
+  <AlertDialogPrimitive.Description ref={ref} asChild {...props}>
+    <Text variant="body-sm" className={className}>
+      {children}
+    </Text>
+  </AlertDialogPrimitive.Description>
 ))
 AlertDialogDescription.displayName = 'AlertDialogDescription'
 

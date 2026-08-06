@@ -63,7 +63,7 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 
 ### Form Components
 
-Form input surfaces are transparent by default (for example: Input, Textarea, Select trigger, DatePicker triggers, Checkbox, and Radio).
+Form input surfaces use a white background (for example: Input, Textarea, Select trigger, DatePicker triggers, Checkbox, and Radio) — an intentional exception to the brand's "never pure white background" rule so editable fields stand out from the page.
 
 | Component         | Purpose                     |
 | ----------------- | --------------------------- |
