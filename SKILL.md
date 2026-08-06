@@ -119,13 +119,14 @@ Form input surfaces use a white background (for example: Input, Textarea, Select
 
 ### Data Display Components
 
-| Component   | Purpose              |
-| ----------- | -------------------- |
-| `Table`     | Tabular data         |
-| `Accordion` | Collapsible sections |
-| `BarChart`  | Bar chart            |
-| `LineChart` | Line chart           |
-| `PieChart`  | Pie chart            |
+| Component         | Purpose                                   |
+| ----------------- | ----------------------------------------- |
+| `Table`           | Tabular data                              |
+| `Accordion`       | Collapsible sections                      |
+| `DescriptionList` | Label/value pairs (e.g. "Name: Jane Doe") |
+| `BarChart`        | Bar chart                                 |
+| `LineChart`       | Line chart                                |
+| `PieChart`        | Pie chart                                 |
 
 ### AI Chat Elements
 
