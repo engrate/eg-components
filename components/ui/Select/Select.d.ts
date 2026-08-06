@@ -8,7 +8,7 @@ interface SelectTriggerProps extends React.ComponentPropsWithoutRef<typeof Selec
 }
 /**
  * Select trigger button following Engrate brand guidelines.
- * Features rounded corners, subtle background, and sunflower focus ring.
+ * Features rounded corners and sunflower focus ring.
  */
 declare const SelectTrigger: React.ForwardRefExoticComponent<SelectTriggerProps & React.RefAttributes<HTMLButtonElement>>;
 /**

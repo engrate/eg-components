@@ -7,7 +7,7 @@ interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, '
 }
 /**
  * Text input component following Engrate brand guidelines.
- * Features rounded corners, subtle background, and sunflower focus ring.
+ * Features rounded corners and sunflower focus ring.
  *
  * @example
  * ```tsx

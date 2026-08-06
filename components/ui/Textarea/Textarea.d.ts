@@ -8,7 +8,7 @@ interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
 }
 /**
  * Textarea component following Engrate brand guidelines.
- * Features rounded corners, subtle background, and sunflower focus ring.
+ * Features rounded corners and sunflower focus ring.
  *
  * @example
  * ```tsx
