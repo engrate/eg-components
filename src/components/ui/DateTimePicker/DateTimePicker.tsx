@@ -241,7 +241,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
         <PopoverPrimitive.Portal>
           <PopoverPrimitive.Content
             className={cn(
-              'bg-alt border-border z-50 w-auto rounded-lg border p-4 shadow-lg',
+              'border-border z-50 w-auto rounded-lg border bg-white p-4 shadow-lg',
               'data-[state=open]:animate-in data-[state=closed]:animate-out',
               'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
               'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
