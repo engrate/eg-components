@@ -36,7 +36,7 @@ describe('FormField', () => {
       screen.getByText("We'll never share your email.")
     ).toBeInTheDocument()
     expect(screen.getByText("We'll never share your email.")).toHaveClass(
-      'text-tertiary'
+      'text-quaternary'
     )
   })
 
