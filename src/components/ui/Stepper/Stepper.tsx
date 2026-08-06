@@ -223,7 +223,7 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                   onClick={() => onStepClick?.(step)}
                   className={cn(
                     miniStepperIndicatorVariants({ size }),
-                    'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+                    'focus-visible:ring-sunflower focus-visible:ring-1 focus-visible:outline-none',
                     onStepClick
                       ? 'cursor-pointer'
                       : 'cursor-default disabled:opacity-100',
@@ -358,7 +358,7 @@ StepperItem.displayName = 'StepperItem'
  * -----------------------------------------------------------------------------------------------*/
 
 const stepperTriggerVariants = cva(
-  'focus-visible:ring-sunflower flex items-center gap-3 text-left font-sans transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
+  'focus-visible:ring-sunflower flex items-center gap-3 text-left font-sans transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       orientation: {

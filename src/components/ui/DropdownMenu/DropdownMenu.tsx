@@ -60,8 +60,8 @@ const DropdownMenuSubTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       'text-body-sm flex cursor-default items-center rounded-sm px-2 py-1.5 outline-none select-none',
-      'focus:bg-vanilla focus:text-primary',
-      'data-[state=open]:bg-vanilla data-[state=open]:text-primary',
+      'focus:bg-contrast focus:text-primary',
+      'data-[state=open]:bg-contrast data-[state=open]:text-primary',
       inset && 'pl-8',
       className
     )}
@@ -161,7 +161,7 @@ const DropdownMenuItem = React.forwardRef<
     ref={ref}
     className={cn(
       'text-body-sm relative flex cursor-default items-center rounded-sm px-2 py-1.5 outline-none select-none',
-      'focus:bg-vanilla focus:text-primary',
+      'focus:bg-contrast focus:text-primary',
       'data-disabled:pointer-events-none data-disabled:opacity-50',
       inset && 'pl-8',
       className
@@ -187,7 +187,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     ref={ref}
     className={cn(
       'text-body-sm relative flex cursor-default items-center rounded-sm py-1.5 pr-2 pl-8 outline-none select-none',
-      'focus:bg-vanilla focus:text-primary',
+      'focus:bg-contrast focus:text-primary',
       'data-disabled:pointer-events-none data-disabled:opacity-50',
       className
     )}
@@ -231,7 +231,7 @@ const DropdownMenuRadioItem = React.forwardRef<
     ref={ref}
     className={cn(
       'text-body-sm relative flex cursor-default items-center rounded-sm py-1.5 pr-2 pl-8 outline-none select-none',
-      'focus:bg-vanilla focus:text-primary',
+      'focus:bg-contrast focus:text-primary',
       'data-disabled:pointer-events-none data-disabled:opacity-50',
       className
     )}
@@ -358,8 +358,8 @@ const ActionsMenuButton = React.forwardRef<
       ref={ref}
       className={cn(
         'text-secondary inline-flex items-center justify-center rounded-md transition-colors',
-        'hover:bg-vanilla hover:text-primary',
-        'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+        'hover:bg-contrast hover:text-primary',
+        'focus-visible:ring-sunflower focus-visible:ring-1 focus-visible:outline-none',
         'disabled:pointer-events-none disabled:opacity-50',
         buttonSizeClasses[iconSize],
         className

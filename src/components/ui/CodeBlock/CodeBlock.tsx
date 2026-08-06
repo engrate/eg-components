@@ -172,7 +172,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
             onClick={handleCopy}
             aria-label={copied ? 'Copied' : 'Copy code'}
             className={cn(
-              'text-tertiary hover:bg-alt focus-visible:ring-sunflower absolute top-1.5 right-1.5 z-[1] inline-flex h-7 w-7 items-center justify-center rounded transition-opacity focus-visible:ring-2 focus-visible:outline-none',
+              'text-tertiary hover:bg-alt focus-visible:ring-sunflower absolute top-1.5 right-1.5 z-[1] inline-flex h-7 w-7 items-center justify-center rounded transition-opacity focus-visible:ring-1 focus-visible:outline-none',
               'opacity-0 group-hover:opacity-100 focus-visible:opacity-100'
             )}
           >

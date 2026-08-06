@@ -80,7 +80,7 @@ const accordionTriggerVariants = cva(
   [
     'flex flex-1 items-center justify-between py-4 text-left font-sans font-normal transition-all',
     'text-primary hover:underline',
-    'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+    'focus-visible:ring-sunflower focus-visible:ring-1 focus-visible:outline-none',
     '[&[data-state=open]>svg]:rotate-180',
   ],
   {

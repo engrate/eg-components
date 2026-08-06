@@ -38,7 +38,7 @@ function useSidebarContext() {
 const sidebarVariants = cva(
   [
     'border-border bg-alt flex h-dvh flex-col border-r transition-[width] duration-300 ease-in-out',
-    'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+    'focus-visible:ring-sunflower focus-visible:ring-1 focus-visible:outline-none',
   ],
   {
     variants: {
@@ -287,7 +287,7 @@ const sidebarItemVariants = cva(
   [
     'group text-small relative flex w-full cursor-pointer items-center gap-3 rounded-md px-4 py-3 font-sans font-normal',
     'text-secondary hover:text-primary',
-    'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+    'focus-visible:ring-sunflower focus-visible:ring-1 focus-visible:outline-none',
   ],
   {
     variants: {
@@ -427,7 +427,7 @@ const SidebarTrigger = React.forwardRef<HTMLButtonElement, SidebarTriggerProps>(
         className={cn(
           'text-small flex w-full items-center rounded-md p-2 font-sans font-normal',
           'text-secondary hover:bg-vanilla hover:text-primary',
-          'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+          'focus-visible:ring-sunflower focus-visible:ring-1 focus-visible:outline-none',
           className
         )}
         onClick={() => setCollapsed(!collapsed)}

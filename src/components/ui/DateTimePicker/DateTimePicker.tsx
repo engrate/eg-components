@@ -56,10 +56,10 @@ function parseTimeString(timeStr: string): { hours: number; minutes: number } {
 
 const dateTimePickerTriggerVariants = cva(
   [
-    'text-body-sm text-primary placeholder:text-tertiary bg-transparent',
+    'text-body-sm text-primary placeholder:text-quaternary bg-transparent',
     'flex w-full items-center justify-between rounded-md border px-3 py-2',
     'font-sans transition-colors',
-    'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+    'focus-visible:ring-sunflower focus-visible:ring-1 focus-visible:outline-none',
     'disabled:cursor-not-allowed disabled:opacity-50',
   ],
   {
@@ -221,7 +221,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
             aria-haspopup="dialog"
             aria-expanded={open}
           >
-            <span className={cn('truncate', !value && 'text-tertiary')}>
+            <span className={cn('truncate', !value && 'text-quaternary')}>
               {value ? formatDateTime(value, format, use24Hour) : placeholder}
             </span>
             <div className="flex items-center gap-1.5">
@@ -276,8 +276,8 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
                   onChange={handleTimeChange}
                   step={minuteStep * 60}
                   className={cn(
-                    'text-body-sm text-primary placeholder:text-body-sm border-border rounded-md border bg-transparent px-2 py-1',
-                    'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:outline-none'
+                    'text-body-sm text-primary placeholder:text-quaternary border-border rounded-md border bg-transparent px-2 py-1',
+                    'focus-visible:ring-sunflower focus-visible:ring-1 focus-visible:outline-none'
                   )}
                   aria-label="Select time"
                 />

@@ -47,7 +47,7 @@ const tableHeadVariants = cva(
   {
     variants: {
       sortable: {
-        true: 'cursor-pointer select-none',
+        true: 'focus-visible:ring-sunflower cursor-pointer select-none focus-visible:ring-1 focus-visible:outline-none',
         false: '',
       },
       size: {

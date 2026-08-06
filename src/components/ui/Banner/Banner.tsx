@@ -85,7 +85,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
           <button
             type="button"
             onClick={onDismiss}
-            className="hover:bg-primary/10 focus-visible:ring-sunflower -mr-1 shrink-0 rounded p-1 transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+            className="hover:bg-primary/10 focus-visible:ring-sunflower -mr-1 shrink-0 rounded p-1 transition-colors focus-visible:ring-1 focus-visible:outline-none"
             aria-label="Dismiss banner"
           >
             <svg

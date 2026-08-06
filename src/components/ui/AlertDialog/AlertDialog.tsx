@@ -61,7 +61,7 @@ const alertDialogContentVariants = cva(
     'bg-main grid w-full gap-4 p-6 shadow-lg',
     'max-h-[85vh] overflow-y-auto',
     'border-border rounded-lg border',
-    'focus-visible:ring-sunflower focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+    'focus-visible:ring-sunflower focus:outline-none focus-visible:ring-1',
     'data-[state=open]:animate-in data-[state=closed]:animate-out',
     'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
     'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',

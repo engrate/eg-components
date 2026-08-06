@@ -59,8 +59,8 @@ const ContextMenuSubTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       'text-body-sm flex cursor-default items-center rounded-sm px-2 py-1.5 outline-none select-none',
-      'focus:bg-vanilla focus:text-primary',
-      'data-[state=open]:bg-vanilla data-[state=open]:text-primary',
+      'focus:bg-contrast focus:text-primary',
+      'data-[state=open]:bg-contrast data-[state=open]:text-primary',
       inset && 'pl-8',
       className
     )}
@@ -159,7 +159,7 @@ const ContextMenuItem = React.forwardRef<
     ref={ref}
     className={cn(
       'text-body-sm relative flex cursor-default items-center rounded-sm px-2 py-1.5 outline-none select-none',
-      'focus:bg-vanilla focus:text-primary',
+      'focus:bg-contrast focus:text-primary',
       'data-disabled:pointer-events-none data-disabled:opacity-50',
       inset && 'pl-8',
       className
@@ -185,7 +185,7 @@ const ContextMenuCheckboxItem = React.forwardRef<
     ref={ref}
     className={cn(
       'text-body-sm relative flex cursor-default items-center rounded-sm py-1.5 pr-2 pl-8 outline-none select-none',
-      'focus:bg-vanilla focus:text-primary',
+      'focus:bg-contrast focus:text-primary',
       'data-disabled:pointer-events-none data-disabled:opacity-50',
       className
     )}
@@ -229,7 +229,7 @@ const ContextMenuRadioItem = React.forwardRef<
     ref={ref}
     className={cn(
       'text-body-sm relative flex cursor-default items-center rounded-sm py-1.5 pr-2 pl-8 outline-none select-none',
-      'focus:bg-vanilla focus:text-primary',
+      'focus:bg-contrast focus:text-primary',
       'data-disabled:pointer-events-none data-disabled:opacity-50',
       className
     )}

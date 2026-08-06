@@ -6,7 +6,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const textareaVariants = cva(
-  'text-body-sm text-primary placeholder:text-tertiary flex min-h-[80px] w-full rounded-md border bg-transparent px-3 py-2 font-sans transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+  'text-body-sm text-primary placeholder:text-quaternary flex min-h-[80px] w-full rounded-md border bg-transparent px-3 py-2 font-sans transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {

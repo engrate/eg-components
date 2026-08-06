@@ -112,7 +112,7 @@ const modalContentVariants = cva(
     'bg-main grid w-full gap-4 p-8 shadow-lg',
     'max-h-[85vh] overflow-y-auto',
     'rounded-xs',
-    'focus-visible:ring-sunflower focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+    'focus-visible:ring-sunflower focus:outline-none focus-visible:ring-1',
   ],
   {
     variants: {

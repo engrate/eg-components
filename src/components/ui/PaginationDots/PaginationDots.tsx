@@ -100,7 +100,7 @@ PaginationDots.displayName = 'PaginationDots'
 // ---------------------------------------------------------------------------
 
 const paginationDotVariants = cva(
-  'focus-visible:ring-sunflower rounded-full transition-all duration-300 ease-out focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
+  'focus-visible:ring-sunflower rounded-full transition-all duration-300 ease-out focus-visible:ring-1 focus-visible:outline-none',
   {
     variants: {
       size: {

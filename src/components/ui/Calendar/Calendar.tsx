@@ -61,11 +61,11 @@ function Calendar({
         ),
         button_previous: cn(
           'hover:bg-alt focus-visible:ring-sunflower inline-flex h-7 w-7 items-center justify-center rounded-full',
-          'transition-colors focus-visible:ring-2 focus-visible:outline-none'
+          'transition-colors focus-visible:ring-1 focus-visible:outline-none'
         ),
         button_next: cn(
           'hover:bg-alt focus-visible:ring-sunflower inline-flex h-7 w-7 items-center justify-center rounded-full',
-          'transition-colors focus-visible:ring-2 focus-visible:outline-none'
+          'transition-colors focus-visible:ring-1 focus-visible:outline-none'
         ),
         weekday: cn(
           'text-tertiary w-9 text-center text-xs font-medium',
@@ -77,7 +77,7 @@ function Calendar({
         day_button: cn(
           'inline-flex h-9 w-9 items-center justify-center rounded-full text-sm',
           'transition-colors focus-visible:outline-none',
-          'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-1',
+          'focus-visible:ring-sunflower focus-visible:ring-1',
           'hover:bg-sunflower text-primary',
           defaultClassNames.day_button
         ),
