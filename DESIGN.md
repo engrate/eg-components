@@ -81,6 +81,7 @@ The **most used** palette. Creates hierarchy, navigation, and logic without colo
 - Prioritize `text-primary` (#1A1A1A) for most text.
 - Use `text-secondary` / `text-tertiary` only for hierarchy.
 - **Never use pure white (#FFFFFF) as a page background.** Always use `bg-main` (#FAFAFA) or similar.
+- **Exception:** form input surfaces (Input, Textarea, Select trigger, Checkbox, Radio, date/time picker triggers) may use `bg-white` to distinguish editable fields from the page. Page backgrounds, cards, and other containers still follow the no-pure-white rule.
 
 ### Complementary Colors
 
@@ -249,6 +250,8 @@ When placing yellow-spectrum badges (`lemon-meringue`, `vanilla`, `eggshell`) on
 | Alternate sections | `--color-alt`      | `bg-alt`       | `#F5F5F5` |
 | Cards & modules    | `--color-card`     | `bg-card`      | `#F8F8F8` |
 | Extra contrast     | `--color-contrast` | `bg-contrast`  | `#EFEFEF` |
+
+**Exception — form input fields:** Input, Textarea, Select trigger, Checkbox, Radio, and date/time picker triggers use `bg-white` (#FFFFFF) instead of a gray surface. White clearly distinguishes editable fields from the surrounding page. This exception is limited to the input surface itself.
 
 ### Color Fields for Section Separation
 

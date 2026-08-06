@@ -120,6 +120,12 @@ description: Comprehensive brand identity system for Engrate, covering visual de
 - This subtle gray tone creates warmth and softness
 - Provides better contrast for color accents
 
+**EXCEPTION - Form Input Fields:**
+
+- Interactive form controls (text inputs, textareas, select triggers, date/time pickers, checkboxes, radio buttons) **MAY** use pure white background (#FFFFFF)
+- White clearly distinguishes editable fields from the surrounding gray page surface, improving usability and affordance
+- This exception applies only to the input surface itself — page backgrounds, cards, and other containers must still follow the "never pure white" rule above
+
 **IMPORTANT - Background Fields:**
 
 - Use light gray (#FAFAFA, #F5F5F5, #F9F9F9) OR light yellow (#FFFCD0, #FFFDE8) shades for background fields

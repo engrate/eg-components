@@ -30,7 +30,7 @@ function formatDate(date: Date | null, format = 'yyyy-MM-dd'): string {
 
 const datePickerTriggerVariants = cva(
   [
-    'text-body-sm text-primary placeholder:text-quaternary bg-transparent',
+    'text-body-sm text-primary placeholder:text-quaternary bg-white',
     'flex w-full items-center justify-between rounded-md border px-3 py-2',
     'font-sans transition-colors',
     'focus-visible:ring-sunflower focus-visible:ring-1 focus-visible:outline-none',

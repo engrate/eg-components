@@ -49,7 +49,7 @@ const RadioGroupItem = React.forwardRef<
   <RadioGroupPrimitive.Item
     ref={ref}
     className={cn(
-      'border-border aspect-square h-5 w-5 rounded-full border bg-transparent transition-colors',
+      'border-border aspect-square h-5 w-5 rounded-full border bg-white transition-colors',
       'focus-visible:ring-sunflower focus-visible:ring-1 focus-visible:outline-none',
       'disabled:cursor-not-allowed disabled:opacity-50',
       'data-[state=checked]:border-sunflower',
