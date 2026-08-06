@@ -27,6 +27,13 @@ interface StepperProps extends React.HTMLAttributes<HTMLDivElement>, VariantProp
     labels?: string[];
     /** Callback when a step indicator is clicked (mini variant only) */
     onStepClick?: (step: number) => void;
+    /**
+     * Text shown below the steps indicating progress (default variant, horizontal
+     * orientation only). Supports `{current}` and `{total}` placeholders.
+     * Pass `null` or an empty/whitespace string to hide this text entirely.
+     * @default 'Step {current} of {total}'
+     */
+    stepText?: string | null;
 }
 /**
  * Root container for the stepper component.
