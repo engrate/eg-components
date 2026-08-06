@@ -6,7 +6,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const inputVariants = cva(
-  'bg-alt text-body-sm text-primary placeholder:text-tertiary file:text-body-sm flex w-full rounded-md border px-3 py-2 font-sans transition-colors file:border-0 file:bg-transparent file:font-sans focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+  'text-body-sm text-primary placeholder:text-tertiary file:text-body-sm flex w-full rounded-md border bg-transparent px-3 py-2 font-sans transition-colors file:border-0 file:bg-transparent file:font-sans focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
@@ -27,7 +27,7 @@ interface InputProps
 
 /**
  * Text input component following Engrate brand guidelines.
- * Features rounded corners, subtle background, and sunflower focus ring.
+ * Features rounded corners and sunflower focus ring.
  *
  * @example
  * ```tsx

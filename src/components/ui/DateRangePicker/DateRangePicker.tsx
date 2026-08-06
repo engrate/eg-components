@@ -42,7 +42,7 @@ function formatRange(range: DateRange | undefined, format: string): string {
 
 const dateRangePickerTriggerVariants = cva(
   [
-    'bg-alt text-body-sm text-primary placeholder:text-tertiary',
+    'text-body-sm text-primary placeholder:text-tertiary bg-transparent',
     'flex w-full items-center justify-between rounded-md border px-3 py-2',
     'font-sans transition-colors',
     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',

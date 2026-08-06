@@ -56,7 +56,7 @@ function parseTimeString(timeStr: string): { hours: number; minutes: number } {
 
 const dateTimePickerTriggerVariants = cva(
   [
-    'bg-alt text-body-sm text-primary placeholder:text-tertiary',
+    'text-body-sm text-primary placeholder:text-tertiary bg-transparent',
     'flex w-full items-center justify-between rounded-md border px-3 py-2',
     'font-sans transition-colors',
     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
@@ -276,7 +276,7 @@ const DateTimePicker = React.forwardRef<HTMLButtonElement, DateTimePickerProps>(
                   onChange={handleTimeChange}
                   step={minuteStep * 60}
                   className={cn(
-                    'bg-card text-body-sm text-primary placeholder:text-body-sm border-border rounded-md border px-2 py-1',
+                    'text-body-sm text-primary placeholder:text-body-sm border-border rounded-md border bg-transparent px-2 py-1',
                     'focus-visible:ring-sunflower focus-visible:ring-2 focus-visible:outline-none'
                   )}
                   aria-label="Select time"

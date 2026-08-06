@@ -111,7 +111,7 @@ const modalContentVariants = cva(
     'fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2',
     'bg-main grid w-full gap-4 p-8 shadow-lg',
     'max-h-[85vh] overflow-y-auto',
-    'border-border rounded-lg border',
+    'rounded-xs',
     'focus-visible:ring-sunflower focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
   ],
   {
@@ -251,7 +251,7 @@ const ModalDescription = React.forwardRef<
   ModalDescriptionProps
 >(({ className, children, ...props }, ref) => (
   <DialogPrimitive.Description ref={ref} asChild {...props}>
-    <Text variant="semi-lead" className={className}>
+    <Text variant="descriptive" className={className}>
       {children}
     </Text>
   </DialogPrimitive.Description>

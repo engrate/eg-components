@@ -19,7 +19,7 @@ interface SelectTriggerProps extends React.ComponentPropsWithoutRef<
 
 /**
  * Select trigger button following Engrate brand guidelines.
- * Features rounded corners, subtle background, and sunflower focus ring.
+ * Features rounded corners and sunflower focus ring.
  */
 const SelectTrigger = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Trigger>,
@@ -28,7 +28,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'bg-card text-body-sm text-primary flex w-full items-center justify-between rounded-md border px-3 py-2 font-sans transition-colors',
+      'text-body-sm text-primary flex w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 font-sans transition-colors',
       'placeholder:text-tertiary',
       'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none',
       'disabled:cursor-not-allowed disabled:opacity-50',

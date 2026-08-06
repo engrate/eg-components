@@ -63,6 +63,8 @@ If your project uses Tailwind CSS v4, import in your CSS file to get access to a
 
 ### Form Components
 
+Form input surfaces are transparent by default (for example: Input, Textarea, Select trigger, DatePicker triggers, Checkbox, and Radio).
+
 | Component         | Purpose                     |
 | ----------------- | --------------------------- |
 | `Button`          | Primary action element      |
