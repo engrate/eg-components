@@ -11,11 +11,11 @@ const bannerVariants = cva(
   {
     variants: {
       variant: {
-        info: 'bg-eggshell text-primary border-tertiary border',
+        info: 'bg-eggshell text-primary',
         success: 'bg-sunflower text-primary',
-        warning: 'bg-lemon-meringue text-primary border-tertiary border',
+        warning: 'bg-lemon-meringue text-primary',
         error: 'bg-error text-white',
-        neutral: 'bg-alt text-primary border-border border',
+        neutral: 'bg-alt text-primary',
       },
       align: {
         left: 'justify-start text-left',
