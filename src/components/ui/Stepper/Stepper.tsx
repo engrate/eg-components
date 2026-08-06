@@ -131,6 +131,13 @@ interface StepperProps
   labels?: string[]
   /** Callback when a step indicator is clicked (mini variant only) */
   onStepClick?: (step: number) => void
+  /**
+   * Text shown below the steps indicating progress (default variant, horizontal
+   * orientation only). Supports `{current}` and `{total}` placeholders.
+   * Pass `null` or an empty/whitespace string to hide this text entirely.
+   * @default 'Step {current} of {total}'
+   */
+  stepText?: string | null
 }
 
 /**
@@ -175,6 +182,7 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
       size,
       labels,
       onStepClick,
+      stepText = 'Step {current} of {total}',
       children,
       ...props
     },
@@ -275,11 +283,18 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
           {...props}
         >
           <div className={cn(stepperVariants({ orientation }))}>{children}</div>
-          {orientation === 'horizontal' && totalSteps > 0 && (
-            <div className="text-tertiary text-body-sm mt-4 text-center font-sans">
-              Step {Math.min(activeStep, totalSteps)} of {totalSteps}
-            </div>
-          )}
+          {orientation === 'horizontal' &&
+            totalSteps > 0 &&
+            stepText?.trim() && (
+              <div className="text-tertiary text-body-sm mt-4 text-center font-sans">
+                {stepText
+                  .replace(
+                    '{current}',
+                    String(Math.min(activeStep, totalSteps))
+                  )
+                  .replace('{total}', String(totalSteps))}
+              </div>
+            )}
         </div>
       </StepperContext.Provider>
     )

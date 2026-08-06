@@ -27,6 +27,11 @@ const meta = {
       control: 'select',
       options: ['horizontal', 'vertical'],
     },
+    stepText: {
+      control: 'text',
+      description:
+        'Text shown below the steps. Supports `{current}`/`{total}` placeholders. Pass `null` or an empty string to hide it.',
+    },
   },
 } satisfies Meta<typeof Stepper>
 
@@ -76,6 +81,82 @@ export const SecondStep: Story = {
   },
   render: ({ activeStep }) => (
     <Stepper activeStep={activeStep} className="w-[800px]">
+      <StepperItem step={1}>
+        <StepperTrigger>
+          <StepperIndicator />
+          <StepperTitle>Your details</StepperTitle>
+          <StepperDescription>Provide your name and email</StepperDescription>
+        </StepperTrigger>
+        <StepperSeparator />
+      </StepperItem>
+      <StepperItem step={2}>
+        <StepperTrigger>
+          <StepperIndicator />
+          <StepperTitle>Company details</StepperTitle>
+          <StepperDescription>
+            A few details about your company
+          </StepperDescription>
+        </StepperTrigger>
+        <StepperSeparator />
+      </StepperItem>
+      <StepperItem step={3}>
+        <StepperTrigger>
+          <StepperIndicator />
+          <StepperTitle>Invite your team</StepperTitle>
+          <StepperDescription>
+            Start collaborating with your team
+          </StepperDescription>
+        </StepperTrigger>
+      </StepperItem>
+    </Stepper>
+  ),
+}
+
+export const CustomStepText: Story = {
+  args: {
+    activeStep: 2,
+    stepText: '{current}/{total} complete',
+  },
+  render: ({ activeStep, stepText }) => (
+    <Stepper activeStep={activeStep} stepText={stepText} className="w-[800px]">
+      <StepperItem step={1}>
+        <StepperTrigger>
+          <StepperIndicator />
+          <StepperTitle>Your details</StepperTitle>
+          <StepperDescription>Provide your name and email</StepperDescription>
+        </StepperTrigger>
+        <StepperSeparator />
+      </StepperItem>
+      <StepperItem step={2}>
+        <StepperTrigger>
+          <StepperIndicator />
+          <StepperTitle>Company details</StepperTitle>
+          <StepperDescription>
+            A few details about your company
+          </StepperDescription>
+        </StepperTrigger>
+        <StepperSeparator />
+      </StepperItem>
+      <StepperItem step={3}>
+        <StepperTrigger>
+          <StepperIndicator />
+          <StepperTitle>Invite your team</StepperTitle>
+          <StepperDescription>
+            Start collaborating with your team
+          </StepperDescription>
+        </StepperTrigger>
+      </StepperItem>
+    </Stepper>
+  ),
+}
+
+export const NoStepText: Story = {
+  args: {
+    activeStep: 2,
+    stepText: null,
+  },
+  render: ({ activeStep, stepText }) => (
+    <Stepper activeStep={activeStep} stepText={stepText} className="w-[800px]">
       <StepperItem step={1}>
         <StepperTrigger>
           <StepperIndicator />

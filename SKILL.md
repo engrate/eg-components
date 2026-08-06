@@ -442,6 +442,16 @@ function OnboardingWizard() {
 />
 
 // Mini sizes: sm, default, lg
+
+// Default variant: "Step X of X" text below the steps is configurable via
+// `stepText` (supports `{current}`/`{total}` placeholders). Pass `null` or
+// an empty string to hide it entirely.
+<Stepper activeStep={2} stepText="{current}/{total} complete">
+  {/* Same StepperItem pattern */}
+</Stepper>
+<Stepper activeStep={2} stepText={null}>
+  {/* Same StepperItem pattern, no progress text rendered */}
+</Stepper>
 ```
 
 ### Header and Footer

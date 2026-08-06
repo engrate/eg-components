@@ -105,6 +105,52 @@ describe('Stepper', () => {
     expect(screen.getByText('Step 2 of 3')).toBeInTheDocument()
   })
 
+  it('renders custom stepText with placeholders replaced', () => {
+    render(
+      <Stepper activeStep={2} stepText="{current}/{total} complete">
+        <StepperItem step={1}>
+          <StepperTrigger>
+            <StepperIndicator />
+          </StepperTrigger>
+        </StepperItem>
+        <StepperItem step={2}>
+          <StepperTrigger>
+            <StepperIndicator />
+          </StepperTrigger>
+        </StepperItem>
+        <StepperItem step={3}>
+          <StepperTrigger>
+            <StepperIndicator />
+          </StepperTrigger>
+        </StepperItem>
+      </Stepper>
+    )
+
+    expect(screen.getByText('2/3 complete')).toBeInTheDocument()
+  })
+
+  it.each([null, '', '   '])(
+    'does not render step counter text when stepText is blank (%p)',
+    (blankValue) => {
+      render(
+        <Stepper activeStep={2} stepText={blankValue}>
+          <StepperItem step={1}>
+            <StepperTrigger>
+              <StepperIndicator />
+            </StepperTrigger>
+          </StepperItem>
+          <StepperItem step={2}>
+            <StepperTrigger>
+              <StepperIndicator />
+            </StepperTrigger>
+          </StepperItem>
+        </Stepper>
+      )
+
+      expect(screen.queryByText(/of/)).not.toBeInTheDocument()
+    }
+  )
+
   it('has progress group role with label', () => {
     renderStepper()
 
