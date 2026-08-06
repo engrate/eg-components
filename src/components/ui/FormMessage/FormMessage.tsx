@@ -29,8 +29,8 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
       <p
         ref={ref}
         className={cn(
-          'text-descriptive font-sans text-sm',
-          variant === 'default' ? 'text-tertiary' : 'text-error',
+          'text-descriptive font-sans text-xs',
+          variant === 'default' ? 'text-quaternary' : 'text-error',
           className
         )}
         {...props}
